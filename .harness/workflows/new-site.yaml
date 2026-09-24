@@ -1,0 +1,144 @@
+id: new-site
+version: 1.1.0
+title: Build a new website
+phases:
+  - id: discovery
+    title: Discover and define
+    agents: [product-analyst, information-architect]
+    skills: [website-discovery]
+    inputs: [project.yaml, source material]
+    outputs: [source-inventory.json, conflict-report.md, route-plan.json, open-decisions.md]
+    gates:
+      - id: source-integrity
+        type: automated
+        required: true
+        description: Required sources exist and parse.
+      - id: scope
+        type: human
+        required: true
+        description: A product owner approves the scope, routes, and open decisions.
+
+  - id: architecture
+    title: Define architecture
+    agents: [web-architect, agent-interface-architect]
+    skills: [nextjs-build]
+    inputs: [route-plan.json, project contracts]
+    outputs: [architecture.md, content-schema.json, route-contract.json, adr]
+    gates:
+      - id: architecture-review
+        type: agent-review
+        required: true
+        description: An independent reviewer confirms boundaries and source ownership.
+
+  - id: design-content
+    title: Design and content
+    agents: [design-system-integrator, content-editor]
+    skills: [design-system-integration, content-and-voice]
+    inputs: [design system, approved copy, sitemap]
+    outputs:
+      - token-map.json
+      - component-inventory.json
+      - route-content.json
+      - claims-register.json
+      - asset-manifest.json          # NEW: maps design assets to public/
+      - template-components/         # NEW: React conversions of HTML templates
+    gates:
+      - id: design-adherence
+        type: automated
+        required: true
+        description: Production styling uses approved tokens and assets.
+      - id: asset-inventory
+        type: automated
+        required: true
+        description: All design system assets are inventoried and mapped to destinations.
+      - id: template-conversion
+        type: automated
+        required: true
+        description: HTML templates are converted to framework components.
+      - id: humanizer
+        type: agent-review
+        required: true
+        description: Public copy passes voice and humanizer review.
+      - id: brand-copy
+        type: human
+        required: true
+        description: The owner approves visual direction and public copy.
+
+  - id: implementation
+    title: Implement
+    agents: [frontend-engineer, interaction-engineer]
+    skills: [nextjs-build, design-system-integration]
+    inputs:
+      - architecture.md
+      - route-content.json
+      - component-inventory.json
+      - asset-manifest.json          # NEW: required input
+      - template-components/         # NEW: required input
+    outputs: [application code, tests, implementation-report.md]
+    gates:
+      - id: implementation-checks
+        type: automated
+        required: true
+        description: Format, lint, typecheck, tests, and build pass.
+      - id: design-system-usage
+        type: automated
+        required: true
+        description: Design system assets are deployed and used correctly.
+        checks:
+          - Logo assets exist in public/
+          - Favicons configured in layout
+          - Design tokens imported in globals.css
+          - Template components used on specified routes
+          - Theme switching works for logo variants
+
+  - id: verification
+    title: Verify
+    agents: [security-reviewer, accessibility-reviewer, performance-reviewer, evidence-reviewer]
+    skills: [quality-review]
+    inputs: [application code, contracts, claims-register.json]
+    outputs: [security-report.json, accessibility-report.json, performance-report.json, evidence-report.json]
+    gates:
+      - id: quality
+        type: automated
+        required: true
+        description: Required quality budgets pass.
+      - id: independent-review
+        type: agent-review
+        required: true
+        description: Reviewers confirm no high or critical findings remain.
+
+  - id: preview
+    title: Preview and accept
+    agents: [release-manager]
+    skills: [quality-review]
+    inputs: [verified build, deployment adapter]
+    outputs: [preview-url.txt, release-evidence.json]
+    gates:
+      - id: preview-acceptance
+        type: human
+        required: true
+        description: The owner accepts the preview and known exceptions.
+
+  - id: release
+    title: Release
+    agents: [release-manager]
+    skills: []
+    inputs: [release-evidence.json, production configuration]
+    outputs: [production-url.txt, release-record.json]
+    gates:
+      - id: production-release
+        type: human
+        required: true
+        description: An authorized person approves the production release.
+
+  - id: operate
+    title: Monitor and maintain
+    agents: [maintenance-agent]
+    skills: [quality-review]
+    inputs: [release-record.json, monitoring signals]
+    outputs: [health-report.json, maintenance-backlog.json]
+    gates:
+      - id: post-release-health
+        type: automated
+        required: true
+        description: Primary routes and health checks remain healthy.

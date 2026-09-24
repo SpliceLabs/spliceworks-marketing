@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://splice.works/schemas/website-project.json",
+  "type": "object",
+  "required": ["id", "name", "type", "framework", "deployment", "sources", "contractProfiles", "features"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+    "name": {"type": "string", "minLength": 1},
+    "type": {"type": "string", "minLength": 1},
+    "framework": {
+      "type": "object",
+      "required": ["adapter", "packageManager"],
+      "properties": {
+        "adapter": {"type": "string"},
+        "packageManager": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "deployment": {
+      "type": "object",
+      "required": ["adapter", "requiresHumanApproval"],
+      "properties": {
+        "adapter": {"type": "string"},
+        "productionDomain": {"type": "string"},
+        "requiresHumanApproval": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "sources": {"type": "object", "additionalProperties": {"type": "string"}},
+    "contractProfiles": {"type": "array", "items": {"type": "string"}},
+    "features": {"type": "object", "additionalProperties": {"type": "boolean"}}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,337 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Splice Works Token Map",
+  "description": "Design system tokens mapped to CSS custom properties",
+  "version": "1.0.0",
+  "runId": "RUN-SPLICEWORKS-001",
+  "generatedAt": "2026-09-06",
+  "source": "design-system/tokens/",
+
+  "colors": {
+    "brand": {
+      "description": "Five core brand colors from the logo kit",
+      "tokens": {
+        "--sw-ink": { "value": "#152238", "usage": "Primary dark color, text on paper" },
+        "--sw-paper": { "value": "#FFFEF8", "usage": "Primary light color, background" },
+        "--sw-blue": { "value": "#2447E8", "usage": "Structural accent, links, focus states" },
+        "--sw-blue-soft": { "value": "#7FA4FF", "usage": "Dark theme accent, W outline on dark" },
+        "--sw-joint": { "value": "#FF6848", "usage": "Orange joint - one per composition" }
+      }
+    },
+
+    "inkRamp": {
+      "description": "Neutral scale between paper and ink",
+      "tokens": {
+        "--sw-ink-50": "#F5F4EE",
+        "--sw-ink-100": "#E9E8E1",
+        "--sw-ink-200": "#D3D2CB",
+        "--sw-ink-300": "#B3B3AE",
+        "--sw-ink-400": "#8B8D8E",
+        "--sw-ink-500": "#666B72",
+        "--sw-ink-600": "#4A515C",
+        "--sw-ink-700": "#33394A",
+        "--sw-ink-800": "#1F2A3F",
+        "--sw-ink-900": "#152238",
+        "--sw-ink-950": "#0D1626"
+      }
+    },
+
+    "blueRamp": {
+      "description": "Accent blue scale",
+      "tokens": {
+        "--sw-blue-50": "#EEF2FF",
+        "--sw-blue-100": "#DCE4FF",
+        "--sw-blue-200": "#BECDFF",
+        "--sw-blue-300": "#7FA4FF",
+        "--sw-blue-500": "#2447E8",
+        "--sw-blue-600": "#1C38C2",
+        "--sw-blue-700": "#152B99"
+      }
+    },
+
+    "jointRamp": {
+      "description": "Orange joint scale - use sparingly",
+      "tokens": {
+        "--sw-joint-50": "#FFF1ED",
+        "--sw-joint-100": "#FFDCD2",
+        "--sw-joint-300": "#FFA48F",
+        "--sw-joint-500": "#FF6848",
+        "--sw-joint-600": "#E24E2F",
+        "--sw-joint-700": "#B83A1F"
+      }
+    },
+
+    "status": {
+      "description": "Derived status colors, harmonized to brand",
+      "tokens": {
+        "--sw-green-500": "#1E9E6A",
+        "--sw-green-100": "#D9F2E6",
+        "--sw-amber-500": "#D98E14",
+        "--sw-amber-100": "#FBEED2",
+        "--sw-red-500": "#D8322D",
+        "--sw-red-100": "#FBDDDB"
+      }
+    },
+
+    "semantic": {
+      "description": "Semantic aliases that components consume",
+      "paper": {
+        "background": {
+          "--bg": "var(--sw-paper)",
+          "--bg-sunken": "var(--sw-ink-50)",
+          "--bg-raised": "#FFFFFF",
+          "--bg-inverse": "var(--sw-ink)"
+        },
+        "surface": {
+          "--surface-card": "#FFFFFF",
+          "--surface-muted": "var(--sw-ink-50)",
+          "--surface-inverse": "var(--sw-ink)"
+        },
+        "text": {
+          "--text-body": "var(--sw-ink)",
+          "--text-secondary": "var(--sw-ink-600)",
+          "--text-muted": "var(--sw-ink-400)",
+          "--text-inverse": "var(--sw-paper)",
+          "--text-on-accent": "var(--sw-paper)"
+        },
+        "accent": {
+          "--accent": "var(--sw-blue)",
+          "--accent-hover": "var(--sw-blue-600)",
+          "--accent-press": "var(--sw-blue-700)",
+          "--accent-soft": "var(--sw-blue-50)",
+          "--accent-outline": "var(--sw-blue)"
+        },
+        "joint": {
+          "--joint": "var(--sw-joint)",
+          "--joint-hover": "var(--sw-joint-600)",
+          "--joint-soft": "var(--sw-joint-50)"
+        },
+        "border": {
+          "--border": "var(--sw-ink-200)",
+          "--border-strong": "var(--sw-ink)",
+          "--border-subtle": "var(--sw-ink-100)",
+          "--focus-ring": "var(--sw-blue)"
+        },
+        "status": {
+          "--success": "var(--sw-green-500)",
+          "--success-soft": "var(--sw-green-100)",
+          "--warning": "var(--sw-amber-500)",
+          "--warning-soft": "var(--sw-amber-100)",
+          "--danger": "var(--sw-red-500)",
+          "--danger-soft": "var(--sw-red-100)"
+        },
+        "link": {
+          "--link": "var(--sw-blue)",
+          "--link-hover": "var(--sw-blue-700)"
+        }
+      },
+      "ink": {
+        "description": "Dark theme overrides - selector: [data-theme=\"dark\"]",
+        "background": {
+          "--bg": "var(--sw-ink)",
+          "--bg-sunken": "var(--sw-ink-950)",
+          "--bg-raised": "var(--sw-ink-800)",
+          "--bg-inverse": "var(--sw-paper)"
+        },
+        "surface": {
+          "--surface-card": "var(--sw-ink-800)",
+          "--surface-muted": "var(--sw-ink-700)",
+          "--surface-inverse": "var(--sw-paper)"
+        },
+        "text": {
+          "--text-body": "var(--sw-paper)",
+          "--text-secondary": "var(--sw-ink-200)",
+          "--text-muted": "var(--sw-ink-400)",
+          "--text-inverse": "var(--sw-ink)",
+          "--text-on-accent": "var(--sw-ink)"
+        },
+        "accent": {
+          "--accent": "var(--sw-blue-soft)",
+          "--accent-hover": "var(--sw-blue-200)",
+          "--accent-press": "var(--sw-blue-100)",
+          "--accent-soft": "var(--sw-ink-700)",
+          "--accent-outline": "var(--sw-blue-soft)"
+        },
+        "joint": {
+          "--joint-soft": "#3A2A2E"
+        },
+        "border": {
+          "--border": "var(--sw-ink-600)",
+          "--border-strong": "var(--sw-paper)",
+          "--border-subtle": "var(--sw-ink-700)",
+          "--focus-ring": "var(--sw-blue-soft)"
+        },
+        "link": {
+          "--link": "var(--sw-blue-soft)",
+          "--link-hover": "var(--sw-blue-200)"
+        }
+      }
+    }
+  },
+
+  "typography": {
+    "fontFamilies": {
+      "--font-sans": "\"Bricolage Grotesque\",\"Helvetica Neue\",Arial,sans-serif",
+      "--font-mono": "\"Space Mono\",ui-monospace,Menlo,monospace",
+      "--font-display": "var(--font-sans)",
+      "--font-body": "var(--font-sans)",
+      "--font-label": "var(--font-mono)"
+    },
+
+    "scale": {
+      "description": "Type scale - editorial: big display, compact body",
+      "--text-2xs": "11px",
+      "--text-xs": "12px",
+      "--text-sm": "13px",
+      "--text-md": "15px",
+      "--text-lg": "17px",
+      "--text-xl": "20px",
+      "--text-2xl": "24px",
+      "--text-3xl": "32px",
+      "--text-4xl": "44px",
+      "--text-5xl": "60px",
+      "--text-6xl": "84px",
+      "--text-7xl": "112px"
+    },
+
+    "lineHeight": {
+      "--leading-display": "0.94",
+      "--leading-tight": "1.1",
+      "--leading-snug": "1.3",
+      "--leading-body": "1.5",
+      "--leading-loose": "1.65"
+    },
+
+    "letterSpacing": {
+      "--tracking-display": "-0.03em",
+      "--tracking-tight": "-0.015em",
+      "--tracking-normal": "0",
+      "--tracking-wordmark": "0.18em",
+      "--tracking-label": "0.12em"
+    },
+
+    "fontWeight": {
+      "--weight-light": "300",
+      "--weight-regular": "400",
+      "--weight-medium": "500",
+      "--weight-semibold": "600",
+      "--weight-bold": "700",
+      "--weight-black": "800"
+    },
+
+    "composites": {
+      "description": "Pre-composed font shorthand values",
+      "--display-1": "var(--weight-medium) var(--text-7xl)/var(--leading-display) var(--font-display)",
+      "--display-2": "var(--weight-medium) var(--text-6xl)/var(--leading-display) var(--font-display)",
+      "--heading-1": "var(--weight-medium) var(--text-5xl)/1 var(--font-display)",
+      "--heading-2": "var(--weight-medium) var(--text-4xl)/var(--leading-tight) var(--font-display)",
+      "--heading-3": "var(--weight-medium) var(--text-3xl)/var(--leading-tight) var(--font-display)",
+      "--heading-4": "var(--weight-semibold) var(--text-2xl)/var(--leading-snug) var(--font-display)",
+      "--heading-5": "var(--weight-semibold) var(--text-xl)/var(--leading-snug) var(--font-display)",
+      "--body-lg": "var(--weight-regular) var(--text-lg)/var(--leading-body) var(--font-body)",
+      "--body-md": "var(--weight-regular) var(--text-md)/var(--leading-body) var(--font-body)",
+      "--body-sm": "var(--weight-regular) var(--text-sm)/var(--leading-body) var(--font-body)",
+      "--label-md": "var(--weight-regular) var(--text-xs)/1.2 var(--font-label)",
+      "--label-sm": "var(--weight-regular) var(--text-2xs)/1.2 var(--font-label)",
+      "--code": "var(--weight-regular) var(--text-sm)/var(--leading-body) var(--font-mono)"
+    }
+  },
+
+  "spacing": {
+    "scale": {
+      "description": "4px base unit",
+      "--space-0": "0",
+      "--space-1": "4px",
+      "--space-2": "8px",
+      "--space-3": "12px",
+      "--space-4": "16px",
+      "--space-5": "20px",
+      "--space-6": "24px",
+      "--space-8": "32px",
+      "--space-10": "40px",
+      "--space-12": "48px",
+      "--space-16": "64px",
+      "--space-20": "80px",
+      "--space-24": "96px",
+      "--space-32": "128px"
+    },
+
+    "radii": {
+      "description": "Near-square everywhere. Pill only for tags and avatars.",
+      "--radius-none": "0",
+      "--radius-xs": "2px",
+      "--radius-sm": "3px",
+      "--radius-md": "4px",
+      "--radius-lg": "6px",
+      "--radius-pill": "999px"
+    },
+
+    "layout": {
+      "--container-xl": "1280px",
+      "--container-lg": "1080px",
+      "--container-md": "760px",
+      "--container-prose": "64ch",
+      "--gutter": "var(--space-6)",
+      "--gutter-lg": "var(--space-10)"
+    },
+
+    "controls": {
+      "description": "Control heights and horizontal padding",
+      "--control-h-sm": "32px",
+      "--control-h-md": "40px",
+      "--control-h-lg": "48px",
+      "--control-px-sm": "12px",
+      "--control-px-md": "16px",
+      "--control-px-lg": "22px"
+    },
+
+    "borders": {
+      "--border-w": "1px",
+      "--border-w-strong": "1.5px"
+    }
+  },
+
+  "effects": {
+    "shadows": {
+      "description": "Floating layers only - menus, dialogs, toasts",
+      "--shadow-none": "none",
+      "--shadow-sm": "0 1px 2px rgba(21,34,56,.08)",
+      "--shadow-md": "0 4px 14px rgba(21,34,56,.10),0 1px 2px rgba(21,34,56,.06)",
+      "--shadow-lg": "0 16px 40px rgba(21,34,56,.16),0 2px 6px rgba(21,34,56,.08)",
+      "--shadow-focus": "0 0 0 3px color-mix(in oklch,var(--focus-ring) 35%,transparent)"
+    },
+
+    "motion": {
+      "--ease-out": "cubic-bezier(.2,.7,.2,1)",
+      "--ease-in-out": "cubic-bezier(.65,0,.35,1)",
+      "--dur-fast": "120ms",
+      "--dur-base": "200ms",
+      "--dur-slow": "360ms",
+      "--motion-hover": "color var(--dur-fast) var(--ease-out),background-color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out)"
+    },
+
+    "borders": {
+      "--hairline": "var(--border-w) solid var(--border)",
+      "--rule-strong": "var(--border-w-strong) solid var(--border-strong)"
+    },
+
+    "overlays": {
+      "--overlay": "rgba(21,34,56,.55)",
+      "--blur-panel": "blur(12px)"
+    }
+  },
+
+  "usage": {
+    "themeToggle": {
+      "default": "paper",
+      "selector": "[data-theme=\"dark\"]",
+      "storageKey": "sw-theme",
+      "respectsPreference": true
+    },
+    "modeToggle": {
+      "default": "human",
+      "options": ["human", "agent"],
+      "storageKey": "sw-mode"
+    }
+  }
+}

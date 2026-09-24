@@ -1,0 +1,45 @@
+id: redesign
+version: 1.0.0
+title: Redesign an existing website
+phases:
+  - id: audit
+    title: Audit current site
+    agents: [product-analyst, information-architect, accessibility-reviewer, performance-reviewer]
+    skills: [website-discovery, quality-review]
+    inputs: [existing repository, production URL, analytics when authorized]
+    outputs: [current-state.md, route-inventory.json, baseline-quality.json]
+    gates:
+      - id: baseline
+        type: automated
+        required: true
+        description: Current behavior and quality baseline are recorded.
+      - id: redesign-scope
+        type: human
+        required: true
+        description: The owner approves what will and will not change.
+  - id: build
+    title: Design and implement
+    agents: [design-system-integrator, content-editor, frontend-engineer]
+    skills: [design-system-integration, content-and-voice, nextjs-build]
+    inputs: [current-state.md, approved scope]
+    outputs: [updated application, migration-report.md]
+    gates:
+      - id: regression
+        type: automated
+        required: true
+        description: Required behavior and content survive the redesign.
+  - id: release
+    title: Verify and release
+    agents: [security-reviewer, accessibility-reviewer, performance-reviewer, release-manager]
+    skills: [quality-review]
+    inputs: [updated application]
+    outputs: [review reports, preview URL, release record]
+    gates:
+      - id: redesign-quality
+        type: agent-review
+        required: true
+        description: Independent reviewers accept the result.
+      - id: production-release
+        type: human
+        required: true
+        description: An authorized person approves production.

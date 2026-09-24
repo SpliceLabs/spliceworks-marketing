@@ -1,0 +1,9 @@
+:root{
+/* Shadows are rare; the brand prefers hairline borders. Use only for floating layers. */
+--shadow-none:none;--shadow-sm:0 1px 2px rgba(21,34,56,.08);--shadow-md:0 4px 14px rgba(21,34,56,.10),0 1px 2px rgba(21,34,56,.06);--shadow-lg:0 16px 40px rgba(21,34,56,.16),0 2px 6px rgba(21,34,56,.08);
+--shadow-focus:0 0 0 3px color-mix(in oklch,var(--focus-ring) 35%,transparent);
+--ease-out:cubic-bezier(.2,.7,.2,1);/* @kind other */--ease-in-out:cubic-bezier(.65,0,.35,1);/* @kind other */--dur-fast:120ms;/* @kind other */--dur-base:200ms;/* @kind other */--dur-slow:360ms;/* @kind other */
+--motion-hover:color var(--dur-fast) var(--ease-out),background-color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out);
+--hairline:var(--border-w) solid var(--border);--rule-strong:var(--border-w-strong) solid var(--border-strong);
+--overlay:rgba(21,34,56,.55);--blur-panel:blur(12px);/* @kind other */
+}

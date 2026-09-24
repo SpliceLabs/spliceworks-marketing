@@ -1,0 +1,11 @@
+<!-- @dsCard group="Components" viewport="700x270" name="Core — Button, IconButton, Icon" subtitle="Variants, sizes, icons, loading and disabled" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css"><style>body{padding:16px}@keyframes sw-spin{to{transform:rotate(360deg)}}.r{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}</style><script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script><script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script><script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script><script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script><script src="../../_ds_bundle.js"></script></head><body><div id="root"></div>
+<script type="text/babel">
+const { Button, IconButton, Icon } = window.SpliceWorksDesignSystem_f2e5fb;
+const App = () => <>
+<div className="r"><Button>Primary</Button><Button variant="accent">Accent</Button><Button variant="secondary">Secondary</Button><Button variant="ghost">Ghost</Button><Button variant="danger">Delete</Button><Button disabled>Disabled</Button></div>
+<div className="r"><Button size="sm" icon="plus">Small</Button><Button size="md" iconRight="arrow-right">Medium</Button><Button size="lg" variant="accent" iconRight="arrow-up-right">Large</Button><Button loading>Saving</Button></div>
+<div className="r"><IconButton icon="search" label="Search"/><IconButton icon="bookmark" label="Save" active/><IconButton icon="share-2" label="Share" variant="secondary"/><IconButton icon="menu" label="Menu" variant="primary"/><IconButton icon="x" label="Close" size="sm"/><span style={{display:'inline-flex',gap:12,marginLeft:12,color:'var(--text-secondary)'}}><Icon name="map-pin"/><Icon name="leaf"/><Icon name="compass"/><Icon name="scissors"/><Icon name="external-link"/></span></div>
+</>;
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script></body></html>

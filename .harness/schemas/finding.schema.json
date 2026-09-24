@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["id", "severity", "contract", "evidence", "requiredFix", "status"],
+  "properties": {
+    "id": {"type": "string"},
+    "severity": {"enum": ["low", "medium", "high", "critical"]},
+    "contract": {"type": "string"},
+    "evidence": {"type": "string"},
+    "requiredFix": {"type": "string"},
+    "status": {"enum": ["open", "resolved", "accepted"]},
+    "owner": {"type": "string"}
+  },
+  "additionalProperties": false
+}

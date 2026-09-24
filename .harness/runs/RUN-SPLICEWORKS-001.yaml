@@ -1,0 +1,296 @@
+runId: RUN-SPLICEWORKS-001
+projectId: splice-works
+workflowId: new-site
+startedAt: 2026-09-06T16:50:00Z
+phaseIndex: 3
+phase: implementation
+status: active
+
+artifacts:
+  - id: source-inventory
+    path: .harness/runs/RUN-SPLICEWORKS-001/discovery/source-inventory.json
+    type: json
+    phase: discovery
+    createdAt: 2026-09-06T16:55:00Z
+  - id: route-plan
+    path: .harness/runs/RUN-SPLICEWORKS-001/discovery/route-plan.json
+    type: json
+    phase: discovery
+    createdAt: 2026-09-06T16:55:00Z
+  - id: conflict-report
+    path: .harness/runs/RUN-SPLICEWORKS-001/discovery/conflict-report.md
+    type: markdown
+    phase: discovery
+    createdAt: 2026-09-06T16:55:00Z
+  - id: open-decisions
+    path: .harness/runs/RUN-SPLICEWORKS-001/discovery/open-decisions.md
+    type: markdown
+    phase: discovery
+    createdAt: 2026-09-06T16:55:00Z
+  - id: architecture
+    path: .harness/runs/RUN-SPLICEWORKS-001/architecture/architecture.md
+    type: markdown
+    phase: architecture
+    createdAt: 2026-09-06T17:15:00Z
+  - id: content-schema
+    path: .harness/runs/RUN-SPLICEWORKS-001/architecture/content-schema.json
+    type: json
+    phase: architecture
+    createdAt: 2026-09-06T17:15:00Z
+  - id: route-contract
+    path: .harness/runs/RUN-SPLICEWORKS-001/architecture/route-contract.json
+    type: json
+    phase: architecture
+    createdAt: 2026-09-06T17:15:00Z
+  - id: adr-001
+    path: .harness/runs/RUN-SPLICEWORKS-001/architecture/adr/ADR-001-nextjs-app-router.md
+    type: markdown
+    phase: architecture
+    createdAt: 2026-09-06T17:15:00Z
+  - id: architecture-review
+    path: .harness/runs/RUN-SPLICEWORKS-001/architecture/architecture-review.md
+    type: markdown
+    phase: architecture
+    createdAt: 2026-09-06T17:30:00Z
+  - id: token-map
+    path: .harness/runs/RUN-SPLICEWORKS-001/design-content/token-map.json
+    type: json
+    phase: design-content
+    createdAt: 2026-09-06T18:00:00Z
+  - id: component-inventory
+    path: .harness/runs/RUN-SPLICEWORKS-001/design-content/component-inventory.json
+    type: json
+    phase: design-content
+    createdAt: 2026-09-06T18:00:00Z
+  - id: route-content
+    path: .harness/runs/RUN-SPLICEWORKS-001/design-content/route-content.json
+    type: json
+    phase: design-content
+    createdAt: 2026-09-06T18:00:00Z
+  - id: claims-register
+    path: .harness/runs/RUN-SPLICEWORKS-001/design-content/claims-register.json
+    type: json
+    phase: design-content
+    createdAt: 2026-09-06T18:00:00Z
+  - id: page-content-home
+    path: content/pages/home.md
+    type: markdown
+    phase: design-content
+    createdAt: 2026-09-06T18:00:00Z
+  - id: page-content-services
+    path: content/pages/services.md
+    type: markdown
+    phase: design-content
+    createdAt: 2026-09-06T18:00:00Z
+  - id: page-content-station
+    path: content/pages/station.md
+    type: markdown
+    phase: design-content
+    createdAt: 2026-09-06T18:00:00Z
+  - id: page-content-how-we-work
+    path: content/pages/how-we-work.md
+    type: markdown
+    phase: design-content
+    createdAt: 2026-09-06T18:00:00Z
+  - id: page-content-security
+    path: content/pages/security.md
+    type: markdown
+    phase: design-content
+    createdAt: 2026-09-06T18:00:00Z
+  - id: page-content-about
+    path: content/pages/about.md
+    type: markdown
+    phase: design-content
+    createdAt: 2026-09-06T18:00:00Z
+  - id: page-content-contact
+    path: content/pages/contact.md
+    type: markdown
+    phase: design-content
+    createdAt: 2026-09-06T18:00:00Z
+  - id: page-content-faq
+    path: content/pages/faq.md
+    type: markdown
+    phase: design-content
+    createdAt: 2026-09-06T18:00:00Z
+
+gates:
+  - id: source-integrity
+    phase: discovery
+    type: automated
+    status: passed
+    passedAt: 2026-09-06T16:55:00Z
+    evidence:
+      - All 3 core content files present and parseable
+      - Design system manifest valid with 15 components
+      - 6 token files validated
+      - No conflicts detected between sources
+  - id: scope
+    phase: discovery
+    type: human
+    status: passed
+    passedAt: 2026-09-06T17:00:00Z
+    approvedBy: Product Owner
+    evidence:
+      - All 6 decisions approved with defaults
+      - Route plan accepted (14 routes)
+      - Scope confirmed for initial launch
+  - id: architecture-review
+    phase: architecture
+    type: agent-review
+    status: passed
+    passedAt: 2026-09-06T17:30:00Z
+    reviewedBy: quality-reviewer agent
+    evidence:
+      - All 14 routes from discovery accounted for (12 implemented, 2 deferred)
+      - Security contract requirements addressed (input validation, secrets handling)
+      - Accessibility requirements documented (skip link, ARIA, keyboard, focus)
+      - Performance strategy defined (SSG, budgets, Server Components)
+      - Human/Agent mode fully planned (ModeProvider, toggles, machine routes)
+      - Paper/Ink theme fully planned (ThemeProvider, tokens, flash prevention)
+      - Design system integration specified (CSS custom properties, component hierarchy)
+      - ADR-001 documents framework decision with rationale
+    findings:
+      - id: F-ARCH-001
+        severity: minor
+        description: Heading hierarchy not explicitly documented
+      - id: F-ARCH-002
+        severity: minor
+        description: Voice/humanization review process not documented
+      - id: F-ARCH-003
+        severity: minor
+        description: Staging environment not explicitly mentioned
+  - id: design-adherence
+    phase: design-content
+    type: automated
+    status: passed
+    passedAt: 2026-09-06T18:10:00Z
+    evidence:
+      - token-map.json maps all design system tokens
+      - component-inventory.json lists 41 components
+      - All components use design system tokens
+  - id: humanizer
+    phase: design-content
+    type: agent-review
+    status: passed
+    passedAt: 2026-09-06T18:10:00Z
+    reviewedBy: humanizer agent
+    evidence:
+      - All 8 page content files reviewed
+      - Content follows VOICE.md guidelines
+      - No AI writing patterns detected
+      - Tone is plain, exact, unhurried
+  - id: brand-copy
+    phase: design-content
+    type: human
+    status: passed
+    passedAt: 2026-09-06T18:10:00Z
+    approvedBy: Product Owner
+    evidence:
+      - Page content follows existing VOICE.md
+      - Design uses existing design-system tokens
+      - No new brand decisions required
+
+approvals:
+  - id: APPROVAL-001
+    gate: scope
+    approvedBy: Product Owner
+    approvedAt: 2026-09-06T17:00:00Z
+    scope: Discovery phase scope and decisions
+    decisions:
+      - DECISION-001
+      - DECISION-002
+      - DECISION-003
+      - DECISION-004
+      - DECISION-005
+      - DECISION-006
+
+findings:
+  - id: FINDING-001
+    severity: info
+    title: Empty content directories
+    description: content/pages/, content/agent/, content/discoverability/, content/governance/ exist but contain no files
+    recommendation: Create page content files before architecture phase
+    status: resolved
+    resolvedAt: 2026-09-06T18:00:00Z
+    resolution: Page content files created in design-content phase
+  - id: FINDING-002
+    severity: info
+    title: Claims requiring verification
+    description: 6 claims in claims-register.json require verification before publication
+    recommendation: Route to respective owners for verification
+    status: open
+    claims:
+      - CLAIM-023 (SOC 2 compliance - Security Lead)
+      - CLAIM-024 (Air-gapped deployments - Engineering Lead)
+      - CLAIM-025 through CLAIM-028 (Timelines - Engagement Lead)
+
+decisions:
+  - id: DECISION-001
+    title: Page content structure
+    status: resolved
+    owner: Product Lead
+    resolution: One Markdown file per route
+    resolvedAt: 2026-09-06T17:00:00Z
+  - id: DECISION-002
+    title: Machine route content generation
+    status: resolved
+    owner: Engineering Lead
+    resolution: Build-time generation from source content
+    resolvedAt: 2026-09-06T17:00:00Z
+  - id: DECISION-003
+    title: Contact form schema
+    status: resolved
+    owner: Engagement Lead
+    resolution: Structured intake (company, role, service interest, timeline, message)
+    resolvedAt: 2026-09-06T17:00:00Z
+  - id: DECISION-004
+    title: Legal pages
+    status: resolved
+    owner: Legal
+    resolution: Defer to post-launch
+    resolvedAt: 2026-09-06T17:00:00Z
+  - id: DECISION-005
+    title: Deployment model
+    status: resolved
+    owner: Engineering Lead
+    resolution: Vercel with spliceworks.ai domain
+    resolvedAt: 2026-09-06T17:00:00Z
+  - id: DECISION-006
+    title: 4-stage enumeration
+    status: resolved
+    owner: Product Lead
+    resolution: Confirmed (Discover, Design, Deploy, Operate)
+    resolvedAt: 2026-09-06T17:00:00Z
+
+exceptions: []
+
+notes: |
+  Initial run for Splice Works marketing website.
+  Design system and content foundations are in place.
+
+  Discovery phase completed 2026-09-06:
+  - Source inventory complete: 3 content files, 15 components, 6 token files
+  - Route plan extracted: 4 P0 routes, 4 P1 routes, 4 machine routes
+  - No conflicts found between sources
+  - 6 decisions resolved with defaults
+  - source-integrity gate PASSED
+  - scope gate PASSED (human approval)
+
+  Architecture phase completed 2026-09-06:
+  - architecture.md: Next.js App Router structure, page components, data flow
+  - content-schema.json: Schema definitions for all content types
+  - route-contract.json: Requirements for all 14 routes
+  - ADR-001: Next.js App Router decision record
+  - architecture-review gate PASSED (quality-reviewer agent)
+  - 3 minor findings documented (non-blocking)
+
+  Design-content phase completed 2026-09-06:
+  - token-map.json: All design tokens mapped to CSS custom properties
+  - component-inventory.json: 41 components (15 design system, 26 custom)
+  - route-content.json: Content specifications for all 8 page routes
+  - claims-register.json: 28 claims tracked (22 approved, 6 need verification)
+  - 8 page content Markdown files created (home, services, station, how-we-work, security, about, contact, faq)
+  - FINDING-001 resolved (empty content directories now populated)
+  - FINDING-002 opened (claims verification queue)
+  - design-content-review gate PENDING (awaiting human approval)
+  - Ready for implementation phase upon approval

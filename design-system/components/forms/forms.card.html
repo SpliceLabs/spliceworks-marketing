@@ -1,0 +1,10 @@
+<!-- @dsCard group="Components" viewport="700x330" name="Forms — Input, Select, Checkbox, Radio, Switch" subtitle="Default, focus, error and disabled states" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css"><style>body{padding:16px}.g{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px 16px;margin-bottom:18px}.r{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}</style><script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script><script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script><script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script><script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script><script src="../../_ds_bundle.js"></script></head><body><div id="root"></div>
+<script type="text/babel">
+const { Input, Select, Checkbox, Radio, Switch } = window.SpliceWorksDesignSystem_f2e5fb;
+const App = () => { const [plan,setPlan]=React.useState('print'); return <>
+<div className="g"><Input label="Email" hint="required" placeholder="you@habitat.org" icon="mail"/><Input label="Site code" defaultValue="WT-19" error="Unknown site code"/><Input label="Archived" defaultValue="Read only" disabled/><Select label="Region" options={['Coastal','Upland','Riparian']} defaultValue="Upland"/><Input size="sm" placeholder="Small search" icon="search"/><Select size="sm" options={['Newest','Oldest']}/></div>
+<div className="r"><Checkbox label="Weekly brief" description="Every Monday, 07:00" defaultChecked/><Checkbox label="Print edition"/><Checkbox label="Disabled" disabled/><div style={{display:'grid',gap:8}}><Radio name="p" value="print" label="Print + digital" checked={plan==='print'} onChange={setPlan}/><Radio name="p" value="digital" label="Digital only" checked={plan==='digital'} onChange={setPlan}/></div><div style={{display:'grid',gap:8}}><Switch label="Dark tile" defaultChecked/><Switch label="Notifications"/></div></div>
+</>};
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script></body></html>

@@ -1,0 +1,31 @@
+id: splice-works
+name: Splice Works
+type: agent-native-marketing-site
+workflow: .harness/workflows/new-site.yaml
+framework:
+  adapter: nextjs
+  packageManager: pnpm
+deployment:
+  adapter: vercel
+  productionDomain: spliceworks.ai
+  requiresHumanApproval: true
+sources:
+  truth: content/SOURCE-OF-TRUTH.md
+  voice: content/VOICE.md
+  sitemap: content/SITEMAP.md
+  copy: content/COPY.md
+  design: content/DESIGN.md
+  designSystem: design-system
+  contracts: contracts
+  approvals: approvals
+contractProfiles:
+  - core
+  - agent-native
+  - splice-works
+features:
+  humanAgentMode: true
+  markdownRoutes: true
+  llmsText: true
+  structuredData: true
+  knowledgeGraph: true
+  animatedHero: true

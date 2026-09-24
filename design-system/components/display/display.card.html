@@ -1,0 +1,14 @@
+<!-- @dsCard group="Components" viewport="700x330" name="Display — Card, Badge, Tag, Tabs" subtitle="Editorial card, status badges, pill tags, joint-underline tabs" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css"><style>body{padding:16px}.r{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}</style><script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script><script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script><script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script><script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script><script src="../../_ds_bundle.js"></script></head><body><div id="root"></div>
+<script type="text/babel">
+const { Card, Badge, Tag, Tabs, Button } = window.SpliceWorksDesignSystem_f2e5fb;
+const App = () => <>
+<Tabs items={[{value:'a',label:'All',count:24},{value:'b',label:'Field notes'},{value:'c',label:'Reports'},{value:'d',label:'Archive'}]} defaultValue="a" style={{marginBottom:14}}/>
+<div className="r"><Badge>Draft</Badge><Badge tone="accent">Digital</Badge><Badge tone="joint" dot>Live</Badge><Badge tone="success" dot>Published</Badge><Badge tone="warning">Review</Badge><Badge tone="danger">Retracted</Badge><Badge tone="ink">Issue 04</Badge><span style={{width:8}}/><Tag selected>Wetlands</Tag><Tag>Upland</Tag><Tag onRemove={()=>{}}>Riparian</Tag></div>
+<div style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gap:12}}>
+<Card eyebrow="Field notes" title="Coastal wetlands after the storm" meta="6 Sep 2026 · 4 min" interactive>Twelve sites re-surveyed, three re-classified.</Card>
+<Card eyebrow="Report" title="Habitat index, Q3" inverse meta="PDF · 2.1 MB">Annual splice of survey and satellite data.</Card>
+<Card title="Subscribe" footer={<Button size="sm" variant="accent" block>Join the list</Button>}>Weekly brief, no tracking.</Card>
+</div></>;
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script></body></html>

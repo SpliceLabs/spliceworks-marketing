@@ -1,0 +1,63 @@
+id: ingest
+version: 1.0.0
+title: Ingest website source material
+phases:
+  - id: collect
+    title: Collect and inventory
+    agents: [intake-analyst]
+    skills: [website-discovery]
+    inputs:
+      - business material
+      - brand and design system
+      - content and sitemap
+      - UI references
+      - technical repository
+      - governance rules
+    outputs:
+      - source-inventory.json
+      - duplicate-report.json
+      - unsupported-files.json
+    gates:
+      - id: files-readable
+        type: automated
+        required: true
+        description: Inputs are readable, hashed, classified, and free of unsafe archive paths.
+  - id: normalize
+    title: Normalize sources
+    agents: [product-analyst, design-system-integrator, information-architect]
+    skills: [website-discovery, design-system-integration, content-and-voice]
+    inputs: [source-inventory.json]
+    outputs:
+      - product-truth.json
+      - brand-manifest.json
+      - component-manifest.json
+      - content-manifest.json
+      - route-manifest.json
+      - technical-manifest.json
+      - governance-manifest.json
+    gates:
+      - id: schemas-valid
+        type: automated
+        required: true
+        description: Every normalized manifest passes its schema.
+  - id: reconcile
+    title: Reconcile conflicts
+    agents: [product-analyst, design-system-integrator, information-architect]
+    skills: [website-discovery]
+    inputs:
+      - normalized manifests
+      - source precedence
+    outputs:
+      - conflict-report.md
+      - missing-inputs.md
+      - source-authority.json
+      - recommended-scope.md
+    gates:
+      - id: no-unresolved-blocker
+        type: agent-review
+        required: true
+        description: Blocking conflicts and missing sources are explicit.
+      - id: ingestion-approval
+        type: human
+        required: true
+        description: The owner approves authority, scope, assumptions, and unresolved items.

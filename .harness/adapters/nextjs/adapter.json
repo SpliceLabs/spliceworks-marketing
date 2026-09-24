@@ -1,0 +1,18 @@
+{
+  "id": "nextjs",
+  "detectFiles": ["next.config.js", "next.config.mjs", "next.config.ts"],
+  "install": {
+    "name": "install",
+    "command": "pnpm install --frozen-lockfile",
+    "required": true
+  },
+  "checks": [
+    {"name": "format", "command": "pnpm format:check", "required": true},
+    {"name": "lint", "command": "pnpm lint", "required": true},
+    {"name": "typecheck", "command": "pnpm typecheck", "required": true},
+    {"name": "test", "command": "pnpm test", "required": true},
+    {"name": "e2e", "command": "pnpm test:e2e", "required": true},
+    {"name": "build", "command": "pnpm build", "required": true}
+  ],
+  "requiredOutputs": [".next/BUILD_ID"]
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["version", "status", "sources", "logos", "tokens", "typography", "components"],
+  "properties": {
+    "version": {"type": "integer"},
+    "status": {"enum": ["missing", "partial", "approved"]},
+    "sources": {"type": "array", "items": {"type": "string"}},
+    "logos": {
+      "type": "object",
+      "properties": {
+        "primary": {"type": "string"},
+        "inverse": {"type": "string"},
+        "mark": {"type": "string"},
+        "favicon": {"type": "string"}
+      },
+      "additionalProperties": {"type": "string"}
+    },
+    "tokens": {
+      "type": "object",
+      "properties": {
+        "colors": {"type": "object"},
+        "spacing": {"type": "object"},
+        "radii": {"type": "object"},
+        "effects": {"type": "object"},
+        "motion": {"type": "object"}
+      },
+      "additionalProperties": true
+    },
+    "typography": {"type": "object"},
+    "components": {"type": "array", "items": {"type": "string"}},
+    "prohibitions": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

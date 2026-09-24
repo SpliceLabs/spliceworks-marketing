@@ -1,0 +1,486 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spliceworks.ai/schemas/content.json",
+  "title": "Splice Works Content Schema",
+  "description": "Schema definitions for all content types in the Splice Works marketing site",
+  "version": "1.0.0",
+  "runId": "RUN-SPLICEWORKS-001",
+  "generatedAt": "2026-09-06",
+
+  "definitions": {
+    "PageFrontmatter": {
+      "type": "object",
+      "description": "Frontmatter fields for markdown page files",
+      "required": ["title", "description"],
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Page title (used in <title> and H1)",
+          "minLength": 1,
+          "maxLength": 60
+        },
+        "description": {
+          "type": "string",
+          "description": "Meta description for SEO",
+          "minLength": 50,
+          "maxLength": 160
+        },
+        "priority": {
+          "type": "string",
+          "enum": ["P0", "P1", "P2"],
+          "description": "Route priority for build ordering"
+        },
+        "job": {
+          "type": "string",
+          "description": "Page job statement (what this page accomplishes)"
+        },
+        "sections": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of section identifiers for the page"
+        },
+        "ogImage": {
+          "type": "string",
+          "format": "uri-reference",
+          "description": "Open Graph image path"
+        },
+        "noIndex": {
+          "type": "boolean",
+          "default": false,
+          "description": "Exclude from search indexing"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date",
+          "description": "Last content update date"
+        }
+      }
+    },
+
+    "Service": {
+      "type": "object",
+      "description": "A service offering",
+      "required": ["id", "name", "brief", "description"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$",
+          "description": "Unique service identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Service display name"
+        },
+        "brief": {
+          "type": "string",
+          "maxLength": 120,
+          "description": "One-line service description"
+        },
+        "description": {
+          "type": "string",
+          "description": "Full service description (markdown allowed)"
+        },
+        "deliverables": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "What the client receives"
+        },
+        "timeline": {
+          "type": "string",
+          "description": "Typical engagement timeline"
+        },
+        "prerequisites": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Required before engagement"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Display order"
+        }
+      }
+    },
+
+    "Stage": {
+      "type": "object",
+      "description": "A delivery stage in the 4-stage model",
+      "required": ["id", "name", "number", "description"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": ["discover", "design", "deploy", "operate"]
+        },
+        "name": {
+          "type": "string",
+          "description": "Stage display name"
+        },
+        "number": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4
+        },
+        "description": {
+          "type": "string",
+          "description": "Stage description"
+        },
+        "activities": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "What happens in this stage"
+        },
+        "deliverables": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Outputs from this stage"
+        },
+        "transitionCriteria": {
+          "type": "string",
+          "description": "What must be true to proceed to next stage"
+        }
+      }
+    },
+
+    "DeploymentOption": {
+      "type": "object",
+      "description": "A Station deployment model",
+      "required": ["id", "name", "description"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": ["hosted", "self-hosted", "hybrid"]
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "features": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "considerations": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+
+    "FAQEntry": {
+      "type": "object",
+      "description": "A frequently asked question",
+      "required": ["id", "question", "answer"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^faq-[a-z0-9-]+$"
+        },
+        "question": {
+          "type": "string"
+        },
+        "answer": {
+          "type": "string",
+          "description": "Answer in markdown"
+        },
+        "category": {
+          "type": "string",
+          "enum": ["general", "services", "station", "security", "engagement"]
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+
+    "ProofItem": {
+      "type": "object",
+      "description": "Evidence or artifact for proof section",
+      "required": ["id", "type", "title"],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["artifact", "metric", "testimonial", "case-study"]
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "metric": {
+          "type": "object",
+          "properties": {
+            "value": { "type": "string" },
+            "label": { "type": "string" }
+          }
+        }
+      }
+    },
+
+    "NavigationItem": {
+      "type": "object",
+      "required": ["label", "href"],
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string",
+          "pattern": "^(/|https?://).*"
+        },
+        "external": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+
+    "ContactFormData": {
+      "type": "object",
+      "description": "Contact form submission payload",
+      "required": ["name", "email"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 100
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "company": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "role": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "serviceInterest": {
+          "type": "string",
+          "enum": ["assessment", "hardening", "delivery", "station-deployment", "operations", "not-sure"]
+        },
+        "timeline": {
+          "type": "string",
+          "enum": ["immediate", "1-3-months", "3-6-months", "6-plus-months", "exploring"]
+        },
+        "message": {
+          "type": "string",
+          "maxLength": 2000
+        }
+      }
+    },
+
+    "CapabilitiesManifest": {
+      "type": "object",
+      "description": "Machine-readable capabilities for /capabilities.json",
+      "required": ["name", "version", "services"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "const": "Splice Works"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "description": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "human": {
+              "type": "string",
+              "format": "uri"
+            },
+            "agent": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        },
+        "services": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "name", "description"],
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "description": { "type": "string" },
+              "deliverables": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          }
+        },
+        "deploymentModels": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "stages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "order": { "type": "integer" }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "contentFiles": {
+    "description": "Expected content files and their schemas",
+    "files": [
+      {
+        "path": "content/pages/home.md",
+        "schema": { "$ref": "#/definitions/PageFrontmatter" },
+        "required": true
+      },
+      {
+        "path": "content/pages/services.md",
+        "schema": { "$ref": "#/definitions/PageFrontmatter" },
+        "required": true
+      },
+      {
+        "path": "content/pages/station.md",
+        "schema": { "$ref": "#/definitions/PageFrontmatter" },
+        "required": true
+      },
+      {
+        "path": "content/pages/how-we-work.md",
+        "schema": { "$ref": "#/definitions/PageFrontmatter" },
+        "required": true
+      },
+      {
+        "path": "content/pages/security.md",
+        "schema": { "$ref": "#/definitions/PageFrontmatter" },
+        "required": true
+      },
+      {
+        "path": "content/pages/about.md",
+        "schema": { "$ref": "#/definitions/PageFrontmatter" },
+        "required": true
+      },
+      {
+        "path": "content/pages/contact.md",
+        "schema": { "$ref": "#/definitions/PageFrontmatter" },
+        "required": true
+      },
+      {
+        "path": "content/pages/faq.md",
+        "schema": { "$ref": "#/definitions/PageFrontmatter" },
+        "required": true
+      },
+      {
+        "path": "content/data/services.json",
+        "schema": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Service" }
+        },
+        "required": true
+      },
+      {
+        "path": "content/data/stages.json",
+        "schema": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Stage" },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "required": true
+      },
+      {
+        "path": "content/data/deployment.json",
+        "schema": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/DeploymentOption" }
+        },
+        "required": true
+      },
+      {
+        "path": "content/data/faq.json",
+        "schema": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/FAQEntry" }
+        },
+        "required": true
+      },
+      {
+        "path": "content/data/proof.json",
+        "schema": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/ProofItem" }
+        },
+        "required": false
+      },
+      {
+        "path": "content/meta/navigation.json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "header": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/NavigationItem" }
+            },
+            "footer": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/NavigationItem" }
+            }
+          }
+        },
+        "required": true
+      }
+    ]
+  },
+
+  "validation": {
+    "rules": [
+      {
+        "id": "title-length",
+        "description": "Page titles must be 1-60 characters",
+        "applies": "PageFrontmatter.title"
+      },
+      {
+        "id": "description-length",
+        "description": "Meta descriptions must be 50-160 characters",
+        "applies": "PageFrontmatter.description"
+      },
+      {
+        "id": "service-order",
+        "description": "Services must have unique order values",
+        "applies": "Service.order"
+      },
+      {
+        "id": "stage-sequence",
+        "description": "Stages must be numbered 1-4 in sequence",
+        "applies": "Stage.number"
+      },
+      {
+        "id": "email-format",
+        "description": "Email fields must be valid email format",
+        "applies": "ContactFormData.email"
+      },
+      {
+        "id": "slug-format",
+        "description": "IDs must be lowercase kebab-case",
+        "applies": "*.id"
+      }
+    ]
+  }
+}

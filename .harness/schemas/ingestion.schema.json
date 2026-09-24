@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["version", "generatedAt", "sources", "categories"],
+  "properties": {
+    "version": {"const": 1},
+    "generatedAt": {"type": "string", "format": "date-time"},
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "size", "sha256", "category", "mediaType"],
+        "properties": {
+          "path": {"type": "string"},
+          "size": {"type": "integer", "minimum": 0},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "category": {"enum": ["business", "brand", "content", "ui-reference", "technical", "governance", "unknown"]},
+          "mediaType": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "categories": {"type": "object"}
+  },
+  "additionalProperties": false
+}

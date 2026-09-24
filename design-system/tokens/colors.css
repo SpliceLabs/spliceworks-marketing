@@ -1,0 +1,31 @@
+:root{
+/* Brand primitives (from logo kit, mark 8a) */
+--sw-ink:#152238;--sw-paper:#FFFEF8;--sw-blue:#2447E8;--sw-blue-soft:#7FA4FF;--sw-joint:#FF6848;
+/* Ink ramp — oklch mixes between paper and ink */
+--sw-ink-50:#F5F4EE;--sw-ink-100:#E9E8E1;--sw-ink-200:#D3D2CB;--sw-ink-300:#B3B3AE;--sw-ink-400:#8B8D8E;--sw-ink-500:#666B72;--sw-ink-600:#4A515C;--sw-ink-700:#33394A;--sw-ink-800:#1F2A3F;--sw-ink-900:#152238;--sw-ink-950:#0D1626;
+/* Blue ramp */
+--sw-blue-50:#EEF2FF;--sw-blue-100:#DCE4FF;--sw-blue-200:#BECDFF;--sw-blue-300:#7FA4FF;--sw-blue-500:#2447E8;--sw-blue-600:#1C38C2;--sw-blue-700:#152B99;
+/* Joint (orange) ramp */
+--sw-joint-50:#FFF1ED;--sw-joint-100:#FFDCD2;--sw-joint-300:#FFA48F;--sw-joint-500:#FF6848;--sw-joint-600:#E24E2F;--sw-joint-700:#B83A1F;
+/* Semantic status — derived, harmonised in oklch to the brand (not in source kit) */
+--sw-green-500:#1E9E6A;--sw-green-100:#D9F2E6;--sw-amber-500:#D98E14;--sw-amber-100:#FBEED2;--sw-red-500:#D8322D;--sw-red-100:#FBDDDB;
+/* Semantic aliases — light (paper) theme */
+--bg:var(--sw-paper);--bg-sunken:var(--sw-ink-50);--bg-raised:#FFFFFF;--bg-inverse:var(--sw-ink);
+--surface-card:#FFFFFF;--surface-muted:var(--sw-ink-50);--surface-inverse:var(--sw-ink);
+--text-body:var(--sw-ink);--text-secondary:var(--sw-ink-600);--text-muted:var(--sw-ink-400);--text-inverse:var(--sw-paper);--text-on-accent:var(--sw-paper);
+--accent:var(--sw-blue);--accent-hover:var(--sw-blue-600);--accent-press:var(--sw-blue-700);--accent-soft:var(--sw-blue-50);--accent-outline:var(--sw-blue);
+--joint:var(--sw-joint);--joint-hover:var(--sw-joint-600);--joint-soft:var(--sw-joint-50);
+--border:var(--sw-ink-200);--border-strong:var(--sw-ink);--border-subtle:var(--sw-ink-100);--focus-ring:var(--sw-blue);
+--success:var(--sw-green-500);--success-soft:var(--sw-green-100);--warning:var(--sw-amber-500);--warning-soft:var(--sw-amber-100);--danger:var(--sw-red-500);--danger-soft:var(--sw-red-100);
+--link:var(--sw-blue);--link-hover:var(--sw-blue-700);
+}
+/* Dark (ink) theme — mirrors the dark/ logo tile */
+[data-theme="dark"]{
+--bg:var(--sw-ink);--bg-sunken:var(--sw-ink-950);--bg-raised:var(--sw-ink-800);--bg-inverse:var(--sw-paper);
+--surface-card:var(--sw-ink-800);--surface-muted:var(--sw-ink-700);--surface-inverse:var(--sw-paper);
+--text-body:var(--sw-paper);--text-secondary:var(--sw-ink-200);--text-muted:var(--sw-ink-400);--text-inverse:var(--sw-ink);--text-on-accent:var(--sw-ink);
+--accent:var(--sw-blue-soft);--accent-hover:var(--sw-blue-200);--accent-press:var(--sw-blue-100);--accent-soft:var(--sw-ink-700);--accent-outline:var(--sw-blue-soft);
+--joint-soft:#3A2A2E;
+--border:var(--sw-ink-600);--border-strong:var(--sw-paper);--border-subtle:var(--sw-ink-700);--focus-ring:var(--sw-blue-soft);
+--link:var(--sw-blue-soft);--link-hover:var(--sw-blue-200);
+}

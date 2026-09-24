@@ -1,0 +1,5 @@
+/* Minimal base: body defaults + link colours so consumers get the brand from one <link>. */
+:root{color-scheme:light;}[data-theme="dark"]{color-scheme:dark;}
+body{margin:0;background:var(--bg);color:var(--text-body);font:var(--body-md);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+a{color:var(--link);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;}a:hover{color:var(--link-hover);}
+::selection{background:var(--sw-blue-soft);color:var(--sw-ink);}

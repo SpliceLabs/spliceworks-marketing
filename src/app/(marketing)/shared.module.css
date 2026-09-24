@@ -1,0 +1,294 @@
+/* ==========================================================================
+   Shared Page Styles - Electric Field Guide
+   ========================================================================== */
+
+/* Page Header */
+.pageHeader {
+  padding: var(--space-24) 0 var(--space-16);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.pageTitle {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, var(--text-display-lg));
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+  line-height: var(--display-leading);
+  margin-bottom: var(--space-4);
+  color: var(--color-ink);
+}
+
+.pageDescription {
+  font-size: 17px;
+  color: var(--color-muted);
+  max-width: 56ch;
+  line-height: 1.55;
+}
+
+/* Per-page accent gradient hero wash */
+.heroGradient {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.heroGradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, var(--hero-from, var(--color-primary)) 0%, var(--hero-to, transparent) 100%);
+  opacity: 0.16;
+  pointer-events: none;
+}
+
+.heroGradient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    repeating-linear-gradient(90deg, var(--color-line) 0, var(--color-line) 1px, transparent 1px, transparent 32px),
+    repeating-linear-gradient(0deg, var(--color-line) 0, var(--color-line) 1px, transparent 1px, transparent 32px);
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+/* CTA Section */
+.cta {
+  padding: var(--space-20) 0;
+}
+
+.ctaSunken {
+  padding: var(--space-20) 0;
+  background: var(--color-structure-soft);
+}
+
+.ctaDark {
+  padding: var(--space-20) 0;
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.ctaContent {
+  max-width: 640px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.ctaHeadline {
+  font-family: var(--font-display);
+  font-size: var(--text-display-md);
+  font-weight: var(--display-weight);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-3);
+}
+
+.ctaBody {
+  font-size: 17px;
+  color: var(--color-muted);
+  margin-bottom: var(--space-6);
+  line-height: 1.55;
+}
+
+.ctaDark .ctaHeadline {
+  color: var(--color-paper);
+}
+
+.ctaDark .ctaBody {
+  color: var(--color-muted);
+}
+
+.ctaDark :global(.btn-secondary) {
+  color: var(--color-paper);
+  border-color: var(--color-paper);
+}
+
+.ctaDark :global(.btn-secondary:hover) {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+/* Section */
+.section {
+  padding: var(--space-20) 0;
+}
+
+.sectionSm {
+  padding: var(--space-12) 0;
+}
+
+.sectionSunken {
+  padding: var(--space-20) 0;
+  background: var(--color-structure-soft);
+}
+
+.sectionDark {
+  padding: var(--space-20) 0;
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+/* Section header */
+.sectionHeader {
+  margin-bottom: var(--space-10);
+}
+
+.sectionHeadline {
+  font-family: var(--font-display);
+  font-size: var(--text-display-md);
+  font-weight: var(--display-weight);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--color-ink);
+}
+
+.sectionDark .sectionHeadline {
+  color: var(--color-paper);
+}
+
+/* Card Grid */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-4);
+}
+
+.cardGridNarrow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-4);
+}
+
+/* Card content */
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-2);
+  color: var(--color-ink);
+}
+
+.cardBody {
+  font-size: 15px;
+  color: var(--color-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Detail lists */
+.detailTitle {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: var(--space-2);
+}
+
+.detailList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.detailList li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 14px;
+  padding: var(--space-1) 0;
+  color: var(--color-ink);
+}
+
+.detailList li::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background: var(--color-structure-deep);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.detailListAccent li::before {
+  background: var(--color-primary);
+}
+
+/* Two column layout */
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .twoCol {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}
+
+/* Number badge */
+.sectionNum {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 72px;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  opacity: 0.12;
+  color: var(--color-ink);
+  margin-bottom: var(--space-2);
+}
+
+/* Feature grid */
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+@media (max-width: 900px) {
+  .featureGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tag styles */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.tagPrimary {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.tagAccent {
+  background: var(--color-accent-soft);
+  color: var(--color-ink);
+  border: 1px solid var(--color-accent);
+}
+
+.tagMuted {
+  background: var(--color-structure-soft);
+  color: var(--color-muted);
+  border: 1px solid var(--color-line);
+}

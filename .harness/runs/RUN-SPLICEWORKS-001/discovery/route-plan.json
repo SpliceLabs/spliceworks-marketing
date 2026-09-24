@@ -1,0 +1,122 @@
+{
+  "runId": "RUN-SPLICEWORKS-001",
+  "generatedAt": "2026-09-06T16:55:00Z",
+  "phase": "discovery",
+  "source": "content/SITEMAP.md",
+  "routes": {
+    "primary": [
+      {
+        "path": "/",
+        "title": "Home",
+        "priority": "P0",
+        "job": "Explain what Splice Works does, show Station in action, capture interest",
+        "sections": [
+          "Hero with Habitat visualization",
+          "Outcome input (what do you want to change?)",
+          "The 4 stages: Discover, Design, Deploy, Operate",
+          "Services overview",
+          "Station explanation",
+          "Governance and control",
+          "Deployment options",
+          "Proof / evidence section",
+          "Contact CTA"
+        ]
+      },
+      {
+        "path": "/services",
+        "title": "Services",
+        "priority": "P0",
+        "job": "Detail the five service offerings"
+      },
+      {
+        "path": "/station",
+        "title": "Station",
+        "priority": "P0",
+        "job": "Explain the control plane product"
+      },
+      {
+        "path": "/how-we-work",
+        "title": "How we work",
+        "priority": "P0",
+        "job": "Show the 4-stage delivery model"
+      }
+    ],
+    "secondary": [
+      {
+        "path": "/security",
+        "title": "Security",
+        "priority": "P1",
+        "job": "Security-first positioning and controls"
+      },
+      {
+        "path": "/about",
+        "title": "About",
+        "priority": "P1",
+        "job": "Company relationship to Splice Labs"
+      },
+      {
+        "path": "/contact",
+        "title": "Contact",
+        "priority": "P1",
+        "job": "Intake form for engagements"
+      },
+      {
+        "path": "/faq",
+        "title": "FAQ",
+        "priority": "P1",
+        "job": "Common questions answered"
+      }
+    ],
+    "machine": [
+      {
+        "path": "/llms.txt",
+        "purpose": "AI-readable site summary",
+        "type": "text"
+      },
+      {
+        "path": "/llms-full.txt",
+        "purpose": "Complete AI-readable content",
+        "type": "text"
+      },
+      {
+        "path": "/capabilities.json",
+        "purpose": "Machine-readable service manifest",
+        "type": "json"
+      },
+      {
+        "path": "/api/contact-schema",
+        "purpose": "Structured intake for agents",
+        "type": "json"
+      }
+    ]
+  },
+  "navigation": {
+    "header": [
+      { "label": "Logo", "href": "/" },
+      { "label": "Services", "href": "/services" },
+      { "label": "Station", "href": "/station" },
+      { "label": "How it works", "href": "/how-we-work" },
+      { "label": "Security", "href": "/security" },
+      { "label": "Contact", "href": "/contact" }
+    ],
+    "headerControls": [
+      { "type": "toggle", "label": "Human/Agent" },
+      { "type": "toggle", "label": "Paper/Ink theme" }
+    ],
+    "footer": [
+      { "label": "Logo with endorsement", "href": "/" },
+      { "label": "About", "href": "/about" },
+      { "label": "FAQ", "href": "/faq" },
+      { "label": "Contact", "href": "/contact" },
+      { "label": "Privacy", "href": "/privacy" },
+      { "label": "Terms", "href": "/terms" }
+    ]
+  },
+  "summary": {
+    "totalRoutes": 14,
+    "primaryRoutes": 4,
+    "secondaryRoutes": 4,
+    "machineRoutes": 4,
+    "legalRoutes": 2
+  }
+}

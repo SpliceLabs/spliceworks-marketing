@@ -1,0 +1,448 @@
+.section {
+  padding: var(--space-16) 0;
+  border-top: 1px solid var(--color-line);
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: var(--space-12);
+  max-width: var(--workspace);
+  margin: 0 auto;
+  padding-left: clamp(var(--space-6), 5vw, var(--space-20));
+  padding-right: clamp(var(--space-6), 5vw, var(--space-20));
+}
+
+.left {
+  position: relative;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.num {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 96px;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  opacity: 0.08;
+  display: block;
+  margin-bottom: var(--space-3);
+  background: linear-gradient(135deg, #2447E8 0%, #7FA4FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.eyebrow {
+  display: flex;
+  gap: var(--space-3);
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+
+.eyebrow b {
+  font-weight: 500;
+  color: #2447E8;
+  white-space: nowrap;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: var(--text-display-lg);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+  line-height: var(--display-leading);
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+
+.sub {
+  color: var(--color-muted);
+  margin-top: var(--space-4);
+  max-width: 44ch;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+/* Timeline progress */
+.timeline {
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-line);
+}
+
+.timelineLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.timelineBar {
+  height: 8px;
+  background: var(--color-line);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.timelineFill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #2447E8, #1E9E6A);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.timelineRange {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-muted);
+}
+
+/* Progress track nodes */
+.progressTrack {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 var(--space-4);
+}
+
+.progressNode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  font: inherit;
+}
+
+.nodeNum {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--color-line);
+  color: var(--color-muted);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.nodeComplete .nodeNum {
+  background: var(--node-color, #2447E8);
+  color: white;
+}
+
+.nodeActive .nodeNum {
+  box-shadow: 0 0 0 4px rgba(36, 71, 232, 0.2);
+  transform: scale(1.1);
+}
+
+.nodeLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  transition: color 0.2s ease;
+}
+
+.nodeComplete .nodeLabel {
+  color: var(--color-ink);
+}
+
+.nodeActive .nodeLabel {
+  color: var(--node-color, #2447E8);
+  font-weight: 600;
+}
+
+.connector {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: calc(100% + 60px);
+  height: 2px;
+  background: var(--color-line);
+  z-index: 0;
+}
+
+.connectorFilled {
+  background: linear-gradient(90deg, var(--node-color, #2447E8), #7FA4FF);
+}
+
+/* Stage detail card */
+.stageDetail {
+  background: linear-gradient(135deg, #F8F9FF 0%, #FFFFFF 100%);
+  border: 2px solid var(--stage-color, #2447E8);
+  border-radius: 12px;
+  padding: var(--space-6);
+  transition: border-color 0.3s ease;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stageHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.stageNum {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  background: var(--stage-color, #2447E8);
+  color: white;
+  border-radius: 4px;
+}
+
+.stageTitle {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin: 0;
+  flex: 1;
+}
+
+.stageDuration {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 4px 10px;
+  background: #DCE4FF;
+  color: #2447E8;
+  border-radius: 999px;
+}
+
+.stageDesc {
+  font-size: 16px;
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin: 0 0 var(--space-4);
+}
+
+.stageAgents {
+  padding-top: var(--space-3);
+  border-top: 1px dashed var(--color-line);
+}
+
+.agentsLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.agentsList {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.agentChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: white;
+  border: 1px solid #7FA4FF;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #2447E8;
+}
+
+.agentDot {
+  width: 6px;
+  height: 6px;
+  background: #2447E8;
+  border-radius: 50%;
+}
+
+.stageActions {
+  margin-top: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.nextBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--stage-color, #2447E8);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nextBtn:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(36, 71, 232, 0.3);
+}
+
+.completeTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #E6F4ED;
+  color: #1E9E6A;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.completeDot {
+  width: 8px;
+  height: 8px;
+  background: #1E9E6A;
+  border-radius: 50%;
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+}
+
+/* Stages quick nav */
+.stages {
+  display: flex;
+  gap: 8px;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-line);
+}
+
+.stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 8px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font: inherit;
+}
+
+.stage:hover {
+  border-color: var(--stage-color, #2447E8);
+  transform: translateY(-2px);
+}
+
+.stageActive {
+  border-color: var(--stage-color, #2447E8);
+  background: linear-gradient(135deg, #F8F9FF 0%, #FFFFFF 100%);
+  box-shadow: 0 4px 12px rgba(36, 71, 232, 0.15);
+}
+
+.stageActive::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--stage-color, #2447E8);
+  border-radius: 8px 8px 0 0;
+}
+
+.miniNum {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-muted);
+}
+
+.stageActive .miniNum {
+  color: var(--stage-color, #2447E8);
+}
+
+.miniTitle {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+@media (max-width: 1100px) {
+  .section {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .progressTrack {
+    overflow-x: auto;
+    padding-bottom: var(--space-3);
+  }
+
+  .connector {
+    width: 80px;
+  }
+}
+
+@media (max-width: 760px) {
+  .heading {
+    font-size: 32px;
+  }
+
+  .num {
+    font-size: 64px;
+  }
+
+  .stages {
+    flex-wrap: wrap;
+  }
+
+  .stage {
+    flex: 1 1 45%;
+  }
+
+  .stageTitle {
+    font-size: 22px;
+  }
+
+  .progressTrack {
+    display: none;
+  }
+}

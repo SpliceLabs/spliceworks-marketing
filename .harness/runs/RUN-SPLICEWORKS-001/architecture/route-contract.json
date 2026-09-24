@@ -1,0 +1,561 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Splice Works Route Contract",
+  "description": "Contract defining requirements for each route",
+  "version": "1.0.0",
+  "runId": "RUN-SPLICEWORKS-001",
+  "generatedAt": "2026-09-06",
+
+  "routes": {
+    "primary": [
+      {
+        "path": "/",
+        "name": "home",
+        "priority": "P0",
+        "type": "page",
+        "job": "Explain what Splice Works does, show Station in action, capture interest",
+
+        "components": {
+          "layout": "(marketing)/layout.tsx",
+          "page": "(marketing)/page.tsx",
+          "sections": [
+            "HabitatHero",
+            "OutcomeInput",
+            "StagesSection",
+            "ServicesOverview",
+            "StationSection",
+            "GovernanceSection",
+            "DeploymentSection",
+            "ProofSection",
+            "ContactCTA"
+          ]
+        },
+
+        "data": {
+          "content": "content/pages/home.md",
+          "dependencies": [
+            "content/data/services.json",
+            "content/data/stages.json",
+            "content/data/deployment.json",
+            "content/data/proof.json"
+          ]
+        },
+
+        "seo": {
+          "title": "Splice Works | AI-native consulting and delivery",
+          "description": "We help organizations deploy AI-native systems. From assessment through operation, with Station as your control plane.",
+          "ogType": "website",
+          "ogImage": "/og/home.png",
+          "canonicalUrl": "https://spliceworks.ai/"
+        },
+
+        "features": {
+          "habitatHero": true,
+          "humanAgentToggle": true,
+          "paperInkToggle": true,
+          "scrollAnimations": true
+        },
+
+        "performance": {
+          "preload": ["content/data/services.json", "content/data/stages.json"],
+          "prefetch": ["/services", "/station", "/how-we-work"]
+        }
+      },
+
+      {
+        "path": "/services",
+        "name": "services",
+        "priority": "P0",
+        "type": "page",
+        "job": "Detail the five service offerings",
+
+        "components": {
+          "layout": "(marketing)/layout.tsx",
+          "page": "(marketing)/services/page.tsx",
+          "sections": [
+            "PageHeader",
+            "ServiceCardsGrid",
+            "ServiceDetail",
+            "ContactCTA"
+          ]
+        },
+
+        "data": {
+          "content": "content/pages/services.md",
+          "dependencies": [
+            "content/data/services.json"
+          ]
+        },
+
+        "seo": {
+          "title": "Services | Splice Works",
+          "description": "Five core services: Assessment, Hardening, Delivery, Station Deployment, and Operations. End-to-end AI-native system deployment.",
+          "ogType": "website",
+          "ogImage": "/og/services.png",
+          "canonicalUrl": "https://spliceworks.ai/services"
+        },
+
+        "features": {
+          "expandableCards": true,
+          "deepLinks": true
+        }
+      },
+
+      {
+        "path": "/station",
+        "name": "station",
+        "priority": "P0",
+        "type": "page",
+        "job": "Explain the control plane product",
+
+        "components": {
+          "layout": "(marketing)/layout.tsx",
+          "page": "(marketing)/station/page.tsx",
+          "sections": [
+            "PageHeader",
+            "StationOverview",
+            "FeaturesList",
+            "AgentOrchestration",
+            "GateEnforcement",
+            "EvidenceTracking",
+            "HumanAgentModes",
+            "DeploymentOptions",
+            "ContactCTA"
+          ]
+        },
+
+        "data": {
+          "content": "content/pages/station.md",
+          "dependencies": [
+            "content/data/deployment.json"
+          ]
+        },
+
+        "seo": {
+          "title": "Station | Splice Works",
+          "description": "Splice Station is the control plane. Orchestrate agents, enforce gates, track evidence, and keep humans in control of AI operations.",
+          "ogType": "product",
+          "ogImage": "/og/station.png",
+          "canonicalUrl": "https://spliceworks.ai/station"
+        },
+
+        "features": {
+          "visualDiagram": true,
+          "deploymentComparison": true
+        }
+      },
+
+      {
+        "path": "/how-we-work",
+        "name": "how-we-work",
+        "priority": "P0",
+        "type": "page",
+        "job": "Show the 4-stage delivery model",
+
+        "components": {
+          "layout": "(marketing)/layout.tsx",
+          "page": "(marketing)/how-we-work/page.tsx",
+          "sections": [
+            "PageHeader",
+            "StagesJourney",
+            "StageDetailCards",
+            "TransitionCriteria",
+            "ContactCTA"
+          ]
+        },
+
+        "data": {
+          "content": "content/pages/how-we-work.md",
+          "dependencies": [
+            "content/data/stages.json"
+          ]
+        },
+
+        "seo": {
+          "title": "How we work | Splice Works",
+          "description": "Four stages: Discover, Design, Deploy, Operate. Every engagement follows this model, from mapping current state through ongoing operations.",
+          "ogType": "website",
+          "ogImage": "/og/how-we-work.png",
+          "canonicalUrl": "https://spliceworks.ai/how-we-work"
+        },
+
+        "features": {
+          "stageVisualization": true,
+          "progressIndicator": true
+        }
+      }
+    ],
+
+    "secondary": [
+      {
+        "path": "/security",
+        "name": "security",
+        "priority": "P1",
+        "type": "page",
+        "job": "Security-first positioning and controls",
+
+        "components": {
+          "layout": "(marketing)/layout.tsx",
+          "page": "(marketing)/security/page.tsx",
+          "sections": [
+            "PageHeader",
+            "SecurityPrinciples",
+            "AccessControls",
+            "AuditTrails",
+            "ComplianceAlignment",
+            "DataHandling",
+            "ContactCTA"
+          ]
+        },
+
+        "data": {
+          "content": "content/pages/security.md",
+          "dependencies": []
+        },
+
+        "seo": {
+          "title": "Security | Splice Works",
+          "description": "Security-first AI deployment. Access controls, audit trails, compliance alignment, and responsible data handling.",
+          "ogType": "website",
+          "ogImage": "/og/security.png",
+          "canonicalUrl": "https://spliceworks.ai/security"
+        },
+
+        "features": {}
+      },
+
+      {
+        "path": "/about",
+        "name": "about",
+        "priority": "P1",
+        "type": "page",
+        "job": "Company relationship to Splice Labs",
+
+        "components": {
+          "layout": "(marketing)/layout.tsx",
+          "page": "(marketing)/about/page.tsx",
+          "sections": [
+            "PageHeader",
+            "CompanyOverview",
+            "SpliceLabsRelationship",
+            "Mission",
+            "ContactCTA"
+          ]
+        },
+
+        "data": {
+          "content": "content/pages/about.md",
+          "dependencies": []
+        },
+
+        "seo": {
+          "title": "About | Splice Works",
+          "description": "Splice Works is the consulting and delivery arm of Splice Labs. We help organizations deploy AI-native systems.",
+          "ogType": "website",
+          "ogImage": "/og/about.png",
+          "canonicalUrl": "https://spliceworks.ai/about"
+        },
+
+        "features": {}
+      },
+
+      {
+        "path": "/contact",
+        "name": "contact",
+        "priority": "P1",
+        "type": "page",
+        "job": "Intake form for engagements",
+
+        "components": {
+          "layout": "(marketing)/layout.tsx",
+          "page": "(marketing)/contact/page.tsx",
+          "sections": [
+            "PageHeader",
+            "ContactForm"
+          ],
+          "clientComponents": ["ContactForm"]
+        },
+
+        "data": {
+          "content": "content/pages/contact.md",
+          "dependencies": []
+        },
+
+        "seo": {
+          "title": "Contact | Splice Works",
+          "description": "Start a conversation about your AI deployment needs. Tell us what you want to change.",
+          "ogType": "website",
+          "ogImage": "/og/contact.png",
+          "canonicalUrl": "https://spliceworks.ai/contact"
+        },
+
+        "features": {
+          "form": {
+            "method": "POST",
+            "action": "/api/contact",
+            "fields": [
+              { "name": "name", "type": "text", "required": true },
+              { "name": "email", "type": "email", "required": true },
+              { "name": "company", "type": "text", "required": false },
+              { "name": "role", "type": "text", "required": false },
+              { "name": "serviceInterest", "type": "select", "required": false },
+              { "name": "timeline", "type": "select", "required": false },
+              { "name": "message", "type": "textarea", "required": false }
+            ]
+          }
+        },
+
+        "api": {
+          "endpoint": "/api/contact",
+          "method": "POST",
+          "requestSchema": "ContactFormData",
+          "successRedirect": "/contact?submitted=true"
+        }
+      },
+
+      {
+        "path": "/faq",
+        "name": "faq",
+        "priority": "P1",
+        "type": "page",
+        "job": "Common questions answered",
+
+        "components": {
+          "layout": "(marketing)/layout.tsx",
+          "page": "(marketing)/faq/page.tsx",
+          "sections": [
+            "PageHeader",
+            "FAQAccordion",
+            "ContactCTA"
+          ],
+          "clientComponents": ["FAQAccordion"]
+        },
+
+        "data": {
+          "content": "content/pages/faq.md",
+          "dependencies": [
+            "content/data/faq.json"
+          ]
+        },
+
+        "seo": {
+          "title": "FAQ | Splice Works",
+          "description": "Frequently asked questions about Splice Works services, Station, security, and engagements.",
+          "ogType": "website",
+          "ogImage": "/og/faq.png",
+          "canonicalUrl": "https://spliceworks.ai/faq"
+        },
+
+        "features": {
+          "accordion": true,
+          "deepLinks": true,
+          "categoryFilters": true
+        }
+      }
+    ],
+
+    "machine": [
+      {
+        "path": "/llms.txt",
+        "name": "llms-summary",
+        "type": "route-handler",
+        "purpose": "AI-readable site summary",
+
+        "handler": {
+          "file": "(machine)/llms.txt/route.ts",
+          "method": "GET",
+          "contentType": "text/plain; charset=utf-8"
+        },
+
+        "generation": {
+          "timing": "build",
+          "sources": [
+            "content/SOURCE-OF-TRUTH.md",
+            "content/SITEMAP.md"
+          ],
+          "template": "templates/llms-summary.txt"
+        },
+
+        "caching": {
+          "strategy": "static",
+          "revalidate": false
+        }
+      },
+
+      {
+        "path": "/llms-full.txt",
+        "name": "llms-full",
+        "type": "route-handler",
+        "purpose": "Complete AI-readable content",
+
+        "handler": {
+          "file": "(machine)/llms-full.txt/route.ts",
+          "method": "GET",
+          "contentType": "text/plain; charset=utf-8"
+        },
+
+        "generation": {
+          "timing": "build",
+          "sources": [
+            "content/pages/**/*.md",
+            "content/data/**/*.json"
+          ],
+          "template": "templates/llms-full.txt"
+        },
+
+        "caching": {
+          "strategy": "static",
+          "revalidate": false
+        }
+      },
+
+      {
+        "path": "/capabilities.json",
+        "name": "capabilities",
+        "type": "route-handler",
+        "purpose": "Machine-readable service manifest",
+
+        "handler": {
+          "file": "(machine)/capabilities.json/route.ts",
+          "method": "GET",
+          "contentType": "application/json"
+        },
+
+        "generation": {
+          "timing": "build",
+          "sources": [
+            "content/data/services.json",
+            "content/data/stages.json",
+            "content/data/deployment.json"
+          ],
+          "outputSchema": "CapabilitiesManifest"
+        },
+
+        "caching": {
+          "strategy": "static",
+          "revalidate": false
+        }
+      },
+
+      {
+        "path": "/api/contact-schema",
+        "name": "contact-schema",
+        "type": "route-handler",
+        "purpose": "Structured intake schema for agents",
+
+        "handler": {
+          "file": "api/contact-schema/route.ts",
+          "method": "GET",
+          "contentType": "application/schema+json"
+        },
+
+        "generation": {
+          "timing": "static",
+          "source": "ContactFormData schema"
+        },
+
+        "caching": {
+          "strategy": "static",
+          "revalidate": false
+        }
+      }
+    ],
+
+    "api": [
+      {
+        "path": "/api/contact",
+        "name": "contact-submit",
+        "type": "route-handler",
+        "purpose": "Contact form submission handler",
+
+        "handler": {
+          "file": "api/contact/route.ts",
+          "method": "POST",
+          "contentType": "application/json"
+        },
+
+        "request": {
+          "schema": "ContactFormData",
+          "validation": "zod"
+        },
+
+        "response": {
+          "success": {
+            "status": 200,
+            "body": { "success": true, "message": "We'll be in touch." }
+          },
+          "error": {
+            "status": 400,
+            "body": { "success": false, "errors": [] }
+          }
+        },
+
+        "destination": {
+          "type": "webhook",
+          "env": "CONTACT_WEBHOOK_URL",
+          "fallback": {
+            "type": "email",
+            "env": "CONTACT_EMAIL_TO"
+          }
+        }
+      }
+    ],
+
+    "deferred": [
+      {
+        "path": "/privacy",
+        "name": "privacy",
+        "type": "page",
+        "status": "deferred",
+        "reason": "DECISION-004: Legal pages deferred to post-launch"
+      },
+      {
+        "path": "/terms",
+        "name": "terms",
+        "type": "page",
+        "status": "deferred",
+        "reason": "DECISION-004: Legal pages deferred to post-launch"
+      }
+    ]
+  },
+
+  "navigation": {
+    "header": {
+      "primary": [
+        { "label": "Services", "href": "/services" },
+        { "label": "Station", "href": "/station" },
+        { "label": "How it works", "href": "/how-we-work" },
+        { "label": "Security", "href": "/security" },
+        { "label": "Contact", "href": "/contact" }
+      ],
+      "controls": [
+        { "type": "toggle", "id": "mode", "options": ["Human", "Agent"] },
+        { "type": "toggle", "id": "theme", "options": ["Paper", "Ink"] }
+      ]
+    },
+    "footer": {
+      "primary": [
+        { "label": "About", "href": "/about" },
+        { "label": "FAQ", "href": "/faq" },
+        { "label": "Contact", "href": "/contact" }
+      ],
+      "legal": [
+        { "label": "Privacy", "href": "/privacy", "status": "deferred" },
+        { "label": "Terms", "href": "/terms", "status": "deferred" }
+      ]
+    }
+  },
+
+  "summary": {
+    "totalRoutes": 14,
+    "implemented": 12,
+    "deferred": 2,
+    "breakdown": {
+      "primary": 4,
+      "secondary": 4,
+      "machine": 4,
+      "api": 1,
+      "deferred": 2
+    }
+  }
+}

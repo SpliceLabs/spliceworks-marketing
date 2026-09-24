@@ -1,0 +1,71 @@
+.path {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+}
+
+.stepWrap {
+  display: flex;
+  align-items: center;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--step-color, var(--color-line));
+  border-radius: var(--radius-panel);
+  background: var(--color-surface);
+  min-width: 100px;
+  text-align: center;
+}
+
+.stepDashed {
+  border-style: dashed;
+  border-width: 2px;
+}
+
+.stepLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--step-color, var(--color-muted));
+}
+
+.stepTitle {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-ink);
+}
+
+.connector {
+  width: 20px;
+  height: 1px;
+  background: var(--color-line);
+  flex-shrink: 0;
+}
+
+@media (max-width: 960px) {
+  .path {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stepWrap {
+    flex-direction: column;
+  }
+
+  .step {
+    min-width: 200px;
+  }
+
+  .connector {
+    width: 1px;
+    height: 20px;
+  }
+}

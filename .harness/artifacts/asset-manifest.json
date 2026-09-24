@@ -1,0 +1,155 @@
+{
+  "$schema": "../schemas/asset-manifest.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-06T12:00:00Z",
+  "designSystemPath": "design-system/",
+  "logos": {
+    "mark": {
+      "light": {
+        "source": "design-system/assets/logo/light/mark@2x.png",
+        "destination": "public/logo/light/mark@2x.png"
+      },
+      "dark": {
+        "source": "design-system/assets/logo/dark/mark@2x.png",
+        "destination": "public/logo/dark/mark@2x.png"
+      }
+    },
+    "lockupHorizontal": {
+      "light": {
+        "source": "design-system/assets/logo/light/lockup-horizontal@2x.png",
+        "destination": "public/logo/light/lockup-horizontal@2x.png"
+      },
+      "dark": {
+        "source": "design-system/assets/logo/dark/lockup-horizontal@2x.png",
+        "destination": "public/logo/dark/lockup-horizontal@2x.png"
+      }
+    },
+    "lockupVertical": {
+      "light": {
+        "source": "design-system/assets/logo/light/lockup-vertical@2x.png",
+        "destination": "public/logo/light/lockup-vertical@2x.png"
+      },
+      "dark": {
+        "source": "design-system/assets/logo/dark/lockup-vertical@2x.png",
+        "destination": "public/logo/dark/lockup-vertical@2x.png"
+      }
+    },
+    "lockupEndorsed": {
+      "light": {
+        "source": "design-system/assets/logo/light/lockup-endorsed@2x.png",
+        "destination": "public/logo/light/lockup-endorsed@2x.png"
+      },
+      "dark": {
+        "source": "design-system/assets/logo/dark/lockup-endorsed@2x.png",
+        "destination": "public/logo/dark/lockup-endorsed@2x.png"
+      }
+    },
+    "avatar": {
+      "light": {
+        "source": "design-system/assets/logo/light/avatar-512.png",
+        "destination": "public/logo/light/avatar-512.png"
+      },
+      "dark": {
+        "source": "design-system/assets/logo/dark/avatar-512.png",
+        "destination": "public/logo/dark/avatar-512.png"
+      }
+    },
+    "seal": {
+      "light": {
+        "source": "design-system/assets/logo/light/seal-512.png",
+        "destination": "public/logo/light/seal-512.png"
+      },
+      "dark": {
+        "source": "design-system/assets/logo/dark/seal-512.png",
+        "destination": "public/logo/dark/seal-512.png"
+      }
+    }
+  },
+  "favicons": [
+    {
+      "source": "design-system/assets/logo/light/favicon-16.png",
+      "destination": "public/favicon-16x16.png",
+      "size": 16,
+      "purpose": "favicon"
+    },
+    {
+      "source": "design-system/assets/logo/light/favicon-32.png",
+      "destination": "public/favicon-32x32.png",
+      "size": 32,
+      "purpose": "favicon"
+    },
+    {
+      "source": "design-system/assets/logo/light/favicon-48.png",
+      "destination": "public/favicon.ico",
+      "size": 48,
+      "purpose": "favicon"
+    },
+    {
+      "source": "design-system/assets/logo/light/apple-touch-icon-180.png",
+      "destination": "public/apple-touch-icon.png",
+      "size": 180,
+      "purpose": "apple-touch-icon"
+    },
+    {
+      "source": "design-system/assets/logo/light/android-chrome-192.png",
+      "destination": "public/android-chrome-192x192.png",
+      "size": 192,
+      "purpose": "android-chrome"
+    }
+  ],
+  "fonts": [
+    {
+      "family": "Bricolage Grotesque",
+      "source": "google-fonts",
+      "url": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&display=swap",
+      "weights": [300, 400, 500, 600, 700, 800],
+      "styles": ["normal"],
+      "variable": true
+    },
+    {
+      "family": "Space Mono",
+      "source": "google-fonts",
+      "url": "https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap",
+      "weights": [400, 700],
+      "styles": ["normal", "italic"],
+      "variable": false
+    }
+  ],
+  "templates": [
+    {
+      "source": "design-system/templates/habitat-hero/HabitatHero.dc.html",
+      "outputComponent": "src/components/template-components/HabitatHero.tsx",
+      "name": "HabitatHero",
+      "description": "Isometric 3D Station habitat hero with animated agents, gates, and chapters",
+      "usedOnRoutes": ["/"],
+      "dependencies": [
+        "design-system/templates/habitat-hero/support.js",
+        "design-system/templates/habitat-hero/ds-base.js"
+      ],
+      "props": [
+        { "name": "autoplay", "type": "boolean", "required": false },
+        { "name": "chapterSeconds", "type": "number", "required": false }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "Nav",
+      "source": "design-system/ui_kits/editorial-site/Nav.jsx",
+      "category": "core",
+      "needsConversion": true
+    },
+    {
+      "name": "Hero",
+      "source": "design-system/ui_kits/editorial-site/Hero.jsx",
+      "category": "core",
+      "needsConversion": true
+    },
+    {
+      "name": "Footer",
+      "source": "design-system/ui_kits/editorial-site/Footer.jsx",
+      "category": "core",
+      "needsConversion": true
+    }
+  ]
+}

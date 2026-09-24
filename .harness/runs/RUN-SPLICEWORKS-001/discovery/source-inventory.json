@@ -1,0 +1,148 @@
+{
+  "runId": "RUN-SPLICEWORKS-001",
+  "generatedAt": "2026-09-06T16:55:00Z",
+  "phase": "discovery",
+  "sources": {
+    "content": {
+      "core": [
+        {
+          "path": "content/SOURCE-OF-TRUTH.md",
+          "type": "markdown",
+          "purpose": "Company definition, offer, product, deployment models",
+          "sha256": "db92f6dbb2f4f5f972b66c4972b3fc85c1dd6fbba48eb66770d9191964acb639",
+          "status": "valid",
+          "parseable": true
+        },
+        {
+          "path": "content/VOICE.md",
+          "type": "markdown",
+          "purpose": "Voice and tone guidelines, do/don't rules, humanizer pass",
+          "sha256": "1b4e35a85b7316d4ff69f00afb804ffdd4e9029f071a4e8d7c85e9ccdf43d932",
+          "status": "valid",
+          "parseable": true
+        },
+        {
+          "path": "content/SITEMAP.md",
+          "type": "markdown",
+          "purpose": "Route definitions, navigation, homepage sections",
+          "sha256": "c6308949fdcec381421889294b2203a9224c9b032d5b19ab3498f7f1d5198019",
+          "status": "valid",
+          "parseable": true
+        }
+      ],
+      "directories": [
+        {
+          "path": "content/pages",
+          "purpose": "Page-specific content",
+          "status": "empty",
+          "note": "Directory exists but contains no files yet"
+        },
+        {
+          "path": "content/agent",
+          "purpose": "Agent-mode content",
+          "status": "empty",
+          "note": "Directory exists but contains no files yet"
+        },
+        {
+          "path": "content/discoverability",
+          "purpose": "SEO and discoverability content",
+          "status": "empty",
+          "note": "Directory exists but contains no files yet"
+        },
+        {
+          "path": "content/governance",
+          "purpose": "Governance and compliance content",
+          "status": "empty",
+          "note": "Directory exists but contains no files yet"
+        }
+      ]
+    },
+    "designSystem": {
+      "manifest": {
+        "path": "design-system/_ds_manifest.json",
+        "sha256": "0154d0c656fc50c8269bf67d0297b45d50994cb4c78e42e47efbd2e6783c1b4a",
+        "namespace": "SpliceWorksDesignSystem_f2e5fb",
+        "status": "valid"
+      },
+      "tokens": [
+        {
+          "path": "design-system/tokens/colors.css",
+          "sha256": "62c498f5777e756ddfba2fe8c0bc4a3ac3d02ffaae9531c6cf19c0dced2f42db",
+          "status": "valid"
+        },
+        {
+          "path": "design-system/tokens/typography.css",
+          "sha256": "14e4ae5ff4c45b7207c84e0648b996cd7f31648bfc5032dd1c095cde57105b74",
+          "status": "valid"
+        },
+        {
+          "path": "design-system/tokens/spacing.css",
+          "sha256": "30033454b8f8d71f10468cff13f968bee5bbb46f0302b58ef6807af32777d1d4",
+          "status": "valid"
+        },
+        {
+          "path": "design-system/tokens/effects.css",
+          "sha256": "c050a2932acf50429238d21104842ecd501354bcc1c0c095371eb14ae2709c50",
+          "status": "valid"
+        },
+        {
+          "path": "design-system/tokens/fonts.css",
+          "sha256": "c7eae2f5854729e017c1c116a94cc8228fe930d05c2b76f0aad0595c38077382",
+          "status": "valid"
+        },
+        {
+          "path": "design-system/tokens/base.css",
+          "sha256": "87b4e9ae40b07e4f41fb0ab1066a2dbcf190e9b0b3cb83f1b387f4f17114e4cc",
+          "status": "valid"
+        }
+      ],
+      "components": {
+        "core": ["Button", "Icon", "IconButton"],
+        "display": ["Badge", "Card", "Tabs", "Tag"],
+        "forms": ["Checkbox", "Input", "Radio", "Select", "Switch"],
+        "overlay": ["Dialog", "Toast", "Tooltip"]
+      },
+      "templates": [
+        {
+          "name": "Habitat hero",
+          "path": "design-system/templates/habitat-hero/HabitatHero.dc.html",
+          "description": "Isometric Station habitat hero with agents, gate, chapters; paper/ink theme toggle"
+        }
+      ],
+      "uiKits": [
+        {
+          "name": "editorial-site",
+          "path": "design-system/ui_kits/editorial-site/index.html",
+          "components": ["Hero", "Nav", "Footer", "Article", "ArticleGrid", "Subscribe"]
+        }
+      ],
+      "guidelines": {
+        "brand": ["joint-rule", "lockups", "mark", "small-sizes"],
+        "colors": ["blue-ramp", "brand", "ink-ramp", "joint-ramp", "pairings", "semantic-dark", "semantic-light", "status"],
+        "effects": ["borders", "motion", "shadows"],
+        "spacing": ["controls", "in-use", "layout", "radii", "scale"],
+        "type": ["body", "display", "headings", "label", "weights", "wordmark"]
+      }
+    },
+    "harness": {
+      "config": {
+        "path": ".harness/harness.yaml",
+        "status": "valid"
+      },
+      "workflow": {
+        "path": ".harness/workflows/new-site.yaml",
+        "phases": 8,
+        "status": "valid"
+      }
+    }
+  },
+  "summary": {
+    "totalFiles": 98,
+    "coreContentFiles": 3,
+    "designSystemTokenFiles": 6,
+    "designSystemComponents": 15,
+    "guidelineCategories": 5,
+    "allRequiredSourcesPresent": true,
+    "allSourcesParseable": true
+  }
+}

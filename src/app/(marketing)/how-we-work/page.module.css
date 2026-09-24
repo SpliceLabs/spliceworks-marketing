@@ -1,0 +1,458 @@
+/* Header */
+.header {
+  padding: var(--space-20) 0 var(--space-16);
+  border-bottom: 1px solid var(--color-line);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 498px;
+}
+
+.eyebrow {
+  display: flex;
+  gap: var(--space-3);
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+
+.eyebrow b {
+  font-weight: 500;
+  color: #2447E8;
+  white-space: nowrap;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, var(--text-display-lg));
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+  line-height: var(--display-leading);
+  margin-bottom: var(--space-4);
+  color: var(--color-ink);
+}
+
+.description {
+  font-size: 17px;
+  color: var(--color-muted);
+  max-width: 56ch;
+  line-height: 1.55;
+  margin-bottom: var(--space-6);
+}
+
+/* Timeline Progress */
+.timeline {
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-line);
+}
+
+.timelineLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.timelineBar {
+  height: 8px;
+  background: var(--color-line);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.timelineFill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #2447E8, #1E9E6A);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.timelineStages {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.timelineStage {
+  flex: 1;
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px solid var(--color-line);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.timelineStage:hover {
+  border-color: var(--stage-color, #2447E8);
+  color: var(--stage-color, #2447E8);
+}
+
+.timelineStageActive {
+  background: var(--stage-color, #2447E8);
+  border-color: var(--stage-color, #2447E8);
+  color: white;
+}
+
+/* Section */
+.section {
+  padding: var(--space-16) 0;
+}
+
+.stagesList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Stage Card */
+.stageCard {
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--color-surface);
+  transition: all 0.3s ease;
+}
+
+.stageCard::before {
+  content: "";
+  display: block;
+  height: 4px;
+  background: var(--stage-color, #2447E8);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.stageCardActive {
+  border-color: var(--stage-color, #2447E8);
+  box-shadow: 0 4px 12px rgba(36, 71, 232, 0.1);
+}
+
+.stageCardActive::before {
+  transform: scaleX(1);
+}
+
+.stageCardExpanded {
+  background: linear-gradient(135deg, #F8F9FF 0%, #FFFFFF 100%);
+}
+
+/* Stage Header (clickable) */
+.stageHeader {
+  display: flex;
+  gap: var(--space-6);
+  padding: var(--space-6);
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+
+.stageIndicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.stageNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--stage-color, #2447E8);
+  color: white;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.stageCard:hover .stageNumber {
+  transform: scale(1.05);
+}
+
+.stageConnector {
+  width: 2px;
+  height: 24px;
+  background: var(--color-line);
+  margin-top: 8px;
+}
+
+.stageConnectorActive {
+  background: linear-gradient(180deg, var(--stage-color, #2447E8), #7FA4FF);
+}
+
+.stageInfo {
+  flex: 1;
+}
+
+.stageTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-2);
+}
+
+.stageName {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.stageDuration {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 4px 10px;
+  background: #DCE4FF;
+  color: #2447E8;
+  border-radius: 999px;
+}
+
+.stageSummary {
+  font-size: 16px;
+  color: var(--color-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Stage Content */
+.stageContent {
+  padding: 0 var(--space-6) var(--space-6);
+  padding-left: calc(48px + var(--space-6) + var(--space-6));
+}
+
+.stageAgents {
+  margin-bottom: var(--space-4);
+}
+
+.agentsLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.agentsList {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.agentChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: white;
+  border: 1px solid #7FA4FF;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #2447E8;
+}
+
+.agentDot {
+  width: 6px;
+  height: 6px;
+  background: #2447E8;
+  border-radius: 50%;
+}
+
+/* Stage Details */
+.stageDetails {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+  margin-bottom: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px dashed var(--color-line);
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stageDetail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.detailTitle {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.detailList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.detailList li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--color-ink);
+}
+
+.detailDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Transition */
+.stageTransition {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-line);
+  font-size: 14px;
+}
+
+.transitionLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+
+.transitionValue {
+  color: var(--color-ink);
+}
+
+/* CTA */
+.cta {
+  padding: var(--space-16) 0;
+  background: var(--color-structure-soft);
+}
+
+.ctaContent {
+  max-width: 640px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-display-md);
+  font-weight: var(--display-weight);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-3);
+  color: var(--color-ink);
+}
+
+.ctaBody {
+  font-size: 17px;
+  color: var(--color-muted);
+  margin-bottom: var(--space-6);
+  line-height: 1.55;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: #2447E8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.ctaBtn:hover {
+  background: #1a35b8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(36, 71, 232, 0.35);
+}
+
+@media (max-width: 760px) {
+  .title {
+    font-size: 32px;
+  }
+
+  .timelineStages {
+    flex-wrap: wrap;
+  }
+
+  .timelineStage {
+    flex: 1 1 45%;
+  }
+
+  .stageHeader {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .stageIndicator {
+    flex-direction: row;
+    gap: var(--space-3);
+  }
+
+  .stageConnector {
+    width: 24px;
+    height: 2px;
+    margin-top: 0;
+  }
+
+  .stageContent {
+    padding-left: var(--space-6);
+  }
+
+  .stageDetails {
+    grid-template-columns: 1fr;
+  }
+
+  .stageTitleRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+}

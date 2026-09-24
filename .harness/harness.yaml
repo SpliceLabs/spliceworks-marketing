@@ -1,0 +1,19 @@
+id: generic-website-builder
+version: 0.1.0
+status: internal
+stateDirectory: .harness/runs
+defaultWorkflow: workflows/new-site.yaml
+contracts:
+  - contracts/core
+profiles:
+  - marketing
+  - agent-native
+adapters:
+  framework:
+    - nextjs
+  deployment:
+    - vercel
+humanGates:
+  - scope
+  - brand-copy
+  - production-release

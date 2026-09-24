@@ -1,0 +1,576 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Splice Works — Electric Field Guide Design Tokens
+   ========================================================================== */
+
+:root {
+  /* Ground colors */
+  --color-paper: #F6F4E9;
+  --color-surface: #FFFEF8;
+  --color-raised: #FFFFFF;
+
+  /* Text colors */
+  --color-ink: #152238;
+  --color-muted: #52607A;
+
+  /* Structure / lines */
+  --color-line: #D9D9CF;
+  --color-line-strong: #152238;
+  --color-structure: #D9D9CF;
+  --color-structure-soft: #EFEEE3;
+  --color-structure-deep: #7C8490;
+
+  /* Brand / systems (ultramarine) */
+  --color-primary: #2447E8;
+  --color-primary-mid: #68B5FF;
+  --color-primary-soft: #E3EEFF;
+
+  /* Accent (acid lime = discovery marking only, never state, never text) */
+  --color-accent: #B8E846;
+  --color-accent-soft: #EEF8D2;
+
+  /* Humans, judgment, approval */
+  --color-human: #FF6848;
+  --color-human-text: #B8371F;
+
+  /* Run states */
+  --color-attention: #FFC53D;
+  --color-attention-soft: #FFF1CC;
+  --color-complete: #216E4E;
+  --color-blocked: #B73838;
+  --color-state-idle: #A7AFBC;
+  --color-state-unknown: #7C6EA8;
+
+  /* Typography */
+  --font-display: var(--font-bricolage), system-ui, sans-serif;
+  --font-ui: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
+
+  /* Type scale */
+  --text-display-xl: 60px;
+  --text-display-lg: 40px;
+  --text-display-md: 26px;
+  --text-body: 16px;
+  --text-ui: 13px;
+  --text-mono: 11px;
+  --text-caption: 13px;
+
+  /* Display settings */
+  --display-weight: 600;
+  --display-tracking: -0.035em;
+  --display-leading: 0.98;
+
+  /* Measure */
+  --measure: 64ch;
+  --workspace: 1440px;
+
+  /* Spacing (4px scale) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* Shape */
+  --radius-panel: 4px;
+  --radius-ctrl: 4px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --duration-control: 150ms;
+  --duration-panel: 240ms;
+  --duration-move: 900ms;
+  --duration-route: 700ms;
+  --ease-move: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* Focus */
+  --focus-ring: 2px solid #68B5FF;
+  --focus-offset: 3px;
+
+  /* ==========================================================================
+     Semantic Aliases - Paper (Light) Theme
+     ========================================================================== */
+
+  --bg: var(--color-paper);
+  --bg-surface: var(--color-surface);
+  --bg-raised: var(--color-raised);
+
+  --text-body: var(--color-ink);
+  --text-secondary: var(--color-muted);
+  --text-on-accent: var(--color-ink);
+
+  --border: var(--color-line);
+  --border-strong: var(--color-line-strong);
+
+  --accent: var(--color-primary);
+  --accent-hover: #1C38C2;
+  --accent-soft: var(--color-primary-soft);
+
+  --link: var(--color-primary);
+  --link-hover: #1C38C2;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(21, 34, 56, 0.06);
+  --shadow-md: 0 4px 12px rgba(21, 34, 56, 0.08);
+  --shadow-lg: 0 12px 32px rgba(21, 34, 56, 0.12);
+  --shadow-focus: 0 0 0 3px rgba(104, 181, 255, 0.4);
+}
+
+/* ==========================================================================
+   Dark Operational Theme (Station, run consoles, inspection)
+   ========================================================================== */
+
+[data-theme="operational"],
+[data-theme="ink"],
+.operational {
+  --color-paper: #0F1A30;
+  --color-surface: #172542;
+  --color-raised: #1F3054;
+  --color-ink: #F6F4E9;
+  --color-muted: #AEB8CC;
+  --color-line: #2E3F66;
+  --color-line-strong: #F6F4E9;
+  --color-primary: #7FA4FF;
+  --color-primary-mid: #7FA4FF;
+  --color-primary-soft: #1F3054;
+  --color-human: #FF8E76;
+  --color-human-text: #FF8E76;
+  --color-attention: #FFD466;
+  --color-attention-soft: #1F3054;
+  --color-complete: #6FCB9A;
+  --color-blocked: #F27C7C;
+
+  --bg: var(--color-paper);
+  --bg-surface: var(--color-surface);
+  --bg-raised: var(--color-raised);
+  --text-body: var(--color-ink);
+  --text-secondary: var(--color-muted);
+  --border: var(--color-line);
+  --border-strong: var(--color-line-strong);
+  --accent: var(--color-primary);
+  --accent-hover: #A8C4FF;
+  --link: var(--color-primary);
+  --link-hover: #A8C4FF;
+
+  color: var(--color-ink);
+  background: var(--color-paper);
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--space-4);
+  z-index: 100;
+  padding: var(--space-2) var(--space-4);
+  background: var(--accent);
+  color: var(--text-on-accent);
+  border-radius: var(--radius-ctrl);
+  transition: top var(--duration-control) var(--ease-move);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+/* Links */
+a:not([class]) {
+  color: var(--link);
+  text-decoration: none;
+  transition: color var(--duration-control) ease-out;
+}
+
+a:not([class]):hover {
+  color: var(--link-hover);
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+  line-height: var(--display-leading);
+  color: var(--text-body);
+}
+
+h1 {
+  font-size: clamp(42px, 6vw, var(--text-display-xl));
+}
+
+h2 {
+  font-size: var(--text-display-lg);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: var(--text-display-md);
+  line-height: 1.1;
+}
+
+h4 {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+/* Eyebrow */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+.eyebrow-accent {
+  color: var(--color-primary);
+}
+
+/* Data text */
+.data {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* UI label */
+.ui-label {
+  font-family: var(--font-ui);
+  font-size: var(--text-ui);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  font-family: var(--font-ui);
+  font-size: var(--text-ui);
+  font-weight: 600;
+  border-radius: var(--radius-ctrl);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-control) ease-out,
+    border-color var(--duration-control) ease-out,
+    color var(--duration-control) ease-out,
+    transform var(--duration-control) ease-out,
+    box-shadow var(--duration-panel) ease-out;
+}
+
+.btn:focus-visible {
+  box-shadow: var(--shadow-focus);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Primary button */
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  background: #1C38C2;
+  border-color: #1C38C2;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(36, 71, 232, 0.3);
+}
+
+/* Secondary button */
+.btn-secondary {
+  background: transparent;
+  color: var(--color-ink);
+  border-color: var(--color-ink);
+}
+
+.btn-secondary:hover {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  transform: translateY(-2px);
+}
+
+/* Human button (approval actions) */
+.btn-human {
+  background: transparent;
+  color: var(--color-human-text);
+  border-color: var(--color-human-text);
+}
+
+.btn-human:hover {
+  background: var(--color-human);
+  color: white;
+  border-color: var(--color-human);
+}
+
+/* Quiet button */
+.btn-quiet {
+  background: transparent;
+  color: var(--text-secondary);
+  border-color: transparent;
+}
+
+.btn-quiet:hover {
+  color: var(--text-body);
+  background: var(--color-structure-soft);
+}
+
+/* Button disabled */
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   Tags / Status
+   ========================================================================== */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 2px 8px;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: var(--radius-pill);
+  background: var(--color-structure-soft);
+  color: var(--color-muted);
+}
+
+.tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.tag-ready { background: var(--color-primary-soft); color: var(--color-primary); }
+.tag-running { background: var(--color-primary-soft); color: var(--color-primary); }
+.tag-running .tag-dot { animation: pulse 1.6s ease-in-out infinite; }
+.tag-waiting { background: var(--color-attention-soft); color: var(--color-ink); }
+.tag-human { background: #FFEEE9; color: var(--color-human-text); }
+.tag-complete { background: #E6F4ED; color: var(--color-complete); }
+.tag-blocked { background: #FCE8E8; color: var(--color-blocked); }
+.tag-sample { background: var(--color-structure-soft); color: var(--color-muted); border: 1px dashed var(--color-line); }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ==========================================================================
+   Panels / Cards
+   ========================================================================== */
+
+.panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-panel);
+  padding: var(--space-6);
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-panel);
+  padding: var(--space-6);
+  transition:
+    transform var(--duration-panel) var(--ease-move),
+    box-shadow var(--duration-panel) ease-out,
+    border-color var(--duration-control) ease-out;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-line-strong);
+}
+
+.card:active {
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Form Fields
+   ========================================================================== */
+
+.field {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  background: var(--color-raised);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-ctrl);
+  padding: var(--space-3) var(--space-4);
+  transition:
+    border-color var(--duration-control) ease-out,
+    box-shadow var(--duration-control) ease-out;
+}
+
+.field:hover {
+  border-color: var(--color-structure-deep);
+}
+
+.field:focus {
+  border-color: var(--color-primary-mid);
+  box-shadow: var(--shadow-focus);
+  outline: none;
+}
+
+.field-invalid {
+  border-color: var(--color-blocked);
+}
+
+/* ==========================================================================
+   Rules / Hairlines
+   ========================================================================== */
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--color-line);
+  margin: var(--space-8) 0;
+}
+
+.rule-strong {
+  border-top-color: var(--color-line-strong);
+}
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--workspace);
+  margin-inline: auto;
+  padding-inline: clamp(var(--space-6), 5vw, var(--space-20));
+}
+
+.measure {
+  max-width: var(--measure);
+}
+
+.section {
+  padding-block: var(--space-24);
+}
+
+.section-sm {
+  padding-block: var(--space-16);
+}
+
+/* ==========================================================================
+   Micro-Interactions
+   ========================================================================== */
+
+.hover-lift {
+  transition: transform var(--duration-panel) var(--ease-move), box-shadow var(--duration-panel) ease-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.hover-scale {
+  transition: transform var(--duration-control) var(--ease-move);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+.hover-scale:active {
+  transform: scale(0.98);
+}
+
+.press:active {
+  transform: scale(0.96);
+}
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-control: 0ms;
+    --duration-panel: 0ms;
+    --duration-move: 0ms;
+    --duration-route: 0ms;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+[data-motion="reduced"] {
+  --duration-control: 0ms;
+  --duration-panel: 0ms;
+  --duration-move: 0ms;
+  --duration-route: 0ms;
+}

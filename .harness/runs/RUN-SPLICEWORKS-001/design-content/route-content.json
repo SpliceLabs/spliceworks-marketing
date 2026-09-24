@@ -1,0 +1,624 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Splice Works Route Content",
+  "description": "Content specifications for each route",
+  "version": "1.0.0",
+  "runId": "RUN-SPLICEWORKS-001",
+  "generatedAt": "2026-09-06",
+  "voiceSource": "content/VOICE.md",
+
+  "routes": {
+    "/": {
+      "path": "/",
+      "name": "home",
+      "contentFile": "content/pages/home.md",
+      "seo": {
+        "title": "Splice Works",
+        "titleSuffix": "AI-native consulting and delivery",
+        "description": "We help organizations deploy AI-native systems. From assessment through operation, with Station as your control plane."
+      },
+      "sections": [
+        {
+          "id": "hero",
+          "component": "HabitatHero",
+          "headline": "Deploy AI systems that stay under control.",
+          "subline": "From assessment through operation.",
+          "cta": {
+            "primary": { "label": "Start a conversation", "href": "/contact" },
+            "secondary": { "label": "See how we work", "href": "/how-we-work" }
+          }
+        },
+        {
+          "id": "outcome-input",
+          "component": "OutcomeInput",
+          "prompt": "What do you want to change?",
+          "placeholder": "Describe the outcome you are looking for"
+        },
+        {
+          "id": "stages",
+          "component": "StagesSection",
+          "eyebrow": "How we work",
+          "headline": "4 stages. One system.",
+          "stages": [
+            {
+              "number": 1,
+              "name": "Discover",
+              "summary": "Map your current state, identify high-value automation targets, define constraints."
+            },
+            {
+              "number": 2,
+              "name": "Design",
+              "summary": "Define architecture, plan implementation, set success criteria."
+            },
+            {
+              "number": 3,
+              "name": "Deploy",
+              "summary": "Build and ship the system with evidence and approvals."
+            },
+            {
+              "number": 4,
+              "name": "Operate",
+              "summary": "Monitor, maintain, and evolve deployed systems."
+            }
+          ],
+          "cta": { "label": "Learn how we work", "href": "/how-we-work" }
+        },
+        {
+          "id": "services",
+          "component": "ServicesOverview",
+          "eyebrow": "Services",
+          "headline": "5 ways we help.",
+          "services": [
+            { "name": "Assessment", "summary": "Map your current state. Identify what to automate first." },
+            { "name": "Hardening", "summary": "Security review, compliance alignment, risk mitigation." },
+            { "name": "Delivery", "summary": "Build and ship AI-native workflows end-to-end." },
+            { "name": "Station Deployment", "summary": "Install Station as your AI control plane." },
+            { "name": "Operations", "summary": "Ongoing monitoring, maintenance, and evolution." }
+          ],
+          "cta": { "label": "Explore services", "href": "/services" }
+        },
+        {
+          "id": "station",
+          "component": "StationSection",
+          "eyebrow": "The control plane",
+          "headline": "Station keeps you in control.",
+          "body": "Station orchestrates agents, enforces gates, tracks evidence, and provides Human/Agent mode views. You see what the agents see. You approve what matters.",
+          "features": [
+            "Run your agents",
+            "Enforce approval gates",
+            "Track decisions and artifacts",
+            "Human/Agent mode views"
+          ],
+          "cta": { "label": "Learn about Station", "href": "/station" }
+        },
+        {
+          "id": "governance",
+          "component": "GovernanceSection",
+          "eyebrow": "Governance",
+          "headline": "Every decision is tracked.",
+          "body": "Gates require approval before agents proceed. Every artifact is versioned. Every decision has an owner. Nothing moves without evidence.",
+          "points": [
+            "Gates block until approved",
+            "Artifacts are versioned",
+            "Decisions have owners",
+            "Evidence is required"
+          ]
+        },
+        {
+          "id": "deployment",
+          "component": "DeploymentSection",
+          "eyebrow": "Deployment",
+          "headline": "Run Station your way.",
+          "options": [
+            { "name": "Hosted", "description": "We run Station for you." },
+            { "name": "Self-hosted", "description": "You run Station on your infrastructure." },
+            { "name": "Hybrid", "description": "Split between hosted and self-hosted components." }
+          ]
+        },
+        {
+          "id": "proof",
+          "component": "ProofSection",
+          "eyebrow": "Evidence",
+          "headline": "Work you can inspect.",
+          "body": "Every engagement produces artifacts. Run states, decision records, evidence trails. The work is the proof."
+        },
+        {
+          "id": "contact-cta",
+          "component": "ContactCTA",
+          "headline": "Ready to deploy AI systems that stay under control?",
+          "body": "Tell us what you want to change.",
+          "cta": { "label": "Start a conversation", "href": "/contact" }
+        }
+      ]
+    },
+
+    "/services": {
+      "path": "/services",
+      "name": "services",
+      "contentFile": "content/pages/services.md",
+      "seo": {
+        "title": "Services",
+        "titleSuffix": "Splice Works",
+        "description": "Five core services: Assessment, Hardening, Delivery, Station Deployment, and Operations. End-to-end AI-native system deployment."
+      },
+      "sections": [
+        {
+          "id": "header",
+          "component": "PageHeader",
+          "eyebrow": "Services",
+          "headline": "5 ways we help.",
+          "body": "From mapping your current state through ongoing operations. Every engagement follows our 4-stage model."
+        },
+        {
+          "id": "services-grid",
+          "component": "ServicesGrid",
+          "services": [
+            {
+              "name": "Assessment",
+              "summary": "Map your current state, identify high-value automation targets, define constraints.",
+              "deliverables": [
+                "Current state inventory",
+                "Automation opportunity map",
+                "Constraint register",
+                "Prioritized roadmap"
+              ],
+              "timeline": "2-4 weeks"
+            },
+            {
+              "name": "Hardening",
+              "summary": "Security review, compliance alignment, risk mitigation for AI deployments.",
+              "deliverables": [
+                "Security assessment report",
+                "Compliance gap analysis",
+                "Risk mitigation plan",
+                "Remediation support"
+              ],
+              "timeline": "2-6 weeks"
+            },
+            {
+              "name": "Delivery",
+              "summary": "Build and ship AI-native workflows end-to-end.",
+              "deliverables": [
+                "Designed architecture",
+                "Implemented workflows",
+                "Integration documentation",
+                "Handoff and training"
+              ],
+              "timeline": "4-12 weeks"
+            },
+            {
+              "name": "Station Deployment",
+              "summary": "Install and configure Splice Station as your AI control plane.",
+              "deliverables": [
+                "Station instance configured",
+                "Agents onboarded",
+                "Gates defined",
+                "Team trained"
+              ],
+              "timeline": "2-4 weeks"
+            },
+            {
+              "name": "Operations",
+              "summary": "Ongoing monitoring, maintenance, and evolution of deployed systems.",
+              "deliverables": [
+                "System monitoring",
+                "Performance optimization",
+                "Continuous improvement",
+                "Incident response"
+              ],
+              "timeline": "Ongoing"
+            }
+          ]
+        },
+        {
+          "id": "contact-cta",
+          "component": "ContactCTA",
+          "headline": "Not sure which service fits?",
+          "body": "Start with an Assessment. We will map your situation and recommend next steps.",
+          "cta": { "label": "Start a conversation", "href": "/contact" }
+        }
+      ]
+    },
+
+    "/station": {
+      "path": "/station",
+      "name": "station",
+      "contentFile": "content/pages/station.md",
+      "seo": {
+        "title": "Station",
+        "titleSuffix": "Splice Works",
+        "description": "Splice Station is the control plane. Orchestrate agents, enforce gates, track evidence, and keep humans in control of AI operations."
+      },
+      "sections": [
+        {
+          "id": "header",
+          "component": "PageHeader",
+          "eyebrow": "Station",
+          "headline": "The control plane for AI operations.",
+          "body": "Station orchestrates agents, enforces gates, tracks evidence, and keeps humans in control."
+        },
+        {
+          "id": "overview",
+          "component": "StationOverview",
+          "points": [
+            {
+              "title": "Run your agents",
+              "body": "Station orchestrates agent execution. Define workflows, set triggers, monitor runs."
+            },
+            {
+              "title": "Enforce approval gates",
+              "body": "Gates block until approved. Automated checks, human reviews, or both. Nothing proceeds without passing."
+            },
+            {
+              "title": "Track decisions and artifacts",
+              "body": "Every decision has an owner. Every artifact is versioned. Evidence is required, not optional."
+            },
+            {
+              "title": "Human/Agent mode views",
+              "body": "See what the agents see. Human mode shows outcomes; Agent mode shows capabilities and schemas."
+            }
+          ]
+        },
+        {
+          "id": "deployment",
+          "component": "DeploymentSection",
+          "eyebrow": "Deployment options",
+          "headline": "Run Station your way.",
+          "options": [
+            {
+              "name": "Hosted",
+              "description": "We run Station for you. No infrastructure to manage.",
+              "features": ["Managed updates", "24/7 monitoring", "SLA-backed uptime"]
+            },
+            {
+              "name": "Self-hosted",
+              "description": "You run Station on your infrastructure. Full control.",
+              "features": ["Your cloud or on-prem", "Custom security controls", "Air-gapped deployment option"]
+            },
+            {
+              "name": "Hybrid",
+              "description": "Split between hosted and self-hosted components.",
+              "features": ["Control plane hosted", "Agents self-hosted", "Data stays on your infra"]
+            }
+          ]
+        },
+        {
+          "id": "contact-cta",
+          "component": "ContactCTA",
+          "headline": "Ready to deploy Station?",
+          "body": "Tell us about your environment and we will plan the deployment.",
+          "cta": { "label": "Start a conversation", "href": "/contact" }
+        }
+      ]
+    },
+
+    "/how-we-work": {
+      "path": "/how-we-work",
+      "name": "how-we-work",
+      "contentFile": "content/pages/how-we-work.md",
+      "seo": {
+        "title": "How we work",
+        "titleSuffix": "Splice Works",
+        "description": "Four stages: Discover, Design, Deploy, Operate. Every engagement follows this model."
+      },
+      "sections": [
+        {
+          "id": "header",
+          "component": "PageHeader",
+          "eyebrow": "How we work",
+          "headline": "4 stages. One system.",
+          "body": "Every engagement follows the same model. From mapping your current state through ongoing operations."
+        },
+        {
+          "id": "stages",
+          "component": "StagesJourney",
+          "stages": [
+            {
+              "number": 1,
+              "name": "Discover",
+              "summary": "Map your current state, identify high-value automation targets, define constraints.",
+              "activities": [
+                "Current state mapping",
+                "Opportunity identification",
+                "Constraint definition",
+                "Stakeholder alignment"
+              ],
+              "deliverables": [
+                "Source inventory",
+                "Automation opportunity map",
+                "Constraint register",
+                "Prioritized roadmap"
+              ],
+              "transition": "Scope approved by stakeholders"
+            },
+            {
+              "number": 2,
+              "name": "Design",
+              "summary": "Define architecture, plan implementation, set success criteria.",
+              "activities": [
+                "Architecture definition",
+                "Implementation planning",
+                "Success criteria",
+                "Risk assessment"
+              ],
+              "deliverables": [
+                "Architecture document",
+                "Implementation plan",
+                "Success metrics",
+                "Risk register"
+              ],
+              "transition": "Architecture approved, plan accepted"
+            },
+            {
+              "number": 3,
+              "name": "Deploy",
+              "summary": "Build and ship the system with evidence and approvals.",
+              "activities": [
+                "Implementation",
+                "Integration",
+                "Testing",
+                "Documentation"
+              ],
+              "deliverables": [
+                "Working system",
+                "Integration documentation",
+                "Test results",
+                "Handoff materials"
+              ],
+              "transition": "System accepted, team trained"
+            },
+            {
+              "number": 4,
+              "name": "Operate",
+              "summary": "Monitor, maintain, and evolve deployed systems.",
+              "activities": [
+                "Monitoring",
+                "Maintenance",
+                "Optimization",
+                "Evolution"
+              ],
+              "deliverables": [
+                "Performance reports",
+                "Incident records",
+                "Improvement recommendations",
+                "System updates"
+              ],
+              "transition": "Ongoing"
+            }
+          ]
+        },
+        {
+          "id": "contact-cta",
+          "component": "ContactCTA",
+          "headline": "Ready to start?",
+          "body": "Every engagement begins with Discover. Tell us what you want to change.",
+          "cta": { "label": "Start a conversation", "href": "/contact" }
+        }
+      ]
+    },
+
+    "/security": {
+      "path": "/security",
+      "name": "security",
+      "contentFile": "content/pages/security.md",
+      "seo": {
+        "title": "Security",
+        "titleSuffix": "Splice Works",
+        "description": "Security-first AI deployment. Access controls, audit trails, compliance alignment, and responsible data handling."
+      },
+      "sections": [
+        {
+          "id": "header",
+          "component": "PageHeader",
+          "eyebrow": "Security",
+          "headline": "Security is not optional.",
+          "body": "AI systems require rigorous controls. We build with security from the start, not as an afterthought."
+        },
+        {
+          "id": "principles",
+          "component": "SecurityPrinciples",
+          "principles": [
+            {
+              "name": "Access controls",
+              "body": "Role-based access. Principle of least privilege. Every permission is explicit."
+            },
+            {
+              "name": "Audit trails",
+              "body": "Every action is logged. Every decision is traceable. Nothing happens without a record."
+            },
+            {
+              "name": "Compliance alignment",
+              "body": "We work within your compliance requirements. SOC 2, GDPR, HIPAA-aligned deployments."
+            },
+            {
+              "name": "Data handling",
+              "body": "Your data stays under your control. We define data boundaries before work begins."
+            },
+            {
+              "name": "Gate enforcement",
+              "body": "Critical operations require approval. Gates block until conditions are met."
+            },
+            {
+              "name": "Evidence requirements",
+              "body": "Decisions require evidence. Artifacts are versioned. The audit trail is the proof."
+            }
+          ]
+        },
+        {
+          "id": "contact-cta",
+          "component": "ContactCTA",
+          "headline": "Need a security review?",
+          "body": "Our Hardening service evaluates your AI deployments for security and compliance.",
+          "cta": { "label": "Start a conversation", "href": "/contact" }
+        }
+      ]
+    },
+
+    "/about": {
+      "path": "/about",
+      "name": "about",
+      "contentFile": "content/pages/about.md",
+      "seo": {
+        "title": "About",
+        "titleSuffix": "Splice Works",
+        "description": "Splice Works is the consulting and delivery arm of Splice Labs. We help organizations deploy AI-native systems."
+      },
+      "sections": [
+        {
+          "id": "header",
+          "component": "PageHeader",
+          "eyebrow": "About",
+          "headline": "The consulting arm of Splice Labs.",
+          "body": "Splice Works is where Splice Labs meets the organizations that need AI systems deployed responsibly."
+        },
+        {
+          "id": "company",
+          "component": "CompanyOverview",
+          "content": {
+            "relationship": "Splice Works is the consulting and delivery arm of Splice Labs. We take what Splice Labs builds and deploy it in the real world.",
+            "mission": "We help organizations deploy AI-native systems that stay under control. From assessment through operation.",
+            "approach": "Every engagement produces reusable systems. We are not a staffing agency. We are not building one-off custom software. We build systems that persist."
+          }
+        },
+        {
+          "id": "not",
+          "component": "WhatWeAreNot",
+          "headline": "What we are not.",
+          "points": [
+            "Not a staffing agency",
+            "Not a bespoke dev shop",
+            "Not building one-off custom software",
+            "Every engagement produces reusable systems"
+          ]
+        },
+        {
+          "id": "contact-cta",
+          "component": "ContactCTA",
+          "headline": "Want to work with us?",
+          "body": "Tell us what you want to change.",
+          "cta": { "label": "Start a conversation", "href": "/contact" }
+        }
+      ]
+    },
+
+    "/contact": {
+      "path": "/contact",
+      "name": "contact",
+      "contentFile": "content/pages/contact.md",
+      "seo": {
+        "title": "Contact",
+        "titleSuffix": "Splice Works",
+        "description": "Start a conversation about your AI deployment needs. Tell us what you want to change."
+      },
+      "sections": [
+        {
+          "id": "header",
+          "component": "PageHeader",
+          "eyebrow": "Contact",
+          "headline": "Start a conversation.",
+          "body": "Tell us what you want to change. We will map your situation and recommend next steps."
+        },
+        {
+          "id": "form",
+          "component": "ContactForm",
+          "fields": [
+            { "name": "name", "label": "Name", "type": "text", "required": true, "placeholder": "Your name" },
+            { "name": "email", "label": "Email", "type": "email", "required": true, "placeholder": "you@company.com" },
+            { "name": "company", "label": "Company", "type": "text", "required": false, "placeholder": "Your company" },
+            { "name": "role", "label": "Role", "type": "text", "required": false, "placeholder": "Your role" },
+            { "name": "serviceInterest", "label": "Service interest", "type": "select", "required": false, "options": ["Assessment", "Hardening", "Delivery", "Station Deployment", "Operations", "Not sure yet"] },
+            { "name": "timeline", "label": "Timeline", "type": "select", "required": false, "options": ["Immediately", "1-3 months", "3-6 months", "6+ months", "Exploring"] },
+            { "name": "message", "label": "What do you want to change?", "type": "textarea", "required": false, "placeholder": "Describe the outcome you are looking for" }
+          ],
+          "submit": { "label": "Send", "submitting": "Sending..." },
+          "success": { "headline": "Message sent.", "body": "We will be in touch." }
+        }
+      ]
+    },
+
+    "/faq": {
+      "path": "/faq",
+      "name": "faq",
+      "contentFile": "content/pages/faq.md",
+      "seo": {
+        "title": "FAQ",
+        "titleSuffix": "Splice Works",
+        "description": "Frequently asked questions about Splice Works services, Station, security, and engagements."
+      },
+      "sections": [
+        {
+          "id": "header",
+          "component": "PageHeader",
+          "eyebrow": "FAQ",
+          "headline": "Common questions.",
+          "body": "Answers to questions we hear most often."
+        },
+        {
+          "id": "faq",
+          "component": "FAQAccordion",
+          "categories": [
+            {
+              "name": "Services",
+              "questions": [
+                { "q": "How long does an engagement take?", "a": "Depends on the service. Assessments are 2-4 weeks. Delivery projects are 4-12 weeks. Operations is ongoing." },
+                { "q": "Do you work with specific industries?", "a": "We work with organizations that need AI systems deployed responsibly. Industry matters less than the problem you are solving." },
+                { "q": "What if we already have AI systems running?", "a": "Start with a Hardening engagement. We will assess what you have and identify security and compliance gaps." }
+              ]
+            },
+            {
+              "name": "Station",
+              "questions": [
+                { "q": "What is Station?", "a": "Station is the control plane for AI operations. It orchestrates agents, enforces gates, and tracks evidence." },
+                { "q": "Can we self-host Station?", "a": "Yes. Hosted, self-hosted, or hybrid deployments are all supported." },
+                { "q": "Does Station work with existing agent frameworks?", "a": "Station is framework-agnostic. It orchestrates agents regardless of how they are built." }
+              ]
+            },
+            {
+              "name": "Security",
+              "questions": [
+                { "q": "Is Station SOC 2 compliant?", "a": "Hosted Station is SOC 2 Type II compliant. Self-hosted deployments inherit your compliance posture." },
+                { "q": "Where does our data go?", "a": "Your data stays under your control. We define data boundaries before work begins." },
+                { "q": "What about air-gapped deployments?", "a": "Self-hosted Station can run in air-gapped environments." }
+              ]
+            },
+            {
+              "name": "Engagements",
+              "questions": [
+                { "q": "How do we get started?", "a": "Start with a conversation. Tell us what you want to change and we will map next steps." },
+                { "q": "What does pricing look like?", "a": "Engagements are scoped and priced after an initial conversation. No generic rate cards." },
+                { "q": "Can we start with a small pilot?", "a": "Yes. Many engagements start with a focused Assessment before expanding." }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "contact-cta",
+          "component": "ContactCTA",
+          "headline": "Question not answered?",
+          "body": "Ask us directly.",
+          "cta": { "label": "Start a conversation", "href": "/contact" }
+        }
+      ]
+    }
+  },
+
+  "sharedContent": {
+    "navigation": {
+      "header": [
+        { "label": "Services", "href": "/services" },
+        { "label": "Station", "href": "/station" },
+        { "label": "How it works", "href": "/how-we-work" },
+        { "label": "Security", "href": "/security" },
+        { "label": "Contact", "href": "/contact" }
+      ],
+      "footer": [
+        { "label": "About", "href": "/about" },
+        { "label": "FAQ", "href": "/faq" },
+        { "label": "Contact", "href": "/contact" }
+      ]
+    },
+    "footer": {
+      "endorsement": "A Splice Labs company"
+    }
+  }
+}

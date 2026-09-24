@@ -1,0 +1,316 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Splice Works Claims Register",
+  "description": "Tracks claims that need verification",
+  "version": "1.0.0",
+  "runId": "RUN-SPLICEWORKS-001",
+  "generatedAt": "2026-09-06",
+  "sourceFile": "content/SOURCE-OF-TRUTH.md",
+
+  "claims": [
+    {
+      "id": "CLAIM-001",
+      "category": "company",
+      "claim": "Splice Works is the consulting and delivery arm of Splice Labs",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/", "/about"],
+      "notes": "Foundational positioning statement"
+    },
+    {
+      "id": "CLAIM-002",
+      "category": "company",
+      "claim": "Domain is spliceworks.ai",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["site-wide"],
+      "notes": "Verified in DECISION-005"
+    },
+    {
+      "id": "CLAIM-003",
+      "category": "services",
+      "claim": "Five core services: Assessment, Hardening, Delivery, Station Deployment, Operations",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/", "/services"],
+      "notes": "Core service offering"
+    },
+    {
+      "id": "CLAIM-004",
+      "category": "services",
+      "claim": "Assessment maps current state, identifies automation targets, defines constraints",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/services"],
+      "notes": "Service description"
+    },
+    {
+      "id": "CLAIM-005",
+      "category": "services",
+      "claim": "Hardening includes security review, compliance alignment, risk mitigation",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/services", "/security"],
+      "notes": "Service description"
+    },
+    {
+      "id": "CLAIM-006",
+      "category": "services",
+      "claim": "Delivery builds and ships AI-native workflows end-to-end",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/services"],
+      "notes": "Service description"
+    },
+    {
+      "id": "CLAIM-007",
+      "category": "services",
+      "claim": "Station Deployment installs and configures Splice Station as AI control plane",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/services", "/station"],
+      "notes": "Service description"
+    },
+    {
+      "id": "CLAIM-008",
+      "category": "services",
+      "claim": "Operations provides ongoing monitoring, maintenance, and evolution",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/services"],
+      "notes": "Service description"
+    },
+    {
+      "id": "CLAIM-009",
+      "category": "product",
+      "claim": "Station is the control plane",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/", "/station"],
+      "notes": "Core product positioning"
+    },
+    {
+      "id": "CLAIM-010",
+      "category": "product",
+      "claim": "Station orchestrates agents",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/station"],
+      "notes": "Product capability"
+    },
+    {
+      "id": "CLAIM-011",
+      "category": "product",
+      "claim": "Station enforces approval gates",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/station", "/"],
+      "notes": "Product capability"
+    },
+    {
+      "id": "CLAIM-012",
+      "category": "product",
+      "claim": "Station tracks decisions and artifacts",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/station", "/"],
+      "notes": "Product capability"
+    },
+    {
+      "id": "CLAIM-013",
+      "category": "product",
+      "claim": "Station provides Human/Agent mode views",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/station", "/"],
+      "notes": "Product capability"
+    },
+    {
+      "id": "CLAIM-014",
+      "category": "deployment",
+      "claim": "Hosted deployment: We run Station for you",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/station", "/"],
+      "notes": "Deployment option"
+    },
+    {
+      "id": "CLAIM-015",
+      "category": "deployment",
+      "claim": "Self-hosted deployment: You run Station on your infrastructure",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/station", "/"],
+      "notes": "Deployment option"
+    },
+    {
+      "id": "CLAIM-016",
+      "category": "deployment",
+      "claim": "Hybrid deployment: Split between hosted and self-hosted",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/station", "/"],
+      "notes": "Deployment option"
+    },
+    {
+      "id": "CLAIM-017",
+      "category": "methodology",
+      "claim": "4-stage delivery model: Discover, Design, Deploy, Operate",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/", "/how-we-work"],
+      "notes": "Confirmed in DECISION-006"
+    },
+    {
+      "id": "CLAIM-018",
+      "category": "methodology",
+      "claim": "Every engagement follows the 4-stage model",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/how-we-work"],
+      "notes": "Methodology claim"
+    },
+    {
+      "id": "CLAIM-019",
+      "category": "positioning",
+      "claim": "Not a staffing agency",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/about"],
+      "notes": "Positioning differentiation"
+    },
+    {
+      "id": "CLAIM-020",
+      "category": "positioning",
+      "claim": "Not a bespoke dev shop",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/about"],
+      "notes": "Positioning differentiation"
+    },
+    {
+      "id": "CLAIM-021",
+      "category": "positioning",
+      "claim": "Not building one-off custom software",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/about"],
+      "notes": "Positioning differentiation"
+    },
+    {
+      "id": "CLAIM-022",
+      "category": "positioning",
+      "claim": "Every engagement produces reusable systems",
+      "source": "SOURCE-OF-TRUTH.md",
+      "status": "approved",
+      "usedIn": ["/about"],
+      "notes": "Value proposition"
+    },
+    {
+      "id": "CLAIM-023",
+      "category": "security",
+      "claim": "Hosted Station is SOC 2 Type II compliant",
+      "source": "FAQ content",
+      "status": "needs-verification",
+      "usedIn": ["/faq", "/security"],
+      "notes": "Requires verification from security team before publication",
+      "verificationRequired": "Security Lead"
+    },
+    {
+      "id": "CLAIM-024",
+      "category": "security",
+      "claim": "Self-hosted Station supports air-gapped deployments",
+      "source": "FAQ content",
+      "status": "needs-verification",
+      "usedIn": ["/faq", "/station"],
+      "notes": "Requires verification from engineering team",
+      "verificationRequired": "Engineering Lead"
+    },
+    {
+      "id": "CLAIM-025",
+      "category": "services",
+      "claim": "Assessments take 2-4 weeks",
+      "source": "route-content.json",
+      "status": "needs-verification",
+      "usedIn": ["/services", "/faq"],
+      "notes": "Timeline claim - verify with delivery team",
+      "verificationRequired": "Engagement Lead"
+    },
+    {
+      "id": "CLAIM-026",
+      "category": "services",
+      "claim": "Delivery projects take 4-12 weeks",
+      "source": "route-content.json",
+      "status": "needs-verification",
+      "usedIn": ["/services", "/faq"],
+      "notes": "Timeline claim - verify with delivery team",
+      "verificationRequired": "Engagement Lead"
+    },
+    {
+      "id": "CLAIM-027",
+      "category": "services",
+      "claim": "Station Deployment takes 2-4 weeks",
+      "source": "route-content.json",
+      "status": "needs-verification",
+      "usedIn": ["/services"],
+      "notes": "Timeline claim - verify with delivery team",
+      "verificationRequired": "Engagement Lead"
+    },
+    {
+      "id": "CLAIM-028",
+      "category": "services",
+      "claim": "Hardening takes 2-6 weeks",
+      "source": "route-content.json",
+      "status": "needs-verification",
+      "usedIn": ["/services"],
+      "notes": "Timeline claim - verify with delivery team",
+      "verificationRequired": "Engagement Lead"
+    }
+  ],
+
+  "summary": {
+    "total": 28,
+    "approved": 22,
+    "needsVerification": 6,
+    "rejected": 0
+  },
+
+  "verificationQueue": [
+    {
+      "claimId": "CLAIM-023",
+      "owner": "Security Lead",
+      "priority": "high",
+      "reason": "Compliance claim requires documentation"
+    },
+    {
+      "claimId": "CLAIM-024",
+      "owner": "Engineering Lead",
+      "priority": "medium",
+      "reason": "Technical capability claim"
+    },
+    {
+      "claimId": "CLAIM-025",
+      "owner": "Engagement Lead",
+      "priority": "low",
+      "reason": "Timeline guidance"
+    },
+    {
+      "claimId": "CLAIM-026",
+      "owner": "Engagement Lead",
+      "priority": "low",
+      "reason": "Timeline guidance"
+    },
+    {
+      "claimId": "CLAIM-027",
+      "owner": "Engagement Lead",
+      "priority": "low",
+      "reason": "Timeline guidance"
+    },
+    {
+      "claimId": "CLAIM-028",
+      "owner": "Engagement Lead",
+      "priority": "low",
+      "reason": "Timeline guidance"
+    }
+  ]
+}

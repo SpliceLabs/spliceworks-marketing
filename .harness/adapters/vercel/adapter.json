@@ -1,0 +1,15 @@
+{
+  "id": "vercel",
+  "provider": "Vercel",
+  "previewCommand": "vercel",
+  "productionCommand": "vercel --prod",
+  "requiresHumanApproval": true,
+  "evidence": [
+    "commit",
+    "build results",
+    "preview URL",
+    "environment",
+    "approver",
+    "rollback target"
+  ]
+}

@@ -1,0 +1,21 @@
+version: 1
+severity:
+  releaseBlocking: [critical, high]
+rules:
+  selfApprovalAllowed: false
+  humanApprovalRequiredFor:
+    - brand and public copy
+    - customer claims
+    - external integrations
+    - paid resources
+    - domain changes
+    - production release
+  automatedEvidenceRequired:
+    - command
+    - exitCode
+    - timestamp
+    - commit
+proofClasses:
+  - sample
+  - redacted
+  - customer-approved

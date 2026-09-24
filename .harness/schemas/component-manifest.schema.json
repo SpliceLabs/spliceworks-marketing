@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["version", "components"],
+  "properties": {
+    "version": {"type": "integer"},
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "category", "status", "sources"],
+        "properties": {
+          "name": {"type": "string"},
+          "category": {"enum": ["navigation", "header", "hero", "action", "form", "display", "layout", "footer", "motion", "other"]},
+          "status": {"enum": ["reference", "specified", "implemented", "approved"]},
+          "sources": {"type": "array", "items": {"type": "string"}},
+          "variants": {"type": "array", "items": {"type": "string"}},
+          "states": {"type": "array", "items": {"type": "string"}},
+          "notes": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,155 @@
+.footer {
+  background: #0F1A30;
+  color: #F6F4E9;
+  padding: 64px 32px 40px;
+  border-top: 1px solid #2E3F66;
+}
+
+.footerInner {
+  max-width: var(--workspace);
+  margin: 0 auto;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+@media (max-width: 768px) {
+  .footerGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #AEB8CC;
+  max-width: 32ch;
+  margin: 4px 0 0;
+  line-height: 1.55;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.columnTitle {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7C8490;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #2E3F66;
+}
+
+.link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: #AEB8CC;
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 4px 0;
+  transition:
+    color 150ms ease-out,
+    transform 150ms ease-out;
+}
+
+.link::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  width: 4px;
+  height: 4px;
+  background: #2447E8;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  transition:
+    opacity 150ms ease-out,
+    transform 150ms ease-out;
+}
+
+.link:hover {
+  color: #F6F4E9;
+  transform: translateX(6px);
+}
+
+.link:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.footerBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid #2E3F66;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7C8490;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6FCB9A;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6FCB9A;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@media (max-width: 640px) {
+  .footerBottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .statusDot {
+    animation: none;
+  }
+
+  .link {
+    transition: none;
+  }
+}
