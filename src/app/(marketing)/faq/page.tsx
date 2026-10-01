@@ -11,7 +11,7 @@ const faqCategories = [
     questions: [
       {
         q: "How long does an engagement take?",
-        a: "Depends on the surface and the work. Diagnose usually runs 2-4 weeks. Deploy runs 4-12 weeks. Operate and scale doesn't stop — that's the point.",
+        a: "Depends on the surface and the work. Diagnose runs 1-2 weeks, and your Brain goes live early in the engagement. Full deployment — integrations, governance, Station configuration — typically wraps in 4-12 weeks. Operate and scale doesn't stop — that's the point.",
       },
       {
         q: "Do you work with specific industries?",
@@ -24,23 +24,19 @@ const faqCategories = [
     ],
   },
   {
-    name: "Station and Hestia",
+    name: "The Brain and Station",
     questions: [
       {
+        q: "What is the Brain?",
+        a: "The Brain is the shared knowledge layer we build first: everything your company knows, in one place your people use every day. It's the AI-enabled step, before agents start doing the work.",
+      },
+      {
         q: "What is Station?",
-        a: "Station is the governed platform underneath everything we build. It orchestrates agents, enforces gates, and tracks evidence. By itself, it does nothing — it needs a configuration built for your work.",
-      },
-      {
-        q: "What is Hestia?",
-        a: "Hestia is what Station becomes once we configure it for you: permissioned, audited, and yours to run after we leave.",
-      },
-      {
-        q: "What is Hermes?",
-        a: "Hermes is our internal engagement toolkit, used during diagnose and deploy work. It's not a product we hand you — it's how we work.",
+        a: "Station is the governed platform that puts the Brain to work. It orchestrates agents, enforces gates, and tracks evidence. By itself, it does nothing — it needs a configuration built for your work.",
       },
       {
         q: "Can we self-host Station?",
-        a: "Yes. Hosted, self-hosted, or hybrid — all supported.",
+        a: "Yes. You can run it fully managed, in your own cloud, self-hosted, or hybrid — you're never locked into us.",
       },
       {
         q: "Does Station work with existing agent frameworks?",
@@ -51,10 +47,6 @@ const faqCategories = [
   {
     name: "Security",
     questions: [
-      {
-        q: "Is Station SOC 2 compliant?",
-        a: "Hosted Station is SOC 2 Type II compliant. Self-hosted deployments inherit your own compliance posture.",
-      },
       {
         q: "Where does our data go?",
         a: "Your data stays under your control. We define the boundaries before work starts, not after.",
@@ -165,7 +157,7 @@ export default function FAQPage() {
           <h2 className={shared.ctaHeadline}>Question not answered?</h2>
           <p className={shared.ctaBody}>Ask us directly.</p>
           <Link href="/contact" className="btn btn-primary">
-            Start a conversation
+            Book a working session
           </Link>
         </div>
       </section>

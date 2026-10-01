@@ -40,7 +40,7 @@ const deploymentOptions = [
   {
     id: "cloud",
     name: "Cloud",
-    description: "We run Station for you on managed cloud infrastructure. Brains and harnesses live day one.",
+    description: "We run Station for you on managed cloud infrastructure — your Brain and agent harnesses live day one.",
     features: ["Managed updates", "24/7 monitoring", "SLA-backed uptime"],
     recommended: true,
     color: "#2447E8",
@@ -48,7 +48,7 @@ const deploymentOptions = [
   {
     id: "byoc",
     name: "Bring your own cloud",
-    description: "Station deploys inside your own cloud account. You keep the infrastructure boundary, we operate the platform.",
+    description: "Station deploys inside your own cloud account. You keep the infrastructure boundary, we still operate the platform.",
     features: [
       "Deploys into your AWS, GCP, or Azure",
       "Data stays inside your account",
@@ -56,6 +56,30 @@ const deploymentOptions = [
     ],
     recommended: false,
     color: "#1E9E6A",
+  },
+  {
+    id: "self-hosted",
+    name: "Self-hosted",
+    description: "You run Station entirely on your own infrastructure — we don't operate it. Full control, never locked in.",
+    features: [
+      "Your cloud or on-prem",
+      "Custom security controls",
+      "Air-gapped deployment option",
+    ],
+    recommended: false,
+    color: "#D98E14",
+  },
+  {
+    id: "hybrid",
+    name: "Hybrid",
+    description: "Split between hosted and self-hosted components. We run the control plane, you keep the agents and data on your own infrastructure.",
+    features: [
+      "Control plane hosted",
+      "Agents self-hosted",
+      "Data stays on your infrastructure",
+    ],
+    recommended: false,
+    color: "#9B59B6",
   },
 ];
 
@@ -68,16 +92,16 @@ export default function StationPage() {
     <>
       <HabitatHero autoplay={true} chapterSeconds={4} />
 
-      {/* What gets deployed becomes your Hestia */}
+      {/* What gets deployed is yours to keep */}
       <section className={styles.section}>
         <div className="container">
           <div className={styles.sectionHeader}>
             <span className={styles.sectionNum}>02</span>
-            <h2 className={styles.sectionTitle}>What gets deployed becomes your Hestia</h2>
+            <h2 className={styles.sectionTitle}>What gets deployed is yours to keep</h2>
             <p className={styles.sectionSub}>
-              Every engagement runs a configuration on Station. What we build
-              and leave behind is Hestia — hardened, permissioned, and yours
-              to run once we&apos;re gone.
+              Every engagement runs a configuration on Station — hardened,
+              permissioned, and connected to the Brain your people already
+              use. It&apos;s yours to run once we&apos;re gone.
             </p>
           </div>
         </div>
@@ -129,7 +153,7 @@ export default function StationPage() {
           <div className={styles.sectionHeader}>
             <span className={styles.sectionNum}>04</span>
             <h2 className={styles.sectionTitle}>Deployment options</h2>
-            <p className={styles.sectionSub}>Cloud by default. Bring your own cloud when you need the infrastructure boundary.</p>
+            <p className={styles.sectionSub}>Managed by default, portable by design. You're never locked in — bring your own cloud, or self-host, whenever you need the infrastructure boundary.</p>
           </div>
           <div className={styles.deploymentGrid}>
             {deploymentOptions.map((option) => (
@@ -206,12 +230,12 @@ export default function StationPage() {
       <section className={styles.cta}>
         <div className="container">
           <div className={styles.ctaContent}>
-            <h2 className={styles.ctaTitle}>Ready to deploy your Hestia instance?</h2>
+            <h2 className={styles.ctaTitle}>Ready to deploy Station?</h2>
             <p className={styles.ctaBody}>
               Tell us about your environment. We&apos;ll plan the deployment.
             </p>
             <Link href="/contact" className={styles.ctaBtn}>
-              Start a conversation →
+              Book a working session →
             </Link>
           </div>
         </div>

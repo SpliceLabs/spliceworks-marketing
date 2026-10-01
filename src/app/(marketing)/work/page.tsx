@@ -12,15 +12,15 @@ const internal = [
     color: "#2447E8",
   },
   {
-    id: "hermes",
-    name: "Hermes",
+    id: "delivery",
+    name: "Our delivery practice",
     body: "Our engagement toolkit. Engineers use it to move faster through diagnosis and delivery. It's ours — it never ships to you.",
     color: "#D98E14",
   },
   {
-    id: "helios",
-    name: "Helios",
-    body: "Splice Labs' venture studio runs Helios, one of its own AI-native companies, on Station. Same platform, same rules, no special treatment.",
+    id: "venture-studio",
+    name: "Our venture studio",
+    body: "Splice Labs' venture studio runs one of its own AI-native companies on Station. Same platform, same rules, no special treatment.",
     color: "#1E9E6A",
   },
 ];
@@ -41,8 +41,8 @@ export default function WorkPage() {
           <h1 className={styles.title}>We run this on ourselves first.</h1>
           <p className={styles.description}>
             Before Station goes into a client&apos;s stack, it runs ours.
-            Splice Labs and Splice Works operate on Station and Hermes
-            internally, every day.
+            Splice Labs and Splice Works operate on Station internally,
+            every day.
           </p>
         </div>
       </section>
@@ -89,7 +89,7 @@ export default function WorkPage() {
               Station actually looks like.
             </p>
             <Link href="/contact" className={styles.ctaBtn}>
-              Start a conversation →
+              Book a working session →
             </Link>
           </div>
         </div>

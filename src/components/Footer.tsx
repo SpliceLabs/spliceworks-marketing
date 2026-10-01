@@ -10,7 +10,6 @@ const footerColumns = [
     links: [
       { label: "Services", href: "/services" },
       { label: "Station", href: "/station" },
-      { label: "Work", href: "/work" },
       { label: "How it works", href: "/how-we-work" },
       { label: "Security", href: "/security" },
     ],
@@ -50,7 +49,7 @@ export function Footer() {
               />
             </Link>
             <p className={styles.description}>
-              We turn your company AI-native, then leave you Hestia to run it yourself.
+              Put AI to work. Keep people accountable.
             </p>
           </div>
 

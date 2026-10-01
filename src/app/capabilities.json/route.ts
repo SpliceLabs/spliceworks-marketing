@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 const capabilities = {
   name: "Splice Works",
   description:
-    "The AI-transformation firm inside Splice Labs Group. We find where AI creates real leverage, build the systems that capture it, and stay accountable through production.",
+    "A forward-deployed team inside Splice Labs Group for knowledge-heavy companies with an AI mandate and no path to production. We put AI to work and keep a named human accountable at every gate.",
   url: "https://spliceworks.ai",
   company: "Splice Labs Group",
 
@@ -61,7 +61,7 @@ const capabilities = {
   station: {
     name: "Splice Station",
     description:
-      "The governed platform underneath everything we build. By itself, Station does nothing — it needs a configuration built for the work.",
+      "The governed platform that puts the Brain to work through agents. By itself, Station does nothing — it needs a configuration built for the work. Never locked in: managed by default, portable by design.",
     capabilities: [
       "Harness orchestration",
       "Approval gate enforcement",
@@ -70,27 +70,32 @@ const capabilities = {
     ],
     deploymentOptions: [
       {
-        id: "hosted",
-        name: "Hosted",
-        description: "We run Station for you. No infrastructure to manage.",
+        id: "cloud",
+        name: "Cloud",
+        description: "We run Station for you on managed cloud infrastructure. No infrastructure to manage.",
+      },
+      {
+        id: "byoc",
+        name: "Bring your own cloud",
+        description: "Station deploys inside your own cloud account. You keep the infrastructure boundary, we still operate the platform.",
       },
       {
         id: "self-hosted",
         name: "Self-hosted",
-        description: "You run Station on your infrastructure. Full control.",
+        description: "You run Station entirely on your own infrastructure — we don't operate it. Full control, never locked in.",
       },
       {
         id: "hybrid",
         name: "Hybrid",
-        description: "Split between hosted and self-hosted components.",
+        description: "Split between hosted and self-hosted components. We run the control plane, you keep the agents and data on your own infrastructure.",
       },
     ],
   },
 
-  hestia: {
-    name: "Hestia",
+  brain: {
+    name: "The Brain",
     description:
-      "What Station becomes once configured for a client. The reusable, permissioned, audited operating backbone left behind after an engagement — not a one-off project.",
+      "The shared knowledge layer we build first: everything a company knows, in one place its people use every day. The AI-enabled step, live early in the engagement, before Station and agents take on the work.",
   },
 
   process: {
@@ -100,7 +105,7 @@ const capabilities = {
         name: "Diagnose",
         description:
           "Map how work actually moves across people, systems, data, and decisions. Score opportunities and recommend architecture.",
-        duration: "2-4 weeks",
+        duration: "1-2 weeks",
       },
       {
         number: 2,
@@ -128,7 +133,7 @@ const capabilities = {
       "Gate enforcement",
       "Evidence requirements",
     ],
-    compliance: ["SOC 2 Type II", "GDPR", "HIPAA-aligned"],
+    compliance: ["GDPR", "Custom frameworks"],
   },
 
   contact: {

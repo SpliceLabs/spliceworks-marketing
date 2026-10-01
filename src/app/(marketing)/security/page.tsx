@@ -25,8 +25,8 @@ const principles = [
   {
     id: "compliance",
     name: "Compliance alignment",
-    body: "We build inside your compliance requirements — SOC 2, GDPR, HIPAA-aligned, whatever your world demands.",
-    details: ["SOC 2 Type II", "GDPR compliance", "HIPAA alignment", "Custom frameworks"],
+    body: "We design engagements around your compliance requirements.",
+    details: ["GDPR compliance", "Custom frameworks"],
     color: "#1E9E6A",
   },
   {
@@ -71,9 +71,8 @@ export default function SecurityPage() {
           <h1 className={styles.title}>Authority is designed before autonomy.</h1>
           <p className={styles.description}>
             An agent gets exactly the authority its job requires — no more.
-            Every configuration we deploy on Splice Station, including your
-            Hestia instance, is built with security from the start, not
-            bolted on afterward.
+            Every configuration we deploy on Splice Station is built with
+            security from the start, not bolted on afterward.
           </p>
           <div className={styles.stats}>
             <div className={styles.stat}>
@@ -87,10 +86,6 @@ export default function SecurityPage() {
             <div className={styles.stat}>
               <span className={styles.statValue}>100%</span>
               <span className={styles.statLabel}>Action logging</span>
-            </div>
-            <div className={styles.stat}>
-              <span className={styles.statValue}>SOC 2</span>
-              <span className={styles.statLabel}>Type II compliant</span>
             </div>
           </div>
         </div>
@@ -194,7 +189,7 @@ export default function SecurityPage() {
               compliance gaps in what you&apos;re already running.
             </p>
             <Link href="/contact" className={styles.ctaBtn}>
-              Start a conversation →
+              Book a working session →
             </Link>
           </div>
         </div>

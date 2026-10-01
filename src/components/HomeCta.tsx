@@ -15,12 +15,15 @@ export function HomeCta() {
           </p>
           <div style={{ display: "flex", gap: "var(--space-3)", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contact" className="btn btn-primary">
-              Start a conversation →
+              Book a working session →
             </Link>
             <Link href="/how-we-work" className="btn btn-secondary">
               See how we work
             </Link>
           </div>
+          <p style={{ marginTop: "var(--space-3)", fontSize: "13px", opacity: 0.7 }}>
+            Credited in full against your engagement.
+          </p>
         </div>
       </div>
     </section>

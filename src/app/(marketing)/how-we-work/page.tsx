@@ -24,13 +24,13 @@ const stages = [
       "Prioritized roadmap",
     ],
     transition: "Scope approved by stakeholders",
-    duration: "2-4 weeks",
+    duration: "1-2 weeks",
     color: "#2447E8",
   },
   {
     number: 2,
     name: "Deploy",
-    summary: "The same team that diagnosed the opportunity builds it — into your environment, with your data, your integrations, your constraints. Evaluation, permissions, and gates are designed in from day one, not bolted on after.",
+    summary: "The same team that diagnosed the opportunity builds it — into your environment, with your data, your integrations, your constraints. Your Brain goes live early in the engagement; evaluation, permissions, and gates are designed in from day one, not bolted on after.",
     activities: [
       "Production build",
       "Real integrations",
@@ -38,11 +38,10 @@ const stages = [
       "Governance controls",
     ],
     deliverables: [
-      "Production system",
+      "A working Brain, live early",
       "Real integrations",
       "Evaluation harness",
       "Governance controls",
-      "Hestia instance, when applicable",
       "Runbooks",
     ],
     transition: "System accepted, team trained",
@@ -52,7 +51,7 @@ const stages = [
   {
     number: 3,
     name: "Operate and scale",
-    summary: "We can stay embedded after launch — measuring what works, improving the system, finding the next opportunity worth going after. Hestia is what keeps running when we're not in the room.",
+    summary: "We can stay embedded after launch — measuring what works, improving the system, finding the next opportunity worth going after. The Brain and Station keep running when we're not in the room.",
     activities: [
       "Ongoing optimization",
       "New workflow deployments",
@@ -212,7 +211,7 @@ export default function HowWeWorkPage() {
               want to change.
             </p>
             <Link href="/contact" className={styles.ctaBtn}>
-              Start a conversation →
+              Book a working session →
             </Link>
           </div>
         </div>

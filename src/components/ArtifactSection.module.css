@@ -111,6 +111,12 @@
   box-shadow: 0 4px 12px rgba(36, 71, 232, 0.3);
 }
 
+:global([data-theme="ink"]) .agentBadge {
+  background: var(--color-primary-soft);
+  border-color: var(--color-primary);
+  color: var(--color-ink);
+}
+
 .agentDot {
   width: 6px;
   height: 6px;
@@ -149,6 +155,10 @@
   align-items: center;
   flex-wrap: wrap;
   background: linear-gradient(135deg, #F8F9FF 0%, #FFFFFF 100%);
+}
+
+:global([data-theme="ink"]) .artifactHeader {
+  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-raised) 100%);
 }
 
 .headerRight {
@@ -214,6 +224,12 @@
   background: #E6F4ED;
 }
 
+:global([data-theme="ink"]) .tagComplete {
+  color: var(--color-complete);
+  background: rgba(111, 203, 154, 0.14);
+  border-color: var(--color-complete);
+}
+
 .dot {
   width: 6px;
   height: 6px;
@@ -243,6 +259,10 @@
   position: relative;
 }
 
+:global([data-theme="ink"]) .artifactCell {
+  background: var(--color-surface);
+}
+
 .artifactCell::before {
   content: "";
   position: absolute;
@@ -259,6 +279,10 @@
   background: #F8F9FF;
 }
 
+:global([data-theme="ink"]) .artifactCell:hover {
+  background: var(--color-raised);
+}
+
 .artifactCell:hover::before {
   transform: scaleY(1);
 }
@@ -273,6 +297,10 @@
 
 .cellActive {
   background: #DCE4FF !important;
+}
+
+:global([data-theme="ink"]) .cellActive {
+  background: rgba(127, 164, 255, 0.14) !important;
 }
 
 .cellActive::before {
@@ -314,6 +342,11 @@
   color: #2447E8;
   white-space: nowrap;
   flex-shrink: 0;
+}
+
+:global([data-theme="ink"]) .agentTag {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
 }
 
 .agentIcon {
@@ -394,6 +427,10 @@
   align-items: center;
   flex-wrap: wrap;
   background: linear-gradient(135deg, #FAFBFF 0%, #FFFFFF 100%);
+}
+
+:global([data-theme="ink"]) .artifactFooter {
+  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-raised) 100%);
 }
 
 .actions {

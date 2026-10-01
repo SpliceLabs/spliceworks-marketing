@@ -43,7 +43,7 @@ export function OperatingModelSection() {
   return (
     <section className={styles.section} id="model">
       <div className={styles.left}>
-        <span className={styles.num} aria-hidden="true">04</span>
+        <span className={styles.num} aria-hidden="true">06</span>
         <p className={styles.eyebrow}>
           <b>Operating model</b>
           <span>humans and agents</span>
@@ -52,9 +52,10 @@ export function OperatingModelSection() {
           Agents execute. Specialists exercise judgment. You stay in control.
         </h2>
         <p className={styles.sub}>
-          Authority is designed before autonomy. Clear lines between what
-          agents handle on their own, what needs a human review, and what
-          never leaves your hands.
+          Authority is designed before autonomy. A named human is accountable
+          at every gate — clear lines between what agents handle on their
+          own, what needs a human review, and what never leaves your hands.
+          It runs on Station, the infrastructure our delivery runs on.
         </p>
         <div className={styles.summary}>
           <div className={styles.summaryItem}>

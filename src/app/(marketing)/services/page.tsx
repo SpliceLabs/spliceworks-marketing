@@ -177,7 +177,7 @@ export default function ServicesPage() {
               you which surface — or surfaces — you actually need.
             </p>
             <Link href="/contact" className={styles.ctaBtn}>
-              Start a conversation →
+              Book a working session →
             </Link>
           </div>
         </div>

@@ -139,6 +139,7 @@
   --color-muted: #AEB8CC;
   --color-line: #2E3F66;
   --color-line-strong: #F6F4E9;
+  --color-structure-soft: #1F3054;
   --color-primary: #7FA4FF;
   --color-primary-mid: #7FA4FF;
   --color-primary-soft: #1F3054;
@@ -412,6 +413,19 @@ h4 {
 .tag-complete { background: #E6F4ED; color: var(--color-complete); }
 .tag-blocked { background: #FCE8E8; color: var(--color-blocked); }
 .tag-sample { background: var(--color-structure-soft); color: var(--color-muted); border: 1px dashed var(--color-line); }
+
+[data-theme="ink"] .tag-human,
+[data-theme="operational"] .tag-human {
+  background: rgba(255, 142, 118, 0.14);
+}
+[data-theme="ink"] .tag-complete,
+[data-theme="operational"] .tag-complete {
+  background: rgba(111, 203, 154, 0.14);
+}
+[data-theme="ink"] .tag-blocked,
+[data-theme="operational"] .tag-blocked {
+  background: rgba(242, 124, 124, 0.14);
+}
 
 @keyframes pulse {
   0%, 100% { opacity: 1; }

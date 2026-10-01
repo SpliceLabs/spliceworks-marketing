@@ -1048,7 +1048,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
           )}
 
           {/* Chapter strip */}
-          <div className="chapters">
+          <div className="chapters" style={{ background: isDark ? "rgba(15,26,48,0.98)" : "rgba(246,244,233,0.98)" }}>
             {CH.map((c, i) => (
               <button
                 key={c.n}
@@ -1065,8 +1065,12 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   <span
                     className="chapter-tag"
                     style={{
-                      background: c.tag === "parallel" ? "#DCE4FF" : c.tag === "gate" ? "#FFF1ED" : c.tag === "output" ? "#D9F2E6" : "#F5F4EE",
-                      color: c.tag === "parallel" ? "#2447E8" : c.tag === "gate" ? "#B83A1F" : c.tag === "output" ? "#12684A" : "#4A515C",
+                      background: isDark
+                        ? c.tag === "parallel" ? "rgba(127,164,255,0.16)" : c.tag === "gate" ? "rgba(255,142,118,0.16)" : c.tag === "output" ? "rgba(111,203,154,0.16)" : "rgba(255,255,255,0.08)"
+                        : c.tag === "parallel" ? "#DCE4FF" : c.tag === "gate" ? "#FFF1ED" : c.tag === "output" ? "#D9F2E6" : "#F5F4EE",
+                      color: isDark
+                        ? c.tag === "parallel" ? "#7FA4FF" : c.tag === "gate" ? "#FF8E76" : c.tag === "output" ? "#6FCB9A" : "#AEB8CC"
+                        : c.tag === "parallel" ? "#2447E8" : c.tag === "gate" ? "#B83A1F" : c.tag === "output" ? "#12684A" : "#4A515C",
                     }}
                   >
                     {c.tag}
@@ -1090,7 +1094,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
               The agents discover, build and operate the work. Station governs every handoff. A person holds the gate.
             </p>
             <div className="cta-row">
-              <a href="/contact" className="btn-accent">Start an assessment →</a>
+              <a href="/contact" className="btn-accent">Book a working session →</a>
               <button
                 type="button"
                 className="btn-secondary"

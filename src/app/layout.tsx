@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     template: "%s | Splice Works",
   },
   description:
-    "AI-native consulting and delivery. We help organizations deploy AI systems that stay under control.",
+    "A forward-deployed team for knowledge-heavy companies with an AI mandate and no path to production. We put AI to work and keep a named human accountable at every gate.",
   metadataBase: new URL("https://spliceworks.ai"),
   icons: {
     icon: [
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Splice Works",
     description:
-      "AI-native consulting and delivery. We help organizations deploy AI systems that stay under control.",
+      "A forward-deployed team for knowledge-heavy companies with an AI mandate and no path to production. We put AI to work and keep a named human accountable at every gate.",
     url: "https://spliceworks.ai",
     siteName: "Splice Works",
     locale: "en_US",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Splice Works",
     description:
-      "AI-native consulting and delivery. We help organizations deploy AI systems that stay under control.",
+      "A forward-deployed team for knowledge-heavy companies with an AI mandate and no path to production. We put AI to work and keep a named human accountable at every gate.",
   },
   robots: {
     index: true,
