@@ -6,6 +6,14 @@ import shared from "../shared.module.css";
 import styles from "./page.module.css";
 import { PullQuote } from "@/components/PullQuote";
 import { ControlPath } from "@/components/ControlPath";
+import { LayeredArchitecture } from "@/components/LayeredArchitecture";
+
+const architectureLayers = [
+  { num: "01", name: "Perimeter", detail: "Network controls, WAF, DDoS protection", color: "#2447E8" },
+  { num: "02", name: "Application", detail: "Auth, RBAC, input validation", color: "#7FA4FF" },
+  { num: "03", name: "Data", detail: "Encryption, access controls, masking", color: "#1E9E6A" },
+  { num: "04", name: "Harness", detail: "Capability limits, approval gates, sandboxing", color: "#D98E14" },
+];
 
 const principles = [
   {
@@ -151,30 +159,14 @@ export default function SecurityPage() {
             <span className={styles.sectionNum}>03</span>
             <h2 className={styles.archTitle}>Security architecture</h2>
             <p className={styles.archDesc}>
-              Defense in depth, layer by layer. Every boundary gets enforced, not assumed.
+              Defense in depth, layer by layer. Every boundary gets enforced, not assumed —
+              and the same six principles above apply at every layer, not just the edge.
             </p>
-            <div className={styles.layers}>
-              <div className={styles.layer} style={{ "--layer-color": "#2447E8" } as React.CSSProperties}>
-                <span className={styles.layerNum}>01</span>
-                <span className={styles.layerName}>Perimeter</span>
-                <span className={styles.layerDetail}>Network controls, WAF, DDoS protection</span>
-              </div>
-              <div className={styles.layer} style={{ "--layer-color": "#7FA4FF" } as React.CSSProperties}>
-                <span className={styles.layerNum}>02</span>
-                <span className={styles.layerName}>Application</span>
-                <span className={styles.layerDetail}>Auth, RBAC, input validation</span>
-              </div>
-              <div className={styles.layer} style={{ "--layer-color": "#1E9E6A" } as React.CSSProperties}>
-                <span className={styles.layerNum}>03</span>
-                <span className={styles.layerName}>Data</span>
-                <span className={styles.layerDetail}>Encryption, access controls, masking</span>
-              </div>
-              <div className={styles.layer} style={{ "--layer-color": "#D98E14" } as React.CSSProperties}>
-                <span className={styles.layerNum}>04</span>
-                <span className={styles.layerName}>Harness</span>
-                <span className={styles.layerDetail}>Capability limits, approval gates, sandboxing</span>
-              </div>
-            </div>
+            <LayeredArchitecture
+              layers={architectureLayers}
+              governanceLabel="Governed at every layer"
+              governanceTags={principles.map((p) => p.name)}
+            />
           </div>
         </div>
       </section>

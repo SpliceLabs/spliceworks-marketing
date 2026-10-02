@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import shared from "../shared.module.css";
 import styles from "./page.module.css";
+import { SiblingCompanies } from "@/components/SiblingCompanies";
 
 export const metadata: Metadata = {
   title: "About",
@@ -52,6 +53,7 @@ export default function AboutPage() {
               the Brain and Station behind so you own the backbone once
               we&apos;re gone.
             </p>
+            <SiblingCompanies />
           </div>
         </div>
       </section>

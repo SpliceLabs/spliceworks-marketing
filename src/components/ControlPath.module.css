@@ -21,11 +21,22 @@
   background: var(--color-surface);
   min-width: 100px;
   text-align: center;
+  position: relative;
 }
 
 .stepDashed {
   border-style: dashed;
   border-width: 2px;
+}
+
+.stepDashed::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--step-color, #FF6848);
+  opacity: 0.06;
+  border-radius: inherit;
+  pointer-events: none;
 }
 
 .stepLabel {
@@ -45,9 +56,23 @@
 
 .connector {
   width: 20px;
-  height: 1px;
+  height: 2px;
   background: var(--color-line);
   flex-shrink: 0;
+  position: relative;
+}
+
+.connector::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-left: 4px solid var(--color-line);
 }
 
 @media (max-width: 960px) {
@@ -65,7 +90,18 @@
   }
 
   .connector {
-    width: 1px;
+    width: 2px;
     height: 20px;
+  }
+
+  .connector::after {
+    right: 50%;
+    top: auto;
+    bottom: -1px;
+    transform: translateX(50%);
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 4px solid var(--color-line);
+    border-bottom: none;
   }
 }

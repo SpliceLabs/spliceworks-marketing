@@ -3,7 +3,15 @@
 import { useState } from "react";
 import Link from "next/link";
 import { HabitatHero } from "@/components/template-components/HabitatHero";
+import { LayeredArchitecture } from "@/components/LayeredArchitecture";
 import styles from "./page.module.css";
+
+const architectureLayers = [
+  { num: "01", name: "Control Plane", detail: "Orchestration, scheduling, gate enforcement", color: "#2447E8" },
+  { num: "02", name: "Harness Runtime", detail: "Execution environment, sandboxing, resource limits", color: "#7FA4FF" },
+  { num: "03", name: "Evidence Store", detail: "Artifacts, decisions, audit trails", color: "#1E9E6A" },
+  { num: "04", name: "Observability", detail: "Metrics, logging, alerting, dashboards", color: "#D98E14" },
+];
 
 const capabilities = [
   {
@@ -198,30 +206,14 @@ export default function StationPage() {
             <span className={styles.sectionNum}>05</span>
             <h2 className={styles.archTitle}>Station architecture</h2>
             <p className={styles.archDesc}>
-              Control, execution, and observability — four layers working together.
+              Control, execution, and observability — four layers working together,
+              wrapped by the same governance that runs through every deployment.
             </p>
-            <div className={styles.layers}>
-              <div className={styles.layer} style={{ "--layer-color": "#2447E8" } as React.CSSProperties}>
-                <span className={styles.layerNum}>01</span>
-                <span className={styles.layerName}>Control Plane</span>
-                <span className={styles.layerDetail}>Orchestration, scheduling, gate enforcement</span>
-              </div>
-              <div className={styles.layer} style={{ "--layer-color": "#7FA4FF" } as React.CSSProperties}>
-                <span className={styles.layerNum}>02</span>
-                <span className={styles.layerName}>Harness Runtime</span>
-                <span className={styles.layerDetail}>Execution environment, sandboxing, resource limits</span>
-              </div>
-              <div className={styles.layer} style={{ "--layer-color": "#1E9E6A" } as React.CSSProperties}>
-                <span className={styles.layerNum}>03</span>
-                <span className={styles.layerName}>Evidence Store</span>
-                <span className={styles.layerDetail}>Artifacts, decisions, audit trails</span>
-              </div>
-              <div className={styles.layer} style={{ "--layer-color": "#D98E14" } as React.CSSProperties}>
-                <span className={styles.layerNum}>04</span>
-                <span className={styles.layerName}>Observability</span>
-                <span className={styles.layerDetail}>Metrics, logging, alerting, dashboards</span>
-              </div>
-            </div>
+            <LayeredArchitecture
+              layers={architectureLayers}
+              governanceLabel="Wraps every layer"
+              governanceTags={["Orchestration", "Sandboxing", "Evidence", "Monitoring"]}
+            />
           </div>
         </div>
       </section>

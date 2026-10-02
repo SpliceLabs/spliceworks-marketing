@@ -1,0 +1,79 @@
+.diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: var(--space-8) 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--color-line);
+  border-top: 3px solid var(--box-color, #2447E8);
+  border-radius: 8px;
+  background: var(--color-surface);
+  text-align: center;
+}
+
+.boxLabel {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-ink);
+}
+
+.boxDetail {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
+.connector {
+  width: 1px;
+  height: var(--space-6);
+  background: var(--color-line);
+}
+
+.station {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: var(--space-4) var(--space-6);
+  border: 1px dashed var(--color-line);
+  border-radius: 8px;
+  background: var(--color-primary-soft, #DCE4FF);
+  text-align: center;
+}
+
+.stationLabel {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: #2447E8;
+}
+
+:global([data-theme="ink"]) .stationLabel {
+  color: var(--color-primary);
+}
+
+.stationDetail {
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+@media (max-width: 600px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import shared from "../shared.module.css";
 import styles from "./page.module.css";
+import { CompoundGrowth } from "@/components/CompoundGrowth";
 
 const stages = [
   {
@@ -188,6 +189,10 @@ export default function HowWeWorkPage() {
                         </ul>
                       </div>
                     </div>
+                  )}
+
+                  {stage.number === 3 && (expandedStage === index || activeStage === index) && (
+                    <CompoundGrowth color={stage.color} />
                   )}
 
                   <div className={styles.stageTransition}>

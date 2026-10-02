@@ -1,0 +1,77 @@
+.ticker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--space-8);
+  border: 1px solid var(--ticker-border, var(--color-line));
+  border-radius: 12px;
+  background: var(--ticker-bg, var(--color-surface));
+  min-width: 320px;
+}
+
+.tickerLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ticker-muted, var(--color-muted));
+}
+
+.tickerStage {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 72px;
+  justify-content: center;
+}
+
+.tickerValue {
+  font-family: var(--ticker-font, var(--font-display));
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--ticker-accent, var(--color-primary));
+  animation: tickerIn 0.5s ease-out;
+}
+
+.tickerDetail {
+  font-size: 15px;
+  color: var(--ticker-text, var(--color-ink));
+  animation: tickerIn 0.5s ease-out 0.05s backwards;
+}
+
+.tickerDots {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ticker-border, var(--color-line));
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.dotActive {
+  background: var(--ticker-accent, var(--color-primary));
+  transform: scale(1.3);
+}
+
+@keyframes tickerIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tickerValue,
+  .tickerDetail {
+    animation: none;
+  }
+}
