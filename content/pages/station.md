@@ -11,9 +11,9 @@ Splice Station connects agent systems and external tools. Permissioning, audit t
 
 ---
 
-## What gets deployed becomes your Hestia
+## What gets deployed is yours to keep
 
-Every Splice Works engagement runs a configuration on Station. What we build and leave behind is Hestia: the backbone of your AI-native company, hardened, permissioned, and yours to operate after the engagement ends.
+Every Splice Works engagement runs a configuration on Station — hardened, permissioned, and connected to the Brain your people already use. It's yours to operate after the engagement ends.
 
 ---
 
@@ -43,17 +43,25 @@ See what the agents see. Human mode shows outcomes. Agent mode shows capabilitie
 
 ## Run Station your way
 
-### Hosted
+### Cloud
 
-We run Station for you. No infrastructure to manage.
+We run Station for you on managed cloud infrastructure. No infrastructure to manage.
 
 - Managed updates
 - 24/7 monitoring
 - SLA-backed uptime
 
+### Bring your own cloud
+
+Station deploys inside your own cloud account. You keep the infrastructure boundary, we still operate the platform.
+
+- Deploys into your AWS, GCP, or Azure
+- Data stays inside your account
+- Same managed operations
+
 ### Self-hosted
 
-You run Station on your infrastructure. Full control.
+You run Station entirely on your own infrastructure — we don't operate it. Open source, full control, never locked in.
 
 - Your cloud or on-prem
 - Custom security controls
@@ -61,7 +69,7 @@ You run Station on your infrastructure. Full control.
 
 ### Hybrid
 
-Split between hosted and self-hosted components.
+Split between hosted and self-hosted components. We run the control plane, you keep the agents and data on your own infrastructure.
 
 - Control plane hosted
 - Agents self-hosted
@@ -69,6 +77,6 @@ Split between hosted and self-hosted components.
 
 ---
 
-## Ready to deploy your Hestia instance?
+## Ready to deploy Station?
 
 Tell us about your environment and we will plan the deployment.

@@ -2,18 +2,19 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import shared from "../shared.module.css";
 import styles from "./page.module.css";
+import { SiblingCompanies } from "@/components/SiblingCompanies";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Splice Works is the AI-transformation firm inside Splice Labs Group. We find where AI actually helps, build it, and stick around until it works.",
+    "Splice Works is a forward-deployed team inside Splice Labs Group. We find where AI actually helps, build it, and stay accountable until it works.",
 };
 
 const notList = [
   "Not a staffing agency",
   "Not a bespoke dev shop",
   "Not one-off custom software",
-  "Every engagement leaves you Hestia, not a one-off project",
+  "You're never locked in",
 ];
 
 export default function AboutPage() {
@@ -26,11 +27,11 @@ export default function AboutPage() {
       >
         <div className="container">
           <p className="eyebrow">About</p>
-          <h1 className={shared.pageTitle}>We turn your company AI-native.</h1>
+          <h1 className={shared.pageTitle}>Put AI to work. Keep people accountable.</h1>
           <p className={shared.pageDescription}>
-            Not a deck. Not a pilot that quietly dies. You get Hestia — a
-            working system built on Splice Station — and you run it
-            yourself once we&apos;re done.
+            Not a deck. Not a pilot that quietly dies. You get a working
+            Brain your people use every day, running on Splice Station —
+            and you run it yourself once we&apos;re done.
           </p>
         </div>
       </section>
@@ -44,14 +45,15 @@ export default function AboutPage() {
               Splice Labs Group owns Splice Station, the infrastructure
               underneath everything we build. Splice Labs is our sibling
               company — the venture studio building new AI-native companies
-              from scratch, running Helios on top of Station.
+              from scratch on top of Station.
             </p>
             <p className={styles.overviewBody}>
               We&apos;re the other half: separate business, same feedback
-              loop. We transform companies that already exist. We run Hermes
-              internally to do the work, and we leave Hestia behind so you
-              own the backbone once we&apos;re gone.
+              loop. We transform companies that already exist, and we leave
+              the Brain and Station behind so you own the backbone once
+              we&apos;re gone.
             </p>
+            <SiblingCompanies />
           </div>
         </div>
       </section>
@@ -63,8 +65,8 @@ export default function AboutPage() {
             <h2 className={styles.overviewHeadline}>How we think about production AI</h2>
             <p className={styles.overviewBody}>
               We use AI to multiply senior engineering capacity, not replace
-              judgment. Our practitioners run Hermes and AI-native workflows
-              for research, discovery, engineering, testing, and delivery.
+              judgment. Our practitioners run AI-native workflows for
+              research, discovery, engineering, testing, and delivery.
             </p>
             <p className={styles.overviewBody}>
               Splice, don&apos;t replace. Your ERP, CRM, codebase, and
@@ -73,9 +75,10 @@ export default function AboutPage() {
               and starting over.
             </p>
             <p className={styles.overviewBody}>
-              Autonomy is earned, not granted. Every system starts bounded.
-              Evidence, consequence, and reversibility decide how much room
-              it gets next.
+              Autonomy is earned, not granted. Every system starts bounded,
+              and a named human is accountable at every gate. Evidence,
+              consequence, and reversibility decide how much room it gets
+              next.
             </p>
             <p className={styles.overviewBody}>
               Governance is architecture, not paperwork. Identity,
@@ -112,7 +115,7 @@ export default function AboutPage() {
           <h2 className={shared.ctaHeadline}>Want to work with us?</h2>
           <p className={shared.ctaBody}>Bring us one outcome. We&apos;ll take it from there.</p>
           <Link href="/contact" className="btn btn-primary">
-            Start a conversation
+            Book a working session
           </Link>
         </div>
       </section>

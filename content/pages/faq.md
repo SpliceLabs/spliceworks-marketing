@@ -15,7 +15,7 @@ Answers to questions we hear most often.
 
 ### How long does an engagement take?
 
-Depends on the surface and the work. A diagnostic typically runs 2-4 weeks. Deploy phases run 4-12 weeks. Operate and scale is ongoing.
+Depends on the surface and the work. Diagnose runs 1-2 weeks, and your Brain is live and in daily use by day 30. Full deployment — integrations, governance, Station configuration — typically wraps in 4-12 weeks. Operate and scale is ongoing.
 
 ### Do you work with specific industries?
 
@@ -27,15 +27,15 @@ Start with a diagnostic. We will assess what you have and identify where governa
 
 ---
 
-## Station and Hestia
+## The Brain and Station
+
+### What is the Brain?
+
+The Brain is the shared knowledge layer we build first: everything your company knows, in one place your people use every day. It's the AI-enabled step, before agents start doing the work.
 
 ### What is Splice Station?
 
-Station is the governed platform underneath every engagement. By itself, it does nothing — it needs a configuration built for the work.
-
-### What is Hestia?
-
-Hestia is what Station becomes once we configure it for you. It is the backbone of your AI-native company: permissioned, audited, and yours to run after we leave.
+Station is the governed platform that puts the Brain to work. By itself, it does nothing — it needs a configuration built for the work.
 
 ### What is Hermes?
 
@@ -43,7 +43,7 @@ Hermes is our own engagement toolkit, used internally during diagnose and deploy
 
 ### Can we self-host Station?
 
-Yes. Hosted, self-hosted, or hybrid deployments are all supported.
+Yes. Station is open source, so you can run it hosted, self-hosted, or hybrid — you're never locked into us.
 
 ### Does Station work with existing agent frameworks?
 

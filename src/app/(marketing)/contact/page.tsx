@@ -67,9 +67,9 @@ export default function ContactPage() {
         <div className="container">
           <p className={styles.eyebrow}>
             <b>Contact</b>
-            <span>start a conversation</span>
+            <span>book a working session</span>
           </p>
-          <h1 className={styles.title}>Start a conversation.</h1>
+          <h1 className={styles.title}>Book a working session.</h1>
           <p className={styles.description}>
             Bring us one outcome you want to change. We&apos;ll map your
             situation and tell you what we&apos;d actually do about it.

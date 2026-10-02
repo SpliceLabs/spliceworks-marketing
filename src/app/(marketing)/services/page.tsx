@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import shared from "../shared.module.css";
 import styles from "./page.module.css";
+import { ServiceFlowLanes } from "@/components/ServiceFlowLanes";
 
 const services = [
   {
@@ -124,14 +125,7 @@ export default function ServicesPage() {
                 {(activeService === service.id || hoveredService === service.id) && (
                   <div className={styles.serviceDeliverables}>
                     <span className={styles.deliverablesLabel}>What it covers</span>
-                    <ul className={styles.deliverablesList}>
-                      {service.deliverables.map((item) => (
-                        <li key={item}>
-                          <span className={styles.deliverableDot} style={{ background: service.color }} />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
+                    <ServiceFlowLanes steps={service.deliverables} color={service.color} />
                   </div>
                 )}
               </button>
@@ -177,7 +171,7 @@ export default function ServicesPage() {
               you which surface — or surfaces — you actually need.
             </p>
             <Link href="/contact" className={styles.ctaBtn}>
-              Start a conversation →
+              Book a working session →
             </Link>
           </div>
         </div>

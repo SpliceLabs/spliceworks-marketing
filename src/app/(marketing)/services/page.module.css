@@ -108,6 +108,11 @@
   margin-bottom: var(--space-3);
 }
 
+:global([data-theme="ink"]) .sectionNum {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
 .sectionTitle {
   font-family: var(--font-display);
   font-size: var(--text-display-md);
@@ -172,6 +177,10 @@
   background: linear-gradient(135deg, #F8F9FF 0%, #FFFFFF 100%);
 }
 
+:global([data-theme="ink"]) .serviceCardActive {
+  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-raised) 100%);
+}
+
 .serviceCardActive::before {
   transform: scaleY(1);
 }
@@ -220,6 +229,10 @@
   padding: 3px 8px;
   border-radius: 4px;
   display: inline-block;
+}
+
+:global([data-theme="ink"]) .serviceTimeline {
+  background: var(--color-primary-soft);
 }
 
 .serviceSummary {
@@ -294,35 +307,15 @@
   margin-bottom: 10px;
 }
 
-.deliverablesList {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.deliverablesList li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  color: var(--color-ink);
-}
-
-.deliverableDot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
 /* Process Section */
 .process {
   padding: var(--space-16) 0;
   background: linear-gradient(135deg, #F8F9FF 0%, #FFFFFF 100%);
   border-bottom: 1px solid var(--color-line);
+}
+
+:global([data-theme="ink"]) .process {
+  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-raised) 100%);
 }
 
 .processFlow {
@@ -343,6 +336,10 @@
   border: 2px solid var(--color-line);
   border-radius: 12px;
   transition: all 0.2s ease;
+}
+
+:global([data-theme="ink"]) .processStage {
+  background: var(--color-surface);
 }
 
 .processStage:hover {
@@ -460,10 +457,6 @@
   .quickNavBtn {
     padding: 6px 12px;
     font-size: 13px;
-  }
-
-  .deliverablesList {
-    grid-template-columns: 1fr;
   }
 
   .serviceHeader {

@@ -66,14 +66,16 @@
   line-height: 1.55;
 }
 
-/* Cards grid */
-.plates {
+/* Stage path */
+.stages {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-4);
+  align-items: stretch;
 }
 
-.plate {
+.stage {
+  position: relative;
   border: 1px solid var(--color-line);
   border-radius: 8px;
   padding: var(--space-5);
@@ -81,36 +83,34 @@
   flex-direction: column;
   gap: 10px;
   background: var(--color-surface);
-  position: relative;
-  overflow: hidden;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.plate::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #2447E8, #7FA4FF);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
+.stage:last-child {
+  border-color: #2447E8;
+  background: var(--color-primary-soft);
 }
 
-.plate:hover {
+.stage:hover {
   border-color: #2447E8;
   box-shadow:
     0 4px 6px rgba(36, 71, 232, 0.08),
     0 8px 24px rgba(36, 71, 232, 0.12);
 }
 
-.plate:hover::before {
-  transform: scaleX(1);
+.stageHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.plateName {
+.stageNum {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-muted);
+}
+
+.stageLabel {
   font-size: 18px;
   font-family: var(--font-display);
   font-weight: 600;
@@ -120,20 +120,21 @@
   margin: 0;
 }
 
-.plateDesc {
+.stageDesc {
   font-size: 14px;
   color: var(--color-muted);
   line-height: 1.5;
   margin: 0;
 }
 
-.plateOutcome {
-  font-size: 13px;
-  color: var(--color-ink);
-  line-height: 1.4;
-  margin: 0;
-  padding-top: 8px;
-  border-top: 1px dashed var(--color-line);
+.arrow {
+  position: absolute;
+  top: 50%;
+  right: calc(-1 * var(--space-4) - 8px);
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: var(--color-muted);
+  z-index: 1;
 }
 
 @media (max-width: 1100px) {
@@ -142,18 +143,22 @@
     gap: var(--space-8);
   }
 
-  .plates {
-    grid-template-columns: 1fr 1fr;
+  .stages {
+    grid-template-columns: 1fr;
+  }
+
+  .arrow {
+    top: auto;
+    right: auto;
+    bottom: calc(-1 * var(--space-4) - 4px);
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
   }
 }
 
 @media (max-width: 760px) {
   .heading {
     font-size: 32px;
-  }
-
-  .plates {
-    grid-template-columns: 1fr;
   }
 
   .num {

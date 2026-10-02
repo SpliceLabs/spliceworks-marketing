@@ -157,6 +157,10 @@
   background: linear-gradient(135deg, #F8F9FF 0%, #FFFFFF 100%);
 }
 
+:global([data-theme="ink"]) .cardActive {
+  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-raised) 100%);
+}
+
 .cardActive::before {
   transform: scaleX(1);
 }
@@ -178,6 +182,10 @@
   justify-content: center;
   background: #DCE4FF;
   border-radius: 10px;
+}
+
+:global([data-theme="ink"]) .cardIcon {
+  background: var(--color-primary-soft);
 }
 
 .modelCard h3 {
@@ -272,10 +280,22 @@
   border: 1px solid #FF6848;
 }
 
+:global([data-theme="ink"]) .taghuman {
+  color: var(--color-human);
+  background: rgba(255, 142, 118, 0.14);
+  border-color: var(--color-human);
+}
+
 .tagrunning {
   color: #2447E8;
   background: #DCE4FF;
   border: 1px solid #2447E8;
+}
+
+:global([data-theme="ink"]) .tagrunning {
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+  border-color: var(--color-primary);
 }
 
 .dot {

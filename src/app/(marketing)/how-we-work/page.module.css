@@ -153,6 +153,10 @@
   background: linear-gradient(135deg, #F8F9FF 0%, #FFFFFF 100%);
 }
 
+:global([data-theme="ink"]) .stageCardExpanded {
+  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-raised) 100%);
+}
+
 /* Stage Header (clickable) */
 .stageHeader {
   display: flex;
@@ -230,6 +234,11 @@
   background: #DCE4FF;
   color: #2447E8;
   border-radius: 999px;
+}
+
+:global([data-theme="ink"]) .stageDuration {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
 }
 
 .stageSummary {

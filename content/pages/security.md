@@ -7,7 +7,7 @@ priority: P2
 
 # Security is not optional
 
-AI systems require rigorous controls. Every configuration we deploy on Splice Station, including your Hestia instance, is built with security from the start, not added afterward.
+AI systems require rigorous controls. Every configuration we deploy on Splice Station is built with security from the start, not added afterward.
 
 ---
 

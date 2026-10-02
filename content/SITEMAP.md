@@ -10,23 +10,23 @@
 Splice Labs Group                    (owns shared infrastructure)
 ├── Splice Labs                      (venture studio — creates new AI-native companies)
 │   └── runs Helios on Station
-└── Splice Works                     (AI-transformation firm — converts existing
+└── Splice Works                     (forward-deployed team — converts existing
     │                                 companies into AI-native ones)
-    └── runs Hermes on Station, deploys Hestia to clients
+    └── runs Hermes on Station, deploys the Brain and Station to clients
 
 Splice Station                       (governed platform underneath everything —
                                        by itself it does nothing)
 ```
 
 **Non-technical summary (usable as hero/about copy verbatim):**
-> Splice Works helps you become AI-native. Hestia is what you run on afterward. Splice Station is the governed infrastructure making it possible.
+> AI is everywhere and accountable for nothing. Splice Works feeds everything your company knows into one shared Brain your people use every day, then puts it to work through Station — governed agents, with a named human accountable at every gate.
 
 | Layer | What it is | Where it lives on this site |
 |-------|-----------|-----------------|
-| **Splice Works** | The AI-transformation firm. Converts *existing* companies into AI-native ones. This site. | `/`, `/services`, `/how-we-work`, `/about` |
-| **Splice Station** | The governed platform underneath — by itself it does nothing. Permissioning, audit trails, telemetry, security, SSO, integrations. Needs a configuration/runtime plugged in to do work. | Own primary nav page: `/station` |
+| **Splice Works** | The forward-deployed team. Converts *existing* companies into AI-native ones. This site. | `/`, `/services`, `/how-we-work`, `/about` |
+| **Splice Station** | The governed platform underneath — by itself it does nothing. Permissioning, audit trails, telemetry, security, SSO, integrations. Needs a configuration/runtime plugged in to do work. Open source: managed by default, portable by design. | Own primary nav page: `/station` |
 | **Hermes** | Splice Works' proprietary transformation system for moving a client from AI-naive to AI-advanced. Runs on Station. **Not handed to clients.** | Named explicitly in `/how-we-work` ("we use AI to deliver AI" commitment) — internal capability only, never a sold product |
-| **Hestia** | The customer-facing product — "the backbone/spine" of the AI-native company that remains after the engagement. Runs on Station. | Introduced on `/station` ("what gets deployed becomes your Hestia"), paid off in `/how-we-work`'s Operate & Scale phase ("what you keep") |
+| **The Brain** | The shared knowledge layer — everything a company knows, in one place its people use every day. The AI-enabled step, live inside 30 days, before Station and agents take over. | Introduced on `/station` and `/` as the first deliverable, paid off in `/how-we-work`'s Deploy phase |
 | **Helios** *(out of scope for this site)* | Splice Labs' (venture studio, sibling to Splice Works) runtime for venture formation — generation, validation, creation of new companies. | Not part of Splice Works' IA. Worth a one-line corporate-structure mention on `/about` only, since it clarifies Splice Works is one of several things built on Station. |
 
 Security/audit/SSO is folded into `/station` as a section (it's literally what Station does) rather than kept as a separate primary nav item. A deeper compliance page remains at `/security` for procurement audiences, linked from `/station`'s footer, not the primary nav.
@@ -35,10 +35,10 @@ Security/audit/SSO is folded into `/station` as a section (it's literally what S
 
 | Route | Job | Priority |
 |-------|-----|----------|
-| `/` | Problem → methodology → Station/Hestia teaser → proof → CTA | P0 |
+| `/` | Problem → methodology → Brain/Station teaser → proof → CTA | P0 |
 | `/services` | Overview of the 4 transformation surfaces (Build, Embed, Operate, Decide), links to sub-pages | P0 |
-| `/station` | The platform: what it does, why it's intentionally thin, becomes-your-Hestia framing | P0 |
-| `/how-we-work` | Diagnose → Deploy → Operate & Scale methodology, six commitments (Hermes named here), what's left behind (Hestia) | P0 |
+| `/station` | The platform: what it does, why it's intentionally thin, what-you-keep framing | P0 |
+| `/how-we-work` | Diagnose → Deploy → Operate & Scale methodology, six commitments (Hermes named here), what's left behind (the Brain and Station) | P0 |
 
 ## Secondary Routes (P1)
 
@@ -52,7 +52,7 @@ Security/audit/SSO is folded into `/station` as a section (it's literally what S
 | `/about` | Firm identity, relationship to Splice Labs, beliefs | P1 |
 | `/contact` | Engagement intake form | P1 |
 
-Note: Lovable's separate "AI Enablement" and "AI Infrastructure" surfaces are intentionally not carried forward as sellable services — Enablement folds into the Diagnose phase of `/how-we-work`, and Infrastructure folds into `/station`/Hestia.
+Note: Lovable's separate "AI Enablement" and "AI Infrastructure" surfaces are intentionally not carried forward as sellable services — Enablement folds into the Diagnose phase of `/how-we-work`, and Infrastructure folds into `/station`.
 
 ## Tertiary Routes (P2 — built but not linked in nav)
 
@@ -73,10 +73,10 @@ Note: Lovable's separate "AI Enablement" and "AI Infrastructure" surfaces are in
 
 ## Homepage Sections
 
-1. Hero with Habitat visualization — subhead: "Splice Works helps you become AI-native. Hestia is what you run on afterward. Splice Station is the governed infrastructure making it possible."
+1. Hero with Habitat visualization — subhead: "AI is everywhere and accountable for nothing. Splice Works feeds everything your company knows into one shared Brain your people use every day, then puts it to work through Station — governed agents, with a named human accountable at every gate."
 2. Methodology overview: Diagnose → Deploy → Operate & Scale (3 cards)
 3. Services teaser: 4 surfaces (Build, Embed, Operate, Decide)
-4. Station introduction + "what you keep is Hestia" hook
+4. Station introduction + "what you keep is the Brain and Station" hook
 5. Proof / evidence section
 6. Contact CTA
 

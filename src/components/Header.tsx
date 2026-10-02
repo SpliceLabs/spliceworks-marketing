@@ -11,7 +11,6 @@ const navigation = [
   { label: "Start", href: "/" },
   { label: "Capabilities", href: "/services" },
   { label: "Station", href: "/station" },
-  { label: "Work", href: "/work" },
   { label: "How it works", href: "/how-we-work" },
   { label: "About", href: "/about" },
   { label: "Connect", href: "/contact" },

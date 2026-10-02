@@ -29,15 +29,14 @@ A senior practitioner works alongside your team to understand how work actually 
 
 ## Stage 2: Deploy
 
-The same team that diagnosed the opportunity builds it into your environment. Real data, real integrations, real constraints, with evaluation, permissions, and gates designed in from the start. If the work needs a control plane, we deploy Station here and configure it as your Hestia instance.
+The same team that diagnosed the opportunity builds it into your environment. Your Brain is live and in daily use inside 30 days. Real data, real integrations, real constraints, with evaluation, permissions, and gates designed in from the start. If the work needs a control plane, we deploy Station here.
 
 ### Outputs
 
-- Production system
+- A working Brain, live in 30 days
 - Real integrations
 - Evaluation harness
 - Governance controls
-- Hestia instance, when applicable
 - Runbooks
 
 **Transition:** System accepted, team trained
@@ -46,7 +45,7 @@ The same team that diagnosed the opportunity builds it into your environment. Re
 
 ## Stage 3: Operate and scale
 
-We can stay embedded after deployment, measuring what works, improving the system, and finding the next opportunity worth transforming. Successful patterns become reusable capability your teams inherit. Hestia is what keeps running.
+We can stay embedded after deployment, measuring what works, improving the system, and finding the next opportunity worth transforming. Successful patterns become reusable capability your teams inherit. The Brain and Station are what keep running.
 
 ### Outputs
 
@@ -67,7 +66,7 @@ We can stay embedded after deployment, measuring what works, improving the syste
 - Brownfield is the assumption. Your codebase, your systems of record, your cloud, your constraints. We integrate rather than begin with a rewrite.
 - Governance starts on day one. Identity, permissions, evaluation, and audit are part of the first production architecture.
 - Patterns become infrastructure. Every production system should make the next one easier to build.
-- Capability transfers. We can stay embedded, but the goal isn't dependency. Hestia is built for your team to run.
+- Capability transfers. We can stay embedded, but the goal isn't dependency. The Brain and Station are built for your team to run, and Station is open source so you're never locked in.
 
 ---
 

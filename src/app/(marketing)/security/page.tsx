@@ -6,6 +6,14 @@ import shared from "../shared.module.css";
 import styles from "./page.module.css";
 import { PullQuote } from "@/components/PullQuote";
 import { ControlPath } from "@/components/ControlPath";
+import { LayeredArchitecture } from "@/components/LayeredArchitecture";
+
+const architectureLayers = [
+  { num: "01", name: "Perimeter", detail: "Network controls, WAF, DDoS protection", color: "#2447E8" },
+  { num: "02", name: "Application", detail: "Auth, RBAC, input validation", color: "#7FA4FF" },
+  { num: "03", name: "Data", detail: "Encryption, access controls, masking", color: "#1E9E6A" },
+  { num: "04", name: "Harness", detail: "Capability limits, approval gates, sandboxing", color: "#D98E14" },
+];
 
 const principles = [
   {
@@ -25,8 +33,8 @@ const principles = [
   {
     id: "compliance",
     name: "Compliance alignment",
-    body: "We build inside your compliance requirements — SOC 2, GDPR, HIPAA-aligned, whatever your world demands.",
-    details: ["SOC 2 Type II", "GDPR compliance", "HIPAA alignment", "Custom frameworks"],
+    body: "We design engagements around your compliance requirements.",
+    details: ["GDPR compliance", "Custom frameworks"],
     color: "#1E9E6A",
   },
   {
@@ -71,9 +79,8 @@ export default function SecurityPage() {
           <h1 className={styles.title}>Authority is designed before autonomy.</h1>
           <p className={styles.description}>
             An agent gets exactly the authority its job requires — no more.
-            Every configuration we deploy on Splice Station, including your
-            Hestia instance, is built with security from the start, not
-            bolted on afterward.
+            Every configuration we deploy on Splice Station is built with
+            security from the start, not bolted on afterward.
           </p>
           <div className={styles.stats}>
             <div className={styles.stat}>
@@ -87,10 +94,6 @@ export default function SecurityPage() {
             <div className={styles.stat}>
               <span className={styles.statValue}>100%</span>
               <span className={styles.statLabel}>Action logging</span>
-            </div>
-            <div className={styles.stat}>
-              <span className={styles.statValue}>SOC 2</span>
-              <span className={styles.statLabel}>Type II compliant</span>
             </div>
           </div>
         </div>
@@ -156,30 +159,14 @@ export default function SecurityPage() {
             <span className={styles.sectionNum}>03</span>
             <h2 className={styles.archTitle}>Security architecture</h2>
             <p className={styles.archDesc}>
-              Defense in depth, layer by layer. Every boundary gets enforced, not assumed.
+              Defense in depth, layer by layer. Every boundary gets enforced, not assumed —
+              and the same six principles above apply at every layer, not just the edge.
             </p>
-            <div className={styles.layers}>
-              <div className={styles.layer} style={{ "--layer-color": "#2447E8" } as React.CSSProperties}>
-                <span className={styles.layerNum}>01</span>
-                <span className={styles.layerName}>Perimeter</span>
-                <span className={styles.layerDetail}>Network controls, WAF, DDoS protection</span>
-              </div>
-              <div className={styles.layer} style={{ "--layer-color": "#7FA4FF" } as React.CSSProperties}>
-                <span className={styles.layerNum}>02</span>
-                <span className={styles.layerName}>Application</span>
-                <span className={styles.layerDetail}>Auth, RBAC, input validation</span>
-              </div>
-              <div className={styles.layer} style={{ "--layer-color": "#1E9E6A" } as React.CSSProperties}>
-                <span className={styles.layerNum}>03</span>
-                <span className={styles.layerName}>Data</span>
-                <span className={styles.layerDetail}>Encryption, access controls, masking</span>
-              </div>
-              <div className={styles.layer} style={{ "--layer-color": "#D98E14" } as React.CSSProperties}>
-                <span className={styles.layerNum}>04</span>
-                <span className={styles.layerName}>Harness</span>
-                <span className={styles.layerDetail}>Capability limits, approval gates, sandboxing</span>
-              </div>
-            </div>
+            <LayeredArchitecture
+              layers={architectureLayers}
+              governanceLabel="Governed at every layer"
+              governanceTags={principles.map((p) => p.name)}
+            />
           </div>
         </div>
       </section>
@@ -194,7 +181,7 @@ export default function SecurityPage() {
               compliance gaps in what you&apos;re already running.
             </p>
             <Link href="/contact" className={styles.ctaBtn}>
-              Start a conversation →
+              Book a working session →
             </Link>
           </div>
         </div>

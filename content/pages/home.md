@@ -7,7 +7,7 @@ priority: P0
 
 # Turn your company AI-native
 
-Splice Works helps you become AI-native. Hestia is what you run on afterward. Splice Station is the governed infrastructure making it possible.
+AI is everywhere and accountable for nothing. Splice Works feeds everything your company knows into one shared Brain your people use every day, then puts it to work through Station — governed agents, with a named human accountable at every gate.
 
 You have AI tools. You don't have an AI-native company yet.
 
@@ -55,9 +55,9 @@ AI decision systems. How the company thinks.
 
 ---
 
-## What you keep is Hestia
+## What you keep is the Brain and Station
 
-Every engagement runs on Splice Station, our governed platform. By itself, Station does nothing — it needs a configuration built for the work. What we deploy for you becomes Hestia: the backbone of your AI-native company, permissioned, audited, and yours to run after we leave.
+Every engagement starts with the Brain — live in your people's hands inside 30 days — then runs on Splice Station, our governed platform. By itself, Station does nothing — it needs a configuration built for the work. Both are permissioned, audited, and yours to run after we leave. Station is open source: managed by default, portable by design.
 
 - Runs your agents
 - Enforces approval gates

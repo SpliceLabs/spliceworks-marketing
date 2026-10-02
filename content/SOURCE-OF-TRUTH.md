@@ -31,8 +31,9 @@ Splice Station is the control plane. It orchestrates agents, enforces gates, tra
 
 | Model | Description |
 |-------|-------------|
-| Hosted | We run Station for you |
-| Self-hosted | You run Station on your infrastructure |
+| Cloud | We run Station for you on managed cloud infrastructure |
+| Bring your own cloud | Station deploys inside your cloud account, we still operate it |
+| Self-hosted | You run Station on your own infrastructure, we don't operate it |
 | Hybrid | Split between hosted and self-hosted components |
 
 ## Delivery Stages
