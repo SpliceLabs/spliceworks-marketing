@@ -34,7 +34,7 @@ const principles = [
     id: "compliance",
     name: "Compliance alignment",
     body: "We design engagements around your compliance requirements.",
-    details: ["GDPR compliance", "Custom frameworks"],
+    details: ["Custom frameworks"],
     color: "#1E9E6A",
   },
   {
@@ -86,10 +86,6 @@ export default function SecurityPage() {
             <div className={styles.stat}>
               <span className={styles.statValue}>6</span>
               <span className={styles.statLabel}>Core principles</span>
-            </div>
-            <div className={styles.stat}>
-              <span className={styles.statValue}>24/7</span>
-              <span className={styles.statLabel}>Monitoring</span>
             </div>
             <div className={styles.stat}>
               <span className={styles.statValue}>100%</span>

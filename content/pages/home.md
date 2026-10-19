@@ -5,6 +5,8 @@ route: /
 priority: P0
 ---
 
+> **Superseded (2026-10-18).** This file is kept for history only. The live site copy now comes from the v5 copy package (`splice-works-site-copy-2026-10-12-v5`, `04-site-copy/pages/`). No route reads this file.
+
 # Turn your company AI-native
 
 AI is everywhere and accountable for nothing. Splice Works feeds everything your company knows into one shared Brain your people use every day, then puts it to work through Station — governed agents, with a named human accountable at every gate.
@@ -57,7 +59,7 @@ AI decision systems. How the company thinks.
 
 ## What you keep is the Brain and Station
 
-Every engagement starts with the Brain — live in your people's hands inside 30 days — then runs on Splice Station, our governed platform. By itself, Station does nothing — it needs a configuration built for the work. Both are permissioned, audited, and yours to run after we leave. Station is open source: managed by default, portable by design.
+Every engagement starts with the Brain — live in your people's hands inside 30 days — then runs on Splice Station, our governed platform. By itself, Station does nothing — it needs a configuration built for the work. Both are permissioned, audited, and yours to run after we leave. Station is managed by default, portable by design.
 
 - Runs your agents
 - Enforces approval gates

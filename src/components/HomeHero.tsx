@@ -50,9 +50,6 @@ export function HomeHero() {
                 </Link>
                 <span className={styles.ctaSubline}>Credited in full against your engagement.</span>
               </div>
-              <Link href="/how-we-work" className={styles.secondaryLink}>
-                See how it works →
-              </Link>
             </div>
           </div>
           <div className={styles.heroVisual}>

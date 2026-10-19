@@ -1,3 +1,5 @@
+> **Superseded (2026-10-18).** This file is kept for history only. The live site copy now comes from the v5 copy package (`splice-works-site-copy-2026-10-12-v5`, `04-site-copy/pages/`). No route reads this file.
+
 # Sitemap
 
 ## Brand architecture
@@ -9,10 +11,10 @@
 ```
 Splice Labs Group                    (owns shared infrastructure)
 ├── Splice Labs                      (venture studio — creates new AI-native companies)
-│   └── runs Helios on Station
+│   └── runs its venture-formation runtime on Station
 └── Splice Works                     (forward-deployed team — converts existing
     │                                 companies into AI-native ones)
-    └── runs Hermes on Station, deploys the Brain and Station to clients
+    └── runs its internal transformation system on Station, deploys the Brain and Station to clients
 
 Splice Station                       (governed platform underneath everything —
                                        by itself it does nothing)
@@ -24,10 +26,10 @@ Splice Station                       (governed platform underneath everything �
 | Layer | What it is | Where it lives on this site |
 |-------|-----------|-----------------|
 | **Splice Works** | The forward-deployed team. Converts *existing* companies into AI-native ones. This site. | `/`, `/services`, `/how-we-work`, `/about` |
-| **Splice Station** | The governed platform underneath — by itself it does nothing. Permissioning, audit trails, telemetry, security, SSO, integrations. Needs a configuration/runtime plugged in to do work. Open source: managed by default, portable by design. | Own primary nav page: `/station` |
-| **Hermes** | Splice Works' proprietary transformation system for moving a client from AI-naive to AI-advanced. Runs on Station. **Not handed to clients.** | Named explicitly in `/how-we-work` ("we use AI to deliver AI" commitment) — internal capability only, never a sold product |
+| **Splice Station** | The governed platform underneath — by itself it does nothing. Permissioning, audit trails, telemetry, security, SSO, integrations. Needs a configuration/runtime plugged in to do work. Managed by default, portable by design. | Own primary nav page: `/station` |
+| **Internal transformation system** | Splice Works' proprietary transformation system for moving a client from AI-naive to AI-advanced. Runs on Station. **Not handed to clients.** | Named explicitly in `/how-we-work` ("we use AI to deliver AI" commitment) — internal capability only, never a sold product |
 | **The Brain** | The shared knowledge layer — everything a company knows, in one place its people use every day. The AI-enabled step, live inside 30 days, before Station and agents take over. | Introduced on `/station` and `/` as the first deliverable, paid off in `/how-we-work`'s Deploy phase |
-| **Helios** *(out of scope for this site)* | Splice Labs' (venture studio, sibling to Splice Works) runtime for venture formation — generation, validation, creation of new companies. | Not part of Splice Works' IA. Worth a one-line corporate-structure mention on `/about` only, since it clarifies Splice Works is one of several things built on Station. |
+| **Venture-formation runtime** *(out of scope for this site)* | Splice Labs' (venture studio, sibling to Splice Works) runtime for venture formation — generation, validation, creation of new companies. | Not part of Splice Works' IA. Worth a one-line corporate-structure mention on `/about` only, since it clarifies Splice Works is one of several things built on Station. |
 
 Security/audit/SSO is folded into `/station` as a section (it's literally what Station does) rather than kept as a separate primary nav item. A deeper compliance page remains at `/security` for procurement audiences, linked from `/station`'s footer, not the primary nav.
 
@@ -38,7 +40,7 @@ Security/audit/SSO is folded into `/station` as a section (it's literally what S
 | `/` | Problem → methodology → Brain/Station teaser → proof → CTA | P0 |
 | `/services` | Overview of the 4 transformation surfaces (Build, Embed, Operate, Decide), links to sub-pages | P0 |
 | `/station` | The platform: what it does, why it's intentionally thin, what-you-keep framing | P0 |
-| `/how-we-work` | Diagnose → Deploy → Operate & Scale methodology, six commitments (Hermes named here), what's left behind (the Brain and Station) | P0 |
+| `/how-we-work` | Diagnose → Deploy → Operate & Scale methodology, six commitments (internal transformation system mentioned here), what's left behind (the Brain and Station) | P0 |
 
 ## Secondary Routes (P1)
 
@@ -58,7 +60,7 @@ Note: Lovable's separate "AI Enablement" and "AI Infrastructure" surfaces are in
 
 | Route | Job | Priority |
 |-------|-----|----------|
-| `/security` | Deep compliance detail (SOC2, data handling) for procurement | P2 |
+| `/security` | Deep compliance detail (data handling) for procurement | P2 |
 | `/faq` | Common questions answered | P2 |
 | `/industries` | Vertical-specific framing | P2 |
 

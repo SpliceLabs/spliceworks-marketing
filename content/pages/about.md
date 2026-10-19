@@ -5,6 +5,8 @@ route: /about
 priority: P1
 ---
 
+> **Superseded (2026-10-18).** This file is kept for history only. The live site copy now comes from the v5 copy package (`splice-works-site-copy-2026-10-12-v5`, `04-site-copy/pages/`). No route reads this file.
+
 # We turn existing companies AI-native
 
 Splice Works is a forward-deployed team inside Splice Labs Group. We find where AI creates real leverage, build the systems that capture it, and stay accountable through production.
@@ -13,13 +15,13 @@ Splice Works is a forward-deployed team inside Splice Labs Group. We find where 
 
 ## Where we sit
 
-Splice Labs Group owns the shared infrastructure, Splice Station, underneath everything we build. Splice Labs, a sibling company, is the venture studio that creates new AI-native companies from scratch, running Helios on Station to do it. Splice Works transforms companies that already exist, running Hermes internally and leaving the Brain and Station behind as the client's own operating backbone.
+Splice Labs Group owns the shared infrastructure, Splice Station, underneath everything we build. Splice Labs, a sibling company, is the venture studio that creates new AI-native companies from scratch, running its own runtime on Station to do it. Splice Works transforms companies that already exist, running its own engagement toolkit internally and leaving the Brain and Station behind as the client's own operating backbone.
 
 ---
 
 ## How we think about production AI
 
-- We use AI to multiply senior engineering capacity. Our practitioners use Hermes and AI-native workflows for research, discovery, engineering, testing, and delivery.
+- We use AI to multiply senior engineering capacity. Our practitioners use our engagement toolkit and AI-native workflows for research, discovery, engineering, testing, and delivery.
 - Splice, don't replace. Your ERP, CRM, codebase, and internal tools already encode how your company operates. We connect intelligence into them rather than starting a rewrite.
 - Autonomy is earned. Systems start bounded, and a named human is accountable at every gate. Evidence, consequence, and reversibility determine how much autonomy they receive.
 - Governance is architecture. Identity, permissions, policy, evaluation, and audit are structural, not compliance work added later.
@@ -32,7 +34,7 @@ Splice Labs Group owns the shared infrastructure, Splice Station, underneath eve
 - Not a staffing agency
 - Not a bespoke dev shop
 - Not building one-off custom software
-- Open source, so you're never locked into us
+- Portable by design, so you're never locked into us
 
 ---
 

@@ -43,7 +43,7 @@ Every engagement follows 3 stages:
 
 - Role-based access controls
 - Complete audit trails
-- Compliance alignment with your requirements (GDPR and custom frameworks)
+- Compliance alignment with your requirements
 - Data boundaries defined before work begins
 - Gate enforcement for critical operations
 - Evidence requirements for decisions

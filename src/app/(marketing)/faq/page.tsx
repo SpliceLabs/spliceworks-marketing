@@ -50,11 +50,7 @@ const faqCategories = [
       {
         q: "Where does our data go?",
         a: "Your data stays under your control. We define the boundaries before work starts, not after.",
-      },
-      {
-        q: "What about air-gapped deployments?",
-        a: "Self-hosted Station can run air-gapped.",
-      },
+      }
     ],
   },
   {

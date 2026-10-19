@@ -49,7 +49,7 @@ const deploymentOptions = [
     id: "cloud",
     name: "Cloud",
     description: "We run Station for you on managed cloud infrastructure — your Brain and agent harnesses live day one.",
-    features: ["Managed updates", "24/7 monitoring", "SLA-backed uptime"],
+    features: ["Managed updates"],
     recommended: true,
     color: "#2447E8",
   },
@@ -72,7 +72,6 @@ const deploymentOptions = [
     features: [
       "Your cloud or on-prem",
       "Custom security controls",
-      "Air-gapped deployment option",
     ],
     recommended: false,
     color: "#D98E14",

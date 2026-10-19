@@ -133,7 +133,7 @@ const capabilities = {
       "Gate enforcement",
       "Evidence requirements",
     ],
-    compliance: ["GDPR", "Custom frameworks"],
+    compliance: ["Custom frameworks"],
   },
 
   contact: {
