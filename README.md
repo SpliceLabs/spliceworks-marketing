@@ -34,7 +34,7 @@ Unconfirmed copy is written `[TBD: …, #3]` in the markdown and renders as a vi
 
 - `pnpm check:tbd` lists every remaining placeholder and exits 1 if there are any.
 - `pnpm build` runs the same check first and **refuses to build** while any placeholder remains.
-- Preview builds: `ALLOW_TBD=1 pnpm build`. Vercel preview deployments (`VERCEL_ENV=preview`) are allowed automatically; production deployments are not.
+- Preview builds: `ALLOW_TBD=1 pnpm build`. Vercel preview deployments (`VERCEL_ENV=preview`) are allowed automatically; production deployments are currently allowed too, because `ALLOW_IN_PRODUCTION` is `true` in `scripts/check-tbd.mjs` (launch decision, 2026-10-19). Set it to `false` once every placeholder is filled.
 
 ## Learn More
 

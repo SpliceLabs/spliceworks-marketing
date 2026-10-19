@@ -75,7 +75,13 @@ if (found.length === 0) {
   process.exit(0);
 }
 
-const allowed = process.env.ALLOW_TBD === "1" || process.env.VERCEL_ENV === "preview";
+// Launch decision (2026-10-19): the live site ships with placeholders visible
+// while the founder questions are open. Set this back to false once every
+// [TBD] is filled, so production builds refuse placeholders again.
+const ALLOW_IN_PRODUCTION = true;
+
+const allowed =
+  ALLOW_IN_PRODUCTION || process.env.ALLOW_TBD === "1" || process.env.VERCEL_ENV === "preview";
 console.log(`check-tbd: ${found.length} placeholder(s) remain.`);
 const summary = [...byId.entries()].sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k} ×${v}`).join(", ");
 console.log(`  by tracker id: ${summary}`);
@@ -84,7 +90,7 @@ if (!build || !allowed) {
 }
 
 if (build && allowed) {
-  console.log("check-tbd: preview build allowed (ALLOW_TBD=1 or VERCEL_ENV=preview); placeholders will render visibly.");
+  console.log("check-tbd: build allowed (ALLOW_IN_PRODUCTION, ALLOW_TBD=1 or VERCEL_ENV=preview); placeholders will render visibly.");
   process.exit(0);
 }
 if (build) {
