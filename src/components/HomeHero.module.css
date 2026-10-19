@@ -3,7 +3,12 @@
   z-index: 0;
   overflow: hidden;
   padding: 140px 0 120px;
-  background: linear-gradient(160deg, var(--color-ink) 0%, var(--color-primary) 160%);
+  background: linear-gradient(160deg, var(--hero-bg-start, #152238) 0%, var(--hero-bg-end, #2447E8) 160%);
+}
+
+:global([data-theme="ink"]) .hero {
+  --hero-bg-start: #101B30;
+  --hero-bg-end: #35579E;
 }
 
 .grid {
@@ -111,7 +116,7 @@
   gap: 8px;
   padding: 14px 28px;
   background: white;
-  color: var(--color-ink);
+  color: #152238;
   border: none;
   border-radius: 8px;
   font-family: var(--font-ui);
