@@ -5,6 +5,8 @@ route: /security
 priority: P2
 ---
 
+> **Superseded (2026-10-18).** This file is kept for history only. The live site copy now comes from the v5 copy package (`splice-works-site-copy-2026-10-12-v5`, `04-site-copy/pages/`). No route reads this file.
+
 # Security is not optional
 
 AI systems require rigorous controls. Every configuration we deploy on Splice Station is built with security from the start, not added afterward.
@@ -25,7 +27,7 @@ Every action is logged. Every decision is traceable. Nothing happens without a r
 
 ## Compliance alignment
 
-We work within your compliance requirements. SOC 2, GDPR, and HIPAA-aligned deployments.
+We work within your compliance requirements.
 
 ---
 

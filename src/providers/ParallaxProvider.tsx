@@ -1,6 +1,7 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from "react";
+import React, { createContext, useContext, useState, useEffect, useMemo } from "react";
+import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 
 interface ParallaxContextValue {
   scrollY: number;
@@ -28,14 +29,14 @@ export function ParallaxProvider({ children }: ParallaxProviderProps) {
   const [scrollY, setScrollY] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
   const [documentHeight, setDocumentHeight] = useState(0);
-  const [reduced, setReduced] = useState(false);
+  const reduced = usePrefersReducedMotion();
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-    setWindowHeight(window.innerHeight);
-    setDocumentHeight(document.documentElement.scrollHeight);
+    const id = requestAnimationFrame(() => {
+      setWindowHeight(window.innerHeight);
+      setDocumentHeight(document.documentElement.scrollHeight);
+    });
+    return () => cancelAnimationFrame(id);
   }, []);
 
   useEffect(() => {
@@ -95,13 +96,7 @@ export function ParallaxSection({
   as = "section"
 }: ParallaxSectionProps) {
   const { scrollY } = useGlobalParallax();
-  const [reduced, setReduced] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-    }
-  }, []);
+  const reduced = usePrefersReducedMotion();
 
   const offset = reduced ? 0 : scrollY * speed;
   const Tag = as;
@@ -138,15 +133,9 @@ export function ParallaxElement({
   scale = 0,
 }: ParallaxElementProps) {
   const { scrollY, windowHeight } = useGlobalParallax();
-  const [reduced, setReduced] = useState(false);
+  const reduced = usePrefersReducedMotion();
   const [elementTop, setElementTop] = useState(0);
   const ref = React.useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-    }
-  }, []);
 
   useEffect(() => {
     if (ref.current) {

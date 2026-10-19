@@ -5,6 +5,8 @@ route: /station
 priority: P0
 ---
 
+> **Superseded (2026-10-18).** This file is kept for history only. The live site copy now comes from the v5 copy package (`splice-works-site-copy-2026-10-12-v5`, `04-site-copy/pages/`). No route reads this file.
+
 # The governed platform underneath everything
 
 Splice Station connects agent systems and external tools. Permissioning, audit trails, telemetry, security, and SSO in one control plane. By itself, Station does nothing — it needs a configuration built for the work.
@@ -61,7 +63,7 @@ Station deploys inside your own cloud account. You keep the infrastructure bound
 
 ### Self-hosted
 
-You run Station entirely on your own infrastructure — we don't operate it. Open source, full control, never locked in.
+You run Station entirely on your own infrastructure — we don't operate it. Portable by design, full control, never locked in.
 
 - Your cloud or on-prem
 - Custom security controls

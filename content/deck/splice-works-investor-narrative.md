@@ -6,7 +6,7 @@
 
 ## Canonical one-paragraph narrative
 
-> Splice Works deploys governed AI infrastructure into mid-market and enterprise operations. We install Splice Station, specialized harnesses, and client-specific brains — starting from one high-value problem, live in two weeks, shipped in thirty days. Every engagement ships a working system. What we learn hardens the platform for the next one.
+> Splice Works deploys governed AI infrastructure into company operations. We install Splice Station, specialized harnesses, and client-specific brains — starting from one high-value problem, live in two weeks, shipped in thirty days. Every engagement ships a working system. What we learn hardens the platform for the next one.
 
 **Thesis line** (used as the slide 10 headline):
 
@@ -101,7 +101,7 @@ Week 1–2 Station live → Sandbox (built, tested on real data) → Shadow mode
 - **Channel partners** — license or distribute harnesses. No direct sales build-out.
 - **Engagement as wedge** — one scoped project. Station installed early. Expands over time.
 
-**ICP line:** Mid-market enterprise with deterministic, high-waste workflows. Manufacturing is the highest-opportunity vertical today.
+**ICP line:** Companies with deterministic, high-waste workflows. Manufacturing is the highest-opportunity vertical today.
 
 ---
 
@@ -170,7 +170,7 @@ Week 1–2 Station live → Sandbox (built, tested on real data) → Shadow mode
 
 **Headline:** The edge isn't building an agent. It's deploying one that compounds.
 
-**Body:** Splice Works deploys governed AI infrastructure into mid-market and enterprise operations. One high-value problem. Station in two weeks. A working system in thirty days.
+**Body:** Splice Works deploys governed AI infrastructure into company operations. One high-value problem. Station in two weeks. A working system in thirty days.
 
 **CTA:** Tell us the problem you want solved.
 

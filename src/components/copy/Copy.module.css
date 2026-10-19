@@ -1,0 +1,577 @@
+/* ==========================================================================
+   Copy rendering: prose, tables, cards, FAQ and CTAs for v5 pages.
+   Uses the Electric Field Guide tokens from globals.css.
+   ========================================================================== */
+
+/* Page header ------------------------------------------------------------- */
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.eyebrow:hover {
+  text-decoration: underline;
+}
+
+.lead {
+  max-width: 64ch;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-muted);
+}
+
+.lead > p {
+  margin: 0 0 var(--space-4);
+}
+
+.lead > p:last-child {
+  margin-bottom: 0;
+}
+
+.headerTitle {
+  max-width: 24ch;
+  text-wrap: balance;
+}
+
+/* Section ----------------------------------------------------------------- */
+
+.sectionHead {
+  margin-bottom: var(--space-8);
+  max-width: 36ch;
+  text-wrap: balance;
+}
+
+/* Prose -------------------------------------------------------------------- */
+
+.prose {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--color-ink);
+}
+
+.prose > * {
+  margin: 0;
+}
+
+.prose > * + * {
+  margin-top: var(--space-4);
+}
+
+/* Running text keeps the reading measure; tables and grids get more room. */
+.prose > p,
+.prose > ul,
+.prose > ol,
+.prose > .cta {
+  max-width: var(--measure);
+}
+
+.prose > .tableWrap,
+.prose > .features,
+.prose > .cards,
+.prose > .quoteWrap {
+  max-width: 1100px;
+}
+
+.prose a:not(:global(.btn)),
+.lead a:not(:global(.btn)),
+.cardBody a:not(:global(.btn)),
+.faqAnswer a:not(:global(.btn)),
+.routes a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.prose a:not(:global(.btn)):hover,
+.lead a:not(:global(.btn)):hover,
+.cardBody a:not(:global(.btn)):hover,
+.faqAnswer a:not(:global(.btn)):hover,
+.routes a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.prose strong,
+.cardBody strong {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+/* Lists */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.list > li {
+  position: relative;
+  padding-left: var(--space-6);
+}
+
+.list > li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+.list .list {
+  margin-top: var(--space-2);
+}
+
+.list .list > li::before {
+  background: var(--color-structure-deep);
+}
+
+.steps {
+  list-style: none;
+  counter-reset: step;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.steps > li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 48px;
+  min-height: 32px;
+}
+
+.steps > li::before {
+  content: counter(step, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 7px;
+  border-radius: 4px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+/* Tables ------------------------------------------------------------------- */
+
+.tableWrap {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+  background: var(--color-surface);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.5;
+  min-width: 560px;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  vertical-align: top;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.table thead th {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-ink);
+  background: var(--color-structure-soft);
+}
+
+.table tbody tr:last-child td,
+.table tbody tr:last-child th {
+  border-bottom: none;
+}
+
+.table tbody th {
+  font-weight: 600;
+  color: var(--color-ink);
+  width: 22%;
+}
+
+.table td {
+  color: var(--color-muted);
+}
+
+.table a {
+  color: var(--color-primary);
+}
+
+/* Cards (H3 subsections) ---------------------------------------------------- */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.cards:first-child {
+  margin-top: 0;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-6);
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  background: var(--color-surface);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--color-primary);
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 var(--space-3);
+  color: var(--color-ink);
+}
+
+.cardBody {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-muted);
+}
+
+.cardBody > * {
+  margin: 0;
+}
+
+.cardBody > * + * {
+  margin-top: var(--space-3);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  margin-top: var(--space-10);
+}
+
+.stack:first-child {
+  margin-top: 0;
+}
+
+.stackTitle {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 var(--space-4);
+  color: var(--color-ink);
+}
+
+/* Bold-lead paragraphs shown side by side */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: var(--space-4);
+}
+
+.feature {
+  margin: 0;
+  padding: var(--space-5);
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+  background: var(--color-surface);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-muted);
+}
+
+.feature strong {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+
+.quoteWrap {
+  display: block;
+}
+
+/* Inline CTA ---------------------------------------------------------------- */
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}
+
+.lead + .cta,
+.prose > * + .cta {
+  margin-top: var(--space-6);
+}
+
+.ctaSub {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
+.ctaBandBody {
+  color: rgba(246, 244, 233, 0.78);
+}
+
+.ctaBandBody p {
+  margin: 0 0 var(--space-3);
+}
+
+.ctaBandBody a {
+  color: #a8c4ff;
+  text-decoration: underline;
+}
+
+.ctaBandSub {
+  margin: var(--space-3) 0 0;
+  font-size: 13px;
+  color: rgba(246, 244, 233, 0.7);
+}
+
+/* FAQ ----------------------------------------------------------------------- */
+
+.faq {
+  max-width: var(--measure);
+  border-top: 1px solid var(--color-line);
+}
+
+.faqItem {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.faqItem > summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faqItem > summary::-webkit-details-marker {
+  display: none;
+}
+
+.faqItem > summary::after {
+  content: "+";
+  flex: none;
+  width: 24px;
+  text-align: center;
+  font-size: 20px;
+  color: var(--color-muted);
+}
+
+.faqItem[open] > summary::after {
+  content: "\2212";
+}
+
+.faqQuestion {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.4;
+  color: var(--color-ink);
+}
+
+.faqItem > summary:hover .faqQuestion {
+  color: var(--color-primary);
+}
+
+.faqAnswer {
+  padding: 0 0 var(--space-5);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--color-muted);
+}
+
+.faqAnswer > * {
+  margin: 0;
+}
+
+.faqAnswer > * + * {
+  margin-top: var(--space-3);
+}
+
+.after {
+  margin-top: var(--space-6);
+}
+
+.faqCategory + .faqCategory {
+  margin-top: var(--space-12);
+}
+
+.faqCategoryTitle {
+  font-size: var(--text-display-md);
+  margin-bottom: var(--space-4);
+}
+
+/* Routes strip (home) ------------------------------------------------------- */
+
+.routes {
+  padding: var(--space-8) 0;
+  border-top: 1px solid var(--color-line);
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--color-muted);
+}
+
+.routes p {
+  margin: 0;
+  max-width: 110ch;
+}
+
+/* Booking form -------------------------------------------------------------- */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: 760px;
+  margin-top: var(--space-8);
+}
+
+.fieldset {
+  margin: 0;
+  padding: var(--space-5);
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+  background: var(--color-surface);
+  min-width: 0;
+}
+
+.legend {
+  float: left;
+  width: 100%;
+  padding: 0;
+  margin-bottom: var(--space-3);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.legend + * {
+  clear: both;
+}
+
+.qNum {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-primary);
+  margin-right: var(--space-2);
+}
+
+.hint {
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: var(--space-2) var(--space-4);
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.option input {
+  margin-top: 3px;
+  accent-color: var(--color-primary);
+}
+
+.inputs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: var(--space-4);
+}
+
+.inputLabel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.input {
+  width: 100%;
+  color: var(--color-ink);
+}
+
+.textarea {
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  color: var(--color-ink);
+}
+
+.submitRow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+/* Mobile -------------------------------------------------------------------- */
+
+@media (max-width: 760px) {
+  .table {
+    font-size: 13px;
+  }
+}

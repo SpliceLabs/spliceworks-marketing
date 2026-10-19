@@ -5,6 +5,8 @@ route: /how-we-work
 priority: P0
 ---
 
+> **Superseded (2026-10-18).** This file is kept for history only. The live site copy now comes from the v5 copy package (`splice-works-site-copy-2026-10-12-v5`, `04-site-copy/pages/`). No route reads this file.
+
 # Diagnose. Deploy. Operate and scale.
 
 We don't assess, recommend, and hand off. The people who diagnose the opportunity are the people who build it.
@@ -62,11 +64,11 @@ We can stay embedded after deployment, measuring what works, improving the syste
 ## 6 commitments
 
 - Senior practitioners do the work. No team scopes the project and hands it to a different team to build.
-- We use AI to deliver AI. Our engineers work with Hermes, our own engagement toolkit, to move faster through diagnosis and delivery. Hermes is ours. It never ships to you.
+- We use AI to deliver AI. Our engineers work with our own engagement toolkit to move faster through diagnosis and delivery. It's ours. It never ships to you.
 - Brownfield is the assumption. Your codebase, your systems of record, your cloud, your constraints. We integrate rather than begin with a rewrite.
 - Governance starts on day one. Identity, permissions, evaluation, and audit are part of the first production architecture.
 - Patterns become infrastructure. Every production system should make the next one easier to build.
-- Capability transfers. We can stay embedded, but the goal isn't dependency. The Brain and Station are built for your team to run, and Station is open source so you're never locked in.
+- Capability transfers. We can stay embedded, but the goal isn't dependency. The Brain and Station are built for your team to run, and Station is portable by design so you're never locked in.
 
 ---
 

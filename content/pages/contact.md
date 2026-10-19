@@ -5,6 +5,8 @@ route: /contact
 priority: P1
 ---
 
+> **Superseded (2026-10-18).** This file is kept for history only. The live site copy now comes from the v5 copy package (`splice-works-site-copy-2026-10-12-v5`, `04-site-copy/pages/`). No route reads this file.
+
 # Bring us a workflow, not a brief
 
 Tell us what's slow, expensive, or inconsistent today. We will tell you whether AI is the right instrument, and whether it belongs on Build, Embed, Operate, or Decide.

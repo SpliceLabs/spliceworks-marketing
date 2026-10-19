@@ -5,6 +5,8 @@ route: /services
 priority: P0
 ---
 
+> **Superseded (2026-10-18).** This file is kept for history only. The live site copy now comes from the v5 copy package (`splice-works-site-copy-2026-10-12-v5`, `04-site-copy/pages/`). No route reads this file.
+
 # 4 places AI changes the company
 
 One organization, one system. These surfaces share data, governance, and infrastructure — treating them as four separate initiatives fails.

@@ -5,6 +5,8 @@ route: /faq
 priority: P2
 ---
 
+> **Superseded (2026-10-18).** This file is kept for history only. The live site copy now comes from the v5 copy package (`splice-works-site-copy-2026-10-12-v5`, `04-site-copy/pages/`). No route reads this file.
+
 # Common questions
 
 Answers to questions we hear most often.
@@ -37,13 +39,9 @@ The Brain is the shared knowledge layer we build first: everything your company 
 
 Station is the governed platform that puts the Brain to work. By itself, it does nothing — it needs a configuration built for the work.
 
-### What is Hermes?
-
-Hermes is our own engagement toolkit, used internally during diagnose and deploy work. It is not a product we hand to clients.
-
 ### Can we self-host Station?
 
-Yes. Station is open source, so you can run it hosted, self-hosted, or hybrid — you're never locked into us.
+Yes. Station is portable by design, so you can run it hosted, self-hosted, or hybrid — you're never locked into us.
 
 ### Does Station work with existing agent frameworks?
 
@@ -52,10 +50,6 @@ Station is framework-agnostic. It orchestrates agents regardless of how they are
 ---
 
 ## Security
-
-### Is Station SOC 2 compliant?
-
-Hosted Station is SOC 2 Type II compliant. Self-hosted deployments inherit your compliance posture.
 
 ### Where does our data go?
 

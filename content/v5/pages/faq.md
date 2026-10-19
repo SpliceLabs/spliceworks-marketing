@@ -1,0 +1,117 @@
+---
+url: /faq
+title: AI Enablement FAQ: Cost, Accountability, Data | Splice Works
+description: Plain answers on cost, speed, who's accountable when AI gets it wrong, data, lock-in, and what you keep after the engagement.
+reader: Any buyer weighing an objection; also AI search tools and agents
+job: Have each objection answered plainly, then book a working session
+primary_cta: Book a working session → /book
+status: provisional
+sources: [Objections and answers, Added objections, Core messages (The working session, capability not dependency, managed by default portable by design), Engagement model, The two offerings, Fractional leadership seats and advisory, Claims register]
+open: [All answers need founder confirmation (#11), Data-handling line (#11), "What if it doesn't work?" (#20), "Do we have to keep paying you?" (#19), First workflow in production range (#5, #11), Session price and what if you don't go ahead (#3), "Why a fractional seat instead of a full-time hire?" answer (#22), "Does the fund or the company engage you?": who buys and portfolio terms]
+---
+
+# Questions, answered plainly
+
+What buyers ask us before they start, and what we tell them. If yours isn't here, ask us in a [working session](/book).
+
+## Why us, and why not another route
+
+### Why not do this in-house?
+
+You can, and we'll leave your team able to. We make the path shorter because we've done this before and we bring the governance infrastructure. The same team stays with you from the first session to production.
+
+### Why not a company-brain platform?
+
+A platform asks you to trust the machine. We start from your own experts and cite where every answer comes from, with an accountable person behind every decision that matters.
+
+### Why not a consultancy?
+
+A consultancy bills weeks of analysis and leaves you a deck. You get something usable in the first working session, and that session is credited in full against your engagement.
+
+### Are we too small for this?
+
+No. We work with solo founders as well as large teams.
+
+### Which service is right for us?
+
+It depends on where you are today. If you have the tools but the work hasn't changed, even if people use them daily, start with [AI-absent → AI-enabled](/services/ai-enabled). If your first critical workflow already runs on agents but most work still waits to be asked, start with [AI-enabled → AI-native](/services/ai-native). If you need AI leadership on your team first, look at [fractional leadership](/services/fractional). If you're not sure, the working session will tell you which fits.
+
+### Why a fractional seat instead of a full-time hire?
+
+[TBD: answer, #22]
+
+## Getting started
+
+### What is a working session?
+
+One focused day with us. We dig into how your work runs and pick one real workflow together. You leave with a working prototype of that workflow and a view of where you are on the path. For each part of the workflow you also get a build, buy or partner call and who is accountable for each decision, plus our advice on where to go next.
+
+### How much of my team's time does it take?
+
+One focused day. We'll tell you beforehand who should be in the room.
+
+### What does it cost?
+
+Talk to us. We scope the work with you during the working session, which is credited in full against your engagement. [TBD: session price, #3]
+
+### What if we don't go ahead after the session?
+
+[TBD: what happens if you don't continue, #3]
+
+### How fast will we see something?
+
+You get something usable from the first session. Once we've seen your workflow there, we tell you how long it will take to reach production.
+
+### Does the fund or the company engage you?
+
+[TBD: whether the investor or the company buys; portfolio terms]
+
+### What if we find something new mid-engagement?
+
+If the agreed workflow needs it to work, it goes into the plan. We don't turn every discovery into a change order. Genuinely new work gets scoped with you, in the open.
+
+## Accountability and safety
+
+### Who's accountable when the AI gets it wrong?
+
+A person on your side. There's an accountable person behind every decision that matters, and agents can handle some approvals that person has permissioned. Before anything runs, we agree who is accountable and what each agent may approve.
+
+### Is our data safe?
+
+Your data stays in the systems you already use. We work inside them, with only the access you give us, under NDA. [TBD: one line on data handling the founders will stand behind, #11]
+
+### What if it doesn't work?
+
+[TBD: what we commit to if it doesn't work, #20]
+
+## Cost and value
+
+### Won't this just raise our AI bill?
+
+It shouldn't. Any vendor can raise your usage. We design for value that grows faster than your AI bill.
+
+## After the engagement
+
+### Do we have to keep paying you?
+
+[TBD: answer pending (#19)]
+
+### What if we want to leave, or run it ourselves?
+
+You can. We build it so you can own it, and we operate it for as long as that's useful. By default we run the system and your brain for you as a managed service, and you can take it over whenever you like. Self-hosted is available, so you can run it yourself with your own agents plugged in.
+
+### Can we use our own agents?
+
+Yes. No vendor lock-in: bring your own agents or use ours, and swap them whenever you want.
+
+### What do we keep when the engagement ends?
+
+The ability to run it yourself. Your team knows how to manage what we installed and can keep improving it without us.
+
+## Still deciding?
+
+The quickest way to answer the rest is one focused day on one of your real workflows.
+
+**Book a working session** → /book
+
+Credited in full against your engagement.
