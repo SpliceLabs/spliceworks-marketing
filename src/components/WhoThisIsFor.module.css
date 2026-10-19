@@ -29,25 +29,6 @@
   background-clip: text;
 }
 
-.eyebrow {
-  display: flex;
-  gap: var(--space-3);
-  align-items: baseline;
-  flex-wrap: wrap;
-  margin-bottom: var(--space-3);
-  font-family: var(--font-mono);
-  font-size: var(--text-mono);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-muted);
-}
-
-.eyebrow b {
-  font-weight: 500;
-  color: #2447E8;
-  white-space: nowrap;
-}
-
 .heading {
   font-family: var(--font-display);
   font-size: var(--text-display-lg);
@@ -56,14 +37,6 @@
   line-height: var(--display-leading);
   color: var(--color-ink);
   text-wrap: balance;
-}
-
-.sub {
-  color: var(--color-muted);
-  margin-top: var(--space-4);
-  max-width: 44ch;
-  font-size: 15px;
-  line-height: 1.55;
 }
 
 /* Quotes grid */
@@ -149,4 +122,14 @@
   .quote:last-child {
     grid-column: auto;
   }
+}
+
+.footer {
+  margin: var(--space-6) 0 0;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--color-ink);
 }

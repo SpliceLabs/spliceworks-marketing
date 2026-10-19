@@ -1,29 +1,34 @@
-"use client";
-
+import type { ReactNode } from "react";
 import Link from "next/link";
 import shared from "../app/(marketing)/shared.module.css";
+import styles from "./copy/Copy.module.css";
 
-export function HomeCta() {
+/** Closing "Book a working session" band, used at the end of every page. */
+export function HomeCta({
+  id,
+  heading,
+  body,
+  ctaLabel,
+  ctaHref,
+  ctaSub,
+}: {
+  id?: string;
+  heading: ReactNode;
+  body?: ReactNode;
+  ctaLabel: string;
+  ctaHref: string;
+  ctaSub?: ReactNode;
+}) {
   return (
-    <section className={shared.ctaDark}>
+    <section className={shared.ctaDark} id={id}>
       <div className="container">
         <div className={shared.ctaContent}>
-          <h2 className={shared.ctaHeadline}>Don&apos;t add AI everywhere. Put it where it changes the company.</h2>
-          <p className={shared.ctaBody}>
-            We&apos;ll help you find the highest-leverage opportunities and build the
-            systems that make them real.
-          </p>
-          <div style={{ display: "flex", gap: "var(--space-3)", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/contact" className="btn btn-primary">
-              Book a working session →
-            </Link>
-            <Link href="/how-we-work" className="btn btn-secondary">
-              See how we work
-            </Link>
-          </div>
-          <p style={{ marginTop: "var(--space-3)", fontSize: "13px", opacity: 0.7 }}>
-            Credited in full against your engagement.
-          </p>
+          <h2 className={shared.ctaHeadline}>{heading}</h2>
+          {body && <div className={`${shared.ctaBody} ${styles.ctaBandBody}`}>{body}</div>}
+          <Link href={ctaHref} className="btn btn-primary">
+            {ctaLabel} <span aria-hidden="true">→</span>
+          </Link>
+          {ctaSub && <p className={styles.ctaBandSub}>{ctaSub}</p>}
         </div>
       </div>
     </section>

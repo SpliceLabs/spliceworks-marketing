@@ -1,61 +1,62 @@
+import type { ReactNode } from "react";
 import styles from "./TwoStepPath.module.css";
 
-const stages = [
-  {
-    id: "absent",
-    label: "AI-absent",
-    description:
-      "Tools, maybe, but nothing about how the work gets done has changed.",
-  },
-  {
-    id: "enabled",
-    label: "AI-enabled",
-    description:
-      "Everything your company knows feeds one shared brain, and your people use it every day.",
-  },
-  {
-    id: "native",
-    label: "AI-native",
-    description: "That brain drives the work.",
-  },
-];
+export interface StepColumn {
+  label: ReactNode;
+  rows: { label: ReactNode; value: ReactNode }[];
+}
 
-export function TwoStepPath() {
+/**
+ * The two steps on the path, one card per step. Fed from the step table in
+ * the page copy (columns = steps, rows = attributes).
+ */
+export function TwoStepPath({
+  num = "02",
+  heading,
+  intro,
+  steps,
+  footer,
+}: {
+  num?: string;
+  heading: ReactNode;
+  intro?: ReactNode;
+  steps: StepColumn[];
+  footer?: ReactNode;
+}) {
   return (
     <section className={styles.section} id="path">
       <div className={styles.left}>
         <span className={styles.num} aria-hidden="true">
-          02
+          {num}
         </span>
-        <p className={styles.eyebrow}>
-          <b>The path</b>
-          <span>where you're headed</span>
-        </p>
-        <h2 className={styles.heading}>
-          Every company moves through the same two steps.
-        </h2>
-        <p className={styles.sub}>
-          We meet you wherever you are and move you forward one step at a
-          time.
-        </p>
+        <h2 className={styles.heading}>{heading}</h2>
+        {intro && <div className={styles.sub}>{intro}</div>}
       </div>
-      <div className={styles.stages}>
-        {stages.map((stage, i) => (
-          <div key={stage.id} className={styles.stage}>
-            <div className={styles.stageHeader}>
-              <span className={styles.stageNum}>
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className={styles.stageLabel}>{stage.label}</h3>
+      <div>
+        <div className={styles.stages} style={{ gridTemplateColumns: `repeat(${steps.length}, minmax(0, 1fr))` }}>
+          {steps.map((step, i) => (
+            <div key={i} className={styles.stage}>
+              <div className={styles.stageHeader}>
+                <span className={styles.stageNum}>{String(i + 1).padStart(2, "0")}</span>
+                <h3 className={styles.stageLabel}>{step.label}</h3>
+              </div>
+              <dl className={styles.rows}>
+                {step.rows.map((row, j) => (
+                  <div key={j} className={styles.row}>
+                    <dt>{row.label}</dt>
+                    <dd>{row.value}</dd>
+                  </div>
+                ))}
+              </dl>
+              {i < steps.length - 1 && (
+                <span className={styles.arrow} aria-hidden="true">
+                  →
+                </span>
+              )}
             </div>
-            <p className={styles.stageDesc}>{stage.description}</p>
-            {i < stages.length - 1 && (
-              <span className={styles.arrow} aria-hidden="true">
-                →
-              </span>
-            )}
-          </div>
-        ))}
+          ))}
+        </div>
+        {footer && <p className={styles.footer}>{footer}</p>}
       </div>
     </section>
   );

@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo, createContext, useContext } from "react";
 import { useTheme } from "@/providers/ThemeProvider";
 import { useMode } from "@/providers/ModeProvider";
+import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 
 // =============================================================================
 // Parallax Context - for page-wide parallax
@@ -190,7 +191,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
   const [approved, setApproved] = useState(false);
   const [sel, setSel] = useState<string | null>(null);
   const [hover, setHover] = useState<string | null>(null);
-  const [reduced, setReduced] = useState(false);
+  const reduced = usePrefersReducedMotion();
   const [evidence, setEvidence] = useState(0);
   const [zoom, setZoom] = useState(1);
   const [showMd, setShowMd] = useState(false);
@@ -217,13 +218,6 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
   const ch = CH[chapter];
   const waiting = chapter === 3 && !approved;
   const done = chapter === 5;
-
-  // Check reduced motion preference
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-    }
-  }, []);
 
   // Responsive scale calculation
   useEffect(() => {
@@ -1094,7 +1088,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
               The agents discover, build and operate the work. Station governs every handoff. A person holds the gate.
             </p>
             <div className="cta-row">
-              <a href="/contact" className="btn-accent">Book a working session →</a>
+              <a href="/book" className="btn-accent">Book a working session →</a>
               <button
                 type="button"
                 className="btn-secondary"

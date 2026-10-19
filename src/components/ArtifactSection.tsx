@@ -132,7 +132,7 @@ export function ArtifactSection() {
             <button className={styles.btn} onClick={handleDownload}>
               Download .md
             </button>
-            <Link href="/contact" className={`${styles.btn} ${styles.btnPrimary}`}>
+            <Link href="/book" className={`${styles.btn} ${styles.btnPrimary}`}>
               Book a working session
             </Link>
           </div>

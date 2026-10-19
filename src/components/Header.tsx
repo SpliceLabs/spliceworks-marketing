@@ -7,14 +7,16 @@ import { useTheme } from "@/providers/ThemeProvider";
 import { useMode } from "@/providers/ModeProvider";
 import styles from "./Header.module.css";
 
+// Nav per the v5 sitemap (03-sitemap/works-site-sitemap.md §1).
 const navigation = [
-  { label: "Start", href: "/" },
-  { label: "Capabilities", href: "/services" },
-  { label: "Station", href: "/station" },
-  { label: "How it works", href: "/how-we-work" },
-  { label: "About", href: "/about" },
-  { label: "Connect", href: "/contact" },
+  { label: "Services", href: "/services" },
+  { label: "Who it's for", href: "/for" },
+  { label: "Industries", href: "/industries" },
+  { label: "How it works", href: "/how-it-works" },
+  { label: "Team", href: "/team" },
 ];
+
+const bookCta = { label: "Book a working session", href: "/book" };
 
 export function Header() {
   const pathname = usePathname();
@@ -47,13 +49,14 @@ export function Header() {
 
         <nav className={styles.nav} aria-label="Main navigation">
           {navigation.map((item) => {
-            const isActive = pathname === item.href;
+            const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 className={styles.navLink}
                 data-active={isActive}
+                aria-current={pathname === item.href ? "page" : undefined}
               >
                 {item.label}
                 <span className={styles.underline} />
@@ -61,6 +64,14 @@ export function Header() {
             );
           })}
         </nav>
+
+        <Link
+          href={bookCta.href}
+          className={`btn btn-primary ${styles.bookBtn}`}
+          aria-current={pathname === bookCta.href ? "page" : undefined}
+        >
+          {bookCta.label}
+        </Link>
 
         <div className={styles.controls}>
           <div className={styles.toggleGroup} role="group" aria-label="View mode">

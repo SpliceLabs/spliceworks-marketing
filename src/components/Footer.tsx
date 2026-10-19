@@ -1,34 +1,14 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
+import { Tbd } from "@/components/copy/Tbd";
 import styles from "./Footer.module.css";
 
-const footerColumns = [
-  {
-    title: "Capabilities",
-    links: [
-      { label: "Services", href: "/services" },
-      { label: "Station", href: "/station" },
-      { label: "How it works", href: "/how-we-work" },
-      { label: "Security", href: "/security" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About", href: "/about" },
-      { label: "Contact", href: "/contact" },
-      { label: "FAQ", href: "/faq" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { label: "llms.txt", href: "/llms.txt" },
-      { label: "capabilities.json", href: "/capabilities.json" },
-    ],
-  },
+// Footer per the v5 sitemap (03-sitemap/works-site-sitemap.md §1):
+// FAQ · Station · Work · contact email · "Put AI to work. Keep people accountable."
+const footerLinks = [
+  { label: "FAQ", href: "/faq" },
+  { label: "Station", href: "/station" },
+  { label: "Work", href: "/work" },
 ];
 
 export function Footer() {
@@ -48,29 +28,24 @@ export function Footer() {
                 style={{ height: 64, width: "auto", margin: "-14px 0 0 -22px" }}
               />
             </Link>
-            <p className={styles.description}>
-              Put AI to work. Keep people accountable.
-            </p>
+            <p className={styles.description}>Put AI to work. Keep people accountable.</p>
           </div>
 
-          {footerColumns.map((column) => (
-            <div key={column.title} className={styles.column}>
-              <div className={styles.columnTitle}>{column.title}</div>
-              {column.links.map((link) => (
-                <Link key={link.href} href={link.href} className={styles.link}>
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          ))}
+          <nav className={styles.column} aria-label="Footer">
+            {footerLinks.map((link) => (
+              <Link key={link.href} href={link.href} className={styles.link}>
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className={styles.column}>
+            <Tbd id="A6">contact email</Tbd>
+          </div>
         </div>
 
         <div className={styles.footerBottom}>
           <span>© {currentYear} Splice Works · Part of Splice Labs Group</span>
-          <span className={styles.status}>
-            <span className={styles.statusDot} />
-            Operational
-          </span>
         </div>
       </div>
     </footer>

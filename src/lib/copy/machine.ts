@@ -1,0 +1,178 @@
+/**
+ * Builders for /llms.txt, /llms-full.txt and /capabilities.json. All three are
+ * generated from the same copy files and page registry as the HTML pages, so
+ * they mirror the site.
+ */
+import { inlineText, type Block, type Inline } from "./markdown";
+import { PAGES, SITE_URL, getPage } from "./pages";
+import { getFaq } from "./faq";
+
+const absUrl = (p: string) => `${SITE_URL}${p === "/" ? "" : p}`;
+
+/** SEO title without the " | Splice Works" suffix, for link text. */
+export function shortTitle(urlPath: string): string {
+  return getPage(urlPath).fm.title.replace(/\s*\|\s*Splice Works$/, "");
+}
+
+/** Markdown with site-relative links made absolute, for agents reading it off-site. */
+export function absolutizeLinks(md: string): string {
+  return md.replace(/\]\(\//g, `](${SITE_URL}/`).replace(/→ \/([a-z0-9/-]*)/g, (_, p) => `→ ${SITE_URL}/${p}`);
+}
+
+const GROUPS: { title: string; paths: string[] }[] = [
+  { title: "Start here", paths: ["/", "/how-it-works", "/book"] },
+  { title: "Services", paths: ["/services", "/services/ai-enabled", "/services/ai-native", "/services/fractional"] },
+  {
+    title: "Who it's for",
+    paths: ["/for", "/for/ceos-and-boards", "/for/technology-leaders", "/for/founders", "/for/accelerators", "/for/investors"],
+  },
+  { title: "Industries", paths: ["/industries", "/industries/manufacturing", "/industries/agencies"] },
+  { title: "Proof and reference", paths: ["/team", "/work", "/faq", "/station"] },
+];
+
+export function llmsTxt(): string {
+  const home = getPage("/");
+  const covered = new Set(GROUPS.flatMap((g) => g.paths));
+  const missing = PAGES.filter((p) => !covered.has(p.path));
+  if (missing.length) throw new Error(`llms.txt is missing ${missing.map((p) => p.path).join(", ")}`);
+
+  const lines = [
+    "# Splice Works",
+    "",
+    `> ${home.fm.description}`,
+    "",
+    "Put AI to work. Keep people accountable.",
+    "",
+    `The one next step everywhere: Book a working session (${absUrl("/book")}). Credited in full against your engagement.`,
+    "",
+  ];
+  for (const g of GROUPS) {
+    lines.push(`## ${g.title}`, "");
+    for (const p of g.paths) {
+      const { fm } = getPage(p);
+      lines.push(`- [${shortTitle(p)}](${absUrl(p)}): ${fm.description}`);
+    }
+    lines.push("");
+  }
+  lines.push(
+    "## Machine-readable",
+    "",
+    `- [llms-full.txt](${absUrl("/llms-full.txt")}): the full text of every page, including every FAQ answer`,
+    `- [capabilities.json](${absUrl("/capabilities.json")}): services, pages and audiences as JSON`,
+    "",
+    "Splice Works is part of Splice Labs Group.",
+    "",
+  );
+  return lines.join("\n");
+}
+
+export function llmsFullTxt(): string {
+  const parts = [
+    "# Splice Works: full site content",
+    "",
+    `> ${getPage("/").fm.description}`,
+    "",
+    `Every page of ${SITE_URL}, in site order. Each page's copy appears as published. Page index: ${absUrl("/llms.txt")}`,
+    "",
+  ];
+  for (const entry of PAGES) {
+    const page = getPage(entry.path);
+    parts.push(
+      "---",
+      "",
+      `URL: ${absUrl(entry.path)}`,
+      `Title: ${page.fm.title}`,
+      `Description: ${page.fm.description}`,
+      "",
+      absolutizeLinks(page.body.trim()),
+      "",
+    );
+  }
+  return parts.join("\n");
+}
+
+/* -------------------------------------------------------------------------- */
+/* capabilities.json                                                           */
+/* -------------------------------------------------------------------------- */
+
+type Table = Extract<Block, { t: "table" }>;
+
+function findTable(urlPath: string, sectionSlug: string): Table {
+  const sec = getPage(urlPath).sections.find((s) => s.slug === sectionSlug);
+  const table = sec?.blocks.find((b): b is Table => b.t === "table");
+  if (!table) throw new Error(`capabilities.json: no table in ${urlPath}#${sectionSlug}`);
+  return table;
+}
+
+const txt = (c: Inline[]) => inlineText(c).trim();
+const camel = (s: string) =>
+  s
+    .replace(/[^A-Za-z0-9 ]/g, "")
+    .trim()
+    .split(/\s+/)
+    .map((w, i) => (i === 0 ? w.toLowerCase() : w[0].toUpperCase() + w.slice(1).toLowerCase()))
+    .join("");
+
+/** Column-per-item table → [{ name, url, <row label>: value }]. */
+function columnsOf(table: Table) {
+  return table.head.slice(1).map((head, col) => {
+    const link = head.find((n) => n.t === "link");
+    const item: Record<string, string> = { name: txt(head) };
+    if (link && link.t === "link") item.url = absUrl(link.href);
+    for (const row of table.rows) item[camel(txt(row[0]))] = txt(row[col + 1]);
+    return item;
+  });
+}
+
+const pageRef = (p: string) => ({ url: absUrl(p), title: getPage(p).fm.title, description: getPage(p).fm.description });
+
+export function capabilities() {
+  const home = getPage("/");
+  const steps = columnsOf(findTable("/services", "pick-the-step-that-fits"));
+  const seats = columnsOf(findTable("/services/fractional", "two-seats-and-an-advisory-option"));
+  const { categories } = getFaq();
+
+  return {
+    name: "Splice Works",
+    description: home.fm.description,
+    tagline: "Put AI to work. Keep people accountable.",
+    url: SITE_URL,
+    company: "Splice Labs Group",
+    primaryAction: {
+      label: "Book a working session",
+      url: absUrl("/book"),
+      note: "Credited in full against your engagement.",
+    },
+    services: [
+      { id: "ai-enabled", step: 1, ...steps[0], page: pageRef("/services/ai-enabled") },
+      { id: "ai-native", step: 2, ...steps[1], page: pageRef("/services/ai-native") },
+      {
+        id: "fractional",
+        name: "Fractional leadership",
+        url: absUrl("/services/fractional"),
+        status: "provisional",
+        seats,
+        page: pageRef("/services/fractional"),
+      },
+    ],
+    audiences: ["/for/ceos-and-boards", "/for/technology-leaders", "/for/founders", "/for/accelerators", "/for/investors"].map(
+      pageRef,
+    ),
+    industries: ["/industries/manufacturing", "/industries/agencies"].map(pageRef),
+    station: pageRef("/station"),
+    faq: {
+      url: absUrl("/faq"),
+      categories: categories.map((c) => ({
+        name: c.title,
+        questions: c.entries.map((e) => ({ question: e.question, url: `${absUrl("/faq")}#${e.id}` })),
+      })),
+    },
+    pages: PAGES.map((p) => pageRef(p.path)),
+    contact: { book: absUrl("/book") },
+    machineReadable: {
+      llmsTxt: absUrl("/llms.txt"),
+      llmsFullTxt: absUrl("/llms-full.txt"),
+      capabilities: absUrl("/capabilities.json"),
+    },
+  };
+}

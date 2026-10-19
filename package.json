@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/check-tbd.mjs --build && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:tbd": "node scripts/check-tbd.mjs"
   },
   "dependencies": {
     "next": "16.3.4",
