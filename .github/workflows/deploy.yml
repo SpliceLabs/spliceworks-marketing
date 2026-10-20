@@ -7,4 +7,5 @@ on:
 
 jobs:
   deploy:
-    uses: SpliceLabs/vercel-deploy/.github/workflows/deploy.yml@v1
+      uses: SpliceLabs/vercel-deploy/.github/workflows/deploy.yml@v1
+      secrets: inherit
