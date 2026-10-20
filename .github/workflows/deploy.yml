@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches: [main]
-  workflow_dispatch: {}   # lets you redeploy manually from the Actions tab
+  workflow_dispatch: {}   # lets you redeploy manually from the Actions tab again
 
 jobs:
   deploy:
