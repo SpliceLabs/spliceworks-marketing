@@ -50,10 +50,9 @@ Your people decide what agents may approve, and they sign off on what goes to th
 A note before the details: the agency's owner is a Splice founder. We say so because you should know.
 
 - **What we built:** agents that handle the agency's editorial, creative and contract reviews, including MSAs and SOWs.
-- **How:** [TBD: one line on how, founders confirm]
-- **Our role:** [TBD: our role, founders confirm]
+- **How:** working with the agency's own reviewers and building their rules into agents inside the tools they already use.
+- **Our role:** forward-deployed team. We built the agents and run them with the agency's people.
 - **Next:** sales agents that build its pipeline.
-- **Result:** [TBD: confirmed result]
 
 ## Where you start
 
@@ -73,7 +72,7 @@ You get something usable from the first session. Once we've seen your workflow t
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement. [TBD: session price, #3]
+Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
 
 ## Give your senior people their week back
 

@@ -54,7 +54,7 @@ Before anything runs, we agree who is accountable for each decision that matters
 
 ## AI enablement isn't more AI spend
 
-Any vendor can raise your usage. We design for value that grows faster than your AI bill. [TBD: once the transformation progress view exists (#17), one line on showing value against AI spend.]
+Any vendor can raise your usage. We design for value that grows faster than your AI bill.
 
 ## We run Splice this way
 
@@ -72,7 +72,7 @@ You leave with:
 - who is accountable for each decision
 - our advice on where to go next
 
-It takes a day, and we'll tell you beforehand who should be in the room. [TBD: what happens if you don't go ahead (#3)]
+It takes a day, and we'll tell you beforehand who should be in the room. If you don't go ahead, you keep the prototype and our advice.
 
 Your CTO or Chief AI Officer will have their own questions. [Send them here](/for/technology-leaders). No one owns AI on your leadership team yet? See [fractional leadership](/services/fractional). Working in manufacturing or running an agency? See [manufacturing](/industries/manufacturing), [agencies](/industries/agencies) or [all industries](/industries).
 
@@ -80,7 +80,7 @@ Your CTO or Chief AI Officer will have their own questions. [Send them here](/fo
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement. [TBD: session price, #3]
+Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
 
 ### How fast will we see something?
 

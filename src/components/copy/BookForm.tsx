@@ -4,7 +4,7 @@ import type { FormEvent } from "react";
 import type { Block, Inline, ListItem } from "@/lib/copy/markdown";
 import { inlineText, slugify } from "@/lib/copy/markdown";
 import { InlineLines, InlineNodes } from "./Inline";
-import { Tbd } from "./Tbd";
+import { CONTACT_EMAIL } from "@/lib/contact";
 import styles from "./Copy.module.css";
 
 type Kind = "radio" | "checkbox" | "text" | "textarea" | "email" | "url";
@@ -62,9 +62,23 @@ export function BookForm({
   questions: Extract<Block, { t: "list" }>;
   submit: Extract<Block, { t: "cta" }>;
 }) {
+  // No form backend yet: submitting opens the visitor's email app with their
+  // answers filled in, addressed to CONTACT_EMAIL.
   function onSubmit(e: FormEvent<HTMLFormElement>) {
-    // No submission backend yet: see the placeholder next to the button.
     e.preventDefault();
+    const form = e.currentTarget;
+    if (!form.reportValidity()) return;
+    const data = new FormData(form);
+    const lines: string[] = [];
+    for (const key of new Set(data.keys())) {
+      const vals = data.getAll(key).map(String).map((v) => v.trim()).filter(Boolean);
+      if (vals.length) lines.push(`${key.replace(/-/g, " ")}: ${vals.join(", ")}`);
+    }
+    const company = String(data.get("company") ?? "").trim();
+    const subject = `Working session request${company ? ` · ${company}` : ""}`;
+    window.location.href =
+      `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}` +
+      `&body=${encodeURIComponent(lines.join("\n"))}`;
   }
 
   return (
@@ -139,7 +153,7 @@ export function BookForm({
             <InlineLines lines={submit.sub} />
           </p>
         )}
-        <Tbd id="form">form submission is not connected to a backend yet</Tbd>
+        <p className={styles.ctaSub}>Opens your email app, addressed to {CONTACT_EMAIL}.</p>
       </div>
     </form>
   );

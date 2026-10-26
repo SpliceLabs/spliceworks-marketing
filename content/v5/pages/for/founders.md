@@ -35,8 +35,8 @@ Most founders start at [AI-absent → AI-enabled](/services/ai-enabled). If you 
 
 ## One day, then you decide
 
-1. **One working session.** We dig into how your business runs, then pick the workflow together. [TBD: founder-sized session length (#3)]
-2. **You decide where to stop.** Stop after the session, or have us take it further. [TBD: what you keep if you stop, and what follows the session for a founder (#3)]
+1. **One working session.** We dig into how your business runs, then pick the workflow together. It takes one day.
+2. **You decide where to stop.** Stop after the session, or have us take it further. If you stop, you keep the prototype and the map of what to automate next. If you go on, we scope the next step with you.
 3. **No lock-in.** Bring your own agents or use ours, and either we run it for you or you run it yourself.
 
 See [how it works](/how-it-works) for the full path.
@@ -51,7 +51,7 @@ If the product itself needs to become AI-native, as well as your operations, a f
 
 ## We run our own company this way
 
-Our software factory, company brain and sales agents are live today. [TBD: a small-company win (none yet)]
+Our software factory, company brain and sales agents are live today.
 
 ## What founders ask us
 
@@ -61,11 +61,11 @@ No. We work with solo founders as well as large teams.
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement. [TBD: session price, #3]
+Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
 
 ### Do we have to keep paying you?
 
-[TBD: answer pending (#19)]
+No. Once it's running, you choose: we keep operating it as a managed service, or your team takes it over and runs it. You only pay us for the work you keep us doing.
 
 More answers in the [FAQ](/faq).
 

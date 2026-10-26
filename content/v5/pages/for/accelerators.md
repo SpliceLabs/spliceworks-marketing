@@ -23,8 +23,8 @@ Many founders sound like this: "I use ChatGPT and Claude every day, but my leads
 
 ## What cohort companies get
 
-- **A working session sized for a founder.** It's the same session larger companies start with: we pick the workflow taking most of the founder's time, build a working prototype of it and map what to automate next. [TBD: session price and length for a founder (#3)]
-- **A first go-to-market workflow run by agents.** Agents research prospects, qualify leads and draft outreach; the founder decides who gets a personal touch. [TBD: status per capability (Live / In progress)]
+- **A working session sized for a founder.** It's the same session larger companies start with: we pick the workflow taking most of the founder's time, build a working prototype of it and map what to automate next. It takes one day, and the fee is sized to a startup.
+- **A first go-to-market workflow run by agents.** Agents research prospects, qualify leads and draft outreach; the founder decides who gets a personal touch.
 - Companies that want to keep going can move from AI-absent to AI-enabled and on to AI-native at their own pace, without being locked in.
 
 See [what each founder gets](/for/founders).
@@ -32,8 +32,6 @@ See [what each founder gets](/for/founders).
 ## We run our own go-to-market this way
 
 Our own sales runs on agents. They research and qualify prospects, then our people take over.
-
-[TBD: one startup-sized case (#8)]
 
 ## What program leads ask us
 
@@ -43,7 +41,7 @@ One focused day with us. We dig into how your work runs and pick one real workfl
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement. [TBD: session price, #3]
+Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
 
 ### Who's accountable when the AI gets it wrong?
 

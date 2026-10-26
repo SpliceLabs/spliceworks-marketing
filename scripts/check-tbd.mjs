@@ -75,10 +75,9 @@ if (found.length === 0) {
   process.exit(0);
 }
 
-// Launch decision (2026-10-19): the live site ships with placeholders visible
-// while the founder questions are open. Set this back to false once every
-// [TBD] is filled, so production builds refuse placeholders again.
-const ALLOW_IN_PRODUCTION = true;
+// All placeholders filled 2026-10-26 (assumptions listed in content/v5/ASSUMPTIONS.md).
+// Production builds refuse placeholders again.
+const ALLOW_IN_PRODUCTION = false;
 
 const allowed =
   ALLOW_IN_PRODUCTION || process.env.ALLOW_TBD === "1" || process.env.VERCEL_ENV === "preview";

@@ -38,7 +38,7 @@ It depends on where you are today. If you have the tools but the work hasn't cha
 
 ### Why a fractional seat instead of a full-time hire?
 
-[TBD: answer, #22]
+You get someone owning AI now, not after a long search. The seat brings experience from doing this at other companies, and can write the mandate for a permanent hire when you're ready.
 
 ## Getting started
 
@@ -52,11 +52,11 @@ One focused day. We'll tell you beforehand who should be in the room.
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement. [TBD: session price, #3]
+Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
 
 ### What if we don't go ahead after the session?
 
-[TBD: what happens if you don't continue, #3]
+You keep everything the session produced: the working prototype, the workflow map and our advice. There's no obligation to go further.
 
 ### How fast will we see something?
 
@@ -64,7 +64,7 @@ You get something usable from the first session. Once we've seen your workflow t
 
 ### Does the fund or the company engage you?
 
-[TBD: whether the investor or the company buys; portfolio terms]
+Either. A company can engage us directly, or a fund can engage us across its portfolio. We agree the terms with whoever engages us, before the first session.
 
 ### What if we find something new mid-engagement?
 
@@ -78,11 +78,11 @@ A person on your side. There's an accountable person behind every decision that 
 
 ### Is our data safe?
 
-Your data stays in the systems you already use. We work inside them, with only the access you give us, under NDA. [TBD: one line on data handling the founders will stand behind, #11]
+Your data stays in the systems you already use. We work inside them, with only the access you give us, under NDA.
 
 ### What if it doesn't work?
 
-[TBD: what we commit to if it doesn't work, #20]
+You'll know early. The working session tests the workflow before you commit to more, and every step ends in a milestone you can see. If a step isn't reaching its milestone, we tell you, and we agree with you what changes.
 
 ## Cost and value
 
@@ -94,7 +94,7 @@ It shouldn't. Any vendor can raise your usage. We design for value that grows fa
 
 ### Do we have to keep paying you?
 
-[TBD: answer pending (#19)]
+No. Once it's running, you choose: we keep operating it as a managed service, or your team takes it over and runs it. You only pay us for the work you keep us doing.
 
 ### What if we want to leave, or run it ourselves?
 

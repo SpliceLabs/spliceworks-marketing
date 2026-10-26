@@ -38,21 +38,17 @@ The working session places each company. Small companies start with a session si
 
 Any vendor can raise a company's usage. We design for faster execution and lower operating cost in the tools the company already uses, so the value grows faster than its AI bill.
 
-Portfolio reporting: [TBD: what investors see across the portfolio, once the transformation progress view exists (#17)]
-
 ## When no one owns AI at the company
 
 Some portfolio companies have the mandate but no one to own it. A fractional Chief AI Officer can hold that seat: the plan the CEO or board approves, what the company spends on AI and what it returns, who is accountable for each decision, and the first critical workflow run by agents. The seat's outcomes are agreed with you quarter by quarter. [See fractional leadership](/services/fractional).
 
 ## Where we're doing this now
 
-[TBD: naming-policy line, #21]
+We name clients only with their permission. The companies below are anonymized.
 
-- **Client · An influencer marketing and talent management agency · Live.** Agents now handle the agency's editorial, creative and contract reviews, including MSAs and SOWs. Next: sales agents that build its pipeline. The agency's owner is a Splice founder. [TBD: confirmed result]
-- **Design partner · A direct-to-consumer health company · In progress.** We're making the company AI-native and its products agent-ready at the same time. [TBD: confirmed result]
-- **Client · A specialty chemicals manufacturer · In progress.** We're capturing product expertise that lived with one or two people in a brain that matches the right product to each use case and refuses claims the company can't make. [TBD: confirmed result]
-
-[TBD: a portfolio-style case]
+- **Client · An influencer marketing and talent management agency · Live.** Agents now handle the agency's editorial, creative and contract reviews, including MSAs and SOWs. Next: sales agents that build its pipeline. The agency's owner is a Splice founder.
+- **Design partner · A direct-to-consumer health company · In progress.** We're making the company AI-native and its products agent-ready at the same time.
+- **Client · A specialty chemicals manufacturer · In progress.** We're capturing product expertise that lived with one or two people in a brain that matches the right product to each use case and refuses claims the company can't make.
 
 More in [our work](/work).
 
@@ -60,7 +56,7 @@ More in [our work](/work).
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement. [TBD: session price, #3]
+Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
 
 ### Who's accountable when the AI gets it wrong?
 
@@ -68,7 +64,7 @@ A person on your side. There's an accountable person behind every decision that 
 
 ### Does the fund or the company engage you?
 
-[TBD: whether the investor or the company buys; portfolio terms]
+Either. A company can engage us directly, or a fund can engage us across its portfolio. We agree the terms with whoever engages us, before the first session.
 
 More answers in the [FAQ](/faq).
 

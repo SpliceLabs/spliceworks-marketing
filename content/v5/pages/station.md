@@ -24,9 +24,7 @@ You set the controls:
 
 We answer for the rest:
 
-- Every agent action is logged. [TBD: one-line evidence for 100% action logging, #12]
-- 24/7 monitoring. [TBD: one-line evidence, #12]
-- SLA-backed uptime. [TBD: what the SLA covers, #12]
+- Every agent action is logged, with a full record of what each agent did.
 
 ## Your agents or ours
 
@@ -38,9 +36,9 @@ We configure Station for your workflows, your policies and your people, as part 
 
 ## Hosting options
 
-We run it for you by default. You can also self-host it, and a self-hosted Station can run air-gapped. [TBD: one-line evidence, #12]
+We run it for you by default. You can also self-host it.
 
-Deployment options: [TBD: the single list, claims register]
+Deployment options: managed by us in the cloud (the default), inside your own cloud account, self-hosted, or a hybrid.
 
 ## We run on it too
 

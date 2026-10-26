@@ -36,8 +36,6 @@ AI-enabled means everything your company knows feeds one shared brain your peopl
 - Agents across your teams, custom or off-the-shelf, whichever fits. Bring your own agents or use ours.
 - Short training in plain language: what a prompt is, what a skill is, and how to write both. People get fluent by using it on their own work.
 
-`[TBD: final list of what's included, #1]`
-
 ## Step 1 ends when your first critical workflow runs on agents
 
 A critical workflow recurs and matters to the business, and someone still starts it by hand. A one-off prompt or a demo doesn't count. We choose it with you. Some examples:
@@ -71,7 +69,6 @@ We run Splice this way ourselves, on Station. Our software factory, our company 
 
 ### Client · A specialty chemicals manufacturer
 **In progress.** Its product expertise lived with one or two people. We're capturing it in a brain that matches the right product to each use case and refuses claims the company can't make.
-`[TBD: confirmed result]`
 
 [See our work](/work)
 
@@ -91,7 +88,7 @@ You get something usable from the first session. Once we've seen your workflow t
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement. [TBD: session price, #3]
+Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
 
 ## Pick your first workflow with us
 
