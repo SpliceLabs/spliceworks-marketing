@@ -122,6 +122,6 @@ Credited in full against your engagement.
 
 ## Rather write to us?
 
-Email [hello@splicelabs.xyz](mailto:hello@splicelabs.xyz).
+Email [{{contact_email}}](mailto:{{contact_email}}).
 
 Questions first? Read the [FAQ](/faq), see [how it works](/how-it-works), compare [AI-absent → AI-enabled](/services/ai-enabled), [AI-enabled → AI-native](/services/ai-native) and [fractional leadership](/services/fractional), or see [how we run Splice on our own methods](/work).
