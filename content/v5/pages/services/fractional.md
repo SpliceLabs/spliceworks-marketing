@@ -35,7 +35,7 @@ Owns making your product AI-native. That means the roadmap, a product surface ag
 
 ### Advisory
 
-Scheduled strategy sessions each month, with answers between them `[TBD: response time, #23]`. It suits teams that want a second view on AI decisions: build, buy or partner, vendors and architecture, AI spend, and board and investor readiness. Advisory can turn into a seat when you're ready.
+Scheduled strategy sessions each month, with answers between them within one working day. It suits teams that want a second view on AI decisions: build, buy or partner, vendors and architecture, AI spend, and board and investor readiness. Advisory can turn into a seat when you're ready.
 
 ## Outcomes in writing, reviewed quarterly
 
@@ -65,8 +65,6 @@ We start from this list and pick what fits your company.
 **Either seat**
 - A written mandate for the permanent role, if you want one
 
-`[TBD: confirm outcome menu, #22]`
-
 ## A seat that answers for the AI bill
 
 The seat owns the spend policy and the accountability map, so it can design for value that grows faster than your AI bill. It also keeps an accountable person behind every decision that matters.
@@ -77,11 +75,11 @@ If you already lead technology and want an AI executive beside you, see [our pag
 
 ### Why a fractional seat instead of a full-time hire?
 
-[TBD: answer, #22]
+You get someone owning AI now, not after a long search. The seat brings experience from doing this at other companies, and can write the mandate for a permanent hire when you're ready.
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement. [TBD: session price, #3]
+Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
 
 ### Are we too small for this?
 
@@ -89,7 +87,7 @@ No. We work with solo founders as well as large teams.
 
 ## Find out which seat fits
 
-In a working session we look at where you are on the path and talk through which seat fits. [TBD: how the seat's assessment relates to the working session, #22, #3]
+In a working session we look at where you are on the path and talk through which seat fits. If you go ahead with a seat, the session fee is credited in full against it.
 
 When you book, choose "We need someone to own AI on our leadership team first", and we'll shape the session around the seat.
 

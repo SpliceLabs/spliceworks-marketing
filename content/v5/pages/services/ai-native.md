@@ -39,8 +39,6 @@ The working session confirms where you are. If this is you, you skip step 1.
 - **Approval points you set.** Your people decide where it matters, and set what agents may approve everywhere else.
 - Spend caps, a kill switch and every action logged, on every workflow.
 
-`[TBD: final list of what's included, #1]`
-
 Step 1 got one workflow running on its own. Step 2 does the same for the workflows your business depends on.
 
 ## People stay accountable at the gates that matter
@@ -49,7 +47,7 @@ Some approvals belong with a person. Others can go to an agent that an accountab
 
 ## Building AI-native products too?
 
-Some companies need their products to be AI-native as well, so customers' own AI agents can use them directly. We're doing this now with a design partner, a direct-to-consumer health company, making the company AI-native and its products agent-ready at the same time. `[TBD: confirmed result]`
+Some companies need their products to be AI-native as well, so customers' own AI agents can use them directly. We're doing this now with a design partner, a direct-to-consumer health company, making the company AI-native and its products agent-ready at the same time.
 
 If product is where the pressure is, a [fractional CPTO or CTO](/services/fractional) can own it.
 
@@ -82,7 +80,7 @@ Yes. No vendor lock-in: bring your own agents or use ours, and swap them wheneve
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement. [TBD: session price, #3]
+Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
 
 ## Pick the workflow that runs your business
 

@@ -31,17 +31,16 @@ We built these for ourselves first and have rebuilt them many times since. It's 
 
 ## What we're building for others
 
-[TBD: naming-policy line, #21] Each entry says what we built, how, our role and where it stands. Results are added once they're confirmed.
+We name clients only with their permission. These entries are anonymized. Each entry says what we built, how, our role and where it stands. Results are added once they're confirmed.
 
 ### An influencer marketing and talent management agency
 
 **Client · Live**
 
 - **What we built:** agents that now handle the agency's editorial, creative and contract reviews, including MSAs and SOWs.
-- **How:** [TBD: one line on how, founders confirm]
-- **Our role:** [TBD: our role, founders confirm]
+- **How:** working with the agency's own reviewers and building their rules into agents inside the tools they already use.
+- **Our role:** forward-deployed team. We built the agents and run them with the agency's people.
 - **Status:** Live. Next: sales agents that build its pipeline.
-- **Result:** [TBD: confirmed result]
 
 The agency's owner is a Splice founder. We say so because you should know.
 
@@ -51,9 +50,8 @@ The agency's owner is a Splice founder. We say so because you should know.
 
 - **What we built:** we're making the company AI-native and its products agent-ready at the same time.
 - **How:** inside the company, a chief-of-staff agent, a company brain, and growth and sales agents, with finance operations next. Outside it, its products rebuilt so customers' own AI agents can use them directly.
-- **Our role:** design partner. [TBD: confirm role wording]
+- **Our role:** design partner.
 - **Status:** In progress.
-- **Result:** [TBD: confirmed result]
 
 ### A specialty chemicals manufacturer
 
@@ -61,9 +59,8 @@ The agency's owner is a Splice founder. We say so because you should know.
 
 - **What we built:** a brain that holds the company's product expertise, which used to live with one or two people.
 - **How:** working directly with the company's specialists to capture how they match products to use cases, and which claims the company can't make.
-- **Our role:** [TBD: our role, founders confirm]
+- **Our role:** forward-deployed team, working alongside the company's specialists.
 - **Status:** In progress. Next: sales agents that find the right buyers, research them, manage campaigns, prepare reps with tailored decks, support them live on calls and handle follow-up.
-- **Result:** [TBD: confirmed result]
 
 ## Try it on one of your workflows
 

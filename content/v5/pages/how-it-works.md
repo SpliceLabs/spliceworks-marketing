@@ -81,7 +81,7 @@ Underneath is [Station](/station), the system we deliver on, configured for your
 
 ### What if we don't go ahead after the session?
 
-[TBD: what happens if you don't continue, #3]
+You keep everything the session produced: the working prototype, the workflow map and our advice. There's no obligation to go further.
 
 ### What if we find something new mid-engagement?
 
@@ -97,7 +97,7 @@ You get something usable from the first session. Once we've seen your workflow t
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement. [TBD: session price, #3]
+Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
 
 ## Start with one workflow
 

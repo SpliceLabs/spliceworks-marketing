@@ -31,36 +31,36 @@ The session takes one day, or the same eight working hours spread out if that su
 
 ### Who should be in the room
 
-- **Whoever issued the AI directive:** the CEO, a board member, or you, the founder. We spend the first hours with them. [PROVISIONAL: founders confirm, #3]
+- **Whoever issued the AI directive:** the CEO, a board member, or you, the founder. We spend the first hours with them.
 - **Whoever owns making it real:** often the COO, head of operations, CTO or CIO.
 - The experts who do the work today, whose knowledge the workflow depends on.
 
-At a small company, that can be one person. The session is the same shape for a solo founder as for a large team: we pick one workflow of yours, for example inbound lead to booked meeting, and you leave with a working prototype and a map of what to automate next. [TBD: founder-sized session price and length, #3]
+At a small company, that can be one person. The session is the same shape for a solo founder as for a large team: we pick one workflow of yours, for example inbound lead to booked meeting, and you leave with a working prototype and a map of what to automate next. It still takes one day, and the fee is sized to your company.
 
 ### Booking for a portfolio or a program?
 
-Choose that on the form and tell us a little about it. We'll show you what a session looks like for one of your companies. [TBD: accelerator program and portfolio terms]
+Choose that on the form and tell us a little about it. We'll show you what a session looks like for one of your companies. Program and portfolio terms are agreed with you before the first session.
 
 ## What it costs
 
 There are two separate prices here, and they're settled at different times.
 
-- **The session fee** covers the working session. We agree it with you, along with the terms, before anything is booked. [TBD: session price, #3]
+- **The session fee** covers the working session. We agree it with you, along with the terms, before anything is booked.
 - **The engagement** is the work after the session, if you go ahead. We scope and price it with you during the session, once we've seen the workflow. The session fee is credited in full against it.
 
 ## Before you book
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement. [TBD: session price, #3]
+Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
 
 ### What if we don't go ahead after the session?
 
-[TBD: what happens if you don't continue, #3]
+You keep everything the session produced: the working prototype, the workflow map and our advice. There's no obligation to go further.
 
 ### Is our data safe?
 
-Your data stays in the systems you already use. We work inside them, with only the access you give us, under NDA. [TBD: one line on data handling the founders will stand behind, #11]
+Your data stays in the systems you already use. We work inside them, with only the access you give us, under NDA.
 
 ## Who you'll work with
 
@@ -69,7 +69,7 @@ You'll work with Tim Varner, Jake Krogman and our forward-deployed team. Station
 ## What happens next
 
 1. **We reply.** We usually respond within 24 hours.
-2. **Details agreed.** The session fee and terms, the date, who should be in the room, and an NDA. [TBD: any steps in between, #3]
+2. **Details agreed.** The session fee and terms, the date, who should be in the room, and an NDA.
 3. **We hold the session.** A day on one of your workflows.
 4. **You decide.** You leave with a prototype, our advice and a scoped next step, and you choose whether to go ahead.
 
@@ -126,6 +126,6 @@ Credited in full against your engagement.
 
 ## Rather write to us?
 
-Email [TBD: email].
+Email [hello@splicelabs.xyz](mailto:hello@splicelabs.xyz).
 
 Questions first? Read the [FAQ](/faq), see [how it works](/how-it-works), compare [AI-absent → AI-enabled](/services/ai-enabled), [AI-enabled → AI-native](/services/ai-native) and [fractional leadership](/services/fractional), or see [how we run Splice on our own methods](/work).

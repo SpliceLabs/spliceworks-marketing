@@ -46,7 +46,7 @@ See [how it works](/how-it-works), or read [common questions](/faq).
 
 ## What it costs
 
-Talk to us. We scope it with you in the working session, which is credited in full against your engagement. [TBD: session price, #3]
+Talk to us. We scope it with you in the working session, which is credited in full against your engagement.
 
 **Book a working session** → /book
 Credited in full against your engagement.
