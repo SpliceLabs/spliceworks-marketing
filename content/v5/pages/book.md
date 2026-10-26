@@ -35,11 +35,11 @@ The session takes one day, or the same eight working hours spread out if that su
 - **Whoever owns making it real:** often the COO, head of operations, CTO or CIO.
 - The experts who do the work today, whose knowledge the workflow depends on.
 
-At a small company, that can be one person. The session is the same shape for a solo founder as for a large team: we pick one workflow of yours, for example inbound lead to booked meeting, and you leave with a working prototype and a map of what to automate next. It still takes one day, and the fee is sized to your company.
+At a small company, that can be one person. The session is the same shape for a solo founder as for a large team: we pick one workflow of yours, for example inbound lead to booked meeting, and you leave with a working prototype and a map of what to automate next.
 
 ### Booking for a portfolio or a program?
 
-Choose that on the form and tell us a little about it. We'll show you what a session looks like for one of your companies. Program and portfolio terms are agreed with you before the first session.
+Choose that on the form and tell us a little about it. We'll show you what a session looks like for one of your companies.
 
 ## What it costs
 
@@ -53,10 +53,6 @@ There are two separate prices here, and they're settled at different times.
 ### What does it cost?
 
 Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
-
-### What if we don't go ahead after the session?
-
-You keep everything the session produced: the working prototype, the workflow map and our advice. There's no obligation to go further.
 
 ### Is our data safe?
 
@@ -126,6 +122,6 @@ Credited in full against your engagement.
 
 ## Rather write to us?
 
-Email [hello@splicelabs.xyz](mailto:hello@splicelabs.xyz).
+Email [{{contact_email}}](mailto:{{contact_email}}).
 
 Questions first? Read the [FAQ](/faq), see [how it works](/how-it-works), compare [AI-absent → AI-enabled](/services/ai-enabled), [AI-enabled → AI-native](/services/ai-native) and [fractional leadership](/services/fractional), or see [how we run Splice on our own methods](/work).

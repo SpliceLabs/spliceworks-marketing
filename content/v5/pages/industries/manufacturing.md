@@ -58,10 +58,9 @@ Your specialists set what the agents may answer and approve, and they stay accou
 - **The situation:** the company's product expertise lived with one or two people.
 - **What we're building:** a brain that matches the right product to each use case and holds back claims the company can't make.
 - **How:** by working directly with the company's specialists and capturing how they decide which product fits which use case.
-- **Our role:** forward-deployed team, working alongside the company's specialists.
 - **Next:** sales agents that find the right buyers, research them, run campaigns, prepare reps with tailored decks, support them live on calls and handle follow-up.
 
-We name clients only with their permission.
+We name clients only with their written permission; everything else is described as it was delivered.
 
 ## Where you start
 

@@ -38,12 +38,9 @@ You'll have to show the CEO and the board what the AI may do on its own and who 
 - A clear line between what the AI controls and what it only observes.
 - **An accountable person behind every decision that matters.** Agents escalate to people based on your policies, and approve only what that person has permissioned.
 - Spend caps you set, and a kill switch to stop it.
-- **Every agent action logged.**
 - Self-hosted is available.
 
 It sits on Station, the system we deliver our own work on, configured for your use case. [Read more about Station](/station).
-
-Deployment options: managed by us in the cloud (the default), inside your own cloud account, self-hosted, or a hybrid.
 
 ## Something you can take to the CEO
 
@@ -67,7 +64,7 @@ We build it so you can own it, and we operate it for as long as that's useful. B
 
 **Client · A specialty chemicals manufacturer · In progress.** Its product expertise lived with one or two people. We're capturing it in a brain that matches the right product to each use case and refuses claims the company can't make.
 
-We name clients only with their permission.
+We name clients only with their written permission; everything else is described as it was delivered.
 
 More in [manufacturing](/industries/manufacturing) and [our work](/work).
 

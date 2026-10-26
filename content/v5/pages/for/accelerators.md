@@ -23,7 +23,7 @@ Many founders sound like this: "I use ChatGPT and Claude every day, but my leads
 
 ## What cohort companies get
 
-- **A working session sized for a founder.** It's the same session larger companies start with: we pick the workflow taking most of the founder's time, build a working prototype of it and map what to automate next. It takes one day, and the fee is sized to a startup.
+- **A working session sized for a founder.** It's the same session larger companies start with: we pick the workflow taking most of the founder's time, build a working prototype of it and map what to automate next.
 - **A first go-to-market workflow run by agents.** Agents research prospects, qualify leads and draft outreach; the founder decides who gets a personal touch.
 - Companies that want to keep going can move from AI-absent to AI-enabled and on to AI-native at their own pace, without being locked in.
 

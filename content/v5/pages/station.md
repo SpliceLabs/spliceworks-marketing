@@ -22,10 +22,6 @@ You set the controls:
 - Which actions the AI takes and which it only observes. We state that line plainly.
 - Spend caps that keep agents inside the limits you set, and a kill switch that stops them at any time.
 
-We answer for the rest:
-
-- Every agent action is logged, with a full record of what each agent did.
-
 ## Your agents or ours
 
 Bring your own agents or use ours, and swap them at any time. Station works in the systems you already run.
@@ -37,8 +33,6 @@ We configure Station for your workflows, your policies and your people, as part 
 ## Hosting options
 
 We run it for you by default. You can also self-host it.
-
-Deployment options: managed by us in the cloud (the default), inside your own cloud account, self-hosted, or a hybrid.
 
 ## We run on it too
 

@@ -4,7 +4,7 @@ import { getPage, SITE_URL } from "@/lib/copy/pages";
 import { fieldsFromItem, formBlocks, HONEYPOT, type BookState } from "@/lib/copy/bookForm";
 import { inlineText } from "@/lib/copy/markdown";
 import { bookingEmail, type Answer } from "@/lib/bookEmail";
-import { CONTACT_EMAIL } from "@/lib/contact";
+import { BOOK_TO, CONTACT_EMAIL } from "@/lib/contact";
 
 /** Must be on a domain verified in the same Resend team as RESEND_API_KEY. */
 const FROM = process.env.BOOK_FROM ?? "Splice Works <forms@spliceworks.ai>";
@@ -43,7 +43,7 @@ export async function submitBooking(_prev: BookState, data: FormData): Promise<B
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from: FROM, to: [CONTACT_EMAIL], reply_to: email, subject, text, html }),
+    body: JSON.stringify({ from: FROM, to: [BOOK_TO], reply_to: email, subject, text, html }),
   });
   if (!res.ok) {
     console.error("submitBooking: Resend returned", res.status, await res.text());

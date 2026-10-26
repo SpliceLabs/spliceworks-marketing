@@ -36,6 +36,17 @@ Unconfirmed copy is written `[TBD: …, #3]` in the markdown and renders as a vi
 - `pnpm build` runs the same check first and **refuses to build** while any placeholder remains.
 - Preview builds: `ALLOW_TBD=1 pnpm build`. Vercel preview deployments (`VERCEL_ENV=preview`) are allowed automatically; production builds refuse placeholders (`ALLOW_IN_PRODUCTION` is `false` in `scripts/check-tbd.mjs`). Assumptions written in place of the old placeholders are listed in `content/v5/ASSUMPTIONS.md` for founder sign-off.
 
+### Contact and booking email
+
+Set on Vercel (or in `.env.local`). Pages are prerendered, so a change takes a redeploy.
+
+| Variable | Default | Used for |
+|---|---|---|
+| `CONTACT_EMAIL` | `hello@splicelabs.xyz` | Footer, /book, and `{{contact_email}}` in the copy |
+| `BOOK_TO` | `CONTACT_EMAIL` | Where /book form submissions are sent |
+| `BOOK_FROM` | `Splice Works <forms@spliceworks.ai>` | Sender; must be on a domain verified in the Resend team |
+| `RESEND_API_KEY` | none | Resend key; without it the form shows an error with `CONTACT_EMAIL` |
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

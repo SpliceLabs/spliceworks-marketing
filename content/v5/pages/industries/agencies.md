@@ -50,8 +50,6 @@ Your people decide what agents may approve, and they sign off on what goes to th
 A note before the details: the agency's owner is a Splice founder. We say so because you should know.
 
 - **What we built:** agents that handle the agency's editorial, creative and contract reviews, including MSAs and SOWs.
-- **How:** working with the agency's own reviewers and building their rules into agents inside the tools they already use.
-- **Our role:** forward-deployed team. We built the agents and run them with the agency's people.
 - **Next:** sales agents that build its pipeline.
 
 ## Where you start

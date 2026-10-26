@@ -72,7 +72,7 @@ You leave with:
 - who is accountable for each decision
 - our advice on where to go next
 
-It takes a day, and we'll tell you beforehand who should be in the room. If you don't go ahead, you keep the prototype and our advice.
+It takes a day, and we'll tell you beforehand who should be in the room.
 
 Your CTO or Chief AI Officer will have their own questions. [Send them here](/for/technology-leaders). No one owns AI on your leadership team yet? See [fractional leadership](/services/fractional). Working in manufacturing or running an agency? See [manufacturing](/industries/manufacturing), [agencies](/industries/agencies) or [all industries](/industries).
 

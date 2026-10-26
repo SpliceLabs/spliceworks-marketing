@@ -31,15 +31,13 @@ We built these for ourselves first and have rebuilt them many times since. It's 
 
 ## What we're building for others
 
-We name clients only with their permission. These entries are anonymized. Each entry says what we built, how, our role and where it stands. Results are added once they're confirmed.
+We name clients only with their written permission; everything else is described as it was delivered. Each entry says what we built and where it stands. Results are added once they're confirmed.
 
 ### An influencer marketing and talent management agency
 
 **Client · Live**
 
 - **What we built:** agents that now handle the agency's editorial, creative and contract reviews, including MSAs and SOWs.
-- **How:** working with the agency's own reviewers and building their rules into agents inside the tools they already use.
-- **Our role:** forward-deployed team. We built the agents and run them with the agency's people.
 - **Status:** Live. Next: sales agents that build its pipeline.
 
 The agency's owner is a Splice founder. We say so because you should know.
@@ -59,7 +57,6 @@ The agency's owner is a Splice founder. We say so because you should know.
 
 - **What we built:** a brain that holds the company's product expertise, which used to live with one or two people.
 - **How:** working directly with the company's specialists to capture how they match products to use cases, and which claims the company can't make.
-- **Our role:** forward-deployed team, working alongside the company's specialists.
 - **Status:** In progress. Next: sales agents that find the right buyers, research them, manage campaigns, prepare reps with tailored decks, support them live on calls and handle follow-up.
 
 ## Try it on one of your workflows

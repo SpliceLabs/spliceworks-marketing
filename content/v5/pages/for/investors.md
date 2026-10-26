@@ -44,7 +44,7 @@ Some portfolio companies have the mandate but no one to own it. A fractional Chi
 
 ## Where we're doing this now
 
-We name clients only with their permission. The companies below are anonymized.
+We name clients only with their written permission; everything else is described as it was delivered.
 
 - **Client · An influencer marketing and talent management agency · Live.** Agents now handle the agency's editorial, creative and contract reviews, including MSAs and SOWs. Next: sales agents that build its pipeline. The agency's owner is a Splice founder.
 - **Design partner · A direct-to-consumer health company · In progress.** We're making the company AI-native and its products agent-ready at the same time.
@@ -64,7 +64,7 @@ A person on your side. There's an accountable person behind every decision that 
 
 ### Does the fund or the company engage you?
 
-Either. A company can engage us directly, or a fund can engage us across its portfolio. We agree the terms with whoever engages us, before the first session.
+Either can. We agree who engages us, and on what terms, with you before anything is booked.
 
 More answers in the [FAQ](/faq).
 

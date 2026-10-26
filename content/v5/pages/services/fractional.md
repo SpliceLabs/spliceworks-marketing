@@ -35,7 +35,7 @@ Owns making your product AI-native. That means the roadmap, a product surface ag
 
 ### Advisory
 
-Scheduled strategy sessions each month, with answers between them within one working day. It suits teams that want a second view on AI decisions: build, buy or partner, vendors and architecture, AI spend, and board and investor readiness. Advisory can turn into a seat when you're ready.
+Scheduled strategy sessions each month, with answers between them. It suits teams that want a second view on AI decisions: build, buy or partner, vendors and architecture, AI spend, and board and investor readiness. Advisory can turn into a seat when you're ready.
 
 ## Outcomes in writing, reviewed quarterly
 
@@ -75,7 +75,7 @@ If you already lead technology and want an AI executive beside you, see [our pag
 
 ### Why a fractional seat instead of a full-time hire?
 
-You get someone owning AI now, not after a long search. The seat brings experience from doing this at other companies, and can write the mandate for a permanent hire when you're ready.
+A full-time AI executive is hard to find and slow to hire, and most companies don't yet know what the permanent role should be. A fractional seat puts someone accountable for AI on your leadership team now, delivers the first outcomes, and can write the mandate for the permanent role if you want one.
 
 ### What does it cost?
 
@@ -87,7 +87,7 @@ No. We work with solo founders as well as large teams.
 
 ## Find out which seat fits
 
-In a working session we look at where you are on the path and talk through which seat fits. If you go ahead with a seat, the session fee is credited in full against it.
+In a working session we look at where you are on the path and talk through which seat fits.
 
 When you book, choose "We need someone to own AI on our leadership team first", and we'll shape the session around the seat.
 

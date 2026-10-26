@@ -5,6 +5,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { Metadata } from "next";
+import { CONTACT_EMAIL } from "@/lib/contact";
 import { parsePage, type ParsedPage } from "./markdown";
 
 export const SITE_URL = "https://spliceworks.ai";
@@ -55,8 +56,9 @@ export function getEntry(urlPath: string): PageEntry {
   return entry;
 }
 
+/** Copy source with `{{contact_email}}` filled in from the env-configured inbox. */
 export function readCopySource(file: string): string {
-  return fs.readFileSync(path.join(COPY_DIR, file), "utf8");
+  return fs.readFileSync(path.join(COPY_DIR, file), "utf8").replaceAll("{{contact_email}}", CONTACT_EMAIL);
 }
 
 export function getPage(urlPath: string): ParsedPage {

@@ -20,7 +20,7 @@ export function BookForm({
   questions: Extract<Block, { t: "list" }>;
   submit: Extract<Block, { t: "cta" }>;
 }) {
-  // Submissions are emailed to CONTACT_EMAIL by the server action.
+  // Submissions are emailed to BOOK_TO by the server action.
   const [state, action, pending] = useActionState<BookState, FormData>(submitBooking, { status: "idle" });
 
   // Called from onSubmit rather than <form action> so a failed send doesn't

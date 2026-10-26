@@ -50,7 +50,7 @@ Spend one focused day with us on a workflow that matters. You leave with:
 - What to do next, and where you are on the path
 
 **Book a working session** → /book
-Credited in full against your engagement. No obligation to go further.
+Credited in full against your engagement.
 
 ## We change how the work runs, not who owns it
 
@@ -70,7 +70,7 @@ Delivered on Station, the system we use to run our own company. [How it works](/
 | **An influencer marketing and talent management agency** | Agents handle editorial, creative and contract reviews, including MSAs and SOWs | Live |
 | **A specialty chemicals manufacturer** | A company brain that captures product expertise, matches products to use cases, and refuses claims the company can't support | In progress |
 
-The agency's owner is a Splice founder. We name clients only with their permission.
+The agency's owner is a Splice founder. We name clients only with their written permission; everything else is described as it was delivered.
 
 [See our work](/work)
 

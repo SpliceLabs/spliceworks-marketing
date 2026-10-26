@@ -79,10 +79,6 @@ Underneath is [Station](/station), the system we deliver on, configured for your
 
 ## Questions about the process
 
-### What if we don't go ahead after the session?
-
-You keep everything the session produced: the working prototype, the workflow map and our advice. There's no obligation to go further.
-
 ### What if we find something new mid-engagement?
 
 If the agreed workflow needs it to work, it goes into the plan. We don't turn every discovery into a change order. Genuinely new work gets scoped with you, in the open.

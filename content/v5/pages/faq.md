@@ -38,7 +38,7 @@ It depends on where you are today. If you have the tools but the work hasn't cha
 
 ### Why a fractional seat instead of a full-time hire?
 
-You get someone owning AI now, not after a long search. The seat brings experience from doing this at other companies, and can write the mandate for a permanent hire when you're ready.
+A full-time AI executive is hard to find and slow to hire, and most companies don't yet know what the permanent role should be. A fractional seat puts someone accountable for AI on your leadership team now, delivers the first outcomes, and can write the mandate for the permanent role if you want one.
 
 ## Getting started
 
@@ -54,17 +54,13 @@ One focused day. We'll tell you beforehand who should be in the room.
 
 Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
 
-### What if we don't go ahead after the session?
-
-You keep everything the session produced: the working prototype, the workflow map and our advice. There's no obligation to go further.
-
 ### How fast will we see something?
 
 You get something usable from the first session. Once we've seen your workflow there, we tell you how long it will take to reach production.
 
 ### Does the fund or the company engage you?
 
-Either. A company can engage us directly, or a fund can engage us across its portfolio. We agree the terms with whoever engages us, before the first session.
+Either can. We agree who engages us, and on what terms, with you before anything is booked.
 
 ### What if we find something new mid-engagement?
 
@@ -82,7 +78,7 @@ Your data stays in the systems you already use. We work inside them, with only t
 
 ### What if it doesn't work?
 
-You'll know early. The working session tests the workflow before you commit to more, and every step ends in a milestone you can see. If a step isn't reaching its milestone, we tell you, and we agree with you what changes.
+We don't offer a guarantee. You see a working prototype on one of your own workflows in the first session, before you commit to more, and we tell you early if a workflow isn't working.
 
 ## Cost and value
 
@@ -91,10 +87,6 @@ You'll know early. The working session tests the workflow before you commit to m
 It shouldn't. Any vendor can raise your usage. We design for value that grows faster than your AI bill.
 
 ## After the engagement
-
-### Do we have to keep paying you?
-
-No. Once it's running, you choose: we keep operating it as a managed service, or your team takes it over and runs it. You only pay us for the work you keep us doing.
 
 ### What if we want to leave, or run it ourselves?
 
