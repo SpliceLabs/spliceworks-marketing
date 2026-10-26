@@ -6,7 +6,7 @@ decision, or was cut until there's evidence.
 
 ## Standing in (confirm)
 - **Contact:** the founders chose info@spliceworks.ai, but spliceworks.ai has no inbox (no MX records) yet, so the site and the booking form use hello@splicelabs.xyz. Switch by setting `CONTACT_EMAIL` on Vercel (then redeploy) once info@spliceworks.ai receives mail.
-- **Booking form:** submissions are emailed to the contact inbox through Resend, sent from forms@spliceworks.ai with reply-to set to the visitor.
+- **Booking form:** submissions are emailed to the contact inbox through Resend, sent from `BOOK_FROM` (forms@splicelabs.xyz in production) with reply-to set to the visitor.
 - **Session price:** no number shown; "fee agreed with you before you book, credited in full."
 
 ## Removed (add back with evidence or a decision)
