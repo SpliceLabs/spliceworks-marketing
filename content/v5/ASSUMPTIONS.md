@@ -4,7 +4,7 @@ Every `[TBD]` was filled with a best assumption or removed. Founders: confirm or
 
 ## Written in (confirm)
 - **Contact:** hello@splicelabs.xyz (footer, /book, booking form). Switch in `src/lib/contact.ts` when a spliceworks.ai inbox exists.
-- **Booking form:** no backend; submit opens the visitor's email app addressed to the contact inbox.
+- **Booking form:** submissions are emailed to the contact inbox through Resend, sent from forms@spliceworks.ai with reply-to set to the visitor.
 - **Session price:** no number shown; "fee agreed before you book, credited in full."
 - **If you don't go ahead (#3):** you keep the prototype, workflow map and advice; no obligation to go further.
 - **Founder/accelerator session (#3):** still one day; fee sized to the company / a startup.
