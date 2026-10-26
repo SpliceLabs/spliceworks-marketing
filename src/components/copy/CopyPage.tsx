@@ -3,6 +3,7 @@ import type { CSSProperties, ReactNode } from "react";
 import type { Block, Section } from "@/lib/copy/markdown";
 import { getEntry, getPage } from "@/lib/copy/pages";
 import { resolveFaqSection } from "@/lib/copy/faq";
+import { formBlocks } from "@/lib/copy/bookForm";
 import { HomeCta } from "@/components/HomeCta";
 import shared from "@/app/(marketing)/shared.module.css";
 import { Blocks } from "./Blocks";
@@ -12,7 +13,6 @@ import { InlineLines, InlineNodes } from "./Inline";
 import styles from "./Copy.module.css";
 
 type Cta = Extract<Block, { t: "cta" }>;
-type List = Extract<Block, { t: "list" }>;
 
 /** Header wash colors per area, from the palette the old pages used. */
 const HERO: Record<string, [string, string?]> = {
@@ -134,15 +134,14 @@ export function CopySection({ section, index, pageUrl }: { section: Section; ind
   }
 
   // /book: the numbered questions become the booking form.
-  const submitIdx = section.blocks.findIndex((b) => b.t === "cta" && b.submit);
-  if (submitIdx > 0 && section.blocks[submitIdx - 1].t === "list") {
-    const before = section.blocks.slice(0, submitIdx - 1);
+  const form = formBlocks(section);
+  if (form) {
     return (
       <SectionShell section={section} index={index}>
         <div className={styles.prose}>
-          <Blocks blocks={before} />
+          <Blocks blocks={form.before} />
         </div>
-        <BookForm questions={section.blocks[submitIdx - 1] as List} submit={section.blocks[submitIdx] as Cta} />
+        <BookForm questions={form.questions} submit={form.submit} />
       </SectionShell>
     );
   }

@@ -75,7 +75,8 @@ if (found.length === 0) {
   process.exit(0);
 }
 
-// Production builds refuse placeholders. (The 2026-10-19 launch override is retired.)
+// All placeholders filled 2026-10-26 (assumptions listed in content/v5/ASSUMPTIONS.md).
+// Production builds refuse placeholders again.
 const ALLOW_IN_PRODUCTION = false;
 
 const allowed =

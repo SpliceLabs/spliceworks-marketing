@@ -1,54 +1,12 @@
 "use client";
 
-import type { FormEvent } from "react";
-import type { Block, Inline, ListItem } from "@/lib/copy/markdown";
-import { inlineText, slugify } from "@/lib/copy/markdown";
+import { startTransition, useActionState, type FormEvent } from "react";
+import type { Block } from "@/lib/copy/markdown";
+import { inlineText } from "@/lib/copy/markdown";
+import { fieldsFromItem, HONEYPOT, type BookState } from "@/lib/copy/bookForm";
+import { submitBooking } from "@/app/(marketing)/book/actions";
 import { InlineLines, InlineNodes } from "./Inline";
-import { CONTACT_EMAIL, bookingMailto } from "@/lib/contact";
 import styles from "./Copy.module.css";
-
-type Kind = "radio" | "checkbox" | "text" | "textarea" | "email" | "url";
-
-interface Field {
-  name: string;
-  label: Inline[];
-  /** What the copy says after the label: "*", "Pick any.", "(optional)" … */
-  hint: string;
-  required: boolean;
-  kind: Kind;
-  options: Inline[][];
-}
-
-/**
- * Turns one numbered question from book.md ("Tell us where you are") into
- * form fields. Each **bold** run is a field label; the text after it is its
- * hint; nested bullets (or "a / b / c") are its options.
- */
-function fieldsFromItem(item: ListItem): Field[] {
-  const segs: { label: Inline[]; hint: string }[] = [];
-  for (const n of item.c) {
-    if (n.t === "strong") segs.push({ label: n.c, hint: "" });
-    else if (segs.length) segs[segs.length - 1].hint += n.t === "text" ? n.v : inlineText([n]);
-  }
-  const nested = item.children.find((b) => b.t === "list") as Extract<Block, { t: "list" }> | undefined;
-  return segs.map(({ label, hint }) => {
-    const labelText = inlineText(label);
-    const h = hint.trim().replace(/,$/, "").trim();
-    let options: Inline[][] = nested ? nested.items.map((it) => it.c) : [];
-    let shownHint = h;
-    if (!options.length && h.includes(" / ")) {
-      options = h.split(" / ").map((o) => [{ t: "text", v: o.trim() }]);
-      shownHint = "";
-    }
-    let kind: Kind;
-    if (options.length) kind = /Pick any/i.test(h) ? "checkbox" : "radio";
-    else if (/email/i.test(labelText)) kind = "email";
-    else if (/website/i.test(labelText)) kind = "url";
-    else if (/one line/i.test(h) || segs.length > 1) kind = "text";
-    else kind = "textarea";
-    return { name: slugify(labelText), label, hint: shownHint, required: h.includes("*"), kind, options };
-  });
-}
 
 function Hint({ text }: { text: string }) {
   if (!text) return null;
@@ -62,16 +20,28 @@ export function BookForm({
   questions: Extract<Block, { t: "list" }>;
   submit: Extract<Block, { t: "cta" }>;
 }) {
+  // Submissions are emailed to CONTACT_EMAIL by the server action.
+  const [state, action, pending] = useActionState<BookState, FormData>(submitBooking, { status: "idle" });
+
+  // Called from onSubmit rather than <form action> so a failed send doesn't
+  // reset the form and lose the visitor's answers.
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const entries = [...new FormData(e.currentTarget)].flatMap(([name, value]) =>
-      typeof value === "string" ? [[name, value] as [string, string]] : [],
+    const data = new FormData(e.currentTarget);
+    startTransition(() => action(data));
+  }
+
+  if (state.status === "sent") {
+    return (
+      <div className={styles.formDone} role="status">
+        <p className={styles.formDoneTitle}>Thanks. We have your answers.</p>
+        <p>We usually reply within 24 hours, from a real person, to the work email you gave us.</p>
+      </div>
     );
-    window.location.href = bookingMailto(entries);
   }
 
   return (
-    <form className={styles.form} onSubmit={onSubmit} noValidate={false}>
+    <form className={styles.form} onSubmit={onSubmit}>
       {questions.items.map((item, qi) => {
         const fields = fieldsFromItem(item);
         const num = <span className={styles.qNum}>{String(qi + 1).padStart(2, "0")}</span>;
@@ -133,18 +103,22 @@ export function BookForm({
         );
       })}
 
+      <input type="text" name={HONEYPOT} tabIndex={-1} autoComplete="off" aria-hidden="true" className={styles.honeypot} />
+
       <div className={styles.submitRow}>
-        <button type="submit" className="btn btn-primary">
-          {submit.label} <span aria-hidden="true">→</span>
+        <button type="submit" className="btn btn-primary" disabled={pending}>
+          {pending ? "Sending…" : submit.label} <span aria-hidden="true">→</span>
         </button>
+        {state.status === "error" && (
+          <p className={styles.formError} role="alert">
+            {state.message}
+          </p>
+        )}
         {submit.sub.length > 0 && (
           <p className={styles.ctaSub}>
             <InlineLines lines={submit.sub} />
           </p>
         )}
-        <p className={styles.ctaSub}>
-          This opens an email to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> with your answers filled in.
-        </p>
       </div>
     </form>
   );
