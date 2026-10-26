@@ -58,11 +58,9 @@ Your specialists set what the agents may answer and approve, and they stay accou
 - **The situation:** the company's product expertise lived with one or two people.
 - **What we're building:** a brain that matches the right product to each use case and holds back claims the company can't make.
 - **How:** by working directly with the company's specialists and capturing how they decide which product fits which use case.
-- **Our role:** [TBD: our role, founders confirm]
 - **Next:** sales agents that find the right buyers, research them, run campaigns, prepare reps with tailored decks, support them live on calls and handle follow-up.
-- **Result:** [TBD: confirmed result]
 
-[TBD: naming-policy line, #21]
+We name clients only with their written permission; everything else is described as it was delivered.
 
 ## Where you start
 
@@ -82,11 +80,11 @@ You get something usable from the first session. Once we've seen your workflow t
 
 ### Is our data safe?
 
-Your data stays in the systems you already use. We work inside them, with only the access you give us, under NDA. [TBD: one line on data handling the founders will stand behind, #11]
+Your data stays in the systems you already use. We work inside them, with only the access you give us, under NDA.
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement. [TBD: session price, #3]
+Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
 
 ## Start with what your experts know
 

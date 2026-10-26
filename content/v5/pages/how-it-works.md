@@ -79,10 +79,6 @@ Underneath is [Station](/station), the system we deliver on, configured for your
 
 ## Questions about the process
 
-### What if we don't go ahead after the session?
-
-[TBD: what happens if you don't continue, #3]
-
 ### What if we find something new mid-engagement?
 
 If the agreed workflow needs it to work, it goes into the plan. We don't turn every discovery into a change order. Genuinely new work gets scoped with you, in the open.
@@ -97,7 +93,7 @@ You get something usable from the first session. Once we've seen your workflow t
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement. [TBD: session price, #3]
+Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
 
 ## Start with one workflow
 

@@ -4,7 +4,7 @@ import type { FormEvent } from "react";
 import type { Block, Inline, ListItem } from "@/lib/copy/markdown";
 import { inlineText, slugify } from "@/lib/copy/markdown";
 import { InlineLines, InlineNodes } from "./Inline";
-import { Tbd } from "./Tbd";
+import { CONTACT_EMAIL, bookingMailto } from "@/lib/contact";
 import styles from "./Copy.module.css";
 
 type Kind = "radio" | "checkbox" | "text" | "textarea" | "email" | "url";
@@ -63,8 +63,11 @@ export function BookForm({
   submit: Extract<Block, { t: "cta" }>;
 }) {
   function onSubmit(e: FormEvent<HTMLFormElement>) {
-    // No submission backend yet: see the placeholder next to the button.
     e.preventDefault();
+    const entries = [...new FormData(e.currentTarget)].flatMap(([name, value]) =>
+      typeof value === "string" ? [[name, value] as [string, string]] : [],
+    );
+    window.location.href = bookingMailto(entries);
   }
 
   return (
@@ -139,7 +142,9 @@ export function BookForm({
             <InlineLines lines={submit.sub} />
           </p>
         )}
-        <Tbd id="form">form submission is not connected to a backend yet</Tbd>
+        <p className={styles.ctaSub}>
+          This opens an email to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> with your answers filled in.
+        </p>
       </div>
     </form>
   );

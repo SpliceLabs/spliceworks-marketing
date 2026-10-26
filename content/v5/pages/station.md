@@ -22,12 +22,6 @@ You set the controls:
 - Which actions the AI takes and which it only observes. We state that line plainly.
 - Spend caps that keep agents inside the limits you set, and a kill switch that stops them at any time.
 
-We answer for the rest:
-
-- Every agent action is logged. [TBD: one-line evidence for 100% action logging, #12]
-- 24/7 monitoring. [TBD: one-line evidence, #12]
-- SLA-backed uptime. [TBD: what the SLA covers, #12]
-
 ## Your agents or ours
 
 Bring your own agents or use ours, and swap them at any time. Station works in the systems you already run.
@@ -38,9 +32,7 @@ We configure Station for your workflows, your policies and your people, as part 
 
 ## Hosting options
 
-We run it for you by default. You can also self-host it, and a self-hosted Station can run air-gapped. [TBD: one-line evidence, #12]
-
-Deployment options: [TBD: the single list, claims register]
+We run it for you by default. You can also self-host it.
 
 ## We run on it too
 

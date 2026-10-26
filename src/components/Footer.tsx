@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Tbd } from "@/components/copy/Tbd";
+import { CONTACT_EMAIL } from "@/lib/contact";
 import styles from "./Footer.module.css";
 
 // Footer per the v5 sitemap (03-sitemap/works-site-sitemap.md §1):
@@ -40,7 +40,9 @@ export function Footer() {
           </nav>
 
           <div className={styles.column}>
-            <Tbd id="A6">contact email</Tbd>
+            <a href={`mailto:${CONTACT_EMAIL}`} className={styles.link}>
+              {CONTACT_EMAIL}
+            </a>
           </div>
         </div>
 

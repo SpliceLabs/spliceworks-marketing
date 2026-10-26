@@ -38,7 +38,7 @@ It depends on where you are today. If you have the tools but the work hasn't cha
 
 ### Why a fractional seat instead of a full-time hire?
 
-[TBD: answer, #22]
+A full-time AI executive is hard to find and slow to hire, and most companies don't yet know what the permanent role should be. A fractional seat puts someone accountable for AI on your leadership team now, delivers the first outcomes, and can write the mandate for the permanent role if you want one.
 
 ## Getting started
 
@@ -52,11 +52,7 @@ One focused day. We'll tell you beforehand who should be in the room.
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement. [TBD: session price, #3]
-
-### What if we don't go ahead after the session?
-
-[TBD: what happens if you don't continue, #3]
+Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
 
 ### How fast will we see something?
 
@@ -64,7 +60,7 @@ You get something usable from the first session. Once we've seen your workflow t
 
 ### Does the fund or the company engage you?
 
-[TBD: whether the investor or the company buys; portfolio terms]
+Either can. We agree who engages us, and on what terms, with you before anything is booked.
 
 ### What if we find something new mid-engagement?
 
@@ -78,11 +74,11 @@ A person on your side. There's an accountable person behind every decision that 
 
 ### Is our data safe?
 
-Your data stays in the systems you already use. We work inside them, with only the access you give us, under NDA. [TBD: one line on data handling the founders will stand behind, #11]
+Your data stays in the systems you already use. We work inside them, with only the access you give us, under NDA.
 
 ### What if it doesn't work?
 
-[TBD: what we commit to if it doesn't work, #20]
+We don't offer a guarantee. You see a working prototype on one of your own workflows in the first session, before you commit to more, and we tell you early if a workflow isn't working.
 
 ## Cost and value
 
@@ -91,10 +87,6 @@ Your data stays in the systems you already use. We work inside them, with only t
 It shouldn't. Any vendor can raise your usage. We design for value that grows faster than your AI bill.
 
 ## After the engagement
-
-### Do we have to keep paying you?
-
-[TBD: answer pending (#19)]
 
 ### What if we want to leave, or run it ourselves?
 

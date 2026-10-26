@@ -38,14 +38,9 @@ You'll have to show the CEO and the board what the AI may do on its own and who 
 - A clear line between what the AI controls and what it only observes.
 - **An accountable person behind every decision that matters.** Agents escalate to people based on your policies, and approve only what that person has permissioned.
 - Spend caps you set, and a kill switch to stop it.
-- **100% action logging.** [TBD: one-line evidence (#12)]
-- **24/7 monitoring.** [TBD: one-line evidence (#12)]
-- **SLA-backed uptime.** [TBD: what the SLA covers (#12)]
-- Self-hosted is available, including air-gapped. [TBD: one-line evidence (#12)]
+- Self-hosted is available.
 
 It sits on Station, the system we deliver our own work on, configured for your use case. [Read more about Station](/station).
-
-Deployment options: [TBD: the single deployment-options list from the claims register]
 
 ## Something you can take to the CEO
 
@@ -67,9 +62,9 @@ We build it so you can own it, and we operate it for as long as that's useful. B
 
 ## What we're building for a manufacturer
 
-**Client · A specialty chemicals manufacturer · In progress.** Its product expertise lived with one or two people. We're capturing it in a brain that matches the right product to each use case and refuses claims the company can't make. [TBD: confirmed result]
+**Client · A specialty chemicals manufacturer · In progress.** Its product expertise lived with one or two people. We're capturing it in a brain that matches the right product to each use case and refuses claims the company can't make.
 
-[TBD: naming-policy line, #21]
+We name clients only with their written permission; everything else is described as it was delivered.
 
 More in [manufacturing](/industries/manufacturing) and [our work](/work).
 
@@ -89,7 +84,7 @@ A platform asks you to trust the machine. We start from your own experts and cit
 
 ### Is our data safe?
 
-Your data stays in the systems you already use. We work inside them, with only the access you give us, under NDA. [TBD: one line on data handling the founders will stand behind, #11]
+Your data stays in the systems you already use. We work inside them, with only the access you give us, under NDA.
 
 ### What if we want to leave, or run it ourselves?
 
