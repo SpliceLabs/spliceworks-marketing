@@ -11,12 +11,16 @@ describe("costOfDelay", () => {
   });
 
   it("keeps inputs inside the ranges the calculator offers", () => {
-    expect(costOfDelay({ opportunities: 50, monthlyValue: 1, lagMonths: 99 })).toEqual(
-      costOfDelay({ opportunities: 10, monthlyValue: 500, lagMonths: 24 }),
-    );
-    expect(costOfDelay({ opportunities: 0, monthlyValue: 9_000_000, lagMonths: 0 })).toEqual(
-      costOfDelay({ opportunities: 1, monthlyValue: 500_000, lagMonths: 1 }),
-    );
+    expect(costOfDelay({ opportunities: 50, monthlyValue: 1, lagMonths: 99 })).toEqual({
+      monthly: 5_000,
+      cumulative: 120_000,
+      conservative: 60_000,
+    });
+    expect(costOfDelay({ opportunities: 0, monthlyValue: 9_000_000, lagMonths: 0 })).toEqual({
+      monthly: 500_000,
+      cumulative: 500_000,
+      conservative: 250_000,
+    });
   });
 
   it("snaps inputs to the calculator's steps: whole opportunities and months, $500 increments", () => {
@@ -28,9 +32,11 @@ describe("costOfDelay", () => {
   });
 
   it("treats non-numbers as the defaults instead of returning NaN", () => {
-    expect(costOfDelay({ opportunities: Number.NaN, monthlyValue: Infinity, lagMonths: 6 })).toEqual(
-      costOfDelay({ ...COST_OF_DELAY_DEFAULTS, lagMonths: 6 }),
-    );
+    expect(costOfDelay({ opportunities: Number.NaN, monthlyValue: Infinity, lagMonths: 6 })).toEqual({
+      monthly: 30_000,
+      cumulative: 180_000,
+      conservative: 90_000,
+    });
   });
 });
 
