@@ -14,11 +14,13 @@ export function AiRoiResults({ inputs }: Readonly<{ inputs: AiRoiInputs }>) {
   ];
 
   return (
-    <div className={styles.results} aria-live="polite">
+    <div className={styles.results}>
       <dl className={styles.figures}>
         <div className={styles.figure}>
           <dt>First-year net benefit</dt>
-          <dd className={styles.primary}>{formatUsd(r.benefit)}</dd>
+          <dd className={styles.primary} aria-live="polite">
+            {formatUsd(r.benefit)}
+          </dd>
         </div>
         {figures.map(([term, value]) => (
           <div key={term} className={styles.figure}>

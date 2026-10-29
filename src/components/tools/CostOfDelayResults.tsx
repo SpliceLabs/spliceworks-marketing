@@ -7,11 +7,13 @@ export function CostOfDelayResults({ inputs }: Readonly<{ inputs: CostOfDelayInp
   const result = costOfDelay(inputs);
 
   return (
-    <div className={styles.results} aria-live="polite">
+    <div className={styles.results}>
       <dl className={styles.figures}>
         <div className={styles.figure}>
           <dt>Every month you wait</dt>
-          <dd className={styles.primary}>{formatUsd(result.monthly)}</dd>
+          <dd className={styles.primary} aria-live="polite">
+            {formatUsd(result.monthly)}
+          </dd>
         </div>
         <div className={styles.figure}>
           <dt>Over {inputs.lagMonths} months</dt>

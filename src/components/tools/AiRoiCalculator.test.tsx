@@ -19,4 +19,11 @@ describe("AiRoiCalculator", () => {
     expect(figure("Return on investment")).toBe("32%");
     expect(figure("Payback")).toBe("9 months");
   });
+
+  it("announces only the headline figure as the numbers change, not the whole panel", () => {
+    const { container } = openAt("?t=500&s=176000&p=12.5&a=330&r=9600&i=100000&d=15&m=3");
+    const live = container.querySelectorAll("[aria-live]");
+    expect(live).toHaveLength(1);
+    expect(live[0].textContent).toBe("$2,635,000");
+  });
 });
