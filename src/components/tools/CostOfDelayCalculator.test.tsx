@@ -59,4 +59,12 @@ describe("CostOfDelayCalculator", () => {
     fireEvent.keyDown(exact, { key: "Enter" });
     expect(document.activeElement).toBe(screen.getByRole("spinbutton", { name: "AI opportunities, exact value" }));
   });
+
+  it("shows the kept value, not the typed one, when an entry snaps back to it", () => {
+    openAt("?o=3&v=10000&l=24");
+    const exact = screen.getByRole("spinbutton", { name: "Months until you start, exact value" });
+    fireEvent.change(exact, { target: { value: "99" } });
+    fireEvent.blur(exact);
+    expect(exact).toHaveProperty("value", "24");
+  });
 });
