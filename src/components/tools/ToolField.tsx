@@ -1,20 +1,19 @@
-import { useState, type KeyboardEvent } from "react";
-import { COST_OF_DELAY_RANGES, type CostOfDelayInputs } from "@/lib/tools/cost-of-delay";
+import { useId, useState, type KeyboardEvent } from "react";
+import type { Range } from "@/lib/tools/inputs";
 import styles from "./Calculator.module.css";
 
-export type FieldSpec = Readonly<{
-  key: keyof CostOfDelayInputs;
+export type FieldSpec<K extends string> = Readonly<{
+  key: K;
   label: string;
   hint: string;
   format: (n: number) => string;
 }>;
 
-type Props = Readonly<{ field: FieldSpec; value: number; onChange: (value: number) => void }>;
+type Props = Readonly<{ field: FieldSpec<string>; range: Range; value: number; onChange: (value: number) => void }>;
 
 /** A slider plus an exact-value box. Typed values apply on blur or Enter, so a half-typed number isn't clamped mid-entry. */
-export function CostOfDelayField({ field: { key, label, hint, format }, value, onChange }: Props) {
-  const range = COST_OF_DELAY_RANGES[key];
-  const id = `cod-${key}`;
+export function ToolField({ field: { label, hint, format }, range, value, onChange }: Props) {
+  const id = useId();
   // What's being typed; null shows the committed value.
   const [draft, setDraft] = useState<string | null>(null);
   const commit = () => {
