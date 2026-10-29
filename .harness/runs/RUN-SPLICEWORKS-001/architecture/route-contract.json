@@ -72,19 +72,12 @@
         "components": {
           "layout": "(marketing)/layout.tsx",
           "page": "(marketing)/services/page.tsx",
-          "sections": [
-            "PageHeader",
-            "ServiceCardsGrid",
-            "ServiceDetail",
-            "ContactCTA"
-          ]
+          "sections": ["PageHeader", "ServiceCardsGrid", "ServiceDetail", "ContactCTA"]
         },
 
         "data": {
           "content": "content/pages/services.md",
-          "dependencies": [
-            "content/data/services.json"
-          ]
+          "dependencies": ["content/data/services.json"]
         },
 
         "seo": {
@@ -126,9 +119,7 @@
 
         "data": {
           "content": "content/pages/station.md",
-          "dependencies": [
-            "content/data/deployment.json"
-          ]
+          "dependencies": ["content/data/deployment.json"]
         },
 
         "seo": {
@@ -155,20 +146,12 @@
         "components": {
           "layout": "(marketing)/layout.tsx",
           "page": "(marketing)/how-we-work/page.tsx",
-          "sections": [
-            "PageHeader",
-            "StagesJourney",
-            "StageDetailCards",
-            "TransitionCriteria",
-            "ContactCTA"
-          ]
+          "sections": ["PageHeader", "StagesJourney", "StageDetailCards", "TransitionCriteria", "ContactCTA"]
         },
 
         "data": {
           "content": "content/pages/how-we-work.md",
-          "dependencies": [
-            "content/data/stages.json"
-          ]
+          "dependencies": ["content/data/stages.json"]
         },
 
         "seo": {
@@ -234,13 +217,7 @@
         "components": {
           "layout": "(marketing)/layout.tsx",
           "page": "(marketing)/about/page.tsx",
-          "sections": [
-            "PageHeader",
-            "CompanyOverview",
-            "SpliceLabsRelationship",
-            "Mission",
-            "ContactCTA"
-          ]
+          "sections": ["PageHeader", "CompanyOverview", "SpliceLabsRelationship", "Mission", "ContactCTA"]
         },
 
         "data": {
@@ -269,10 +246,7 @@
         "components": {
           "layout": "(marketing)/layout.tsx",
           "page": "(marketing)/contact/page.tsx",
-          "sections": [
-            "PageHeader",
-            "ContactForm"
-          ],
+          "sections": ["PageHeader", "ContactForm"],
           "clientComponents": ["ContactForm"]
         },
 
@@ -323,19 +297,13 @@
         "components": {
           "layout": "(marketing)/layout.tsx",
           "page": "(marketing)/faq/page.tsx",
-          "sections": [
-            "PageHeader",
-            "FAQAccordion",
-            "ContactCTA"
-          ],
+          "sections": ["PageHeader", "FAQAccordion", "ContactCTA"],
           "clientComponents": ["FAQAccordion"]
         },
 
         "data": {
           "content": "content/pages/faq.md",
-          "dependencies": [
-            "content/data/faq.json"
-          ]
+          "dependencies": ["content/data/faq.json"]
         },
 
         "seo": {
@@ -369,10 +337,7 @@
 
         "generation": {
           "timing": "build",
-          "sources": [
-            "content/SOURCE-OF-TRUTH.md",
-            "content/SITEMAP.md"
-          ],
+          "sources": ["content/SOURCE-OF-TRUTH.md", "content/SITEMAP.md"],
           "template": "templates/llms-summary.txt"
         },
 
@@ -396,10 +361,7 @@
 
         "generation": {
           "timing": "build",
-          "sources": [
-            "content/pages/**/*.md",
-            "content/data/**/*.json"
-          ],
+          "sources": ["content/pages/**/*.md", "content/data/**/*.json"],
           "template": "templates/llms-full.txt"
         },
 
@@ -423,11 +385,7 @@
 
         "generation": {
           "timing": "build",
-          "sources": [
-            "content/data/services.json",
-            "content/data/stages.json",
-            "content/data/deployment.json"
-          ],
+          "sources": ["content/data/services.json", "content/data/stages.json", "content/data/deployment.json"],
           "outputSchema": "CapabilitiesManifest"
         },
 

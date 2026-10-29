@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  createContext,
-  useContext,
-  useCallback,
-  useSyncExternalStore,
-  type ReactNode,
-} from "react";
+import { createContext, useContext, useCallback, useSyncExternalStore, type ReactNode } from "react";
 
 type Theme = "paper" | "ink";
 
@@ -68,11 +62,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     setThemeExternal(currentTheme === "paper" ? "ink" : "paper");
   }, []);
 
-  return (
-    <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>{children}</ThemeContext.Provider>;
 }
 
 export function useTheme() {

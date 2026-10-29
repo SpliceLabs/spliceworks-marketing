@@ -24,8 +24,7 @@ export interface FaqCategory {
   entries: FaqEntry[];
 }
 
-let built: { categories: FaqCategory[]; byId: Map<string, FaqEntry>; byQuestion: Map<string, FaqEntry> } | null =
-  null;
+let built: { categories: FaqCategory[]; byId: Map<string, FaqEntry>; byQuestion: Map<string, FaqEntry> } | null = null;
 
 export function getFaq() {
   if (built) return built;
@@ -103,4 +102,22 @@ export function faqAnswerText(entry: FaqEntry): string {
       return b.raw;
     })
     .join("\n\n");
+}
+
+/** FAQ ids repeated on a page, in page order (empty if it has no FAQ section). */
+export function pageFaqIds(urlPath: string): string[] {
+  return getPage(urlPath).sections.flatMap((sec) => resolveFaqSection(sec, urlPath)?.ids ?? []);
+}
+
+/** schema.org FAQPage for the given answers, so search and AI engines can read each Q and A. */
+export function faqPageJsonLd(ids: string[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: ids.map(getFaqEntry).map((e) => ({
+      "@type": "Question",
+      name: e.question,
+      acceptedAnswer: { "@type": "Answer", text: faqAnswerText(e) },
+    })),
+  };
 }

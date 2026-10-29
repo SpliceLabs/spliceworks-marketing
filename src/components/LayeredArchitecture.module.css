@@ -20,7 +20,7 @@
   background: var(--color-surface);
   border: 1px solid var(--color-line);
   border-radius: 8px;
-  border-left: 4px solid var(--layer-color, #2447E8);
+  border-left: 4px solid var(--layer-color, #2447e8);
   position: relative;
   transition: all 0.2s ease;
 }
@@ -44,7 +44,7 @@
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 600;
-  color: var(--layer-color, #2447E8);
+  color: var(--layer-color, #2447e8);
 }
 
 .layerName {
@@ -99,9 +99,9 @@
   font-size: 11px;
   padding: 4px 8px;
   border-radius: 999px;
-  background: var(--color-primary-soft, #DCE4FF);
-  color: #2447E8;
-  border: 1px solid #7FA4FF;
+  background: var(--color-primary-soft, #dce4ff);
+  color: #2447e8;
+  border: 1px solid #7fa4ff;
   white-space: nowrap;
 }
 

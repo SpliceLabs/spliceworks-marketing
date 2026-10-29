@@ -4,9 +4,10 @@ import { CONTACT_EMAIL } from "@/lib/contact";
 import styles from "./Footer.module.css";
 
 // Footer per the v5 sitemap (03-sitemap/works-site-sitemap.md §1):
-// FAQ · Station · Work · contact email · "Put AI to work. Keep people accountable."
+// FAQ · Free tools · Station · Work · contact email · "Put AI to work. Keep people accountable."
 const footerLinks = [
   { label: "FAQ", href: "/faq" },
+  { label: "Free tools", href: "/tools" },
   { label: "Station", href: "/station" },
   { label: "Work", href: "/work" },
 ];

@@ -9,7 +9,8 @@ const stages = [
     label: "diagnose",
     status: "ready",
     title: "Diagnose",
-    description: "We map how work actually moves — across people, systems, data, and decisions — then rank the opportunities by value, feasibility, and risk.",
+    description:
+      "We map how work actually moves — across people, systems, data, and decisions — then rank the opportunities by value, feasibility, and risk.",
     duration: "1-2 weeks",
     color: "#2447E8",
   },
@@ -18,7 +19,8 @@ const stages = [
     label: "deploy",
     status: "running",
     title: "Deploy",
-    description: "The same team builds it into your environment — real data, real integrations, real constraints. Your Brain goes live early in the engagement; evaluation and gates are designed in from day one, not bolted on after.",
+    description:
+      "The same team builds it into your environment — real data, real integrations, real constraints. Your Brain goes live early in the engagement; evaluation and gates are designed in from day one, not bolted on after.",
     duration: "4-12 weeks",
     color: "#D98E14",
   },
@@ -27,7 +29,8 @@ const stages = [
     label: "operate and scale",
     status: "sealed",
     title: "Operate and scale",
-    description: "We stay embedded — measuring what works, improving the system, finding the next opportunity worth going after. What works becomes capability your team keeps.",
+    description:
+      "We stay embedded — measuring what works, improving the system, finding the next opportunity worth going after. What works becomes capability your team keeps.",
     duration: "Ongoing",
     color: "#1E9E6A",
   },
@@ -56,18 +59,17 @@ export function HowItWorksSection() {
   return (
     <section className={styles.section} id="how">
       <div className={styles.left}>
-        <span className={styles.num} aria-hidden="true">04</span>
+        <span className={styles.num} aria-hidden="true">
+          04
+        </span>
         <p className={styles.eyebrow}>
           <b>How it works</b>
           <span>Diagnose → Deploy → Operate and scale</span>
         </p>
-        <h2 className={styles.heading}>
-          From one workflow to an AI-native operating capability.
-        </h2>
+        <h2 className={styles.heading}>From one workflow to an AI-native operating capability.</h2>
         <p className={styles.sub}>
-          Diagnose runs 1-2 weeks. Your Brain goes live early in your
-          people&apos;s hands. Operate and scale doesn&apos;t stop —
-          that&apos;s the point.
+          Diagnose runs 1-2 weeks. Your Brain goes live early in your people&apos;s hands. Operate and scale
+          doesn&apos;t stop — that&apos;s the point.
         </p>
         <div className={styles.timeline}>
           <span className={styles.timelineLabel}>Engagement progress</span>
@@ -98,7 +100,10 @@ export function HowItWorksSection() {
         </div>
 
         {/* Active stage detail */}
-        <div className={styles.stageDetail} style={{ "--stage-color": stages[activeStage].color } as React.CSSProperties}>
+        <div
+          className={styles.stageDetail}
+          style={{ "--stage-color": stages[activeStage].color } as React.CSSProperties}
+        >
           <div className={styles.stageHeader}>
             <span className={styles.stageNum}>{String(activeStage + 1).padStart(2, "0")}</span>
             <h3 className={styles.stageTitle}>{stages[activeStage].title}</h3>
@@ -107,11 +112,7 @@ export function HowItWorksSection() {
           <p className={styles.stageDesc}>{stages[activeStage].description}</p>
           <div className={styles.stageActions}>
             {activeStage < stages.length - 1 ? (
-              <button
-                type="button"
-                className={styles.nextBtn}
-                onClick={() => handleStageClick(activeStage + 1)}
-              >
+              <button type="button" className={styles.nextBtn} onClick={() => handleStageClick(activeStage + 1)}>
                 Next: {stages[activeStage + 1].title} →
               </button>
             ) : (

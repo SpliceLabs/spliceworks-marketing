@@ -6,9 +6,8 @@ import fs from "node:fs";
 import path from "node:path";
 import type { Metadata } from "next";
 import { CONTACT_EMAIL } from "@/lib/contact";
+import { absoluteUrl } from "@/lib/site";
 import { parsePage, type ParsedPage } from "./markdown";
-
-export const SITE_URL = "https://spliceworks.ai";
 
 export interface PageEntry {
   /** URL path on the site. */
@@ -22,6 +21,7 @@ export interface PageEntry {
 const SERVICES = { label: "Services", href: "/services" };
 const FOR = { label: "Who it's for", href: "/for" };
 const INDUSTRIES = { label: "Industries", href: "/industries" };
+const TOOLS = { label: "Free tools", href: "/tools" };
 
 /** Every page on the site, in sitemap order (03-sitemap/works-site-sitemap.md). */
 export const PAGES: PageEntry[] = [
@@ -45,6 +45,8 @@ export const PAGES: PageEntry[] = [
   { path: "/book", file: "book.md" },
   { path: "/faq", file: "faq.md" },
   { path: "/station", file: "station.md" },
+  { path: "/tools", file: "tools/index.md" },
+  { path: "/tools/ai-cost-of-delay", file: "tools/ai-cost-of-delay.md", group: TOOLS },
 ];
 
 const COPY_DIR = path.join(process.cwd(), "content", "v5", "pages");
@@ -76,7 +78,7 @@ export function getPage(urlPath: string): ParsedPage {
 /** Title and description come straight from the copy file's front matter. */
 export function pageMetadata(urlPath: string): Metadata {
   const { fm } = getPage(urlPath);
-  const url = `${SITE_URL}${urlPath === "/" ? "" : urlPath}`;
+  const url = absoluteUrl(urlPath);
   return {
     title: { absolute: fm.title },
     description: fm.description,

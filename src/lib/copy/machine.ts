@@ -4,10 +4,16 @@
  * they mirror the site.
  */
 import { inlineText, type Block, type Inline } from "./markdown";
-import { PAGES, SITE_URL, getPage } from "./pages";
+import { absoluteUrl as absUrl, SITE_URL } from "@/lib/site";
+import { PAGES, getPage } from "./pages";
 import { getFaq } from "./faq";
-
-const absUrl = (p: string) => `${SITE_URL}${p === "/" ? "" : p}`;
+import {
+  CONSERVATIVE_SHARE,
+  COST_OF_DELAY_DEFAULTS,
+  COST_OF_DELAY_RANGES,
+  costOfDelay,
+  serializeCostOfDelayInputs,
+} from "@/lib/tools/cost-of-delay";
 
 /** SEO title without the " | Splice Works" suffix, for link text. */
 export function shortTitle(urlPath: string): string {
@@ -24,9 +30,17 @@ const GROUPS: { title: string; paths: string[] }[] = [
   { title: "Services", paths: ["/services", "/services/ai-enabled", "/services/ai-native", "/services/fractional"] },
   {
     title: "Who it's for",
-    paths: ["/for", "/for/ceos-and-boards", "/for/technology-leaders", "/for/founders", "/for/accelerators", "/for/investors"],
+    paths: [
+      "/for",
+      "/for/ceos-and-boards",
+      "/for/technology-leaders",
+      "/for/founders",
+      "/for/accelerators",
+      "/for/investors",
+    ],
   },
   { title: "Industries", paths: ["/industries", "/industries/manufacturing", "/industries/agencies"] },
+  { title: "Free tools", paths: ["/tools", "/tools/ai-cost-of-delay"] },
   { title: "Proof and reference", paths: ["/team", "/work", "/faq", "/station"] },
 ];
 
@@ -155,11 +169,16 @@ export function capabilities() {
         page: pageRef("/services/fractional"),
       },
     ],
-    audiences: ["/for/ceos-and-boards", "/for/technology-leaders", "/for/founders", "/for/accelerators", "/for/investors"].map(
-      pageRef,
-    ),
+    audiences: [
+      "/for/ceos-and-boards",
+      "/for/technology-leaders",
+      "/for/founders",
+      "/for/accelerators",
+      "/for/investors",
+    ].map(pageRef),
     industries: ["/industries/manufacturing", "/industries/agencies"].map(pageRef),
     station: pageRef("/station"),
+    tools: [costOfDelayTool()],
     faq: {
       url: absUrl("/faq"),
       categories: categories.map((c) => ({
@@ -174,5 +193,28 @@ export function capabilities() {
       llmsFullTxt: absUrl("/llms-full.txt"),
       capabilities: absUrl("/capabilities.json"),
     },
+  };
+}
+
+function costOfDelayTool() {
+  const r = COST_OF_DELAY_RANGES;
+  const url = absUrl("/tools/ai-cost-of-delay");
+  return {
+    id: "ai-cost-of-delay",
+    name: "AI cost of delay calculator",
+    url,
+    description: getPage("/tools/ai-cost-of-delay").fm.description,
+    inputs: [
+      { id: "opportunities", label: "AI opportunities", unit: "count", ...r.opportunities },
+      { id: "monthlyValue", label: "Monthly value of each opportunity", unit: "USD per month", ...r.monthlyValue },
+      { id: "lagMonths", label: "Months of delay", unit: "months", ...r.lagMonths },
+    ],
+    formula: [
+      "monthly = opportunities * monthlyValue",
+      "cumulative = monthly * lagMonths",
+      `conservative = ${CONSERVATIVE_SHARE} * cumulative`,
+    ].join("\n"),
+    example: { inputs: COST_OF_DELAY_DEFAULTS, outputs: costOfDelay(COST_OF_DELAY_DEFAULTS) },
+    shareUrl: `${url}?${serializeCostOfDelayInputs(COST_OF_DELAY_DEFAULTS)}`,
   };
 }

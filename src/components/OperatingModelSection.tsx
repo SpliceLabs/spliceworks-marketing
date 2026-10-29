@@ -18,7 +18,8 @@ const models = [
     id: "splice-agents",
     title: "Splice agents",
     subtitle: "Execution & operation",
-    description: "They do bounded work — the tools, context, limits, and approvals for each run are set in advance, not improvised.",
+    description:
+      "They do bounded work — the tools, context, limits, and approvals for each run are set in advance, not improvised.",
     responsibilities: ["Execute defined tasks", "Follow permissions", "Request approvals", "Report status"],
     tag: "bounded work",
     tagType: "running",
@@ -28,7 +29,8 @@ const models = [
     id: "splice-specialists",
     title: "Splice specialists",
     subtitle: "Design & judgment",
-    description: "They design the system, review the calls that need judgment, resolve what's ambiguous, and keep improving it.",
+    description:
+      "They design the system, review the calls that need judgment, resolve what's ambiguous, and keep improving it.",
     responsibilities: ["System architecture", "Quality assurance", "Edge case handling", "Continuous improvement"],
     tag: "judgment",
     tagType: "human",
@@ -43,19 +45,18 @@ export function OperatingModelSection() {
   return (
     <section className={styles.section} id="model">
       <div className={styles.left}>
-        <span className={styles.num} aria-hidden="true">06</span>
+        <span className={styles.num} aria-hidden="true">
+          06
+        </span>
         <p className={styles.eyebrow}>
           <b>Operating model</b>
           <span>humans and agents</span>
         </p>
-        <h2 className={styles.heading}>
-          Agents execute. Specialists exercise judgment. You stay in control.
-        </h2>
+        <h2 className={styles.heading}>Agents execute. Specialists exercise judgment. You stay in control.</h2>
         <p className={styles.sub}>
-          Authority is designed before autonomy. A named human is accountable
-          at every gate — clear lines between what agents handle on their
-          own, what needs a human review, and what never leaves your hands.
-          It runs on Station, the infrastructure our delivery runs on.
+          Authority is designed before autonomy. A named human is accountable at every gate — clear lines between what
+          agents handle on their own, what needs a human review, and what never leaves your hands. It runs on Station,
+          the infrastructure our delivery runs on.
         </p>
         <div className={styles.summary}>
           <div className={styles.summaryItem}>

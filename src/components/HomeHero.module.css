@@ -3,12 +3,12 @@
   z-index: 0;
   overflow: hidden;
   padding: 140px 0 120px;
-  background: linear-gradient(160deg, var(--hero-bg-start, #152238) 0%, var(--hero-bg-end, #2447E8) 160%);
+  background: linear-gradient(160deg, var(--hero-bg-start, #152238) 0%, var(--hero-bg-end, #2447e8) 160%);
 }
 
 :global([data-theme="ink"]) .hero {
-  --hero-bg-start: #101B30;
-  --hero-bg-end: #35579E;
+  --hero-bg-start: #101b30;
+  --hero-bg-end: #35579e;
 }
 
 .grid {

@@ -72,7 +72,9 @@ export default function HomePage() {
       <FadeInOnScroll delay={100}>
         <WhoThisIsFor
           heading={<InlineNodes nodes={problem.title} />}
-          items={problemList.items.map((it, i) => <InlineNodes key={i} nodes={it.c} />)}
+          items={problemList.items.map((it, i) => (
+            <InlineNodes key={i} nodes={it.c} />
+          ))}
           footer={problemFooter ? <InlineLines lines={problemFooter.lines} /> : undefined}
         />
       </FadeInOnScroll>
@@ -82,9 +84,7 @@ export default function HomePage() {
           intro={<Blocks blocks={stepIntro} />}
           steps={stepColumns}
           footer={
-            stepFooter.length ? (
-              <InlineLines lines={only(stepFooter, "para").flatMap((p) => p.lines)} />
-            ) : undefined
+            stepFooter.length ? <InlineLines lines={only(stepFooter, "para").flatMap((p) => p.lines)} /> : undefined
           }
         />
       </FadeInOnScroll>

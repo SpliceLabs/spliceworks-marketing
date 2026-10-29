@@ -40,8 +40,8 @@ phases:
       - component-inventory.json
       - route-content.json
       - claims-register.json
-      - asset-manifest.json          # NEW: maps design assets to public/
-      - template-components/         # NEW: React conversions of HTML templates
+      - asset-manifest.json # NEW: maps design assets to public/
+      - template-components/ # NEW: React conversions of HTML templates
     gates:
       - id: design-adherence
         type: automated
@@ -72,8 +72,8 @@ phases:
       - architecture.md
       - route-content.json
       - component-inventory.json
-      - asset-manifest.json          # NEW: required input
-      - template-components/         # NEW: required input
+      - asset-manifest.json # NEW: required input
+      - template-components/ # NEW: required input
     outputs: [application code, tests, implementation-report.md]
     gates:
       - id: implementation-checks

@@ -18,10 +18,7 @@ export function CompoundGrowth({ color }: CompoundGrowthProps) {
       <div className={styles.stages}>
         {stages.map((stage, i) => (
           <div key={stage.label} className={styles.stage}>
-            <div
-              className={styles.grid}
-              style={{ gridTemplateColumns: `repeat(${stage.size}, 1fr)` }}
-            >
+            <div className={styles.grid} style={{ gridTemplateColumns: `repeat(${stage.size}, 1fr)` }}>
               {Array.from({ length: stage.size * stage.size }).map((_, dotIndex) => (
                 <span key={dotIndex} className={styles.dot} />
               ))}

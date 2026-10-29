@@ -23,7 +23,7 @@
   opacity: 0.08;
   display: block;
   margin-bottom: var(--space-3);
-  background: linear-gradient(135deg, #2447E8 0%, #7FA4FF 100%);
+  background: linear-gradient(135deg, #2447e8 0%, #7fa4ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -44,7 +44,7 @@
 
 .eyebrow b {
   font-weight: 500;
-  color: #2447E8;
+  color: #2447e8;
   white-space: nowrap;
 }
 
@@ -83,7 +83,9 @@
   background: var(--color-surface);
   position: relative;
   overflow: hidden;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .plate::before {
@@ -93,14 +95,14 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #2447E8, #7FA4FF);
+  background: linear-gradient(90deg, #2447e8, #7fa4ff);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
 }
 
 .plate:hover {
-  border-color: #2447E8;
+  border-color: #2447e8;
   box-shadow:
     0 4px 6px rgba(36, 71, 232, 0.08),
     0 8px 24px rgba(36, 71, 232, 0.12);

@@ -13,7 +13,11 @@ const steps = [
 
 export function ControlPath() {
   return (
-    <div className={styles.path} role="list" aria-label="Control path: how an agent action moves from proposal to audit">
+    <div
+      className={styles.path}
+      role="list"
+      aria-label="Control path: how an agent action moves from proposal to audit"
+    >
       {steps.map((step, i) => (
         <div key={step.id} className={styles.stepWrap}>
           <div

@@ -2,7 +2,8 @@ import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 import type { Block, Section } from "@/lib/copy/markdown";
 import { getEntry, getPage } from "@/lib/copy/pages";
-import { resolveFaqSection } from "@/lib/copy/faq";
+import { faqPageJsonLd, pageFaqIds, resolveFaqSection } from "@/lib/copy/faq";
+import { JsonLd } from "@/components/JsonLd";
 import { formBlocks } from "@/lib/copy/bookForm";
 import { HomeCta } from "@/components/HomeCta";
 import shared from "@/app/(marketing)/shared.module.css";
@@ -90,15 +91,7 @@ function HeaderIntro({ blocks }: { blocks: Block[] }) {
   );
 }
 
-function SectionShell({
-  section,
-  index,
-  children,
-}: {
-  section: Section;
-  index: number;
-  children: ReactNode;
-}) {
+function SectionShell({ section, index, children }: { section: Section; index: number; children: ReactNode }) {
   return (
     <section id={section.slug} className={index % 2 === 0 ? shared.section : shared.sectionSunken}>
       <div className="container">
@@ -187,14 +180,18 @@ export function CopySection({ section, index, pageUrl }: { section: Section; ind
 }
 
 /** Renders a whole v5 copy page: header, sections, closing band. */
-export function CopyPage({ path }: { path: string }) {
+/** `children` (e.g. a tool's calculator) render straight after the page header. */
+export function CopyPage({ path, children }: { path: string; children?: ReactNode }) {
   const page = getPage(path);
   const last = page.sections[page.sections.length - 1];
   const hasBand = !!closingCta(last);
   const body = hasBand ? page.sections.slice(0, -1) : page.sections;
+  const faqIds = pageFaqIds(path);
   return (
     <>
+      {faqIds.length > 0 && <JsonLd data={faqPageJsonLd(faqIds)} />}
       <PageHeader path={path} />
+      {children}
       {body.map((sec, i) => (
         <CopySection key={sec.slug} section={sec} index={i} pageUrl={path} />
       ))}

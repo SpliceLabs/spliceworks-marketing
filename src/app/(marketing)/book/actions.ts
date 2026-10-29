@@ -1,6 +1,7 @@
 "use server";
 
-import { getPage, SITE_URL } from "@/lib/copy/pages";
+import { getPage } from "@/lib/copy/pages";
+import { SITE_URL } from "@/lib/site";
 import { fieldsFromItem, formBlocks, HONEYPOT, type BookState } from "@/lib/copy/bookForm";
 import { inlineText } from "@/lib/copy/markdown";
 import { bookingEmail, type Answer } from "@/lib/bookEmail";
