@@ -10,6 +10,13 @@ describe("FAQ structured data", () => {
       "isnt-it-cheaper-to-wait-until-ai-matures",
       "how-do-i-make-the-case-for-ai-to-my-ceo-or-board",
     ]);
+    expect(pageFaqIds("/tools/ai-roi-calculator")).toEqual([
+      "how-do-you-calculate-the-roi-of-ai",
+      "is-time-saved-by-ai-real-money",
+      "how-much-time-does-ai-really-save",
+      "why-does-ai-make-teams-slower-before-they-get-faster",
+      "how-long-does-ai-take-to-pay-back",
+    ]);
     expect(pageFaqIds("/for/technology-leaders")).toHaveLength(4);
     expect(pageFaqIds("/station")).toEqual([]);
   });

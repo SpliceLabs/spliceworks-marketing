@@ -7,7 +7,7 @@ job: Have each objection answered plainly, then book a working session
 primary_cta: Book a working session → /book
 status: provisional
 sources: [Objections and answers, Added objections, Core messages (The working session, capability not dependency, managed by default portable by design), Engagement model, The two offerings, Fractional leadership seats and advisory, Claims register]
-open: [Cost-of-delay answers are new: founders confirm, All answers need founder confirmation (#11), Data-handling line (#11), "What if it doesn't work?" (#20), "Do we have to keep paying you?" (#19), First workflow in production range (#5, #11), Session price and what if you don't go ahead (#3), "Why a fractional seat instead of a full-time hire?" answer (#22), "Does the fund or the company engage you?": who buys and portfolio terms]
+open: [All answers need founder confirmation (#11), Data-handling line (#11), "What if it doesn't work?" (#20), "Do we have to keep paying you?" (#19), First workflow in production range (#5, #11), Session price and what if you don't go ahead (#3), "Why a fractional seat instead of a full-time hire?" answer (#22), "Does the fund or the company engage you?": who buys and portfolio terms]
 ---
 
 # Questions, answered plainly
@@ -121,6 +121,28 @@ Waiting has a cost too, it's just harder to see. Every month you wait, the value
 ### How do I make the case for AI to my CEO or board?
 
 Show them what waiting costs, in dollars, on work they recognize. Pick one to three workflows, put a monthly value on each and state the cost of a 6-month delay. Then name who is accountable for each one. [The calculator](/tools/ai-cost-of-delay) writes a line you can paste into the deck.
+
+## Working out the ROI of AI
+
+### How do you calculate the ROI of AI?
+
+Add up what the rollout costs in year one: tools, training, infrastructure and the dip in output while people learn. Then work out the capacity it frees: people × cost per person × the share of time AI saves. Net benefit is that capacity minus the cost, and ROI is net benefit divided by the cost. [Run the numbers](/tools/ai-roi-calculator).
+
+### Is time saved by AI real money?
+
+Only if you use it. Freed hours become money when they go into work you'd otherwise hire for, ship later or not do at all. If nobody decides where the time goes, it disappears into the week. Name the work it goes to before you count it.
+
+### How much time does AI really save?
+
+It depends on the work, so measure one workflow before you commit. Our calculator starts at 12.5% of each person's time, the default in DORA's AI ROI calculator. Treat that as a starting point, not a promise, and use your own number once you have it.
+
+### Why does AI make teams slower before they get faster?
+
+People need time to learn new tools and change how they work, so output dips first. That dip is a real cost, and it belongs in the business case. Keep it short by starting with one workflow and the people who own it.
+
+### How long does AI take to pay back?
+
+Divide the first-year cost by the yearly value of the time it frees, then multiply by 12 to get months. With our calculator's defaults, a 50-person team pays back in about 10 months. Your own numbers will move that a lot, which is why we test them on a real workflow.
 
 ## Still deciding?
 

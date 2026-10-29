@@ -1,8 +1,8 @@
 import { useSyncExternalStore } from "react";
-import { parseCostOfDelayInputs, serializeCostOfDelayInputs, type CostOfDelayInputs } from "@/lib/tools/cost-of-delay";
+import type { InputCodec, ToolInputs } from "@/lib/tools/inputs";
 
 // The query string holds the inputs, so a shared link reproduces the result.
-const URL_CHANGE = "cod:urlchange";
+const URL_CHANGE = "tool:urlchange";
 
 const subscribe = (onChange: () => void) => {
   window.addEventListener("popstate", onChange);
@@ -13,20 +13,20 @@ const subscribe = (onChange: () => void) => {
   };
 };
 
-const writeUrl = (inputs: CostOfDelayInputs) => {
-  window.history.replaceState(null, "", `?${serializeCostOfDelayInputs(inputs)}`);
+const writeUrl = (query: string) => {
+  window.history.replaceState(null, "", `?${query}`);
   window.dispatchEvent(new Event(URL_CHANGE));
 };
 
 /** Calculator inputs read from and written to the page URL. */
-export function useCostOfDelayInputs() {
+export function useUrlInputs<K extends string>(codec: InputCodec<K>) {
   // Server-rendered from an empty query, i.e. the defaults, so the page always shows a worked result.
   const query = useSyncExternalStore(
     subscribe,
     () => window.location.search,
     () => "",
   );
-  const inputs = parseCostOfDelayInputs(query);
-  const set = (key: keyof CostOfDelayInputs, value: number) => writeUrl({ ...inputs, [key]: value });
+  const inputs: ToolInputs<K> = codec.parse(query);
+  const set = (key: K, value: number) => writeUrl(codec.serialize({ ...inputs, [key]: value }));
   return { inputs, set };
 }
