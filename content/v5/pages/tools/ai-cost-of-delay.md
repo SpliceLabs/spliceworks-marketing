@@ -34,7 +34,7 @@ A company has 3 AI opportunities worth $10,000 a month each. Waiting costs it $3
 
 It's an estimate, not financial advice. It doesn't include:
 
-- what implementation will cost
+- what implementation will cost ([the ROI calculator](/tools/ai-roi-calculator) adds that up)
 - value that compounds once a workflow is running
 - ground competitors gain while you wait
 

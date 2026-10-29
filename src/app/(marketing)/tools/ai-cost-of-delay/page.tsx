@@ -1,39 +1,15 @@
-import { CopyPage } from "@/components/copy/CopyPage";
-import { JsonLd } from "@/components/JsonLd";
 import { CostOfDelayCalculator } from "@/components/tools/CostOfDelayCalculator";
-import { getPage, pageMetadata } from "@/lib/copy/pages";
-import { ORGANIZATION_ID, absoluteUrl } from "@/lib/site";
-import shared from "../../shared.module.css";
+import { ToolPage } from "@/components/tools/ToolPage";
+import { pageMetadata } from "@/lib/copy/pages";
 
 const PATH = "/tools/ai-cost-of-delay";
 
 export const metadata = pageMetadata(PATH);
 
 export default function Page() {
-  const { fm } = getPage(PATH);
-  const app = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "AI cost of delay calculator",
-    url: absoluteUrl(PATH),
-    description: fm.description,
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "Any (runs in the browser)",
-    isAccessibleForFree: true,
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    publisher: { "@id": ORGANIZATION_ID },
-  };
-
   return (
-    <>
-      <JsonLd data={app} />
-      <CopyPage path={PATH}>
-        <section id="calculator" className={shared.section} aria-label="Calculator">
-          <div className="container">
-            <CostOfDelayCalculator />
-          </div>
-        </section>
-      </CopyPage>
-    </>
+    <ToolPage path={PATH} name="AI cost of delay calculator">
+      <CostOfDelayCalculator />
+    </ToolPage>
   );
 }

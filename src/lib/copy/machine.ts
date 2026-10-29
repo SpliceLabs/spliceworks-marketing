@@ -40,7 +40,7 @@ const GROUPS: { title: string; paths: string[] }[] = [
     ],
   },
   { title: "Industries", paths: ["/industries", "/industries/manufacturing", "/industries/agencies"] },
-  { title: "Free tools", paths: ["/tools", "/tools/ai-cost-of-delay"] },
+  { title: "Free tools", paths: ["/tools", "/tools/ai-cost-of-delay", "/tools/ai-roi-calculator"] },
   { title: "Proof and reference", paths: ["/team", "/work", "/faq", "/station"] },
 ];
 
