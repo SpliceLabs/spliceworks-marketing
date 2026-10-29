@@ -4,6 +4,7 @@
  * Pure functions, shared by the calculator, its server-rendered default
  * result and the shareable link.
  */
+import { formatUsd } from "./format";
 import { inputCodec, type ToolInputs } from "./inputs";
 
 export type AiRoiInputs = ToolInputs<
@@ -78,4 +79,19 @@ export const aiRoi = (raw: AiRoiInputs): AiRoiResult => {
     roi: investment > 0 ? benefit / investment : null,
     paybackMonths: value > 0 ? (investment / value) * 12 : null,
   };
+};
+
+const months = (n: number) => {
+  const whole = Math.max(1, Math.round(n));
+  return `${whole} month${whole === 1 ? "" : "s"}`;
+};
+
+/** One sentence for a board deck. */
+export const aiRoiLine = (inputs: AiRoiInputs): string => {
+  const { team } = AI_ROI.sanitize(inputs);
+  const { investment, value, benefit, roi, paybackMonths } = aiRoi(inputs);
+  const opening = `Rolling AI out to our ${team}-person team costs about ${formatUsd(investment)} in year one and frees about ${formatUsd(value)} of capacity`;
+  const payback = paybackMonths === null ? "" : `, paid back in about ${months(paybackMonths)}`;
+  const pct = roi === null ? "" : `, a ${Math.round(roi * 100)}% return`;
+  return `${opening}: a net ${formatUsd(benefit)}${pct}${payback}.`;
 };

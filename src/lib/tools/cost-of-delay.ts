@@ -4,6 +4,7 @@
  * server-rendered default result and the shareable link.
  */
 
+import { formatUsd } from "./format";
 import { inputCodec, type ToolInputs } from "./inputs";
 
 export type CostOfDelayInputs = ToolInputs<"opportunities" | "monthlyValue" | "lagMonths">;
@@ -40,8 +41,7 @@ export const costOfDelay = (inputs: CostOfDelayInputs): CostOfDelayResult => {
   return { monthly, cumulative, conservative: cumulative * CONSERVATIVE_SHARE };
 };
 
-export const formatUsd = (n: number): string =>
-  n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+export { formatUsd };
 
 export const execLine = (inputs: CostOfDelayInputs): string => {
   const { lagMonths } = sanitizeCostOfDelayInputs(inputs);

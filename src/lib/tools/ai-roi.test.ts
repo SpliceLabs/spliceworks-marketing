@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { AI_ROI, aiRoi } from "./ai-roi";
+import { AI_ROI, aiRoi, aiRoiLine } from "./ai-roi";
 
 const doraDefaults = {
   team: 500,
@@ -37,5 +37,13 @@ describe("shareable ROI inputs", () => {
     const shared = AI_ROI.serialize({ ...doraDefaults, timeSaved: 7.3 });
     expect(shared).toBe("t=500&s=176000&p=7.5&a=330&r=9600&i=100000&d=15&m=3");
     expect(AI_ROI.parse(shared)).toEqual({ ...doraDefaults, timeSaved: 7.5 });
+  });
+});
+
+describe("aiRoiLine", () => {
+  it("gives a line an executive can paste", () => {
+    expect(aiRoiLine(AI_ROI.defaults)).toBe(
+      "Rolling AI out to our 50-person team costs about $926,500 in year one and frees about $1,100,000 of capacity: a net $173,500, a 19% return, paid back in about 10 months.",
+    );
   });
 });
