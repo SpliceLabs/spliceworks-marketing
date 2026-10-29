@@ -24,7 +24,7 @@ Rolling AI out costs money before it saves any: tools, training, and a dip in ou
 - **Net benefit** = capacity freed − investment
 - **ROI** = net benefit ÷ investment, and **payback** = investment ÷ capacity freed, in months
 
-The method and the starting values follow [DORA's AI ROI calculator](https://dora.dev/ai/roi/calculator/), which publishes its formulas in the open. We start from a team of 50 rather than DORA's 500. The math runs in your browser. Your inputs are kept in the page link so you can share the result, which means anyone who opens that link, including the site's host, can see them.
+The method and the starting values follow [DORA's AI ROI calculator](https://dora.dev/ai/roi/calculator/), which publishes its formulas in the open. We start from a team of 50 rather than DORA's 500. Two small differences: time saved can't go below zero, and where there's nothing to divide by we show n/a rather than a number. The math runs in your browser. Your inputs are kept in the page link so you can share the result, which means anyone who opens that link, including the site's host, can see them.
 
 Updated 29 Oct 2026 · Splice Works
 
@@ -62,7 +62,7 @@ People need time to learn new tools and change how they work, so output dips fir
 
 ### How long does AI take to pay back?
 
-Divide the first-year cost by the yearly value of the time it frees. With our calculator's defaults, a 50-person team pays back in about 10 months. Your own numbers will move that a lot, which is why we test them on a real workflow.
+Divide the first-year cost by the yearly value of the time it frees, then multiply by 12 to get months. With our calculator's defaults, a 50-person team pays back in about 10 months. Your own numbers will move that a lot, which is why we test them on a real workflow.
 
 More answers in the [FAQ](/faq).
 
