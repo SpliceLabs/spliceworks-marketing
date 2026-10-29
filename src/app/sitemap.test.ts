@@ -8,5 +8,7 @@ describe("sitemap", () => {
     expect(urls).toHaveLength(PAGES.length);
     expect(urls).toContain("https://spliceworks.ai");
     expect(urls).toContain("https://spliceworks.ai/faq");
+    expect(urls).toContain("https://spliceworks.ai/tools");
+    expect(urls).toContain("https://spliceworks.ai/tools/ai-cost-of-delay");
   });
 });
