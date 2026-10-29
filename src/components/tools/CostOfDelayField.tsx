@@ -1,4 +1,4 @@
-import type { FocusEvent, KeyboardEvent } from "react";
+import { useState, type KeyboardEvent } from "react";
 import { COST_OF_DELAY_RANGES, type CostOfDelayInputs } from "@/lib/tools/cost-of-delay";
 import styles from "./Calculator.module.css";
 
@@ -15,9 +15,14 @@ type Props = Readonly<{ field: FieldSpec; value: number; onChange: (value: numbe
 export function CostOfDelayField({ field: { key, label, hint, format }, value, onChange }: Props) {
   const range = COST_OF_DELAY_RANGES[key];
   const id = `cod-${key}`;
-  const commit = (e: FocusEvent<HTMLInputElement>) => onChange(Number(e.currentTarget.value));
+  // What's being typed; null shows the committed value.
+  const [draft, setDraft] = useState<string | null>(null);
+  const commit = () => {
+    if (draft !== null) onChange(Number(draft));
+    setDraft(null);
+  };
   const commitOnEnter = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") onChange(Number(e.currentTarget.value));
+    if (e.key === "Enter") commit();
   };
 
   return (
@@ -27,12 +32,12 @@ export function CostOfDelayField({ field: { key, label, hint, format }, value, o
           {label}
         </label>
         <input
-          key={value}
           type="number"
           className={styles.number}
           aria-label={`${label}, exact value`}
           {...range}
-          defaultValue={value}
+          value={draft ?? value}
+          onChange={(e) => setDraft(e.currentTarget.value)}
           onBlur={commit}
           onKeyDown={commitOnEnter}
         />

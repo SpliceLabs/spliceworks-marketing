@@ -50,4 +50,13 @@ describe("CostOfDelayCalculator", () => {
     expect(html).toContain("$30,000");
     expect(html).toContain("A 6-month delay costs about $180,000");
   });
+
+  it("keeps focus in the box after Enter, so keyboard users can carry on", () => {
+    openAt("");
+    const exact = screen.getByRole("spinbutton", { name: "AI opportunities, exact value" });
+    exact.focus();
+    fireEvent.change(exact, { target: { value: "7" } });
+    fireEvent.keyDown(exact, { key: "Enter" });
+    expect(document.activeElement).toBe(screen.getByRole("spinbutton", { name: "AI opportunities, exact value" }));
+  });
 });
