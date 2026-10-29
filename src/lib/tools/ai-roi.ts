@@ -91,6 +91,10 @@ export const aiRoiLine = (inputs: AiRoiInputs): string => {
   const { team } = AI_ROI.sanitize(inputs);
   const { investment, value, benefit, roi, paybackMonths } = aiRoi(inputs);
   const opening = `Rolling AI out to our ${team}-person team costs about ${formatUsd(investment)} in year one and frees about ${formatUsd(value)} of capacity`;
+  if (benefit < 0) {
+    const later = paybackMonths === null ? "" : ` Payback comes in about ${months(paybackMonths)}.`;
+    return `${opening}, so year one comes out about ${formatUsd(-benefit)} behind.${later}`;
+  }
   const payback = paybackMonths === null ? "" : `, paid back in about ${months(paybackMonths)}`;
   const pct = roi === null ? "" : `, a ${Math.round(roi * 100)}% return`;
   return `${opening}: a net ${formatUsd(benefit)}${pct}${payback}.`;

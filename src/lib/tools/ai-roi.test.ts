@@ -46,4 +46,10 @@ describe("aiRoiLine", () => {
       "Rolling AI out to our 50-person team costs about $926,500 in year one and frees about $1,100,000 of capacity: a net $173,500, a 19% return, paid back in about 10 months.",
     );
   });
+
+  it("says plainly when year one comes out behind", () => {
+    expect(aiRoiLine({ ...AI_ROI.defaults, timeSaved: 5 })).toBe(
+      "Rolling AI out to our 50-person team costs about $926,500 in year one and frees about $440,000 of capacity, so year one comes out about $486,500 behind. Payback comes in about 25 months.",
+    );
+  });
 });
