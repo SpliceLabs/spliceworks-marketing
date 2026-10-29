@@ -60,20 +60,17 @@ export function ParallaxProvider({ children }: ParallaxProviderProps) {
     };
   }, [reduced]);
 
-  const value = useMemo(() => ({
-    scrollY,
-    scrollProgress: documentHeight > windowHeight
-      ? scrollY / (documentHeight - windowHeight)
-      : 0,
-    windowHeight,
-    documentHeight,
-  }), [scrollY, windowHeight, documentHeight]);
-
-  return (
-    <ParallaxContext.Provider value={value}>
-      {children}
-    </ParallaxContext.Provider>
+  const value = useMemo(
+    () => ({
+      scrollY,
+      scrollProgress: documentHeight > windowHeight ? scrollY / (documentHeight - windowHeight) : 0,
+      windowHeight,
+      documentHeight,
+    }),
+    [scrollY, windowHeight, documentHeight],
   );
+
+  return <ParallaxContext.Provider value={value}>{children}</ParallaxContext.Provider>;
 }
 
 // =============================================================================
@@ -93,7 +90,7 @@ export function ParallaxSection({
   speed = 0.1,
   className = "",
   style = {},
-  as = "section"
+  as = "section",
 }: ParallaxSectionProps) {
   const { scrollY } = useGlobalParallax();
   const reduced = usePrefersReducedMotion();
@@ -193,7 +190,7 @@ export function FadeInOnScroll({
           observer.disconnect();
         }
       },
-      { threshold }
+      { threshold },
     );
 
     if (ref.current) {

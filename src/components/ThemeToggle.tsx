@@ -14,10 +14,7 @@ export function ThemeToggle() {
       title={`Switch to ${theme === "paper" ? "ink" : "paper"} theme`}
     >
       <span className="theme-toggle-track">
-        <span
-          className="theme-toggle-thumb"
-          data-theme={theme}
-        />
+        <span className="theme-toggle-thumb" data-theme={theme} />
       </span>
       <span className="theme-toggle-labels">
         <span className={theme === "paper" ? "active" : ""}>Paper</span>

@@ -11,10 +11,8 @@ const capabilities: Capability[] = [
   {
     id: "working-session",
     name: "The working session",
-    description:
-      "We map where you stand today, find the real opportunities, and check if you're ready to act on them.",
-    outcome:
-      "An opportunity and readiness map — credited in full against your engagement.",
+    description: "We map where you stand today, find the real opportunities, and check if you're ready to act on them.",
+    outcome: "An opportunity and readiness map — credited in full against your engagement.",
   },
   {
     id: "knowledge-expertise-system",
@@ -43,13 +41,10 @@ export function CapabilitiesSection() {
           <b>Capabilities</b>
           <span>what we build</span>
         </p>
-        <h2 className={styles.heading}>
-          Start with the outcome. We assemble the system around it.
-        </h2>
+        <h2 className={styles.heading}>Start with the outcome. We assemble the system around it.</h2>
         <p className={styles.sub}>
-          Three distinct engagements, each one building on the last — from
-          a first working session to a working Brain your people use daily,
-          to fully governed agent systems running on Station.
+          Three distinct engagements, each one building on the last — from a first working session to a working Brain
+          your people use daily, to fully governed agent systems running on Station.
         </p>
       </div>
       <div className={styles.plates}>

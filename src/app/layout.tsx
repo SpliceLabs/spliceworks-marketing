@@ -88,11 +88,7 @@ const organization = {
   employee: [{ "@type": "Person", name: "Jake Krogman", jobTitle: "CTO and AI Systems Architect" }],
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"

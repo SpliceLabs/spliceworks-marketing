@@ -34,7 +34,9 @@ const QUERY_KEYS: Record<keyof CostOfDelayInputs, string> = { opportunities: "o"
 
 const clamp = (key: keyof CostOfDelayInputs, value: number): number => {
   const { min, max, step } = COST_OF_DELAY_RANGES[key];
-  return Number.isFinite(value) ? Math.min(max, Math.max(min, Math.round(value / step) * step)) : COST_OF_DELAY_DEFAULTS[key];
+  return Number.isFinite(value)
+    ? Math.min(max, Math.max(min, Math.round(value / step) * step))
+    : COST_OF_DELAY_DEFAULTS[key];
 };
 
 export const sanitizeCostOfDelayInputs = (inputs: CostOfDelayInputs): CostOfDelayInputs => ({

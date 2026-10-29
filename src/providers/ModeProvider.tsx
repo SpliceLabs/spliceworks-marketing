@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  createContext,
-  useContext,
-  useCallback,
-  useSyncExternalStore,
-  type ReactNode,
-} from "react";
+import { createContext, useContext, useCallback, useSyncExternalStore, type ReactNode } from "react";
 
 type Mode = "human" | "agent";
 

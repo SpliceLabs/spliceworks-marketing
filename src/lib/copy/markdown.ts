@@ -52,9 +52,7 @@ export function parseTbd(raw: string): Extract<Inline, { t: "tbd" }> {
   if (!m) throw new Error(`Not a placeholder: ${raw}`);
   const kind = m[1] as TbdKind;
   const note = m[2].replace(/^[\s:,]+/, "").trim();
-  const ids = Array.from(
-    new Set(note.match(/#\d+|\b[A-G]\d+\b/g) ?? []),
-  );
+  const ids = Array.from(new Set(note.match(/#\d+|\b[A-G]\d+\b/g) ?? []));
   return { t: "tbd", kind, ids, note, raw };
 }
 
@@ -214,8 +212,7 @@ export function parseBlocks(body: string): Block[] {
   const blocks: Block[] = [];
   let i = 0;
   const isBlank = (l: string) => l.trim() === "";
-  const startsBlock = (l: string) =>
-    HEADING_RE.test(l) || HR_RE.test(l) || l.trim().startsWith("|") || LIST_RE.test(l);
+  const startsBlock = (l: string) => HEADING_RE.test(l) || HR_RE.test(l) || l.trim().startsWith("|") || LIST_RE.test(l);
 
   while (i < lines.length) {
     const line = lines[i];

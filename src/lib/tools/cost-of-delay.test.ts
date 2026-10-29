@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { COST_OF_DELAY_DEFAULTS, costOfDelay, execLine, parseCostOfDelayInputs, serializeCostOfDelayInputs } from "./cost-of-delay";
+import {
+  COST_OF_DELAY_DEFAULTS,
+  costOfDelay,
+  execLine,
+  parseCostOfDelayInputs,
+  serializeCostOfDelayInputs,
+} from "./cost-of-delay";
 
 describe("costOfDelay", () => {
   it("prices the monthly, cumulative and conservative cost of waiting", () => {
@@ -48,7 +54,9 @@ describe("execLine", () => {
   });
 
   it("says month, not months, for a one-month delay", () => {
-    expect(execLine({ opportunities: 1, monthlyValue: 500, lagMonths: 1 })).toContain("A 1-month delay costs about $500");
+    expect(execLine({ opportunities: 1, monthlyValue: 500, lagMonths: 1 })).toContain(
+      "A 1-month delay costs about $500",
+    );
   });
 });
 

@@ -33,7 +33,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--step-color, #FF6848);
+  background: var(--step-color, #ff6848);
   opacity: 0.06;
   border-radius: inherit;
   pointer-events: none;

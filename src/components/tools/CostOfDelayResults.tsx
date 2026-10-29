@@ -50,7 +50,9 @@ export function CostOfDelayResults({ inputs }: Readonly<{ inputs: CostOfDelayInp
         <Link href="/book" className="btn btn-primary">
           Test this number in a working session <span aria-hidden="true">→</span>
         </Link>
-        <p className={styles.note}>Estimate only, not financial advice. Your inputs are kept in this page&rsquo;s link.</p>
+        <p className={styles.note}>
+          Estimate only, not financial advice. Your inputs are kept in this page&rsquo;s link.
+        </p>
       </div>
     </div>
   );

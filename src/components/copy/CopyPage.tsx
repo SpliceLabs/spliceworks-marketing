@@ -91,15 +91,7 @@ function HeaderIntro({ blocks }: { blocks: Block[] }) {
   );
 }
 
-function SectionShell({
-  section,
-  index,
-  children,
-}: {
-  section: Section;
-  index: number;
-  children: ReactNode;
-}) {
+function SectionShell({ section, index, children }: { section: Section; index: number; children: ReactNode }) {
   return (
     <section id={section.slug} className={index % 2 === 0 ? shared.section : shared.sectionSunken}>
       <div className="container">

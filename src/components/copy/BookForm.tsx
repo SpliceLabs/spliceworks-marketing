@@ -103,7 +103,14 @@ export function BookForm({
         );
       })}
 
-      <input type="text" name={HONEYPOT} tabIndex={-1} autoComplete="off" aria-hidden="true" className={styles.honeypot} />
+      <input
+        type="text"
+        name={HONEYPOT}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className={styles.honeypot}
+      />
 
       <div className={styles.submitRow}>
         <button type="submit" className="btn btn-primary" disabled={pending}>

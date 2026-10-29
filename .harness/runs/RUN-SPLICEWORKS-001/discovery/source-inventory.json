@@ -118,7 +118,16 @@
       ],
       "guidelines": {
         "brand": ["joint-rule", "lockups", "mark", "small-sizes"],
-        "colors": ["blue-ramp", "brand", "ink-ramp", "joint-ramp", "pairings", "semantic-dark", "semantic-light", "status"],
+        "colors": [
+          "blue-ramp",
+          "brand",
+          "ink-ramp",
+          "joint-ramp",
+          "pairings",
+          "semantic-dark",
+          "semantic-light",
+          "status"
+        ],
         "effects": ["borders", "motion", "shadows"],
         "spacing": ["controls", "in-use", "layout", "radii", "scale"],
         "type": ["body", "display", "headings", "label", "weights", "wordmark"]

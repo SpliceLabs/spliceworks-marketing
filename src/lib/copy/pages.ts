@@ -9,7 +9,6 @@ import { CONTACT_EMAIL } from "@/lib/contact";
 import { absoluteUrl } from "@/lib/site";
 import { parsePage, type ParsedPage } from "./markdown";
 
-
 export interface PageEntry {
   /** URL path on the site. */
   path: string;

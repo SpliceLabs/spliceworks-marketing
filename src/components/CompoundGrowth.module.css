@@ -42,7 +42,7 @@
   max-width: 8px;
   max-height: 8px;
   border-radius: 50%;
-  background: var(--growth-color, #1E9E6A);
+  background: var(--growth-color, #1e9e6a);
 }
 
 .stageLabel {

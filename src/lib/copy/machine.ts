@@ -30,7 +30,14 @@ const GROUPS: { title: string; paths: string[] }[] = [
   { title: "Services", paths: ["/services", "/services/ai-enabled", "/services/ai-native", "/services/fractional"] },
   {
     title: "Who it's for",
-    paths: ["/for", "/for/ceos-and-boards", "/for/technology-leaders", "/for/founders", "/for/accelerators", "/for/investors"],
+    paths: [
+      "/for",
+      "/for/ceos-and-boards",
+      "/for/technology-leaders",
+      "/for/founders",
+      "/for/accelerators",
+      "/for/investors",
+    ],
   },
   { title: "Industries", paths: ["/industries", "/industries/manufacturing", "/industries/agencies"] },
   { title: "Free tools", paths: ["/tools", "/tools/ai-cost-of-delay"] },
@@ -162,9 +169,13 @@ export function capabilities() {
         page: pageRef("/services/fractional"),
       },
     ],
-    audiences: ["/for/ceos-and-boards", "/for/technology-leaders", "/for/founders", "/for/accelerators", "/for/investors"].map(
-      pageRef,
-    ),
+    audiences: [
+      "/for/ceos-and-boards",
+      "/for/technology-leaders",
+      "/for/founders",
+      "/for/accelerators",
+      "/for/investors",
+    ].map(pageRef),
     industries: ["/industries/manufacturing", "/industries/agencies"].map(pageRef),
     station: pageRef("/station"),
     tools: [costOfDelayTool()],

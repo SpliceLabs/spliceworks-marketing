@@ -15,9 +15,7 @@ export function FaqBlock({ ids, anchors = false }: { ids: string[]; anchors?: bo
         return (
           <details key={id} className={styles.faqItem} id={anchors ? id : undefined} data-faq-id={id}>
             <summary>
-              <h3 className={styles.faqQuestion}>
-                {entry.question}
-              </h3>
+              <h3 className={styles.faqQuestion}>{entry.question}</h3>
             </summary>
             <div className={styles.faqAnswer}>
               <Blocks blocks={entry.blocks} />

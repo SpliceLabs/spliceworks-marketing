@@ -23,8 +23,8 @@
   opacity: 0.08;
   display: block;
   margin-bottom: var(--space-3);
-  color: #2447E8;
-  background: linear-gradient(135deg, #2447E8 0%, #7FA4FF 100%);
+  color: #2447e8;
+  background: linear-gradient(135deg, #2447e8 0%, #7fa4ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -45,7 +45,7 @@
 
 .eyebrow b {
   font-weight: 500;
-  color: #2447E8;
+  color: #2447e8;
   white-space: nowrap;
 }
 
@@ -95,8 +95,8 @@
   align-items: center;
   gap: 6px;
   padding: 4px 10px;
-  background: #DCE4FF;
-  border: 1px solid #7FA4FF;
+  background: #dce4ff;
+  border: 1px solid #7fa4ff;
   border-radius: 999px;
   font-family: var(--font-mono);
   font-size: 11px;
@@ -105,7 +105,7 @@
 }
 
 .agentBadge:hover {
-  background: #2447E8;
+  background: #2447e8;
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(36, 71, 232, 0.3);
@@ -121,7 +121,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #2447E8;
+  background: #2447e8;
 }
 
 .agentBadge:hover .agentDot {
@@ -130,7 +130,7 @@
 
 /* Artifact panel - office desk style */
 .artifact {
-  border: 2px solid #2447E8;
+  border: 2px solid #2447e8;
   border-radius: 8px;
   background: var(--color-surface);
   overflow: hidden;
@@ -154,7 +154,7 @@
   border-bottom: 1px solid var(--color-line);
   align-items: center;
   flex-wrap: wrap;
-  background: linear-gradient(135deg, #F8F9FF 0%, #FFFFFF 100%);
+  background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
 }
 
 :global([data-theme="ink"]) .artifactHeader {
@@ -191,13 +191,20 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #1E9E6A;
+  background: #1e9e6a;
   animation: pulse 2s ease-in-out infinite;
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.1); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
 }
 
 .artifactTitle {
@@ -213,15 +220,15 @@
   align-items: center;
   gap: 6px;
   border-radius: var(--radius-pill);
-  border: 1px solid #1E9E6A;
+  border: 1px solid #1e9e6a;
   padding: 4px 12px;
   white-space: nowrap;
   font-family: var(--font-mono);
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #1E9E6A;
-  background: #E6F4ED;
+  color: #1e9e6a;
+  background: #e6f4ed;
 }
 
 :global([data-theme="ink"]) .tagComplete {
@@ -270,13 +277,13 @@
   top: 0;
   width: 3px;
   height: 100%;
-  background: #2447E8;
+  background: #2447e8;
   transform: scaleY(0);
   transition: transform 0.2s ease;
 }
 
 .artifactCell:hover {
-  background: #F8F9FF;
+  background: #f8f9ff;
 }
 
 :global([data-theme="ink"]) .artifactCell:hover {
@@ -291,12 +298,12 @@
   border-right: 0;
 }
 
-.artifactCell:nth-last-child(-n+2) {
+.artifactCell:nth-last-child(-n + 2) {
   border-bottom: 0;
 }
 
 .cellActive {
-  background: #DCE4FF !important;
+  background: #dce4ff !important;
 }
 
 :global([data-theme="ink"]) .cellActive {
@@ -305,7 +312,7 @@
 
 .cellActive::before {
   transform: scaleY(1);
-  background: #2447E8;
+  background: #2447e8;
 }
 
 .cellHeader {
@@ -335,11 +342,11 @@
   align-items: center;
   gap: 4px;
   padding: 2px 8px;
-  background: #DCE4FF;
+  background: #dce4ff;
   border-radius: 4px;
   font-family: var(--font-mono);
   font-size: 10px;
-  color: #2447E8;
+  color: #2447e8;
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -352,7 +359,7 @@
 .agentIcon {
   width: 10px;
   height: 10px;
-  background: #2447E8;
+  background: #2447e8;
   border-radius: 50%;
   position: relative;
 }
@@ -377,8 +384,14 @@
 }
 
 @keyframes slideIn {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .evidence {
@@ -403,13 +416,15 @@
 
 .evidenceBars span {
   height: 4px;
-  background: linear-gradient(90deg, #2447E8, #7FA4FF);
+  background: linear-gradient(90deg, #2447e8, #7fa4ff);
   border-radius: 2px;
   animation: barGrow 0.4s ease;
 }
 
 @keyframes barGrow {
-  from { width: 0 !important; }
+  from {
+    width: 0 !important;
+  }
 }
 
 .cellMeta {
@@ -426,7 +441,7 @@
   border-top: 1px solid var(--color-line);
   align-items: center;
   flex-wrap: wrap;
-  background: linear-gradient(135deg, #FAFBFF 0%, #FFFFFF 100%);
+  background: linear-gradient(135deg, #fafbff 0%, #ffffff 100%);
 }
 
 :global([data-theme="ink"]) .artifactFooter {
@@ -469,9 +484,9 @@
 }
 
 .btnPrimary {
-  background: #2447E8;
+  background: #2447e8;
   color: white;
-  border-color: #2447E8;
+  border-color: #2447e8;
 }
 
 .btnPrimary:hover {

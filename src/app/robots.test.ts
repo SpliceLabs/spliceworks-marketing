@@ -1,7 +1,15 @@
 import { describe, expect, it } from "vitest";
 import robots from "./robots";
 
-const AI_CRAWLERS = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "PerplexityBot", "ClaudeBot", "Claude-SearchBot", "Google-Extended"];
+const AI_CRAWLERS = [
+  "GPTBot",
+  "OAI-SearchBot",
+  "ChatGPT-User",
+  "PerplexityBot",
+  "ClaudeBot",
+  "Claude-SearchBot",
+  "Google-Extended",
+];
 
 describe("robots", () => {
   it("lets search engines and AI crawlers read the whole site", () => {

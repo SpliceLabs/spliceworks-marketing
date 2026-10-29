@@ -59,7 +59,11 @@ for (const file of walk(srcDir, [".tsx", ".ts"])) {
     for (const m of line.matchAll(/<Tbd\b([^>]*)>([^<]*)/g)) {
       const id = /id="([^"]*)"/.exec(m[1])?.[1];
       if (/id=\{n\.ids\}/.test(m[1])) continue; // the copy renderer itself
-      found.push({ where: `${path.relative(root, file)}:${i + 1}`, ids: id ? [id] : [], text: `<Tbd${m[1]}>${m[2].trim()}` });
+      found.push({
+        where: `${path.relative(root, file)}:${i + 1}`,
+        ids: id ? [id] : [],
+        text: `<Tbd${m[1]}>${m[2].trim()}`,
+      });
     }
   });
 }
@@ -79,17 +83,21 @@ if (found.length === 0) {
 // Production builds refuse placeholders again.
 const ALLOW_IN_PRODUCTION = false;
 
-const allowed =
-  ALLOW_IN_PRODUCTION || process.env.ALLOW_TBD === "1" || process.env.VERCEL_ENV === "preview";
+const allowed = ALLOW_IN_PRODUCTION || process.env.ALLOW_TBD === "1" || process.env.VERCEL_ENV === "preview";
 console.log(`check-tbd: ${found.length} placeholder(s) remain.`);
-const summary = [...byId.entries()].sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k} ×${v}`).join(", ");
+const summary = [...byId.entries()]
+  .sort((a, b) => b[1] - a[1])
+  .map(([k, v]) => `${k} ×${v}`)
+  .join(", ");
 console.log(`  by tracker id: ${summary}`);
 if (!build || !allowed) {
   for (const f of found) console.log(`  ${f.where}  ${f.text}`);
 }
 
 if (build && allowed) {
-  console.log("check-tbd: build allowed (ALLOW_IN_PRODUCTION, ALLOW_TBD=1 or VERCEL_ENV=preview); placeholders will render visibly.");
+  console.log(
+    "check-tbd: build allowed (ALLOW_IN_PRODUCTION, ALLOW_TBD=1 or VERCEL_ENV=preview); placeholders will render visibly.",
+  );
   process.exit(0);
 }
 if (build) {

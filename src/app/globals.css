@@ -6,41 +6,41 @@
 
 :root {
   /* Ground colors */
-  --color-paper: #F6F4E9;
-  --color-surface: #FFFEF8;
-  --color-raised: #FFFFFF;
+  --color-paper: #f6f4e9;
+  --color-surface: #fffef8;
+  --color-raised: #ffffff;
 
   /* Text colors */
   --color-ink: #152238;
-  --color-muted: #52607A;
+  --color-muted: #52607a;
 
   /* Structure / lines */
-  --color-line: #D9D9CF;
+  --color-line: #d9d9cf;
   --color-line-strong: #152238;
-  --color-structure: #D9D9CF;
-  --color-structure-soft: #EFEEE3;
-  --color-structure-deep: #7C8490;
+  --color-structure: #d9d9cf;
+  --color-structure-soft: #efeee3;
+  --color-structure-deep: #7c8490;
 
   /* Brand / systems (ultramarine) */
-  --color-primary: #2447E8;
-  --color-primary-mid: #68B5FF;
-  --color-primary-soft: #E3EEFF;
+  --color-primary: #2447e8;
+  --color-primary-mid: #68b5ff;
+  --color-primary-soft: #e3eeff;
 
   /* Accent (acid lime = discovery marking only, never state, never text) */
-  --color-accent: #B8E846;
-  --color-accent-soft: #EEF8D2;
+  --color-accent: #b8e846;
+  --color-accent-soft: #eef8d2;
 
   /* Humans, judgment, approval */
-  --color-human: #FF6848;
-  --color-human-text: #B8371F;
+  --color-human: #ff6848;
+  --color-human-text: #b8371f;
 
   /* Run states */
-  --color-attention: #FFC53D;
-  --color-attention-soft: #FFF1CC;
-  --color-complete: #216E4E;
-  --color-blocked: #B73838;
-  --color-state-idle: #A7AFBC;
-  --color-state-unknown: #7C6EA8;
+  --color-attention: #ffc53d;
+  --color-attention-soft: #fff1cc;
+  --color-complete: #216e4e;
+  --color-blocked: #b73838;
+  --color-state-idle: #a7afbc;
+  --color-state-unknown: #7c6ea8;
 
   /* Typography */
   --font-display: var(--font-bricolage), system-ui, sans-serif;
@@ -93,7 +93,7 @@
   --ease-move: cubic-bezier(0.2, 0.7, 0.2, 1);
 
   /* Focus */
-  --focus-ring: 2px solid #68B5FF;
+  --focus-ring: 2px solid #68b5ff;
   --focus-offset: 3px;
 
   /* ==========================================================================
@@ -112,11 +112,11 @@
   --border-strong: var(--color-line-strong);
 
   --accent: var(--color-primary);
-  --accent-hover: #1C38C2;
+  --accent-hover: #1c38c2;
   --accent-soft: var(--color-primary-soft);
 
   --link: var(--color-primary);
-  --link-hover: #1C38C2;
+  --link-hover: #1c38c2;
 
   /* Shadows */
   --shadow-sm: 0 1px 2px rgba(21, 34, 56, 0.06);
@@ -132,23 +132,23 @@
 [data-theme="operational"],
 [data-theme="ink"],
 .operational {
-  --color-paper: #0F1A30;
+  --color-paper: #0f1a30;
   --color-surface: #172542;
-  --color-raised: #1F3054;
-  --color-ink: #F6F4E9;
-  --color-muted: #AEB8CC;
-  --color-line: #2E3F66;
-  --color-line-strong: #F6F4E9;
-  --color-structure-soft: #1F3054;
-  --color-primary: #7FA4FF;
-  --color-primary-mid: #7FA4FF;
-  --color-primary-soft: #1F3054;
-  --color-human: #FF8E76;
-  --color-human-text: #FF8E76;
-  --color-attention: #FFD466;
-  --color-attention-soft: #1F3054;
-  --color-complete: #6FCB9A;
-  --color-blocked: #F27C7C;
+  --color-raised: #1f3054;
+  --color-ink: #f6f4e9;
+  --color-muted: #aeb8cc;
+  --color-line: #2e3f66;
+  --color-line-strong: #f6f4e9;
+  --color-structure-soft: #1f3054;
+  --color-primary: #7fa4ff;
+  --color-primary-mid: #7fa4ff;
+  --color-primary-soft: #1f3054;
+  --color-human: #ff8e76;
+  --color-human-text: #ff8e76;
+  --color-attention: #ffd466;
+  --color-attention-soft: #1f3054;
+  --color-complete: #6fcb9a;
+  --color-blocked: #f27c7c;
 
   --bg: var(--color-paper);
   --bg-surface: var(--color-surface);
@@ -158,9 +158,9 @@
   --border: var(--color-line);
   --border-strong: var(--color-line-strong);
   --accent: var(--color-primary);
-  --accent-hover: #A8C4FF;
+  --accent-hover: #a8c4ff;
   --link: var(--color-primary);
-  --link-hover: #A8C4FF;
+  --link-hover: #a8c4ff;
 
   color: var(--color-ink);
   background: var(--color-paper);
@@ -226,7 +226,12 @@ a:not([class]):hover {
    Typography
    ========================================================================== */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
   font-weight: var(--display-weight);
   letter-spacing: var(--display-tracking);
@@ -324,8 +329,8 @@ h4 {
 }
 
 .btn-primary:hover {
-  background: #1C38C2;
-  border-color: #1C38C2;
+  background: #1c38c2;
+  border-color: #1c38c2;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(36, 71, 232, 0.3);
 }
@@ -405,14 +410,38 @@ h4 {
   background: currentColor;
 }
 
-.tag-ready { background: var(--color-primary-soft); color: var(--color-primary); }
-.tag-running { background: var(--color-primary-soft); color: var(--color-primary); }
-.tag-running .tag-dot { animation: pulse 1.6s ease-in-out infinite; }
-.tag-waiting { background: var(--color-attention-soft); color: var(--color-ink); }
-.tag-human { background: #FFEEE9; color: var(--color-human-text); }
-.tag-complete { background: #E6F4ED; color: var(--color-complete); }
-.tag-blocked { background: #FCE8E8; color: var(--color-blocked); }
-.tag-sample { background: var(--color-structure-soft); color: var(--color-muted); border: 1px dashed var(--color-line); }
+.tag-ready {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+.tag-running {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+.tag-running .tag-dot {
+  animation: pulse 1.6s ease-in-out infinite;
+}
+.tag-waiting {
+  background: var(--color-attention-soft);
+  color: var(--color-ink);
+}
+.tag-human {
+  background: #ffeee9;
+  color: var(--color-human-text);
+}
+.tag-complete {
+  background: #e6f4ed;
+  color: var(--color-complete);
+}
+.tag-blocked {
+  background: #fce8e8;
+  color: var(--color-blocked);
+}
+.tag-sample {
+  background: var(--color-structure-soft);
+  color: var(--color-muted);
+  border: 1px dashed var(--color-line);
+}
 
 [data-theme="ink"] .tag-human,
 [data-theme="operational"] .tag-human {
@@ -428,8 +457,13 @@ h4 {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
 }
 
 /* ==========================================================================
@@ -536,7 +570,9 @@ h4 {
    ========================================================================== */
 
 .hover-lift {
-  transition: transform var(--duration-panel) var(--ease-move), box-shadow var(--duration-panel) ease-out;
+  transition:
+    transform var(--duration-panel) var(--ease-move),
+    box-shadow var(--duration-panel) ease-out;
 }
 
 .hover-lift:hover {

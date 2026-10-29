@@ -10,7 +10,6 @@
 import { blocksRaw, inlineText, type Block, type Section } from "./markdown";
 import { getPage } from "./pages";
 
-
 export interface FaqEntry {
   id: string;
   question: string;
@@ -25,8 +24,7 @@ export interface FaqCategory {
   entries: FaqEntry[];
 }
 
-let built: { categories: FaqCategory[]; byId: Map<string, FaqEntry>; byQuestion: Map<string, FaqEntry> } | null =
-  null;
+let built: { categories: FaqCategory[]; byId: Map<string, FaqEntry>; byQuestion: Map<string, FaqEntry> } | null = null;
 
 export function getFaq() {
   if (built) return built;

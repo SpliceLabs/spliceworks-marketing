@@ -162,7 +162,11 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
     if (isQuoteList(b)) {
       out.push(
         <div key={`q${i}`} className={styles.quoteWrap}>
-          <QuoteGrid items={b.items.map((it, k) => <InlineNodes key={k} nodes={it.c} />)} />
+          <QuoteGrid
+            items={b.items.map((it, k) => (
+              <InlineNodes key={k} nodes={it.c} />
+            ))}
+          />
         </div>,
       );
       i++;
