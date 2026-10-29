@@ -4,7 +4,8 @@
  * they mirror the site.
  */
 import { inlineText, type Block, type Inline } from "./markdown";
-import { PAGES, SITE_URL, getPage } from "./pages";
+import { absoluteUrl as absUrl, SITE_URL } from "@/lib/site";
+import { PAGES, getPage } from "./pages";
 import { getFaq } from "./faq";
 import {
   CONSERVATIVE_SHARE,
@@ -13,8 +14,6 @@ import {
   costOfDelay,
   serializeCostOfDelayInputs,
 } from "@/lib/tools/cost-of-delay";
-
-const absUrl = (p: string) => `${SITE_URL}${p === "/" ? "" : p}`;
 
 /** SEO title without the " | Splice Works" suffix, for link text. */
 export function shortTitle(urlPath: string): string {

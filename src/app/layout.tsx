@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/providers/ThemeProvider";
 import { ModeProvider } from "@/providers/ModeProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { CONTACT_EMAIL } from "@/lib/contact";
+import { ORGANIZATION_ID, SITE_URL, absoluteUrl } from "@/lib/site";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
   },
   description:
     "A forward-deployed team for knowledge-heavy companies with an AI mandate and no path to production. We put AI to work and keep a named human accountable at every gate.",
-  metadataBase: new URL("https://spliceworks.ai"),
+  metadataBase: new URL(SITE_URL),
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
     title: "Splice Works",
     description:
       "A forward-deployed team for knowledge-heavy companies with an AI mandate and no path to production. We put AI to work and keep a named human accountable at every gate.",
-    url: "https://spliceworks.ai",
+    url: SITE_URL,
     siteName: "Splice Works",
     locale: "en_US",
     type: "website",
@@ -75,10 +76,10 @@ export const metadata: Metadata = {
 const organization = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://spliceworks.ai/#organization",
+  "@id": ORGANIZATION_ID,
   name: "Splice Works",
-  url: "https://spliceworks.ai",
-  logo: "https://spliceworks.ai/logo/light/icon-512.png",
+  url: SITE_URL,
+  logo: absoluteUrl("/logo/light/icon-512.png"),
   email: CONTACT_EMAIL,
   description:
     "Splice Works is a forward-deployed AI enablement team. It puts AI to work in existing companies and keeps a named person accountable at every gate.",

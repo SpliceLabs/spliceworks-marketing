@@ -6,9 +6,9 @@ import fs from "node:fs";
 import path from "node:path";
 import type { Metadata } from "next";
 import { CONTACT_EMAIL } from "@/lib/contact";
+import { absoluteUrl } from "@/lib/site";
 import { parsePage, type ParsedPage } from "./markdown";
 
-export const SITE_URL = "https://spliceworks.ai";
 
 export interface PageEntry {
   /** URL path on the site. */
@@ -79,7 +79,7 @@ export function getPage(urlPath: string): ParsedPage {
 /** Title and description come straight from the copy file's front matter. */
 export function pageMetadata(urlPath: string): Metadata {
   const { fm } = getPage(urlPath);
-  const url = `${SITE_URL}${urlPath === "/" ? "" : urlPath}`;
+  const url = absoluteUrl(urlPath);
   return {
     title: { absolute: fm.title },
     description: fm.description,

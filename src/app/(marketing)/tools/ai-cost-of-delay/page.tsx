@@ -1,7 +1,8 @@
 import { CopyPage } from "@/components/copy/CopyPage";
 import { JsonLd } from "@/components/JsonLd";
 import { CostOfDelayCalculator } from "@/components/tools/CostOfDelayCalculator";
-import { SITE_URL, getPage, pageMetadata } from "@/lib/copy/pages";
+import { getPage, pageMetadata } from "@/lib/copy/pages";
+import { ORGANIZATION_ID, absoluteUrl } from "@/lib/site";
 import shared from "../../shared.module.css";
 
 const PATH = "/tools/ai-cost-of-delay";
@@ -14,13 +15,13 @@ export default function Page() {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     name: "AI cost of delay calculator",
-    url: `${SITE_URL}${PATH}`,
+    url: absoluteUrl(PATH),
     description: fm.description,
     applicationCategory: "BusinessApplication",
     operatingSystem: "Any (runs in the browser)",
     isAccessibleForFree: true,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    publisher: { "@id": `${SITE_URL}/#organization` },
+    publisher: { "@id": ORGANIZATION_ID },
   };
 
   return (

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
-import { PAGES, SITE_URL } from "@/lib/copy/pages";
+import { PAGES } from "@/lib/copy/pages";
+import { absoluteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return PAGES.map((p) => ({ url: `${SITE_URL}${p.path === "/" ? "" : p.path}` }));
+  return PAGES.map((p) => ({ url: absoluteUrl(p.path) }));
 }
