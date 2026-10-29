@@ -11,4 +11,8 @@ describe("CopyPage structured data", () => {
     expect(jsonLdTypes(html)).toContain("FAQPage");
     expect(html).toContain("What is the cost of delay for AI?");
   });
+
+  it("leaves FAQPage data off pages without FAQ answers", () => {
+    expect(jsonLdTypes(renderToStaticMarkup(<CopyPage path="/station" />))).not.toContain("FAQPage");
+  });
 });
