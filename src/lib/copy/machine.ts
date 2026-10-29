@@ -14,6 +14,7 @@ import {
   costOfDelay,
   serializeCostOfDelayInputs,
 } from "@/lib/tools/cost-of-delay";
+import { AI_ROI, aiRoi } from "@/lib/tools/ai-roi";
 
 /** SEO title without the " | Splice Works" suffix, for link text. */
 export function shortTitle(urlPath: string): string {
@@ -178,7 +179,7 @@ export function capabilities() {
     ].map(pageRef),
     industries: ["/industries/manufacturing", "/industries/agencies"].map(pageRef),
     station: pageRef("/station"),
-    tools: [costOfDelayTool()],
+    tools: [costOfDelayTool(), aiRoiTool()],
     faq: {
       url: absUrl("/faq"),
       categories: categories.map((c) => ({
@@ -196,7 +197,21 @@ export function capabilities() {
   };
 }
 
-function costOfDelayTool() {
+type ToolInput = Readonly<{ id: string; label: string; unit: string; min: number; max: number; step: number }>;
+
+type MachineTool = Readonly<{
+  id: string;
+  name: string;
+  url: string;
+  description: string;
+  inputs: readonly ToolInput[];
+  formula: string;
+  basedOn?: string;
+  example: Readonly<{ inputs: object; outputs: object }>;
+  shareUrl: string;
+}>;
+
+function costOfDelayTool(): MachineTool {
   const r = COST_OF_DELAY_RANGES;
   const url = absUrl("/tools/ai-cost-of-delay");
   return {
@@ -216,5 +231,38 @@ function costOfDelayTool() {
     ].join("\n"),
     example: { inputs: COST_OF_DELAY_DEFAULTS, outputs: costOfDelay(COST_OF_DELAY_DEFAULTS) },
     shareUrl: `${url}?${serializeCostOfDelayInputs(COST_OF_DELAY_DEFAULTS)}`,
+  };
+}
+
+function aiRoiTool(): MachineTool {
+  const r = AI_ROI.ranges;
+  const url = absUrl("/tools/ai-roi-calculator");
+  return {
+    id: "ai-roi-calculator",
+    name: "AI ROI calculator",
+    url,
+    description: getPage("/tools/ai-roi-calculator").fm.description,
+    inputs: [
+      { id: "team", label: "People using AI", unit: "count", ...r.team },
+      { id: "salary", label: "Fully loaded cost per person", unit: "USD per year", ...r.salary },
+      { id: "timeSaved", label: "Share of time AI saves", unit: "percent", ...r.timeSaved },
+      { id: "toolsPerPerson", label: "AI tools per person", unit: "USD per year", ...r.toolsPerPerson },
+      { id: "trainingPerPerson", label: "Training per person", unit: "USD per year", ...r.trainingPerPerson },
+      { id: "infrastructure", label: "Infrastructure", unit: "USD per year", ...r.infrastructure },
+      { id: "dipPercent", label: "Productivity dip while learning", unit: "percent", ...r.dipPercent },
+      { id: "dipMonths", label: "Months the dip lasts", unit: "months", ...r.dipMonths },
+    ],
+    formula: [
+      "hardCosts = (toolsPerPerson + trainingPerPerson) * team + infrastructure",
+      "dipCost = team * salary * (dipPercent / 100) * (dipMonths / 12)",
+      "investment = hardCosts + dipCost",
+      "value = team * salary * (timeSaved / 100)",
+      "benefit = value - investment",
+      "roi = benefit / investment",
+      "paybackMonths = investment / value * 12",
+    ].join("\n"),
+    basedOn: "https://dora.dev/ai/roi/calculator/",
+    example: { inputs: AI_ROI.defaults, outputs: aiRoi(AI_ROI.defaults) },
+    shareUrl: `${url}?${AI_ROI.serialize(AI_ROI.defaults)}`,
   };
 }
