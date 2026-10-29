@@ -38,6 +38,6 @@
   },
   "packageManager": "pnpm@10.30.3",
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint && pnpm type-check && pnpm test"
+    "pre-commit": "pnpm lint && pnpm format:check && pnpm type-check && pnpm test"
   }
 }
