@@ -5,7 +5,14 @@ on:
     branches: [main]
   workflow_dispatch: {}   # lets you redeploy manually from the Actions tab
 
+permissions:
+  contents: read
+
 jobs:
+  ci:
+    uses: ./.github/workflows/ci.yml
+
   deploy:
-      uses: SpliceLabs/vercel-deploy/.github/workflows/deploy.yml@v1
-      secrets: inherit
+    needs: ci
+    uses: SpliceLabs/vercel-deploy/.github/workflows/deploy.yml@f59205553e15f1f282eefc5449fdf2abc7109014 # v1
+    secrets: inherit
