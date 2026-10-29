@@ -1,0 +1,11 @@
+# Copy is authored as markdown and parsed by the copy pipeline; keep it byte-for-byte.
+content/
+# Vendored design system.
+design-system/
+*.md
+pnpm-lock.yaml
+public/
+.next/
+.docs/
+.craft/
+approvals/
