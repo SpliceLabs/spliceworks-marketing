@@ -57,6 +57,10 @@ describe("shareable inputs", () => {
     expect(parseCostOfDelayInputs("")).toEqual(COST_OF_DELAY_DEFAULTS);
   });
 
+  it("snaps fractional shared values to the calculator's steps", () => {
+    expect(parseCostOfDelayInputs("o=1.5&v=501&l=2.5")).toEqual({ opportunities: 2, monthlyValue: 500, lagMonths: 3 });
+  });
+
   it("clamps shared values into range", () => {
     expect(parseCostOfDelayInputs("o=99&v=10&l=0")).toEqual({ opportunities: 10, monthlyValue: 500, lagMonths: 1 });
   });
