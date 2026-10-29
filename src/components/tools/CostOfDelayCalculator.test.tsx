@@ -35,4 +35,12 @@ describe("CostOfDelayCalculator", () => {
     expect(window.location.search).toBe("?o=3&v=10000&l=24");
     expect(screen.getByText("Over 24 months").nextElementSibling?.textContent).toBe("$720,000");
   });
+
+  it("applies a typed value when Enter is pressed", () => {
+    openAt("");
+    const exact = screen.getByRole("spinbutton", { name: "Monthly value of each, exact value" });
+    fireEvent.change(exact, { target: { value: "20000" } });
+    fireEvent.keyDown(exact, { key: "Enter" });
+    expect(monthlyCost()).toBe("$60,000");
+  });
 });
