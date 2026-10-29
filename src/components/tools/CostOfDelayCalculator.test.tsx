@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it } from "vitest";
 import { CostOfDelayCalculator } from "./CostOfDelayCalculator";
 
@@ -42,5 +43,11 @@ describe("CostOfDelayCalculator", () => {
     fireEvent.change(exact, { target: { value: "20000" } });
     fireEvent.keyDown(exact, { key: "Enter" });
     expect(monthlyCost()).toBe("$60,000");
+  });
+
+  it("renders the default worked result on the server, before any script runs", () => {
+    const html = renderToStaticMarkup(<CostOfDelayCalculator />);
+    expect(html).toContain("$30,000");
+    expect(html).toContain("A 6-month delay costs about $180,000");
   });
 });
