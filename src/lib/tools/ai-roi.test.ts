@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { aiRoi } from "./ai-roi";
+import { AI_ROI, aiRoi } from "./ai-roi";
 
 const doraDefaults = {
   team: 500,
@@ -29,5 +29,13 @@ describe("aiRoi", () => {
     const free = { ...doraDefaults, toolsPerPerson: 0, trainingPerPerson: 0, infrastructure: 0, dipPercent: 0 };
     expect(aiRoi(free).roi).toBeNull();
     expect(aiRoi({ ...doraDefaults, timeSaved: 0 }).paybackMonths).toBeNull();
+  });
+});
+
+describe("shareable ROI inputs", () => {
+  it("round-trip through a link, snapping time saved to half a percent", () => {
+    const shared = AI_ROI.serialize({ ...doraDefaults, timeSaved: 7.3 });
+    expect(shared).toBe("t=500&s=176000&p=7.5&a=330&r=9600&i=100000&d=15&m=3");
+    expect(AI_ROI.parse(shared)).toEqual({ ...doraDefaults, timeSaved: 7.5 });
   });
 });
