@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { cleanup, render, screen } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 import { CostOfDelayCalculator } from "./CostOfDelayCalculator";
 
@@ -17,5 +17,12 @@ describe("CostOfDelayCalculator", () => {
     openAt("?o=4&v=25000&l=9");
     expect(monthlyCost()).toBe("$100,000");
     expect(screen.getByText("Over 9 months").nextElementSibling?.textContent).toBe("$900,000");
+  });
+
+  it("updates the result and the page link as a slider moves", () => {
+    openAt("");
+    fireEvent.change(screen.getByRole("slider", { name: "AI opportunities" }), { target: { value: "5" } });
+    expect(monthlyCost()).toBe("$50,000");
+    expect(window.location.search).toBe("?o=5&v=10000&l=6");
   });
 });
