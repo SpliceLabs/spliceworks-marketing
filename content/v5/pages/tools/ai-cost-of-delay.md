@@ -22,7 +22,7 @@ Every month an AI opportunity isn't running, you give up its value. Add up what 
 - **Cumulative cost** = monthly cost of delay × months of delay
 - **Conservative case** = half the cumulative cost, because value usually ramps up rather than arriving on day one
 
-The calculator takes 1 to 10 opportunities, $500 to $500,000 a month each, and a delay of 1 to 24 months. It runs in your browser, and nothing you enter is sent to us.
+The calculator takes 1 to 10 opportunities, $500 to $500,000 a month each, and a delay of 1 to 24 months. The math runs in your browser. Your inputs are kept in the page link so you can share the result, which means anyone who opens that link, including the site's host, can see them.
 
 Updated 29 Oct 2026 · Splice Works
 

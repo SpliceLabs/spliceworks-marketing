@@ -134,7 +134,7 @@ export function CostOfDelayCalculator() {
           <Link href="/book" className="btn btn-primary">
             Test this number in a working session <span aria-hidden="true">→</span>
           </Link>
-          <p className={styles.note}>Estimate only, not financial advice. Runs in your browser; nothing is sent to us.</p>
+          <p className={styles.note}>Estimate only, not financial advice. Your inputs are kept in this page&rsquo;s link.</p>
         </div>
       </div>
     </div>

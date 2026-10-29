@@ -19,6 +19,14 @@ describe("costOfDelay", () => {
     );
   });
 
+  it("snaps inputs to the calculator's steps: whole opportunities and months, $500 increments", () => {
+    expect(costOfDelay({ opportunities: 2.5, monthlyValue: 12_345, lagMonths: 1.4 })).toEqual({
+      monthly: 37_500,
+      cumulative: 37_500,
+      conservative: 18_750,
+    });
+  });
+
   it("treats non-numbers as the defaults instead of returning NaN", () => {
     expect(costOfDelay({ opportunities: Number.NaN, monthlyValue: Infinity, lagMonths: 6 })).toEqual(
       costOfDelay({ ...COST_OF_DELAY_DEFAULTS, lagMonths: 6 }),

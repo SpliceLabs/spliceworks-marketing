@@ -6,7 +6,13 @@
 import { inlineText, type Block, type Inline } from "./markdown";
 import { PAGES, SITE_URL, getPage } from "./pages";
 import { getFaq } from "./faq";
-import { COST_OF_DELAY_DEFAULTS, COST_OF_DELAY_RANGES, costOfDelay } from "@/lib/tools/cost-of-delay";
+import {
+  CONSERVATIVE_SHARE,
+  COST_OF_DELAY_DEFAULTS,
+  COST_OF_DELAY_RANGES,
+  costOfDelay,
+  serializeCostOfDelayInputs,
+} from "@/lib/tools/cost-of-delay";
 
 const absUrl = (p: string) => `${SITE_URL}${p === "/" ? "" : p}`;
 
@@ -182,10 +188,11 @@ export function capabilities() {
 
 function costOfDelayTool() {
   const r = COST_OF_DELAY_RANGES;
+  const url = absUrl("/tools/ai-cost-of-delay");
   return {
     id: "ai-cost-of-delay",
     name: "AI cost of delay calculator",
-    url: absUrl("/tools/ai-cost-of-delay"),
+    url,
     description: getPage("/tools/ai-cost-of-delay").fm.description,
     inputs: [
       { id: "opportunities", label: "AI opportunities", unit: "count", ...r.opportunities },
@@ -195,9 +202,9 @@ function costOfDelayTool() {
     formula: [
       "monthly = opportunities * monthlyValue",
       "cumulative = monthly * lagMonths",
-      "conservative = 0.5 * cumulative",
+      `conservative = ${CONSERVATIVE_SHARE} * cumulative`,
     ].join("\n"),
     example: { inputs: COST_OF_DELAY_DEFAULTS, outputs: costOfDelay(COST_OF_DELAY_DEFAULTS) },
-    shareUrl: `${absUrl("/tools/ai-cost-of-delay")}?o=3&v=10000&l=6`,
+    shareUrl: `${url}?${serializeCostOfDelayInputs(COST_OF_DELAY_DEFAULTS)}`,
   };
 }
