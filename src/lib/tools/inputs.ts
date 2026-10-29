@@ -25,6 +25,8 @@ export type InputCodec<K extends string> = Spec<K> &
 const snap = (value: number, step: number) => Number((Math.round(value / step) * step).toFixed(6));
 
 export const inputCodec = <K extends string>(spec: Spec<K>): InputCodec<K> => {
+  // Object.keys and Object.fromEntries widen to string keys. The casts below are safe because
+  // defaults is a Record<K, number>, and every record is rebuilt from exactly these keys.
   const keys = Object.keys(spec.defaults) as K[];
   const clamp = (key: K, value: number) => {
     const { min, max, step } = spec.ranges[key];
