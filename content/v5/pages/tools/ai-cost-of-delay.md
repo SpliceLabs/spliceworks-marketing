@@ -7,9 +7,9 @@ job: "Put a dollar figure on waiting, then test it in a working session"
 decision: "Can we afford to wait on AI?"
 prompts: ["what does delaying AI adoption cost", "cost of delay AI calculator", "how to calculate the cost of not adopting AI", "should we wait for AI to mature before investing", "how to make the business case for AI to the board"]
 primary_cta: "Book a working session → /book"
-status: draft
+status: approved (founders, 2026-10-29)
 sources: ["Lead-magnet tools assessment 2026-10-29 (Tool B, Mode A)", "FAQ: The cost of waiting on AI"]
-open: ["New page: founders confirm the copy and the FAQ answers", "Named reviewer for the method (authority line)"]
+open: ["Named reviewer for the method (authority line)"]
 ---
 
 # What does waiting on AI cost you?

@@ -5,9 +5,9 @@ description: "Free calculators that put numbers on your AI decisions, with every
 reader: "A leader weighing an AI decision who wants numbers before a conversation"
 job: "Use a tool, see how it works, then book a working session"
 primary_cta: "Book a working session → /book"
-status: draft
+status: approved (founders, 2026-10-29)
 sources: ["Lead-magnet tools assessment 2026-10-29"]
-open: ["New page: founders confirm the copy", "Add the ROI calculator and readiness check as they ship"]
+open: ["Add the readiness check when it ships"]
 ---
 
 # Free tools for your AI decisions

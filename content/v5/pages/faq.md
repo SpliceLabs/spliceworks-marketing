@@ -7,7 +7,7 @@ job: Have each objection answered plainly, then book a working session
 primary_cta: Book a working session → /book
 status: provisional
 sources: [Objections and answers, Added objections, Core messages (The working session, capability not dependency, managed by default portable by design), Engagement model, The two offerings, Fractional leadership seats and advisory, Claims register]
-open: [Cost-of-delay answers are new: founders confirm, All answers need founder confirmation (#11), Data-handling line (#11), "What if it doesn't work?" (#20), "Do we have to keep paying you?" (#19), First workflow in production range (#5, #11), Session price and what if you don't go ahead (#3), "Why a fractional seat instead of a full-time hire?" answer (#22), "Does the fund or the company engage you?": who buys and portfolio terms]
+open: [All answers need founder confirmation (#11), Data-handling line (#11), "What if it doesn't work?" (#20), "Do we have to keep paying you?" (#19), First workflow in production range (#5, #11), Session price and what if you don't go ahead (#3), "Why a fractional seat instead of a full-time hire?" answer (#22), "Does the fund or the company engage you?": who buys and portfolio terms]
 ---
 
 # Questions, answered plainly
