@@ -1,6 +1,6 @@
 /**
  * AI ROI: first-year return on rolling AI out to a team. The cost and
- * capacity math follows DORA's open AI ROI calculator (dora.dev/ai/roi).
+ * capacity math follows DORA's open AI ROI calculator (dora.dev/ai/roi/calculator).
  * Pure functions, shared by the calculator, its server-rendered default
  * result and the shareable link.
  */
@@ -26,7 +26,7 @@ export type AiRoiResult = Readonly<{
   benefit: number;
   /** null when there is no investment to divide by. */
   roi: number | null;
-  /** null when the rollout returns no value. */
+  /** null when the rollout returns no value or costs nothing. */
   paybackMonths: number | null;
 }>;
 
@@ -77,7 +77,7 @@ export const aiRoi = (raw: AiRoiInputs): AiRoiResult => {
     value,
     benefit,
     roi: investment > 0 ? benefit / investment : null,
-    paybackMonths: value > 0 ? (investment / value) * 12 : null,
+    paybackMonths: value > 0 && investment > 0 ? (investment / value) * 12 : null,
   };
 };
 

@@ -29,6 +29,7 @@ describe("aiRoi", () => {
     const free = { ...doraDefaults, toolsPerPerson: 0, trainingPerPerson: 0, infrastructure: 0, dipPercent: 0 };
     expect(aiRoi(free).roi).toBeNull();
     expect(aiRoi({ ...doraDefaults, timeSaved: 0 }).paybackMonths).toBeNull();
+    expect(aiRoi(free).paybackMonths).toBeNull();
   });
 });
 
