@@ -6,6 +6,7 @@
 import { inlineText, type Block, type Inline } from "./markdown";
 import { PAGES, SITE_URL, getPage } from "./pages";
 import { getFaq } from "./faq";
+import { COST_OF_DELAY_DEFAULTS, COST_OF_DELAY_RANGES, costOfDelay } from "@/lib/tools/cost-of-delay";
 
 const absUrl = (p: string) => `${SITE_URL}${p === "/" ? "" : p}`;
 
@@ -27,6 +28,7 @@ const GROUPS: { title: string; paths: string[] }[] = [
     paths: ["/for", "/for/ceos-and-boards", "/for/technology-leaders", "/for/founders", "/for/accelerators", "/for/investors"],
   },
   { title: "Industries", paths: ["/industries", "/industries/manufacturing", "/industries/agencies"] },
+  { title: "Free tools", paths: ["/tools", "/tools/ai-cost-of-delay"] },
   { title: "Proof and reference", paths: ["/team", "/work", "/faq", "/station"] },
 ];
 
@@ -160,6 +162,7 @@ export function capabilities() {
     ),
     industries: ["/industries/manufacturing", "/industries/agencies"].map(pageRef),
     station: pageRef("/station"),
+    tools: [costOfDelayTool()],
     faq: {
       url: absUrl("/faq"),
       categories: categories.map((c) => ({
@@ -174,5 +177,27 @@ export function capabilities() {
       llmsFullTxt: absUrl("/llms-full.txt"),
       capabilities: absUrl("/capabilities.json"),
     },
+  };
+}
+
+function costOfDelayTool() {
+  const r = COST_OF_DELAY_RANGES;
+  return {
+    id: "ai-cost-of-delay",
+    name: "AI cost of delay calculator",
+    url: absUrl("/tools/ai-cost-of-delay"),
+    description: getPage("/tools/ai-cost-of-delay").fm.description,
+    inputs: [
+      { id: "opportunities", label: "AI opportunities", unit: "count", ...r.opportunities },
+      { id: "monthlyValue", label: "Monthly value of each opportunity", unit: "USD per month", ...r.monthlyValue },
+      { id: "lagMonths", label: "Months of delay", unit: "months", ...r.lagMonths },
+    ],
+    formula: [
+      "monthly = opportunities * monthlyValue",
+      "cumulative = monthly * lagMonths",
+      "conservative = 0.5 * cumulative",
+    ].join("\n"),
+    example: { inputs: COST_OF_DELAY_DEFAULTS, outputs: costOfDelay(COST_OF_DELAY_DEFAULTS) },
+    shareUrl: `${absUrl("/tools/ai-cost-of-delay")}?o=3&v=10000&l=6`,
   };
 }

@@ -22,6 +22,7 @@ export interface PageEntry {
 const SERVICES = { label: "Services", href: "/services" };
 const FOR = { label: "Who it's for", href: "/for" };
 const INDUSTRIES = { label: "Industries", href: "/industries" };
+const TOOLS = { label: "Free tools", href: "/tools" };
 
 /** Every page on the site, in sitemap order (03-sitemap/works-site-sitemap.md). */
 export const PAGES: PageEntry[] = [
@@ -45,6 +46,8 @@ export const PAGES: PageEntry[] = [
   { path: "/book", file: "book.md" },
   { path: "/faq", file: "faq.md" },
   { path: "/station", file: "station.md" },
+  { path: "/tools", file: "tools/index.md" },
+  { path: "/tools/ai-cost-of-delay", file: "tools/ai-cost-of-delay.md", group: TOOLS },
 ];
 
 const COPY_DIR = path.join(process.cwd(), "content", "v5", "pages");

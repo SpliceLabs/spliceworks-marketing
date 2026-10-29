@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque, Space_Grotesk, Inter, Space_Mono } from "next/font/google";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { ModeProvider } from "@/providers/ModeProvider";
+import { JsonLd } from "@/components/JsonLd";
+import { CONTACT_EMAIL } from "@/lib/contact";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -68,6 +70,23 @@ export const metadata: Metadata = {
   },
 };
 
+// Who we are, for search and AI engines. "Splice Works" plus the parent group and
+// category keeps us distinct from other companies named Splice.
+const organization = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://spliceworks.ai/#organization",
+  name: "Splice Works",
+  url: "https://spliceworks.ai",
+  logo: "https://spliceworks.ai/logo/light/icon-512.png",
+  email: CONTACT_EMAIL,
+  description:
+    "Splice Works is a forward-deployed AI enablement team. It puts AI to work in existing companies and keeps a named person accountable at every gate.",
+  parentOrganization: { "@type": "Organization", name: "Splice Labs Group" },
+  founder: { "@type": "Person", name: "Tim Varner", jobTitle: "Founder" },
+  employee: [{ "@type": "Person", name: "Jake Krogman", jobTitle: "CTO and AI Systems Architect" }],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -100,6 +119,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <JsonLd data={organization} />
         <ThemeProvider>
           <ModeProvider>{children}</ModeProvider>
         </ThemeProvider>
