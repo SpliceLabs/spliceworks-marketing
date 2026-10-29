@@ -24,4 +24,10 @@ describe("aiRoi", () => {
       paybackMonths: (8_365_000 / 11_000_000) * 12,
     });
   });
+
+  it("reports no ROI or payback, rather than NaN or Infinity, when there's nothing to divide by", () => {
+    const free = { ...doraDefaults, toolsPerPerson: 0, trainingPerPerson: 0, infrastructure: 0, dipPercent: 0 };
+    expect(aiRoi(free).roi).toBeNull();
+    expect(aiRoi({ ...doraDefaults, timeSaved: 0 }).paybackMonths).toBeNull();
+  });
 });
