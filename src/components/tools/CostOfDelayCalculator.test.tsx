@@ -25,4 +25,14 @@ describe("CostOfDelayCalculator", () => {
     expect(monthlyCost()).toBe("$50,000");
     expect(window.location.search).toBe("?o=5&v=10000&l=6");
   });
+
+  it("applies a typed value only when the field loses focus, kept inside the range", () => {
+    openAt("");
+    const exact = screen.getByRole("spinbutton", { name: "Months until you start, exact value" });
+    fireEvent.change(exact, { target: { value: "99" } });
+    expect(window.location.search).toBe("");
+    fireEvent.blur(exact);
+    expect(window.location.search).toBe("?o=3&v=10000&l=24");
+    expect(screen.getByText("Over 24 months").nextElementSibling?.textContent).toBe("$720,000");
+  });
 });
