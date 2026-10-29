@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
 import { cleanup, render, screen } from "@testing-library/react";
+import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it } from "vitest";
 import { AiRoiCalculator } from "./AiRoiCalculator";
 
@@ -25,5 +26,11 @@ describe("AiRoiCalculator", () => {
     const live = container.querySelectorAll("[aria-live]");
     expect(live).toHaveLength(1);
     expect(live[0].textContent).toBe("$2,635,000");
+  });
+
+  it("renders the page's worked example on the server, before any script runs", () => {
+    const html = renderToStaticMarkup(<AiRoiCalculator />);
+    expect(html).toContain("$173,500");
+    expect(html).toContain("a 19% return, paid back in about 10 months");
   });
 });
