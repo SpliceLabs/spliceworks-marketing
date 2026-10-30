@@ -101,3 +101,9 @@
   color: var(--color-ink);
   font-variant-numeric: tabular-nums;
 }
+
+/* Headings take focus only so screen readers hear the next question or the result. */
+.text:focus,
+.stage:focus {
+  outline: none;
+}

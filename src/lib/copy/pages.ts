@@ -48,6 +48,7 @@ export const PAGES: PageEntry[] = [
   { path: "/tools", file: "tools/index.md" },
   { path: "/tools/ai-cost-of-delay", file: "tools/ai-cost-of-delay.md", group: TOOLS },
   { path: "/tools/ai-roi-calculator", file: "tools/ai-roi-calculator.md", group: TOOLS },
+  { path: "/tools/ai-check-up", file: "tools/ai-check-up.md", group: TOOLS },
 ];
 
 const COPY_DIR = path.join(process.cwd(), "content", "v5", "pages");
