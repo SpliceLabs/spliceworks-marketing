@@ -32,8 +32,10 @@ export type CheckUpResult = Readonly<{
 const AREAS: readonly Area[] = ["core", "customers", "backOffice", "management"];
 
 // The answers alone back up to rung 2; higher rungs need the foundations' average.
-const supportedRung = (average: number | null): number => {
+// Improving from results takes measuring them, so the top rung also needs measurement at 5.
+const supportedRung = (average: number | null, measurement: number | undefined): number => {
   if (average === null) return 2;
+  if (average >= 4.5 && measurement === 5) return 5;
   if (average >= 4) return 4;
   if (average >= 3.5) return 3;
   return 2;
@@ -45,6 +47,7 @@ const average = (scores: readonly number[]): number | null =>
 export const checkUp = (answers: CheckUpAnswers): CheckUpResult => {
   const supported = supportedRung(
     average(Object.values(answers.foundations).filter((s): s is number => s !== undefined)),
+    answers.foundations.measurement,
   );
   const areas = AREAS.map((area) => {
     const claimed = answers.areas[area];

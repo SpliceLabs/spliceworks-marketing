@@ -27,4 +27,11 @@ describe("checkUp", () => {
       { area: "management", claimed: 2, supported: 4, level: 2, gap: false },
     ]);
   });
+
+  it("backs the top rung only when the foundations average 4.5 and results are measured", () => {
+    const measured = answers({ foundations: { ...foundationsAt(4.5), measurement: 5 } });
+    const unmeasured = answers({ foundations: { ...foundationsAt(5), measurement: 4 } });
+    expect(checkUp(measured).areas[0]).toMatchObject({ claimed: 5, supported: 5, level: 5, gap: false });
+    expect(checkUp(unmeasured).areas[0]).toMatchObject({ claimed: 5, supported: 4, level: 4, gap: true });
+  });
 });
