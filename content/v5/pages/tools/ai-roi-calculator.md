@@ -20,25 +20,28 @@ Rolling AI out costs money before it saves any: tools, training, and a dip in ou
 
 - **Investment** = (AI tools + training per person) × people + infrastructure + the productivity dip
 - **Productivity dip** = people × cost per person × dip % × (months it lasts ÷ 12)
-- **Capacity freed** = people × cost per person × share of time saved
+- **Capacity freed** = people × cost per person × share of time saved, counted only for the months after the dip
 - **Net benefit** = capacity freed − investment
-- **ROI** = net benefit ÷ investment, and **payback** = investment ÷ capacity freed, in months
+- **ROI** = net benefit ÷ investment, and **payback** = the dip's months + investment ÷ monthly capacity freed
+- **Year two** = a full year of capacity freed − AI tools − infrastructure, with no training and no dip
+- **Break-even** = the share of time AI must save for year one to come out even
 
-The method and the starting values follow [DORA's AI ROI calculator](https://dora.dev/ai/roi/calculator/), which publishes its formulas in the open. We start from a team of 50 rather than DORA's 500. Two small differences: time saved can't go below zero, and where there's nothing to divide by we show n/a rather than a number. The math runs in your browser. Your inputs are kept in the page link so you can share the result, which means anyone who opens that link, including the site's host, can see them.
+The costs and the starting values follow [DORA's AI ROI calculator](https://dora.dev/ai/roi/calculator/), which publishes its formulas in the open. We start from a team of 50 rather than DORA's 500. The biggest difference: DORA counts a full year of time saved on top of the dip, while we count time saved only once the dip is over, because a team can't be slower and faster in the same months. That makes year one lower and payback later than DORA's, so we add year two to show where the return comes from. Two smaller differences: time saved can't go below zero, and where there's nothing to divide by we show n/a rather than a number. The math runs in your browser. Your inputs are kept in the page link so you can share the result, which means anyone who opens that link, including the site's host, can see them.
 
 Updated 29 Oct 2026 · Splice Works
 
 ## A worked example
 
-A 50-person team costs $176,000 a person, fully loaded. AI tools run $330 a person a year, training $9,600 a person, and infrastructure $100,000. Output dips 15% for 3 months. Year one costs $926,500. Saving 12.5% of each person's time frees $1,100,000 of capacity: a net $173,500, a 19% return, paid back in about 10 months.
+A 50-person team costs $176,000 a person, fully loaded. AI tools run $330 a person a year, training $9,600 a person, and infrastructure $100,000. Output dips 15% for 3 months. Year one costs $926,500. Saving 12.5% of each person's time frees $825,000 of capacity in the nine months after the dip, so year one comes out $101,500 behind. Payback comes in about 13 months, and year two nets about $983,500, because the training and the dip don't repeat. Year one would break even at about 14% time saved.
 
 ## What the number leaves out
 
-It's an estimate, not financial advice. It counts freed capacity only. It doesn't include:
+It's an estimate, not financial advice. It counts freed capacity only, and it holds every rate flat into year two. It doesn't include:
 
 - revenue from shipping more, sooner
 - fewer outages and faster recovery
-- value that compounds after year one
+- the cost of managing the change, governing AI use and reviewing more code
+- tool prices or time saved that change after year one
 
 DORA's full calculator models the first two. Capacity is also only worth money if you put it to work, so decide where the time goes. Then test the time-saved figure, the one that moves the answer most, on one of your real workflows.
 
@@ -62,7 +65,7 @@ People need time to learn new tools and change how they work, so output dips fir
 
 ### How long does AI take to pay back?
 
-Divide the first-year cost by the yearly value of the time it frees, then multiply by 12 to get months. With our calculator's defaults, a 50-person team pays back in about 10 months. Your own numbers will move that a lot, which is why we test them on a real workflow.
+Divide the first-year cost by the monthly value of the time it frees, then add the months the dip lasts, since nothing is saved until it ends. With our calculator's defaults, a 50-person team pays back in about 13 months. Your own numbers will move that a lot, which is why we test them on a real workflow.
 
 More answers in the [FAQ](/faq).
 

@@ -15,19 +15,39 @@ const GROUPS: readonly (readonly [string, readonly Field[]])[] = [
   [
     "Your team",
     [
-      { key: "team", label: "People using AI", hint: "Everyone in scope for the rollout", format: String },
-      { key: "salary", label: "Cost per person", hint: "Fully loaded, per year", format: formatUsd },
-      { key: "timeSaved", label: "Time AI saves", hint: "Net share of each person's week", format: percent },
+      {
+        key: "team",
+        label: "People using AI",
+        hint: "Everyone in scope. Defaults fit a software team",
+        format: String,
+      },
+      {
+        key: "salary",
+        label: "Cost per person",
+        hint: "Fully loaded: pay plus tax, benefits and overhead, per year",
+        format: formatUsd,
+      },
+      {
+        key: "timeSaved",
+        label: "Time AI saves",
+        hint: "Net of reviewing AI output. DORA cites 40 to 150 minutes a day",
+        format: percent,
+      },
     ],
   ],
   [
     "What it costs",
     [
-      { key: "toolsPerPerson", label: "AI tools per person", hint: "Licences and usage, per year", format: formatUsd },
+      {
+        key: "toolsPerPerson",
+        label: "AI tools per person",
+        hint: "Seats plus usage-based fees, per year",
+        format: formatUsd,
+      },
       {
         key: "trainingPerPerson",
         label: "Training per person",
-        hint: "Including time spent learning",
+        hint: "Courses and coaching. Time spent learning is in the dip",
         format: formatUsd,
       },
       {
@@ -36,8 +56,18 @@ const GROUPS: readonly (readonly [string, readonly Field[]])[] = [
         hint: "Platform, data and security, per year",
         format: formatUsd,
       },
-      { key: "dipPercent", label: "Productivity dip", hint: "While people learn new ways of working", format: percent },
-      { key: "dipMonths", label: "Months the dip lasts", hint: "Before the gains show", format: (n) => `${n} mo` },
+      {
+        key: "dipPercent",
+        label: "Productivity dip",
+        hint: "Output lost while people learn new ways of working",
+        format: percent,
+      },
+      {
+        key: "dipMonths",
+        label: "Months the dip lasts",
+        hint: "No time counts as saved until it ends",
+        format: (n) => `${n} mo`,
+      },
     ],
   ],
 ];
