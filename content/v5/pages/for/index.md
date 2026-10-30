@@ -33,4 +33,4 @@ There are two steps: AI-absent to AI-enabled, then AI-enabled to AI-native. We t
 Start with a working session. It takes a day. We pick one of your workflows together and build a working version of it, then tell you where we'd go next.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.

@@ -33,4 +33,4 @@ Twelve questions on where your company is on the path from AI-absent to AI-nativ
 We'll check it against one of your real workflows in a single day.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.

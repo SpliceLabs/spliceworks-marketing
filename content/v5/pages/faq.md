@@ -26,7 +26,7 @@ A platform asks you to trust the machine. We start from your own experts and cit
 
 ### Why not a consultancy?
 
-A consultancy bills weeks of analysis and leaves you a deck. You get something usable in the first working session, and that session is credited in full against your engagement.
+A consultancy bills weeks of analysis and leaves you a deck. You get something usable in the first working session, and that session is credited in full if you go on to work with us.
 
 ### Are we too small for this?
 
@@ -44,7 +44,7 @@ A full-time AI executive is hard to find and slow to hire, and most companies do
 
 ### What is a working session?
 
-One focused day with us. We dig into how your work runs and pick one real workflow together. You leave with a working prototype of that workflow and a view of where you are on the path. For each part of the workflow you also get a build, buy or partner call and who is accountable for each decision, plus our advice on where to go next. If your team is new to AI, we start with the basics on your own work: prompting well, writing context in markdown and organising work in projects.
+One focused day with us. We dig into how your work runs and pick one real workflow together. You leave with a working prototype of that workflow and a view of where you are on the path. For each part of the workflow you also get a build, buy or partner call and who is accountable for each decision, plus our advice on where to go next. If your team is new to AI, we start with the basics on your own work: briefing AI well, writing down the context it needs and organising work so it builds up.
 
 ### How much of my team's time does it take?
 
@@ -52,7 +52,7 @@ One focused day. We'll tell you beforehand who should be in the room.
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
+Talk to us. We scope the work with you during the working session, which is credited in full if you go on to work with us.
 
 ### How fast will we see something?
 
@@ -172,4 +172,4 @@ The quickest way to answer the rest is one focused day on one of your real workf
 
 **Book a working session** → /book
 
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.

@@ -44,4 +44,4 @@ If your work depends on what a few people know, and a wrong answer is expensive,
 
 **Book a working session** → /book
 
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.

@@ -251,7 +251,7 @@ export function parseBlocks(body: string): Block[] {
     }
   }
 
-  // "Credited in full against your engagement." on its own line after a CTA
+  // "A paid day, credited in full if you go on to work with us." on its own line after a CTA
   // belongs to that CTA.
   const merged: Block[] = [];
   for (const b of blocks) {
@@ -261,7 +261,7 @@ export function parseBlocks(body: string): Block[] {
       prev.t === "cta" &&
       prev.sub.length === 0 &&
       b.t === "para" &&
-      b.raw.trim() === "Credited in full against your engagement."
+      b.raw.trim() === "A paid day, credited in full if you go on to work with us."
     ) {
       prev.sub = b.lines;
       prev.raw += "\n\n" + b.raw;

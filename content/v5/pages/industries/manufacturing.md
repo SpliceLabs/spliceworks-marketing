@@ -16,7 +16,7 @@ In a lot of manufacturers, the answers about the products live with one or two s
 
 **Book a working session** → /book
 
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.
 
 ## Your best product knowledge lives in one or two heads
 
@@ -84,7 +84,7 @@ Your data stays in the systems you already use. We work inside them, with only t
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
+Talk to us. We scope the work with you during the working session, which is credited in full if you go on to work with us.
 
 ## Start with what your experts know
 
@@ -92,4 +92,4 @@ Bring the questions that always end up on the same two desks, and we'll spend a 
 
 **Book a working session** → /book
 
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.

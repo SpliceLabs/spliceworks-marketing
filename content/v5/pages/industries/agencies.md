@@ -16,7 +16,7 @@ In an agency, the work that slows everything down is review. Every draft, creati
 
 **Book a working session** → /book
 
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.
 
 ## The work piles up at the same few desks
 
@@ -70,7 +70,7 @@ You get something usable from the first session. Once we've seen your workflow t
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
+Talk to us. We scope the work with you during the working session, which is credited in full if you go on to work with us.
 
 ## Give your senior people their week back
 
@@ -78,4 +78,4 @@ Start with the review queue that never empties. We'll use the working session to
 
 **Book a working session** → /book
 
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.

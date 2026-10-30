@@ -15,7 +15,7 @@ open: [Final list of what's included (#1 page copy "[TBD: final list]"), proof r
 This is step 2, from AI-enabled to AI-native. We rebuild your critical workflows so your company's brain drives the work. Agents become coworkers: they do much of the work and escalate to your people based on your policies, and there's an accountable person behind every decision that matters.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.
 
 ## You're here if most work still waits to be asked
 
@@ -80,11 +80,11 @@ Yes. No vendor lock-in: bring your own agents or use ours, and swap them wheneve
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
+Talk to us. We scope the work with you during the working session, which is credited in full if you go on to work with us.
 
 ## Pick the workflow that runs your business
 
 We spend one focused day confirming where you are and choosing a critical workflow with you. By the end there's a working prototype of it, run by agents, and a clear call on what to do next.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.

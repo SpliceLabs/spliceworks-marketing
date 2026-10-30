@@ -32,7 +32,7 @@ Becoming AI-native is the goal. We get you there in two steps, each ending in a 
 Both steps keep an accountable person behind every decision that matters, and both work inside the systems you already run.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.
 
 ## Need an AI executive first?
 
@@ -46,7 +46,7 @@ See [how it works](/how-it-works), or read [common questions](/faq).
 
 ## What it costs
 
-Talk to us. We scope it with you in the working session, which is credited in full against your engagement.
+Talk to us. We scope it with you in the working session, which is credited in full if you go on to work with us.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.

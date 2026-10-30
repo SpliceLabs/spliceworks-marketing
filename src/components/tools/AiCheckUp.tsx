@@ -18,7 +18,7 @@ const STAGE_NAMES: Readonly<Record<Stage, string>> = {
 
 const MEANINGS: Readonly<Record<Stage, string>> = {
   "ai-absent":
-    "You have AI tools, or a mandate to get them, but the work hasn't changed yet: no workflow is started and run by agents.",
+    "AI already does steps of the work in at least one area. What's missing is a workflow that agents start and run, with your people deciding at set points.",
   "ai-enabled":
     "At least one workflow is started and run by agents, with your people deciding at the points that matter. Next is making that how the company runs.",
   "ai-native": "Agents run the workflows that run your business, and your foundations back that up.",
@@ -41,13 +41,13 @@ const nextStep = (r: CheckUpResult): string => {
   if (r.stage === "ai-enabled")
     return "Bring the next workflow you want agents to run. In one focused day we'll build a working prototype of it.";
   if (r.closeToNext)
-    return "You're one workflow away from AI-enabled. In one focused day we'll pick it with you and build a working prototype.";
-  return "Start with the basics. In one focused day we'll get your people prompting well, writing the context AI needs in markdown, and organising their work in projects so it builds up over time.";
+    return "You're one workflow away from AI-enabled. In one focused day we'll choose it with you and build a working prototype.";
+  return "Start with the basics. In one focused day we'll get your people briefing AI well, writing down the context it needs, and organising their work so it builds up over time.";
 };
 
 const gapsLine = (gaps: number, areas: number): string => {
-  if (gaps === 0) return "Your answers and your foundations agree.";
-  return `${gaps} of your ${areas} areas ${gaps === 1 ? "claims" : "claim"} more than your foundations support.`;
+  if (gaps === 0) return "Your answers match what your foundations can support.";
+  return `In ${gaps} of your ${areas} areas, your answers are ahead of what your foundations can support, so we've counted the lower rung.`;
 };
 
 function Result({ result, onRestart }: Readonly<{ result: CheckUpResult; onRestart: () => void }>) {
@@ -69,7 +69,7 @@ function Result({ result, onRestart }: Readonly<{ result: CheckUpResult; onResta
         <Link href="/book" className="btn btn-primary">
           Book a working session <span aria-hidden="true">→</span>
         </Link>
-        <p className={calculator.note}>Credited in full against your engagement.</p>
+        <p className={calculator.note}>A paid day, credited in full if you go on to work with us.</p>
       </div>
       <button type="button" className="btn btn-quiet" onClick={onRestart}>
         Start over

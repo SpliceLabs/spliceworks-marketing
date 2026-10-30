@@ -15,7 +15,7 @@ open: ["#3 founder-sized entry path: session price, length, what you keep if you
 If you're the founder and the whole team, start with the workflow that eats most of your week. We build a working version of it around you and AI. When we're done, you can run it yourself, and you stay accountable for what it does.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.
 
 ## ChatGPT every day, and the leads still by hand
 
@@ -61,7 +61,7 @@ No. We work with solo founders as well as large teams.
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
+Talk to us. We scope the work with you during the working session, which is credited in full if you go on to work with us.
 
 More answers in the [FAQ](/faq).
 
@@ -70,4 +70,4 @@ More answers in the [FAQ](/faq).
 We confirm the session fee and terms with you before anything is booked.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.

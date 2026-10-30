@@ -69,4 +69,4 @@ More answers in the [FAQ](/faq).
 We'll test it on one of your real workflows and show you what it takes to stop paying it.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.

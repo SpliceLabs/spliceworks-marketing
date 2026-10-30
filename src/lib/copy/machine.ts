@@ -61,7 +61,7 @@ export function llmsTxt(): string {
     "",
     "Put AI to work. Keep people accountable.",
     "",
-    `The one next step everywhere: Book a working session (${absUrl("/book")}). Credited in full against your engagement.`,
+    `The one next step everywhere: Book a working session (${absUrl("/book")}). A paid day, credited in full if you go on to work with us.`,
     "",
   ];
   for (const g of GROUPS) {
@@ -159,7 +159,7 @@ export function capabilities() {
     primaryAction: {
       label: "Book a working session",
       url: absUrl("/book"),
-      note: "Credited in full against your engagement.",
+      note: "A paid day, credited in full if you go on to work with us.",
     },
     services: [
       { id: "ai-enabled", step: 1, ...steps[0], page: pageRef("/services/ai-enabled") },

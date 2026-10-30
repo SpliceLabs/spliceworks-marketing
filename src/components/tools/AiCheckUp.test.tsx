@@ -12,7 +12,7 @@ const answerWith = (pick: (q: Question) => string) =>
     fireEvent.click(screen.getByRole("button", { name: /next|see your result/i }));
   });
 
-const highest = (q: Question) => q.options[q.options.length - 1].label;
+const highest = (q: Question) => q.options.reduce((best, o) => (o.value > best.value ? o : best)).label;
 
 describe("AiCheckUp", () => {
   it("asks one question at a time, then places the company on the path and points to /book", () => {
@@ -23,7 +23,9 @@ describe("AiCheckUp", () => {
 
     expect(screen.getByRole("heading", { name: /AI-absent, close to AI-enabled/ })).toBeTruthy();
     expect(screen.getByText("3.0 out of 5")).toBeTruthy();
-    expect(screen.getByText(/your answers and your foundations agree/i)).toBeTruthy();
+    expect(screen.getByText(/AI already does steps of the work in at least one area/)).toBeTruthy();
+    expect(screen.getByText("Your answers match what your foundations can support.")).toBeTruthy();
+    expect(screen.getByText(/credited in full if you go on to work with us/i)).toBeTruthy();
     expect(screen.getByRole("link", { name: /book a working session/i }).getAttribute("href")).toBe("/book");
   });
 
@@ -44,9 +46,8 @@ describe("AiCheckUp", () => {
 
     expect(screen.getByRole("heading", { name: "AI-absent" })).toBeTruthy();
     expect(screen.getByText(/like a search engine/)).toBeTruthy();
-    const nextStep = screen.getByText(/prompt/i).textContent ?? "";
-    expect(nextStep).toMatch(/markdown/i);
-    expect(nextStep).toMatch(/projects/i);
-    expect(nextStep).not.toMatch(/workflow/i);
+    const nextStep = screen.getByText(/briefing AI well/).textContent ?? "";
+    expect(nextStep).toMatch(/context it needs/);
+    expect(nextStep).not.toMatch(/markdown|workflow/i);
   });
 });

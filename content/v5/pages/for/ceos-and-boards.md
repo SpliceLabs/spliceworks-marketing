@@ -15,7 +15,7 @@ open: ["H1 is the board-variant trigger, kept distinct from the home H1 (home te
 You set the direction. We find the workflow where your experts are the bottleneck and rebuild it in the tools your company already uses. Before it runs, we agree who is accountable for each decision.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.
 
 ## The directive went out, and the work didn't move
 
@@ -80,7 +80,7 @@ Your CTO or Chief AI Officer will have their own questions. [Send them here](/fo
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
+Talk to us. We scope the work with you during the working session, which is credited in full if you go on to work with us.
 
 ### How fast will we see something?
 
@@ -92,7 +92,7 @@ A person on your side. There's an accountable person behind every decision that 
 
 ### Why not a consultancy?
 
-A consultancy bills weeks of analysis and leaves you a deck. You get something usable in the first working session, and that session is credited in full against your engagement.
+A consultancy bills weeks of analysis and leaves you a deck. You get something usable in the first working session, and that session is credited in full if you go on to work with us.
 
 More answers in the [FAQ](/faq).
 
@@ -101,4 +101,4 @@ More answers in the [FAQ](/faq).
 Pick the one the board will ask about first. By the end of the day you'll know what to do next.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.

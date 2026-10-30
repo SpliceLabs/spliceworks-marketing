@@ -15,7 +15,7 @@ open: [Final list of what's included (#1 page copy "[TBD: final list]"), working
 This is step 1, from AI-absent to AI-enabled. We set up a governed AI workspace early and build your company's shared brain, starting with what your experts know. Along the way, your people start using agents in their real work. The step ends when your first critical workflow is started and run by agents. Step 1 proves the pattern on one workflow; step 2 makes it how your company runs.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.
 
 ## You're here if you've bought the licenses and nothing changed
 
@@ -80,7 +80,7 @@ You can, and we'll leave your team able to. We make the path shorter because we'
 
 ### Why not a consultancy?
 
-A consultancy bills weeks of analysis and leaves you a deck. You get something usable in the first working session, and that session is credited in full against your engagement.
+A consultancy bills weeks of analysis and leaves you a deck. You get something usable in the first working session, and that session is credited in full if you go on to work with us.
 
 ### How fast will we see something?
 
@@ -88,13 +88,13 @@ You get something usable from the first session. Once we've seen your workflow t
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
+Talk to us. We scope the work with you during the working session, which is credited in full if you go on to work with us.
 
 ## Pick your first workflow with us
 
 In one focused day we look at how your work runs and choose one real workflow together. You leave with a working prototype, your place on the path, and who is accountable for each decision.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.
 
 Already AI-enabled? See [AI-enabled → AI-native](/services/ai-native).
