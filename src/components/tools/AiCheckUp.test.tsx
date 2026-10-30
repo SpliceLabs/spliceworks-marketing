@@ -26,4 +26,15 @@ describe("AiCheckUp", () => {
     expect(screen.getByText(/your answers and your foundations agree/i)).toBeTruthy();
     expect(screen.getByRole("link", { name: /book a working session/i }).getAttribute("href")).toBe("/book");
   });
+
+  it("waits for an answer before moving on, and keeps it when you go back", () => {
+    render(<AiCheckUp />);
+    const next = () => screen.getByRole("button", { name: "Next" });
+    expect(next().hasAttribute("disabled")).toBe(true);
+    fireEvent.click(screen.getByLabelText("It helps people"));
+    fireEvent.click(next());
+    expect(screen.getByText(`Question 2 of ${CHECK_UP_QUESTIONS.length}`)).toBeTruthy();
+    fireEvent.click(screen.getByRole("button", { name: "Back" }));
+    expect((screen.getByLabelText("It helps people") as HTMLInputElement).checked).toBe(true);
+  });
 });
