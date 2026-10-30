@@ -37,6 +37,8 @@ The session takes one day, or the same eight working hours spread out if that su
 
 At a small company, that can be one person. The session is the same shape for a solo founder as for a large team: we pick one workflow of yours, for example inbound lead to booked meeting, and you leave with a working prototype and a map of what to automate next.
 
+If your team is new to AI, we start with the basics on your own work: prompting well, writing context in markdown and organising work in projects.
+
 ### Booking for a portfolio or a program?
 
 Choose that on the form and tell us a little about it. We'll show you what a session looks like for one of your companies.

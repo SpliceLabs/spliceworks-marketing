@@ -7,7 +7,7 @@ job: "Use a tool, see how it works, then book a working session"
 primary_cta: "Book a working session → /book"
 status: approved (founders, 2026-10-29)
 sources: ["Lead-magnet tools assessment 2026-10-29"]
-open: ["Add the readiness check when it ships"]
+open: []
 ---
 
 # Free tools for your AI decisions
@@ -23,6 +23,10 @@ What each month of waiting on AI costs, plus a line you can paste into your next
 ### AI ROI calculator
 
 Whether rolling AI out to your team pays for itself in year one: cost, capacity freed, ROI and payback. [Build your business case](/tools/ai-roi-calculator).
+
+### AI check-up
+
+Twelve questions on where your company is on the path from AI-absent to AI-native, and whether your foundations back it up. [Take the check-up](/tools/ai-check-up).
 
 ## Want the number tested on your own work?
 

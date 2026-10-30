@@ -24,7 +24,7 @@ export function ToolPage({ path, name, children }: Readonly<{ path: string; name
     <>
       <JsonLd data={app} />
       <CopyPage path={path}>
-        <section id="calculator" className={shared.section} aria-label="Calculator">
+        <section id="calculator" className={shared.section} aria-label={name}>
           <div className="container">{children}</div>
         </section>
       </CopyPage>

@@ -44,7 +44,7 @@ A full-time AI executive is hard to find and slow to hire, and most companies do
 
 ### What is a working session?
 
-One focused day with us. We dig into how your work runs and pick one real workflow together. You leave with a working prototype of that workflow and a view of where you are on the path. For each part of the workflow you also get a build, buy or partner call and who is accountable for each decision, plus our advice on where to go next.
+One focused day with us. We dig into how your work runs and pick one real workflow together. You leave with a working prototype of that workflow and a view of where you are on the path. For each part of the workflow you also get a build, buy or partner call and who is accountable for each decision, plus our advice on where to go next. If your team is new to AI, we start with the basics on your own work: prompting well, writing context in markdown and organising work in projects.
 
 ### How much of my team's time does it take?
 
@@ -147,6 +147,24 @@ Don't put everyone through it at once. Start with one workflow and the few peopl
 ### How long does AI take to pay back?
 
 Divide the first-year cost by the monthly value of the time it frees, then add the months the dip lasts, since nothing is saved until it ends. With our calculator's defaults, a 50-person team pays back in about 13 months. Your own numbers will move that a lot, which is why we test them on a real workflow.
+
+## Getting ready for AI
+
+### How do I know if my company is ready for AI?
+
+Look at whether the work has changed, not whether people have tools. Pick one recurring workflow and ask how far AI goes in it: does it help people, do steps, or start and run the workflow with people deciding at set points? Then check the foundations: an owner, AI that knows your business, a way to check its work, and a way to measure what changes. [Take the check-up](/tools/ai-check-up).
+
+### What's the difference between AI-enabled and AI-native?
+
+AI-enabled means at least one critical workflow is started and run by agents, with your people deciding at the points that matter. AI-native means that's how the company runs: agents run the workflows that run your business.
+
+### Why ask about foundations as well as AI use?
+
+Because a claim needs something to hold it up. If agents run a workflow but nobody owns AI and nothing is measured, the workflow is hard to trust and hard to improve. The check-up counts the rung your foundations support, not the one you claim.
+
+### What should we fix first?
+
+The foundation that holds you back most, which is rarely another tool. If nobody owns AI, start there. If AI's work isn't checked or measured, people won't trust it to run a workflow. Then pick one workflow and change how it runs.
 
 ## Still deciding?
 

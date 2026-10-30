@@ -18,6 +18,12 @@ describe("FAQ structured data", () => {
       "how-do-you-keep-the-productivity-dip-small",
       "how-long-does-ai-take-to-pay-back",
     ]);
+    expect(pageFaqIds("/tools/ai-check-up")).toEqual([
+      "how-do-i-know-if-my-company-is-ready-for-ai",
+      "whats-the-difference-between-ai-enabled-and-ai-native",
+      "why-ask-about-foundations-as-well-as-ai-use",
+      "what-should-we-fix-first",
+    ]);
     expect(pageFaqIds("/for/technology-leaders")).toHaveLength(4);
     expect(pageFaqIds("/station")).toEqual([]);
   });
