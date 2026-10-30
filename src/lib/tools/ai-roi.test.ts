@@ -23,11 +23,18 @@ describe("aiRoi", () => {
       roi: -115_000 / 8_365_000,
       paybackMonths: 3 + 8_365_000 / (11_000_000 / 12),
       yearTwoBenefit: 10_735_000,
+      breakEvenTimeSaved: (8_365_000 / 66_000_000) * 100,
     });
   });
 
   it("nets a full year of time saved in year two, less the tools and infrastructure that recur", () => {
     expect(aiRoi(doraDefaults).yearTwoBenefit).toBe(11_000_000 - (330 * 500 + 100_000));
+  });
+
+  it("finds the share of time AI must save for year one to break even", () => {
+    const { breakEvenTimeSaved } = aiRoi(doraDefaults);
+    expect(breakEvenTimeSaved).toBeCloseTo((8_365_000 / (500 * 176_000 * (9 / 12))) * 100, 9);
+    expect(aiRoi({ ...doraDefaults, dipMonths: 12 }).breakEvenTimeSaved).toBeNull();
   });
 
   it("reports no ROI or payback, rather than NaN or Infinity, when there's nothing to divide by", () => {

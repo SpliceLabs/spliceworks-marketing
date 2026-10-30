@@ -32,6 +32,8 @@ export type AiRoiResult = Readonly<{
   paybackMonths: number | null;
   /** A full year of time saved, less tools and infrastructure: no training, no dip. */
   yearTwoBenefit: number;
+  /** Time saved, in percent, at which year one breaks even. null when the dip fills the year. */
+  breakEvenTimeSaved: number | null;
 }>;
 
 export const AI_ROI = inputCodec({
@@ -73,7 +75,8 @@ export const aiRoi = (raw: AiRoiInputs): AiRoiResult => {
   const dipCost = i.team * i.salary * (i.dipPercent / 100) * (i.dipMonths / 12);
   const investment = hardCosts + dipCost;
   const valuePerMonth = (i.team * i.salary * (i.timeSaved / 100)) / 12;
-  const value = valuePerMonth * (12 - i.dipMonths);
+  const gainMonths = 12 - i.dipMonths;
+  const value = valuePerMonth * gainMonths;
   const benefit = value - investment;
   return {
     hardCosts,
@@ -84,6 +87,7 @@ export const aiRoi = (raw: AiRoiInputs): AiRoiResult => {
     roi: investment > 0 ? benefit / investment : null,
     paybackMonths: valuePerMonth > 0 && investment > 0 ? i.dipMonths + investment / valuePerMonth : null,
     yearTwoBenefit: valuePerMonth * 12 - (i.toolsPerPerson * i.team + i.infrastructure),
+    breakEvenTimeSaved: gainMonths > 0 ? (investment / (i.team * i.salary * (gainMonths / 12))) * 100 : null,
   };
 };
 
