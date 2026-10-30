@@ -35,7 +35,7 @@ Updated 30 Oct 2026 · Splice Works
 
 ## Where you can land
 
-- **AI-absent:** you have AI tools, or a mandate to get them, but no workflow is started and run by agents yet.
+- **AI-absent:** AI isn't part of how your people work yet, or at best it helps them with parts of it. If AI already does steps of the work in one area, you're close to AI-enabled.
 - **AI-enabled:** at least one workflow is started and run by agents, with your people deciding at the points that matter.
 - **AI-native:** agents run the workflows that run your business, your foundations back that up, and you score 4 out of 5 or more.
 
@@ -69,9 +69,9 @@ The foundation that holds you back most, which is rarely another tool. If nobody
 
 More answers in the [FAQ](/faq).
 
-## Find your first workflow
+## Start from where you are
 
-Bring your result to a working session. In one focused day we'll pick a workflow with you and build a working prototype of it.
+Bring your result to a working session. If your people are new to AI, we'll start with the basics: prompting well, writing context in markdown and organising work in projects. If you're ready for more, we'll pick a workflow and build a working prototype of it. Either way, it's one focused day on your real work.
 
 **Book a working session** → /book
 Credited in full against your engagement.
