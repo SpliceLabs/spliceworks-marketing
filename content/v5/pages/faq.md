@@ -140,6 +140,10 @@ It depends on the work, so measure one workflow before you commit. Our calculato
 
 People need time to learn new tools and change how they work, so output dips first. That dip is a real cost, and it belongs in the business case. Keep it short by starting with one workflow and the people who own it.
 
+### How do you keep the productivity dip small?
+
+Don't put everyone through it at once. Start with one workflow and the few people who own it, have it running within 30 days, and measure what it really saves. Then roll out to the next team, faster each time. The rest of the team gets its gains later, but you find out what AI saves before you commit the full budget.
+
 ### How long does AI take to pay back?
 
 Divide the first-year cost by the monthly value of the time it frees, then add the months the dip lasts, since nothing is saved until it ends. With our calculator's defaults, a 50-person team pays back in about 13 months. Your own numbers will move that a lot, which is why we test them on a real workflow.

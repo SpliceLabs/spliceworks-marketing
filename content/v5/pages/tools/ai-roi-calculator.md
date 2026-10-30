@@ -45,6 +45,19 @@ It's an estimate, not financial advice. It counts freed capacity only, and it ho
 
 DORA's full calculator models the first two. Capacity is also only worth money if you put it to work, so decide where the time goes. Then test the time-saved figure, the one that moves the answer most, on one of your real workflows.
 
+## How we keep the dip small
+
+The calculator puts your whole team through the dip at once, for three months. That's a big-bang rollout: everyone gets new tools on the same day and works out alone what to do with them. Most of the year-one loss comes from that. We don't roll AI out that way.
+
+- **Start in one place.** We pick one workflow and the few people who own it. Only they go through the dip. Everyone else keeps working as they do today.
+- **Have it running in 30 days.** The first workflow runs within 30 days, so the dip is short and the time saved starts early.
+- **Learn while it's cheap.** The first workflow is an experiment. We measure the time it really saves and fix what doesn't work while the stakes are small. Your measured number replaces the calculator's default.
+- **Then speed up.** Each next workflow lands faster, because the setup is in place and your people have seen one work. Confidence comes from a result, not a training course.
+
+There's a trade-off, and a CFO will spot it: starting small means the rest of the team gets its gains later. What you get in return is a dip that costs a fraction of the default, and a real time-saved number before you commit the full budget. The default case spends $926,500 before anyone knows whether 12.5% is true for your work. We'd rather you find out on one workflow first.
+
+We don't model this in the calculator. We'll publish the numbers once we can show them from client work. [How it works](/how-it-works)
+
 ## Questions about AI ROI
 
 ### How do you calculate the ROI of AI?
@@ -62,6 +75,10 @@ It depends on the work, so measure one workflow before you commit. Our calculato
 ### Why does AI make teams slower before they get faster?
 
 People need time to learn new tools and change how they work, so output dips first. That dip is a real cost, and it belongs in the business case. Keep it short by starting with one workflow and the people who own it.
+
+### How do you keep the productivity dip small?
+
+Don't put everyone through it at once. Start with one workflow and the few people who own it, have it running within 30 days, and measure what it really saves. Then roll out to the next team, faster each time. The rest of the team gets its gains later, but you find out what AI saves before you commit the full budget.
 
 ### How long does AI take to pay back?
 
