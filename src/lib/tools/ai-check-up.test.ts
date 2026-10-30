@@ -48,4 +48,22 @@ describe("checkUp", () => {
     });
     expect(checkUp(answers({ areas: allAt(5), foundations: top }))).toMatchObject({ score: 5, stage: "ai-native" });
   });
+
+  it("matches the page's worked example: two areas claim more than thin foundations support", () => {
+    const thin = {
+      adoption: 3,
+      ownership: 2,
+      context: 3,
+      access: 4,
+      checking: 3,
+      measurement: 1,
+      rules: 3,
+      workflowChange: 2,
+    };
+    const firm = { areas: { core: 3, customers: 3, backOffice: 2, management: 1 }, foundations: thin };
+    expect(checkUp(firm)).toMatchObject({ score: 1.85, stage: "ai-absent", closeToNext: false, gaps: 2 });
+    expect(checkUp(firm).score.toFixed(1)).toBe("1.9");
+    const stronger = { ...firm, foundations: { ...thin, ownership: 4, measurement: 3, rules: 5, workflowChange: 4 } };
+    expect(checkUp(stronger)).toMatchObject({ stage: "ai-absent", closeToNext: true, gaps: 0 });
+  });
 });
