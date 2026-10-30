@@ -62,7 +62,7 @@ describe("aiRoiLine", () => {
 
   it("says plainly when year one comes out behind", () => {
     expect(aiRoiLine(AI_ROI.defaults)).toBe(
-      "Rolling AI out to our 50-person team costs about $926,500 in year one and frees about $825,000 of capacity, so year one comes out about $101,500 behind. Payback comes in about 13 months.",
+      "Rolling AI out to our 50-person team costs about $926,500 in year one and frees about $825,000 of capacity, so year one comes out about $101,500 behind. Payback comes in about 13 months, and year two nets about $983,500.",
     );
   });
 });

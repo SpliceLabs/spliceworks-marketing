@@ -38,6 +38,8 @@ describe("AiRoiCalculator", () => {
   it("renders the page's worked example on the server, before any script runs", () => {
     const html = renderToStaticMarkup(<AiRoiCalculator />);
     expect(html).toContain("-$101,500");
-    expect(html).toContain("year one comes out about $101,500 behind. Payback comes in about 13 months.");
+    expect(html).toContain(
+      "year one comes out about $101,500 behind. Payback comes in about 13 months, and year two nets about $983,500.",
+    );
   });
 });
