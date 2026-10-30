@@ -12,7 +12,7 @@ const answerWith = (pick: (q: Question) => string) =>
     fireEvent.click(screen.getByRole("button", { name: /next|see your result/i }));
   });
 
-const highest = (q: Question) => q.options[q.options.length - 1].label;
+const highest = (q: Question) => q.options.reduce((best, o) => (o.value > best.value ? o : best)).label;
 
 describe("AiCheckUp", () => {
   it("asks one question at a time, then places the company on the path and points to /book", () => {
