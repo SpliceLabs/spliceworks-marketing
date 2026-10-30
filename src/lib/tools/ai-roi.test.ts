@@ -22,7 +22,12 @@ describe("aiRoi", () => {
       benefit: -115_000,
       roi: -115_000 / 8_365_000,
       paybackMonths: 3 + 8_365_000 / (11_000_000 / 12),
+      yearTwoBenefit: 10_735_000,
     });
+  });
+
+  it("nets a full year of time saved in year two, less the tools and infrastructure that recur", () => {
+    expect(aiRoi(doraDefaults).yearTwoBenefit).toBe(11_000_000 - (330 * 500 + 100_000));
   });
 
   it("reports no ROI or payback, rather than NaN or Infinity, when there's nothing to divide by", () => {

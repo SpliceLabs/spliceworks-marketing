@@ -30,6 +30,8 @@ export type AiRoiResult = Readonly<{
   roi: number | null;
   /** null when the rollout returns no value or costs nothing. */
   paybackMonths: number | null;
+  /** A full year of time saved, less tools and infrastructure: no training, no dip. */
+  yearTwoBenefit: number;
 }>;
 
 export const AI_ROI = inputCodec({
@@ -81,6 +83,7 @@ export const aiRoi = (raw: AiRoiInputs): AiRoiResult => {
     benefit,
     roi: investment > 0 ? benefit / investment : null,
     paybackMonths: valuePerMonth > 0 && investment > 0 ? i.dipMonths + investment / valuePerMonth : null,
+    yearTwoBenefit: valuePerMonth * 12 - (i.toolsPerPerson * i.team + i.infrastructure),
   };
 };
 
