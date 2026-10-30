@@ -1,6 +1,7 @@
 /**
- * AI ROI: first-year return on rolling AI out to a team. The cost and
- * capacity math follows DORA's open AI ROI calculator (dora.dev/ai/roi/calculator).
+ * AI ROI: first-year return on rolling AI out to a team. Costs follow DORA's
+ * open AI ROI calculator (dora.dev/ai/roi/calculator). Unlike DORA, time saved
+ * only counts once the productivity dip is over.
  * Pure functions, shared by the calculator, its server-rendered default
  * result and the shareable link.
  */
@@ -22,6 +23,7 @@ export type AiRoiResult = Readonly<{
   hardCosts: number;
   dipCost: number;
   investment: number;
+  /** Capacity freed in year one, after the dip. */
   value: number;
   benefit: number;
   /** null when there is no investment to divide by. */
@@ -68,7 +70,8 @@ export const aiRoi = (raw: AiRoiInputs): AiRoiResult => {
   const hardCosts = (i.toolsPerPerson + i.trainingPerPerson) * i.team + i.infrastructure;
   const dipCost = i.team * i.salary * (i.dipPercent / 100) * (i.dipMonths / 12);
   const investment = hardCosts + dipCost;
-  const value = i.team * i.salary * (i.timeSaved / 100);
+  const valuePerMonth = (i.team * i.salary * (i.timeSaved / 100)) / 12;
+  const value = valuePerMonth * (12 - i.dipMonths);
   const benefit = value - investment;
   return {
     hardCosts,
@@ -77,7 +80,7 @@ export const aiRoi = (raw: AiRoiInputs): AiRoiResult => {
     value,
     benefit,
     roi: investment > 0 ? benefit / investment : null,
-    paybackMonths: value > 0 && investment > 0 ? (investment / value) * 12 : null,
+    paybackMonths: valuePerMonth > 0 && investment > 0 ? i.dipMonths + investment / valuePerMonth : null,
   };
 };
 

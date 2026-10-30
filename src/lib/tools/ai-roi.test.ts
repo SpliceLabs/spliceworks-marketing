@@ -13,15 +13,15 @@ const doraDefaults = {
 };
 
 describe("aiRoi", () => {
-  it("matches DORA's cost and capacity math for its published defaults", () => {
+  it("costs the rollout as DORA does, but counts time saved only once the dip is over", () => {
     expect(aiRoi(doraDefaults)).toEqual({
       hardCosts: 5_065_000,
       dipCost: 3_300_000,
       investment: 8_365_000,
-      value: 11_000_000,
-      benefit: 2_635_000,
-      roi: 2_635_000 / 8_365_000,
-      paybackMonths: (8_365_000 / 11_000_000) * 12,
+      value: 8_250_000,
+      benefit: -115_000,
+      roi: -115_000 / 8_365_000,
+      paybackMonths: 3 + 8_365_000 / (11_000_000 / 12),
     });
   });
 
@@ -43,14 +43,14 @@ describe("shareable ROI inputs", () => {
 
 describe("aiRoiLine", () => {
   it("gives a line an executive can paste", () => {
-    expect(aiRoiLine(AI_ROI.defaults)).toBe(
-      "Rolling AI out to our 50-person team costs about $926,500 in year one and frees about $1,100,000 of capacity: a net $173,500, a 19% return, paid back in about 10 months.",
+    expect(aiRoiLine({ ...AI_ROI.defaults, timeSaved: 20 })).toBe(
+      "Rolling AI out to our 50-person team costs about $926,500 in year one and frees about $1,320,000 of capacity: a net $393,500, a 42% return, paid back in about 9 months.",
     );
   });
 
   it("says plainly when year one comes out behind", () => {
-    expect(aiRoiLine({ ...AI_ROI.defaults, timeSaved: 5 })).toBe(
-      "Rolling AI out to our 50-person team costs about $926,500 in year one and frees about $440,000 of capacity, so year one comes out about $486,500 behind. Payback comes in about 25 months.",
+    expect(aiRoiLine(AI_ROI.defaults)).toBe(
+      "Rolling AI out to our 50-person team costs about $926,500 in year one and frees about $825,000 of capacity, so year one comes out about $101,500 behind. Payback comes in about 13 months.",
     );
   });
 });
