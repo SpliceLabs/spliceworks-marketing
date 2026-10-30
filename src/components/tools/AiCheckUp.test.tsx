@@ -37,4 +37,16 @@ describe("AiCheckUp", () => {
     fireEvent.click(screen.getByRole("button", { name: "Back" }));
     expect((screen.getByLabelText("It helps people") as HTMLInputElement).checked).toBe(true);
   });
+
+  it("starts an AI-absent company on the basics, not on workflows", () => {
+    render(<AiCheckUp />);
+    answerWith((q) => q.options[0].label);
+
+    expect(screen.getByRole("heading", { name: "AI-absent" })).toBeTruthy();
+    expect(screen.getByText(/like a search engine/)).toBeTruthy();
+    const nextStep = screen.getByText(/prompt/i).textContent ?? "";
+    expect(nextStep).toMatch(/markdown/i);
+    expect(nextStep).toMatch(/projects/i);
+    expect(nextStep).not.toMatch(/workflow/i);
+  });
 });

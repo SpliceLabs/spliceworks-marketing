@@ -24,6 +24,17 @@ const MEANINGS: Readonly<Record<Stage, string>> = {
   "ai-native": "Agents run the workflows that run your business, and your foundations back that up.",
 };
 
+// Below "does steps", AI-absent means people barely use AI yet, so the advice starts with the basics.
+const EARLY_MEANINGS: Readonly<Record<number, string>> = {
+  1: "AI isn't part of how your people work yet. At most, some use a chat tool now and then, much like a search engine.",
+  2: "People use AI to help with parts of their work, but it doesn't do steps of the work yet.",
+};
+
+const bestLevel = (r: CheckUpResult) => Math.max(...r.areas.map((a) => a.level));
+
+const meaning = (r: CheckUpResult): string =>
+  r.stage === "ai-absent" && !r.closeToNext ? EARLY_MEANINGS[Math.min(bestLevel(r), 2)] : MEANINGS[r.stage];
+
 const nextStep = (r: CheckUpResult): string => {
   if (r.stage === "ai-native")
     return "Bring the workflow you most want to improve. In one focused day we'll test how far it can go.";
@@ -31,7 +42,7 @@ const nextStep = (r: CheckUpResult): string => {
     return "Bring the next workflow you want agents to run. In one focused day we'll build a working prototype of it.";
   if (r.closeToNext)
     return "You're one workflow away from AI-enabled. In one focused day we'll pick it with you and build a working prototype.";
-  return "Start with one workflow. In one focused day we'll pick it with you and build a working prototype.";
+  return "Start with the basics. In one focused day we'll get your people prompting well, writing the context AI needs in markdown, and organising their work in projects so it builds up over time.";
 };
 
 const gapsLine = (gaps: number, areas: number): string => {
@@ -51,7 +62,7 @@ function Result({ result, onRestart }: Readonly<{ result: CheckUpResult; onResta
         {result.closeToNext ? `${stage}, close to AI-enabled` : stage}
       </h3>
       <p className={styles.score}>{result.score.toFixed(1)} out of 5</p>
-      <p>{MEANINGS[result.stage]}</p>
+      <p>{meaning(result)}</p>
       <p>{gapsLine(result.gaps, result.areas.length)}</p>
       <div className={calculator.cta}>
         <p>{nextStep(result)}</p>
