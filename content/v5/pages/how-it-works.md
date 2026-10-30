@@ -19,7 +19,7 @@ Credited in full against your engagement.
 
 ## Start with a working session
 
-It's one focused day. We look at how your work runs, then pick one real workflow together. We tell you upfront who should be in the room.
+It's one focused day. We look at how your work runs, then pick one real workflow together. If your team is new to AI, we start with the basics on your own work: prompting well, writing context in markdown and organising work in projects. We tell you upfront who should be in the room.
 
 What you walk away with:
 

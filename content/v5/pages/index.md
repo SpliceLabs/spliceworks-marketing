@@ -34,7 +34,7 @@ Both steps build on your company's brain: the knowledge, policies and context yo
 
 | | AI-absent → AI-enabled | AI-enabled → AI-native |
 | --- | --- | --- |
-| Today | You've bought the tools; the work hasn't changed | Your people use AI every day, but it waits to be asked |
+| Today | You've bought the tools, maybe even daily users, but the work hasn't changed | Your first critical workflow runs on agents, but most work still waits to be asked |
 | What we build | Your company's brain, a governed workspace, and your first agent-run workflow | Agent-run workflows across the business, escalating to your people by your policies |
 | The milestone | One critical workflow runs this way | This is how your company operates |
 

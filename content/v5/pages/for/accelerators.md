@@ -37,7 +37,7 @@ Our own sales runs on agents. They research and qualify prospects, then our peop
 
 ### What is a working session?
 
-One focused day with us. We dig into how your work runs and pick one real workflow together. You leave with a working prototype of that workflow and a view of where you are on the path. For each part of the workflow you also get a build, buy or partner call and who is accountable for each decision, plus our advice on where to go next.
+One focused day with us. We dig into how your work runs and pick one real workflow together. You leave with a working prototype of that workflow and a view of where you are on the path. For each part of the workflow you also get a build, buy or partner call and who is accountable for each decision, plus our advice on where to go next. If your team is new to AI, we start with the basics on your own work: prompting well, writing context in markdown and organising work in projects.
 
 ### What does it cost?
 

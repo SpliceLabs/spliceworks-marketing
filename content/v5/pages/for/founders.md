@@ -31,7 +31,7 @@ It's the same working session larger companies start with, sized to you:
 - A map of what to hand to agents next, in what order, and where you stay in the loop.
 - **Where you are on the path**, and what the next step takes.
 
-Most founders start at [AI-absent → AI-enabled](/services/ai-enabled). If you already run on AI every day, start at [AI-enabled → AI-native](/services/ai-native).
+Most founders start at [AI-absent → AI-enabled](/services/ai-enabled). If your first critical workflow already runs on agents, start at [AI-enabled → AI-native](/services/ai-native).
 
 ## One day, then you decide
 

@@ -35,7 +35,7 @@ Updated 30 Oct 2026 · Splice Works
 
 ## Where you can land
 
-- **AI-absent:** AI isn't part of how your people work yet, or at best it helps them with parts of it. If AI already does steps of the work in one area, you're close to AI-enabled.
+- **AI-absent:** you may have AI tools, and people may use them every day, but the work runs the way it always has. If AI already does steps of the work in one area, you're close to AI-enabled.
 - **AI-enabled:** at least one workflow is started and run by agents, with your people deciding at the points that matter.
 - **AI-native:** agents run the workflows that run your business, your foundations back that up, and you score 4 out of 5 or more.
 
