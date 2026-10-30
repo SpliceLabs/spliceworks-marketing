@@ -142,7 +142,7 @@ People need time to learn new tools and change how they work, so output dips fir
 
 ### How do you keep the productivity dip small?
 
-Don't put everyone through it at once. Start with one workflow and the few people who own it, have it running within 30 days, and measure what it really saves. Then roll out to the next team, faster each time. The rest of the team gets its gains later, but you find out what AI saves before you commit the full budget.
+Don't put everyone through it at once. Start with one workflow and the few people who own it, build a working prototype of it in one focused day, and measure what it really saves. Then roll out to the next team, faster each time. The rest of the team gets its gains later, but you find out what AI saves before you commit the full budget.
 
 ### How long does AI take to pay back?
 

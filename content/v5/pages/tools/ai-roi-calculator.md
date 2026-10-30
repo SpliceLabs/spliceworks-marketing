@@ -50,7 +50,7 @@ DORA's full calculator models the first two. Capacity is also only worth money i
 The calculator puts your whole team through the dip at once, for three months. That's a big-bang rollout: everyone gets new tools on the same day and works out alone what to do with them. Most of the year-one loss comes from that. We don't roll AI out that way.
 
 - **Start in one place.** We pick one workflow and the few people who own it. Only they go through the dip. Everyone else keeps working as they do today.
-- **Have it running in 30 days.** The first workflow runs within 30 days, so the dip is short and the time saved starts early.
+- **See it working on day one.** In one focused day we build a working prototype of that workflow with you, so the learning starts right away and the dip stays short.
 - **Learn while it's cheap.** The first workflow is an experiment. We measure the time it really saves and fix what doesn't work while the stakes are small. Your measured number replaces the calculator's default.
 - **Then speed up.** Each next workflow lands faster, because the setup is in place and your people have seen one work. Confidence comes from a result, not a training course.
 
@@ -78,7 +78,7 @@ People need time to learn new tools and change how they work, so output dips fir
 
 ### How do you keep the productivity dip small?
 
-Don't put everyone through it at once. Start with one workflow and the few people who own it, have it running within 30 days, and measure what it really saves. Then roll out to the next team, faster each time. The rest of the team gets its gains later, but you find out what AI saves before you commit the full budget.
+Don't put everyone through it at once. Start with one workflow and the few people who own it, build a working prototype of it in one focused day, and measure what it really saves. Then roll out to the next team, faster each time. The rest of the team gets its gains later, but you find out what AI saves before you commit the full budget.
 
 ### How long does AI take to pay back?
 
