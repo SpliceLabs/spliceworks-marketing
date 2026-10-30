@@ -34,4 +34,18 @@ describe("checkUp", () => {
     expect(checkUp(measured).areas[0]).toMatchObject({ claimed: 5, supported: 5, level: 5, gap: false });
     expect(checkUp(unmeasured).areas[0]).toMatchObject({ claimed: 5, supported: 4, level: 4, gap: true });
   });
+
+  it("weights the areas 45/25/15/15 into a score out of 5 and places the company on the path", () => {
+    const allAt = (rung: number) => ({ core: rung, customers: rung, backOffice: rung, management: rung });
+    const top = { ...foundationsAt(4.5), measurement: 5 };
+    expect(checkUp(answers())).toMatchObject({ score: 3.55, stage: "ai-enabled", closeToNext: false, gaps: 1 });
+    expect(checkUp(answers({ areas: allAt(3) }))).toMatchObject({ score: 3, stage: "ai-absent", closeToNext: true });
+    expect(checkUp(answers({ areas: allAt(1), foundations: foundationsAt(1) }))).toMatchObject({
+      score: 1,
+      stage: "ai-absent",
+      closeToNext: false,
+      gaps: 0,
+    });
+    expect(checkUp(answers({ areas: allAt(5), foundations: top }))).toMatchObject({ score: 5, stage: "ai-native" });
+  });
 });
