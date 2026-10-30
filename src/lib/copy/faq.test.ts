@@ -15,6 +15,7 @@ describe("FAQ structured data", () => {
       "is-time-saved-by-ai-real-money",
       "how-much-time-does-ai-really-save",
       "why-does-ai-make-teams-slower-before-they-get-faster",
+      "how-do-you-keep-the-productivity-dip-small",
       "how-long-does-ai-take-to-pay-back",
     ]);
     expect(pageFaqIds("/for/technology-leaders")).toHaveLength(4);

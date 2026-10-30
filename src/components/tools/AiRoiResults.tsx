@@ -3,10 +3,16 @@ import { formatMonths, formatPercent, formatUsd } from "@/lib/tools/format";
 import { ShareActions } from "./ShareActions";
 import styles from "./Calculator.module.css";
 
+const breakEven = (timeSaved: number | null) =>
+  timeSaved === null
+    ? "The dip lasts the whole year, so year one can't break even."
+    : `Year one breaks even if AI saves about ${formatPercent(timeSaved / 100)} of each person's time.`;
+
 /** Net benefit up front, then the parts it's built from. */
 export function AiRoiResults({ inputs }: Readonly<{ inputs: AiRoiInputs }>) {
   const r = aiRoi(inputs);
   const figures: readonly (readonly [string, string])[] = [
+    ["Year-two net benefit", formatUsd(r.yearTwoBenefit)],
     ["First-year investment", formatUsd(r.investment)],
     ["Capacity freed in year one", formatUsd(r.value)],
     ["Return on investment", r.roi === null ? "n/a" : formatPercent(r.roi)],
@@ -29,6 +35,10 @@ export function AiRoiResults({ inputs }: Readonly<{ inputs: AiRoiInputs }>) {
           </div>
         ))}
       </dl>
+      <p className={styles.note}>
+        {breakEven(r.breakEvenTimeSaved)} Freed time is capacity, not cash: it&rsquo;s worth this only if it goes to
+        work you&rsquo;d otherwise pay for.
+      </p>
       <ShareActions line={aiRoiLine(inputs)} cta="Get a validated business case" />
     </div>
   );

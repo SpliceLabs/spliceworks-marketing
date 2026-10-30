@@ -35,7 +35,7 @@ describe("machine-readable site", () => {
     ]);
     expect(tool?.formula).toContain("benefit = value - investment");
     expect(tool?.basedOn).toBe("https://dora.dev/ai/roi/calculator/");
-    expect(tool?.example.outputs).toMatchObject({ investment: 926_500, value: 1_100_000, benefit: 173_500 });
+    expect(tool?.example.outputs).toMatchObject({ investment: 926_500, value: 825_000, benefit: -101_500 });
     expect(tool?.shareUrl).toBe(
       "https://spliceworks.ai/tools/ai-roi-calculator?t=50&s=176000&p=12.5&a=330&r=9600&i=100000&d=15&m=3",
     );
