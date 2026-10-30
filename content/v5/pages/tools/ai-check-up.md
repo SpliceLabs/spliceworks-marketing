@@ -14,7 +14,7 @@ open: ["New page: founders confirm the copy and the FAQ answers", "Email a full 
 
 # How ready is your company for AI?
 
-Most companies have AI tools by now. Fewer have changed how the work gets done. Answer twelve questions, in about five minutes, to see where you are on the path from AI-absent to AI-native, and whether your foundations back that up.
+Most companies have AI tools by now. Fewer have changed how the work gets done. Answer twelve questions, in about five minutes, to see where you are on the path from AI-absent to AI-native, and whether your foundations back that up. No sign-up: your answers stay in your browser.
 
 ## How the check-up works
 
@@ -27,9 +27,9 @@ It asks how far AI goes in four areas of your company:
 
 Each area sits on one of five rungs: AI isn't part of the work, it helps people, it does steps, it runs the workflow, or it improves the workflow.
 
-Eight more questions check the foundations that hold a rung up: how many people use AI, who owns it, what it knows about your business, how it reaches your systems, how its work is checked, whether you measure what it changes, what rules cover it, and whether any workflow actually runs differently.
+Eight more questions check the foundations that hold a rung up: how many of your desk-based people use AI, who owns it, what it knows about your business, how it reaches your systems, how its work is checked, whether you measure what it changes, what rules cover it, and whether any workflow actually runs differently.
 
-A claim counts only as far as the foundations back it. Agents running a workflow counts if your foundations average 4 out of 5, and the top rung also needs you to measure results. Where an area claims more than that, we count the lower rung. The method is generalised from the agentic maturity model in our team assessment. The check-up runs in your browser and doesn't store or send your answers.
+We count a rung only as far as your foundations hold it up. "Does steps" needs your foundations to average 3.5 out of 5, "runs the workflow" needs 4, and "improves the workflow" needs 4.5 and real measurement. Where an area goes further than that, we count the rung your foundations support. It's a short form of the method we use when we assess a team. The check-up runs in your browser and doesn't store or send your answers.
 
 Updated 30 Oct 2026 · Splice Works
 
@@ -41,7 +41,7 @@ Updated 30 Oct 2026 · Splice Works
 
 ## A worked example
 
-A firm says AI does steps in its core work and in support, helps people in finance, and isn't part of management reporting. Its foundations average about 2.6: people use AI, but only informal champions own it and nothing is measured. Those foundations back AI helping people, not doing steps, so two areas claim more than they support. The result is AI-absent, 1.9 out of 5.
+A firm says AI does steps in its core work and in support, helps people in finance, and isn't part of management reporting. Its foundations average about 2.6: people use AI, but only informal champions own it and nothing is measured. Those foundations back AI helping people, not doing steps, so two areas go further than their foundations support. The result is AI-absent, 1.9 out of 5.
 
 Give AI a part-time owner, estimate what it changes, set rules and change one workflow, and the foundations average about 3.6. Both areas then count at "does steps", and the firm is close to AI-enabled.
 
@@ -71,7 +71,7 @@ More answers in the [FAQ](/faq).
 
 ## Start from where you are
 
-Bring your result to a working session. If your people are new to AI, we'll start with the basics: prompting well, writing context in markdown and organising work in projects. If you're ready for more, we'll pick a workflow and build a working prototype of it. Either way, it's one focused day on your real work.
+Bring your result to a working session. If your people are new to AI, we'll start with the basics: briefing AI well, writing down the context it needs and organising work so it builds up. If you're ready for more, we'll pick a workflow and build a working prototype of it. Either way, it's one focused day on your real work.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.

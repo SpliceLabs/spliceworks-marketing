@@ -50,7 +50,7 @@ Spend one focused day with us on a workflow that matters. You leave with:
 - What to do next, and where you are on the path
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.
 
 ## We change how the work runs, not who owns it
 

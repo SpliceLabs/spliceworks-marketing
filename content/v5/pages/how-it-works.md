@@ -15,11 +15,11 @@ open: ["#3 working session: price; what happens if the client doesn't go ahead; 
 Becoming AI-native is the goal. We get you there one step at a time, starting where you are today, and each step ends in a milestone you can see.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.
 
 ## Start with a working session
 
-It's one focused day. We look at how your work runs, then pick one real workflow together. If your team is new to AI, we start with the basics on your own work: prompting well, writing context in markdown and organising work in projects. We tell you upfront who should be in the room.
+It's one focused day. We look at how your work runs, then pick one real workflow together. If your team is new to AI, we start with the basics on your own work: briefing AI well, writing down the context it needs and organising work so it builds up. We tell you upfront who should be in the room.
 
 What you walk away with:
 
@@ -29,7 +29,7 @@ What you walk away with:
 - Who is accountable for each decision
 - Our advice on where to go next
 
-The session is credited in full against your engagement.
+The session is credited in full if you go on to work with us.
 
 ## Then two steps on one path
 
@@ -93,7 +93,7 @@ You get something usable from the first session. Once we've seen your workflow t
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
+Talk to us. We scope the work with you during the working session, which is credited in full if you go on to work with us.
 
 ## Start with one workflow
 
@@ -101,4 +101,4 @@ Pick the work that always waits on the same few people. We'll spend a day on it 
 
 **Book a working session** → /book
 
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.

@@ -15,7 +15,7 @@ open: ["#17 portfolio reporting / transformation progress view", "Portfolio term
 Every portfolio company has an AI mandate. One working session places each company on the path, and from there it moves at its own pace, with spend caps and an accountable person behind every decision that matters.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.
 
 ## What you're seeing across the portfolio
 
@@ -56,7 +56,7 @@ More in [our work](/work).
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
+Talk to us. We scope the work with you during the working session, which is credited in full if you go on to work with us.
 
 ### Who's accountable when the AI gets it wrong?
 
@@ -73,4 +73,4 @@ More answers in the [FAQ](/faq).
 On the form, choose "Companies in my portfolio". Start with one company, and see how the method carries across the rest.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.

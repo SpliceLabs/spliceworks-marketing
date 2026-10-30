@@ -15,7 +15,7 @@ open: ["#8 startup-sized proof and confirmed results", "Cohort terms, referral m
 Each company in your cohort gets a working session, and the ones that want more get a first workflow run by agents. It's one path for the whole cohort, with spend caps and a kill switch on every deployment, so founders can put AI to work and stay in control of it.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.
 
 ## Each founder is solving the same problem alone
 
@@ -37,11 +37,11 @@ Our own sales runs on agents. They research and qualify prospects, then our peop
 
 ### What is a working session?
 
-One focused day with us. We dig into how your work runs and pick one real workflow together. You leave with a working prototype of that workflow and a view of where you are on the path. For each part of the workflow you also get a build, buy or partner call and who is accountable for each decision, plus our advice on where to go next. If your team is new to AI, we start with the basics on your own work: prompting well, writing context in markdown and organising work in projects.
+One focused day with us. We dig into how your work runs and pick one real workflow together. You leave with a working prototype of that workflow and a view of where you are on the path. For each part of the workflow you also get a build, buy or partner call and who is accountable for each decision, plus our advice on where to go next. If your team is new to AI, we start with the basics on your own work: briefing AI well, writing down the context it needs and organising work so it builds up.
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
+Talk to us. We scope the work with you during the working session, which is credited in full if you go on to work with us.
 
 ### Who's accountable when the AI gets it wrong?
 
@@ -54,4 +54,4 @@ More answers in the [FAQ](/faq).
 On the form, choose "Founders in my accelerator or program" and tell us a bit about it. We'll show you what a session looks like for one of your companies, and talk through how it would work across the cohort. Each company's session is credited in full against its own engagement.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.

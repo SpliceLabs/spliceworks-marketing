@@ -46,4 +46,4 @@ Spend one focused day with us on one of your real workflows. You leave with a wo
 
 **Book a working session** → /book
 
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.

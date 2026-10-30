@@ -15,7 +15,7 @@ open: [Seat shape and outcome menu (#22), advisory tier and its response time (#
 Someone has to own the AI mandate: the plan, the spend, who is accountable for what, and the first results. If that seat is empty, we fill it with an AI executive who answers for outcomes you agree each quarter. It usually sits alongside an engagement, and sometimes comes before one.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.
 
 ## Two seats, and an advisory option
 
@@ -79,7 +79,7 @@ A full-time AI executive is hard to find and slow to hire, and most companies do
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
+Talk to us. We scope the work with you during the working session, which is credited in full if you go on to work with us.
 
 ### Are we too small for this?
 
@@ -92,4 +92,4 @@ In a working session we look at where you are on the path and talk through which
 When you book, choose "We need someone to own AI on our leadership team first", and we'll shape the session around the seat.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.

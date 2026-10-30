@@ -15,7 +15,7 @@ open: ["New page: needs a copy pass", "#3 working session terms", "#8 confirmed 
 The CEO announced it; you got the delivery. We're a forward-deployed team. We sit with your people and rebuild the workflow where their expertise is the bottleneck, then get it running in production in the systems you already run. The controls come with it, so you don't have to invent them first.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.
 
 ## The brief you were handed
 
@@ -97,4 +97,4 @@ More answers in the [FAQ](/faq).
 We usually respond within 24 hours.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.

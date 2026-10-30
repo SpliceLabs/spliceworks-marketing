@@ -1,7 +1,7 @@
 ---
 url: /book
 title: Book an AI Working Session | Splice Works
-description: One focused day on one of your real workflows. Leave with a working prototype and a decision, not a deck. Credited in full against your engagement.
+description: One focused day on one of your real workflows. Leave with a working prototype and a decision, not a deck. Paid, and credited in full if you go on to work with us.
 reader: Anyone ready to act on an AI mandate: a CEO, board member, founder, technology leader, accelerator program lead or investor
 job: Request a working session, saying who it's for, who asked for AI, who owns it and where they are today
 primary_cta: Book a working session → /book
@@ -14,7 +14,7 @@ open: [Session price (#3), What happens if you don't go ahead (#3), Founder-size
 
 We look at how your work runs, pick one real workflow with you and build a working version of it. Leave with a decision, not a deck.
 
-**The session has its own fee, agreed with you before you book. It's credited in full against your engagement if you go ahead.**
+**The session has its own fee, agreed with you before you book. It's credited in full if you go on to work with us.**
 
 ## What you walk away with
 
@@ -37,7 +37,7 @@ The session takes one day, or the same eight working hours spread out if that su
 
 At a small company, that can be one person. The session is the same shape for a solo founder as for a large team: we pick one workflow of yours, for example inbound lead to booked meeting, and you leave with a working prototype and a map of what to automate next.
 
-If your team is new to AI, we start with the basics on your own work: prompting well, writing context in markdown and organising work in projects.
+If your team is new to AI, we start with the basics on your own work: briefing AI well, writing down the context it needs and organising work so it builds up.
 
 ### Booking for a portfolio or a program?
 
@@ -54,7 +54,7 @@ There are two separate prices here, and they're settled at different times.
 
 ### What does it cost?
 
-Talk to us. We scope the work with you during the working session, which is credited in full against your engagement.
+Talk to us. We scope the work with you during the working session, which is credited in full if you go on to work with us.
 
 ### Is our data safe?
 
@@ -120,7 +120,7 @@ A few questions so we come prepared and bring the right people. Questions marked
 
 **Book a working session** (submits the form)
 
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.
 
 ## Rather write to us?
 

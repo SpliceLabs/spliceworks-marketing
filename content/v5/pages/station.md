@@ -42,4 +42,4 @@ Station runs Splice every day. [See how we run our own company](/work).
 
 **Book a working session** → /book
 
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.

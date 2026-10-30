@@ -12,7 +12,7 @@ const capabilities: Capability[] = [
     id: "working-session",
     name: "The working session",
     description: "We map where you stand today, find the real opportunities, and check if you're ready to act on them.",
-    outcome: "An opportunity and readiness map — credited in full against your engagement.",
+    outcome: "An opportunity and readiness map — credited in full if you go on to work with us.",
   },
   {
     id: "knowledge-expertise-system",

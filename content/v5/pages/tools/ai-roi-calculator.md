@@ -91,4 +91,4 @@ More answers in the [FAQ](/faq).
 We'll test your numbers on one of your real workflows and tell you what it would take to hit them.
 
 **Book a working session** → /book
-Credited in full against your engagement.
+A paid day, credited in full if you go on to work with us.
