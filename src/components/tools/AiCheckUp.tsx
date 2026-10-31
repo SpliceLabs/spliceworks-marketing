@@ -2,8 +2,14 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { checkUp, type CheckUpResult, type Stage } from "@/lib/tools/ai-check-up";
-import { CHECK_UP_QUESTIONS, questionsFor, toCheckUpAnswers, type Question } from "@/lib/tools/ai-check-up-questions";
+import { checkUp, contradictions, type Contradiction, type CheckUpResult, type Stage } from "@/lib/tools/ai-check-up";
+import {
+  AREA_NAMES,
+  CHECK_UP_QUESTIONS,
+  questionsFor,
+  toCheckUpAnswers,
+  type Question,
+} from "@/lib/tools/ai-check-up-questions";
 import calculator from "./Calculator.module.css";
 import styles from "./CheckUp.module.css";
 
@@ -102,9 +108,47 @@ function WordsWeUse() {
   );
 }
 
+const CONTRADICTIONS: Readonly<Record<Contradiction["kind"], (where: string) => string>> = {
+  noChangedWorkflow: (where) =>
+    `You said AI runs the workflow in ${where}, but also that no workflow runs differently yet.`,
+  notMeasured: (where) =>
+    `You said AI improves the workflow in ${where}, but you don't measure each workflow against how it ran before.`,
+};
+
+function Review({
+  found,
+  onChange,
+  onKeep,
+}: Readonly<{ found: readonly Contradiction[]; onChange: () => void; onKeep: () => void }>) {
+  const heading = useRef<HTMLHeadingElement>(null);
+  useEffect(() => heading.current?.focus(), []);
+  return (
+    <div className={styles.result}>
+      <h3 ref={heading} tabIndex={-1} className={styles.text}>
+        Some answers don&apos;t fit together
+      </h3>
+      <ul>
+        {found.map((c) => (
+          <li key={`${c.area}-${c.kind}`}>{CONTRADICTIONS[c.kind](AREA_NAMES[c.area])}</li>
+        ))}
+      </ul>
+      <p>Check them before we show your result. If you keep them, we&apos;ll place those areas lower.</p>
+      <div className={styles.nav}>
+        <button type="button" className="btn btn-primary" onClick={onChange}>
+          Change my answers
+        </button>
+        <button type="button" className="btn btn-quiet" onClick={onKeep}>
+          Keep my answers
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export function AiCheckUp() {
   const [picks, setPicks] = useState<Picks>({});
   const [index, setIndex] = useState(0);
+  const [kept, setKept] = useState(false);
   const heading = useRef<HTMLLegendElement>(null);
   const questions = questionsFrom(picks);
   const total = questions.length;
@@ -114,13 +158,24 @@ export function AiCheckUp() {
   }, [index, total]);
 
   if (index >= total) {
+    const answers = toCheckUpAnswers(valuesOf(picks, questions));
+    const found = contradictions(answers);
     const restart = () => {
       setPicks({});
+      setKept(false);
       setIndex(0);
     };
     return (
       <div className={styles.panel}>
-        <Result result={checkUp(toCheckUpAnswers(valuesOf(picks, questions)))} onRestart={restart} />
+        {found.length > 0 && !kept ? (
+          <Review
+            found={found}
+            onChange={() => setIndex(questions.findIndex((q) => q.id === found[0].area))}
+            onKeep={() => setKept(true)}
+          />
+        ) : (
+          <Result result={checkUp(answers)} onRestart={restart} />
+        )}
       </div>
     );
   }
