@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { checkUp, type CheckUpResult, type Stage } from "@/lib/tools/ai-check-up";
-import { CHECK_UP_QUESTIONS, toCheckUpAnswers } from "@/lib/tools/ai-check-up-questions";
+import { CHECK_UP_QUESTIONS, questionsFor, toCheckUpAnswers, type Question } from "@/lib/tools/ai-check-up-questions";
 import calculator from "./Calculator.module.css";
 import styles from "./CheckUp.module.css";
 
@@ -77,34 +77,58 @@ function Result({ result, onRestart }: Readonly<{ result: CheckUpResult; onResta
   );
 }
 
+const valuesOf = (picks: Picks, questions: readonly Question[]): Readonly<Record<string, number | null>> =>
+  Object.fromEntries(
+    questions.flatMap((q) => {
+      const pick = picks[q.id];
+      return pick === undefined ? [] : [[q.id, q.options[pick].value] as const];
+    }),
+  );
+
+// Follow-ups depend only on the area answers, which are always in the base list.
+const questionsFrom = (picks: Picks): readonly Question[] => questionsFor(valuesOf(picks, CHECK_UP_QUESTIONS));
+
+function WordsWeUse() {
+  return (
+    <div className={styles.words}>
+      <p className={styles.eyebrow}>Words we use</p>
+      <dl>
+        <dt>Workflow</dt>
+        <dd>A piece of work your company does again and again, like handling a new order or closing the month.</dd>
+        <dt>Foundations</dt>
+        <dd>The basics that let AI take on more: someone in charge, checks, rules and measurement.</dd>
+      </dl>
+    </div>
+  );
+}
+
 export function AiCheckUp() {
   const [picks, setPicks] = useState<Picks>({});
   const [index, setIndex] = useState(0);
   const heading = useRef<HTMLLegendElement>(null);
-  const total = CHECK_UP_QUESTIONS.length;
+  const questions = questionsFrom(picks);
+  const total = questions.length;
 
   useEffect(() => {
     if (index > 0 && index < total) heading.current?.focus();
   }, [index, total]);
 
   if (index >= total) {
-    const values = Object.fromEntries(
-      CHECK_UP_QUESTIONS.map((q) => [q.id, q.options[picks[q.id] ?? 0].value] as const),
-    );
     const restart = () => {
       setPicks({});
       setIndex(0);
     };
     return (
       <div className={styles.panel}>
-        <Result result={checkUp(toCheckUpAnswers(values))} onRestart={restart} />
+        <Result result={checkUp(toCheckUpAnswers(valuesOf(picks, questions)))} onRestart={restart} />
       </div>
     );
   }
 
-  const question = CHECK_UP_QUESTIONS[index];
+  const question = questions[index];
   const picked = picks[question.id];
   const last = index === total - 1;
+  const hintId = `${question.id}-hint`;
 
   return (
     <form
@@ -115,13 +139,20 @@ export function AiCheckUp() {
         if (picked !== undefined) setIndex(index + 1);
       }}
     >
+      {index === 0 && <WordsWeUse />}
+      {question.intro && <p className={styles.intro}>{question.intro}</p>}
       <p className={styles.progress}>
         Question {index + 1} of {total}
       </p>
-      <fieldset className={styles.question}>
+      <fieldset className={styles.question} aria-describedby={question.hint ? hintId : undefined}>
         <legend ref={heading} tabIndex={-1} className={styles.text}>
           {question.text}
         </legend>
+        {question.hint && (
+          <p id={hintId} className={styles.hint}>
+            {question.hint}
+          </p>
+        )}
         {question.options.map((option, i) => {
           const id = `${question.id}-${i}`;
           return (

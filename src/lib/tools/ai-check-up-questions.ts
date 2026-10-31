@@ -18,7 +18,11 @@ export type Question = Readonly<{
   intro?: string;
   options: readonly Option[];
 }> &
-  (Readonly<{ kind: "area"; key: Area }> | Readonly<{ kind: "foundation"; key: Foundation }>);
+  (
+    | Readonly<{ kind: "area"; key: Area }>
+    | Readonly<{ kind: "confirm"; key: Area }>
+    | Readonly<{ kind: "foundation"; key: Foundation }>
+  );
 
 const LEVELS: readonly Option[] = [
   {
@@ -45,6 +49,12 @@ const LEVELS: readonly Option[] = [
 ];
 
 const DONT_KNOW: Option = { label: "I don't know", value: null };
+
+const YES = 1;
+const RUNS_THE_WORKFLOW = 4;
+
+/** The id of the follow-up that checks a claim that AI runs an area's workflow. */
+export const confirmId = (key: Area): string => `${key}-confirm`;
 
 export const AREA_NAMES: Readonly<Record<Area, string>> = {
   core: "your core work, the things you make or deliver",
@@ -155,10 +165,24 @@ export const CHECK_UP_QUESTIONS: readonly Question[] = [
   ]),
 ];
 
-const YES = 1;
+const confirm = (key: Area): Question => ({
+  id: confirmId(key),
+  kind: "confirm",
+  key,
+  text: `You said AI runs the workflow in ${AREA_NAMES[key]}. Has it run that way in normal use in the last month?`,
+  options: [
+    { label: "Yes", value: YES },
+    { label: "No", value: 0 },
+    { label: "I'm not sure", value: null },
+  ],
+});
 
-/** The id of the follow-up that checks a claim that AI runs an area's workflow. */
-export const confirmId = (key: Area): string => `${key}-confirm`;
+/** The questions to ask, given the answers so far: each area claimed at "runs the workflow" or above gets a follow-up. */
+export const questionsFor = (byId: Readonly<Record<string, number | null>>): readonly Question[] =>
+  CHECK_UP_QUESTIONS.flatMap((q) => {
+    const value = byId[q.id];
+    return q.kind === "area" && typeof value === "number" && value >= RUNS_THE_WORKFLOW ? [q, confirm(q.key)] : [q];
+  });
 
 /** Turns answers keyed by question id into the scorer's input. A null or missing foundation is "I don't know". */
 export const toCheckUpAnswers = (byId: Readonly<Record<string, number | null>>): CheckUpAnswers => ({
