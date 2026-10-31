@@ -152,19 +152,19 @@ Divide the first-year cost by the monthly value of the time it frees, then add t
 
 ### How do I know if my company is ready for AI?
 
-Look at whether the work has changed, not whether people have tools. Pick one recurring workflow and ask how far AI goes in it: does it help people, do steps, or start and run the workflow with people deciding at set points? Then check the foundations: an owner, AI that knows your business, a way to check its work, and a way to measure what changes. [Take the check-up](/tools/ai-check-up).
+Look at whether the work has changed, not whether people have tools. Pick one regular workflow and ask how far AI goes in it: does it help people, do some steps by itself, or run the workflow with people making the key decisions? Then check the foundations: someone in charge, AI that knows your business, a way to check its work, and a way to measure the difference it makes. [Take the check-up](/tools/ai-check-up).
 
 ### What's the difference between AI-enabled and AI-native?
 
-AI-enabled means at least one critical workflow is started and run by agents, with your people deciding at the points that matter. AI-native means that's how the company runs: agents run the workflows that run your business.
+AI-enabled means at least one critical workflow is started and run by AI agents, with your people making the key decisions. AI-native means that's how the company runs: agents run the workflows that run your business.
 
 ### Why ask about foundations as well as AI use?
 
-Because a claim needs something to hold it up. If agents run a workflow but nobody owns AI and nothing is measured, the workflow is hard to trust and hard to improve. The check-up counts the rung your foundations support, not the one you claim.
+Because a claim needs something to hold it up. If AI runs a workflow but nobody is in charge of it and nothing is measured, the workflow is hard to trust and hard to improve. Each level needs its own basics in place, and the check-up places each area at the level its foundations support, not the one you claim.
 
 ### What should we fix first?
 
-The foundation that holds you back most, which is rarely another tool. If nobody owns AI, start there. If AI's work isn't checked or measured, people won't trust it to run a workflow. Then pick one workflow and change how it runs.
+The foundation that holds you back most, which is rarely another tool. If nobody is in charge of AI, start there. If AI's work isn't checked or measured, people won't trust it to run a workflow. Then pick one workflow and change how it runs.
 
 ## Still deciding?
 

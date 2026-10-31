@@ -26,7 +26,7 @@ Whether rolling AI out to your team pays for itself in year one: cost, capacity 
 
 ### AI check-up
 
-Twelve questions on where your company is on the path from AI-absent to AI-native, and whether your foundations back it up. [Take the check-up](/tools/ai-check-up).
+Sixteen questions on where your company is on the path from AI-absent to AI-native, and whether the basics are in place to support it. [Take the check-up](/tools/ai-check-up).
 
 ## Want the number tested on your own work?
 
