@@ -155,6 +155,11 @@ export const CHECK_UP_QUESTIONS: readonly Question[] = [
   ]),
 ];
 
+const YES = 1;
+
+/** The id of the follow-up that checks a claim that AI runs an area's workflow. */
+export const confirmId = (key: Area): string => `${key}-confirm`;
+
 /** Turns answers keyed by question id into the scorer's input. A null or missing foundation is "I don't know". */
 export const toCheckUpAnswers = (byId: Readonly<Record<string, number | null>>): CheckUpAnswers => ({
   areas: {
@@ -162,6 +167,12 @@ export const toCheckUpAnswers = (byId: Readonly<Record<string, number | null>>):
     customers: byId.customers ?? 1,
     backOffice: byId.backOffice ?? 1,
     management: byId.management ?? 1,
+  },
+  confirmed: {
+    core: byId[confirmId("core")] === YES,
+    customers: byId[confirmId("customers")] === YES,
+    backOffice: byId[confirmId("backOffice")] === YES,
+    management: byId[confirmId("management")] === YES,
   },
   foundations: Object.fromEntries(
     CHECK_UP_QUESTIONS.flatMap((q) => {

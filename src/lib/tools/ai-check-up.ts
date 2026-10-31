@@ -24,9 +24,13 @@ export const FOUNDATIONS = [
 
 export type Foundation = (typeof FOUNDATIONS)[number];
 
-/** Levels and foundation scores both run 1 to 5. A missing foundation was answered "I don't know". */
+/**
+ * Levels and foundation scores both run 1 to 5. A missing foundation was answered "I don't know".
+ * `confirmed` says whether a claim that AI runs an area's workflow held in normal use in the last month.
+ */
 export type CheckUpAnswers = Readonly<{
   areas: Readonly<Record<Area, number>>;
+  confirmed: Readonly<Partial<Record<Area, boolean>>>;
   foundations: Readonly<Partial<Record<Foundation, number>>>;
 }>;
 
@@ -37,7 +41,7 @@ export type AreaResult = Readonly<{
   supported: number;
   level: number;
   /** Why the area sits below its claim, if it does. */
-  heldBy: "foundations" | null;
+  heldBy: "foundations" | "unconfirmed" | null;
 }>;
 
 export type Stage = "ai-absent" | "ai-enabled" | "ai-native";
@@ -53,6 +57,8 @@ export type CheckUpResult = Readonly<{
   missingForNext: number;
   /** Areas held below their claim by the foundations. */
   foundationGaps: number;
+  /** Areas held to "does some steps" because a claim to run the workflow wasn't confirmed. */
+  unconfirmed: number;
   /** Foundation questions answered "I don't know". */
   unknowns: number;
 }>;
@@ -118,13 +124,9 @@ export const checkUp = (answers: CheckUpAnswers): CheckUpResult => {
   const supported = supportedLevel(answers.foundations);
   const areas = AREAS.map((area): AreaResult => {
     const claimed = answers.areas[area];
-    return {
-      area,
-      claimed,
-      supported,
-      level: Math.min(claimed, supported),
-      heldBy: claimed > supported ? "foundations" : null,
-    };
+    const counted = claimed >= RUNS_THE_WORKFLOW && answers.confirmed[area] !== true ? DOES_SOME_STEPS : claimed;
+    const heldBy = counted > supported ? "foundations" : counted < claimed ? "unconfirmed" : null;
+    return { area, claimed, supported, level: Math.min(counted, supported), heldBy };
   });
   const best = Math.max(...areas.map((a) => a.level));
   const stage: Stage = isNative(areas) ? "ai-native" : best >= RUNS_THE_WORKFLOW ? "ai-enabled" : "ai-absent";
@@ -135,6 +137,7 @@ export const checkUp = (answers: CheckUpAnswers): CheckUpResult => {
     supported,
     missingForNext: missingForNext(answers.foundations, supported),
     foundationGaps: areas.filter((a) => a.heldBy === "foundations").length,
+    unconfirmed: areas.filter((a) => a.heldBy === "unconfirmed").length,
     unknowns: FOUNDATIONS.filter((f) => answers.foundations[f] === undefined).length,
   };
 };

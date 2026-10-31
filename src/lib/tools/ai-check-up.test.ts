@@ -20,6 +20,7 @@ const allAt = (level: number) => ({ core: level, customers: level, backOffice: l
 
 const answers = (overrides: Partial<CheckUpAnswers> = {}): CheckUpAnswers => ({
   areas: { core: 4, customers: 3, backOffice: 2, management: 1 },
+  confirmed: { core: true, customers: true, backOffice: true, management: true },
   foundations: foundationsAt(5),
   ...overrides,
 });
@@ -64,8 +65,19 @@ describe("checkUp", () => {
   });
 
   it("counts 'I don't know' as not yet in place, and says how many answers were unknown", () => {
-    const { checking: _unknown, ...rest } = foundationsAt(5);
-    expect(checkUp(answers({ foundations: rest }))).toMatchObject({ supported: 2, unknowns: 1 });
+    const unknownChecking = { ...foundationsAt(5), checking: undefined };
+    expect(checkUp(answers({ foundations: unknownChecking }))).toMatchObject({ supported: 2, unknowns: 1 });
+  });
+
+  it("counts a claim that AI runs a workflow as 'does some steps' unless it ran in normal use in the last month", () => {
+    const unconfirmed = checkUp(answers({ areas: allAt(4), confirmed: { core: true, customers: false } }));
+    expect(unconfirmed.areas.map((a) => [a.area, a.level, a.heldBy])).toEqual([
+      ["core", 4, null],
+      ["customers", 3, "unconfirmed"],
+      ["backOffice", 3, "unconfirmed"],
+      ["management", 3, "unconfirmed"],
+    ]);
+    expect(unconfirmed).toMatchObject({ stage: "ai-enabled", unconfirmed: 3, foundationGaps: 0 });
   });
 
   it("matches the page's worked example", () => {
@@ -77,7 +89,7 @@ describe("checkUp", () => {
       policy: 3,
       workflowChange: 2,
     };
-    const firm = { areas: { core: 3, customers: 3, backOffice: 2, management: 1 }, foundations: thin };
+    const firm = { areas: { core: 3, customers: 3, backOffice: 2, management: 1 }, confirmed: {}, foundations: thin };
     expect(checkUp(firm)).toMatchObject({ supported: 2, stage: "ai-absent", closeToNext: false, foundationGaps: 2 });
     const stronger = { ...firm, foundations: { ...thin, knows: 3, checking: 3 } };
     expect(checkUp(stronger)).toMatchObject({ supported: 3, stage: "ai-absent", closeToNext: true, foundationGaps: 0 });
