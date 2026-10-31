@@ -12,17 +12,17 @@ const answerWith = (pick: (q: Question) => string) =>
     fireEvent.click(screen.getByRole("button", { name: /next|see your result/i }));
   });
 
-const highest = (q: Question) => q.options.reduce((best, o) => (o.value > best.value ? o : best)).label;
+const highest = (q: Question) => q.options.reduce((best, o) => ((o.value ?? 0) > (best.value ?? 0) ? o : best)).label;
 
 describe("AiCheckUp", () => {
   it("asks one question at a time, then places the company on the path and points to /book", () => {
     render(<AiCheckUp />);
     expect(screen.getByText(`Question 1 of ${CHECK_UP_QUESTIONS.length}`)).toBeTruthy();
 
-    answerWith((q) => (q.kind === "area" ? "It does steps" : highest(q)));
+    answerWith((q) => (q.kind === "area" ? "It does some steps" : highest(q)));
 
     expect(screen.getByRole("heading", { name: /AI-absent, close to AI-enabled/ })).toBeTruthy();
-    expect(screen.getByText("3.0 out of 5")).toBeTruthy();
+    expect(screen.queryByText(/out of 5/)).toBeNull();
     expect(screen.getByText(/AI already does steps of the work in at least one area/)).toBeTruthy();
     expect(screen.getByText("Your answers match what your foundations can support.")).toBeTruthy();
     expect(screen.getByText(/credited in full if you go on to work with us/i)).toBeTruthy();

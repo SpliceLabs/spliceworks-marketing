@@ -61,9 +61,8 @@ function Result({ result, onRestart }: Readonly<{ result: CheckUpResult; onResta
       <h3 ref={heading} tabIndex={-1} className={styles.stage}>
         {result.closeToNext ? `${stage}, close to AI-enabled` : stage}
       </h3>
-      <p className={styles.score}>{result.score.toFixed(1)} out of 5</p>
       <p>{meaning(result)}</p>
-      <p>{gapsLine(result.gaps, result.areas.length)}</p>
+      <p>{gapsLine(result.foundationGaps, result.areas.length)}</p>
       <div className={calculator.cta}>
         <p>{nextStep(result)}</p>
         <Link href="/book" className="btn btn-primary">
