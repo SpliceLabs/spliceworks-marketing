@@ -94,6 +94,32 @@
   color: var(--color-primary);
 }
 
+.areas {
+  display: grid;
+  gap: var(--space-3);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.areas li {
+  display: grid;
+  gap: var(--space-1);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.areaName {
+  font-size: var(--text-caption);
+  color: var(--color-muted);
+}
+
+.areaLevel {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
 .words {
   display: grid;
   gap: var(--space-2);

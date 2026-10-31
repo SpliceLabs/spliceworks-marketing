@@ -27,10 +27,10 @@ describe("AiCheckUp", () => {
 
     answerAll((_, q) => (q?.kind === "area" ? "It does some steps" : q ? highest(q) : "Yes"));
 
-    expect(screen.getByRole("heading", { name: /AI-absent, close to AI-enabled/ })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "AI-absent, but close to AI-enabled" })).toBeTruthy();
     expect(screen.queryByText(/out of 5/)).toBeNull();
-    expect(screen.getByText(/AI already does steps of the work in at least one area/)).toBeTruthy();
-    expect(screen.getByText("Your answers match what your foundations can support.")).toBeTruthy();
+    expect(screen.getByText(/In at least one area, AI already does some steps/)).toBeTruthy();
+    expect(screen.getByText("Your foundations support every level.")).toBeTruthy();
     expect(screen.getByText(/credited in full if you go on to work with us/i)).toBeTruthy();
     expect(screen.getByRole("link", { name: /book a working session/i }).getAttribute("href")).toBe("/book");
   });
@@ -52,8 +52,8 @@ describe("AiCheckUp", () => {
 
     expect(screen.getByRole("heading", { name: "AI-absent" })).toBeTruthy();
     expect(screen.getByText(/like a search engine/)).toBeTruthy();
-    const nextStep = screen.getByText(/briefing AI well/).textContent ?? "";
-    expect(nextStep).toMatch(/context it needs/);
+    const nextStep = screen.getByText(/clear instructions/).textContent ?? "";
+    expect(nextStep).toMatch(/what it needs to know about your business/);
     expect(nextStep).not.toMatch(/markdown|workflow/i);
   });
 
@@ -75,5 +75,28 @@ describe("AiCheckUp", () => {
     fireEvent.click(screen.getByRole("button", { name: "Change my answers" }));
     expect(screen.getByText(/^Question 1 of/)).toBeTruthy();
     expect((screen.getByLabelText("It runs and improves the workflow") as HTMLInputElement).checked).toBe(true);
+  });
+
+  it("shows each area's level and why it sits below the claim, and marks a result with unknowns provisional", () => {
+    render(<AiCheckUp />);
+    const picks: Readonly<Record<string, string>> = {
+      core: "It runs the workflow",
+      "core-confirm": "No",
+      upkeep: "I don't know",
+    };
+    answerAll((id, q) => picks[id] ?? (q?.kind === "area" ? lowest(q) : q ? highest(q) : "Yes"));
+
+    const core = screen.getByText("Core work").closest("li")?.textContent ?? "";
+    expect(core).toMatch(/Does some steps/);
+    expect(core).toMatch(/You said "runs the workflow", but not that it ran in normal use in the last month/);
+    expect(screen.getByText("Finance, people and admin").closest("li")?.textContent).toMatch(/Isn't part of the work/);
+    expect(
+      screen.getByText(
+        /Your foundations support up to "runs the workflow". 1 of the basics for the next level isn't in place yet./,
+      ),
+    ).toBeTruthy();
+    expect(
+      screen.getByText(/You answered "I don't know" to 1 question, so treat this result as provisional/),
+    ).toBeTruthy();
   });
 });

@@ -2,7 +2,15 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { checkUp, contradictions, type Contradiction, type CheckUpResult, type Stage } from "@/lib/tools/ai-check-up";
+import {
+  checkUp,
+  contradictions,
+  type Area,
+  type AreaResult,
+  type CheckUpResult,
+  type Contradiction,
+  type Stage,
+} from "@/lib/tools/ai-check-up";
 import {
   AREA_NAMES,
   CHECK_UP_QUESTIONS,
@@ -24,17 +32,32 @@ const STAGE_NAMES: Readonly<Record<Stage, string>> = {
 
 const MEANINGS: Readonly<Record<Stage, string>> = {
   "ai-absent":
-    "AI already does steps of the work in at least one area. What's missing is a workflow that agents start and run, with your people deciding at set points.",
+    "In at least one area, AI already does some steps. Next is one workflow that AI runs from start to finish, with your people making the key decisions.",
   "ai-enabled":
-    "At least one workflow is started and run by agents, with your people deciding at the points that matter. Next is making that how the company runs.",
-  "ai-native": "Agents run the workflows that run your business, and your foundations back that up.",
+    "In at least one area, AI runs a workflow, with your people making the key decisions. Next, make that the normal way your company works.",
+  "ai-native": "AI runs the main workflows in your business, and the basics are in place to support it.",
 };
 
-// Below "does steps", AI-absent means people barely use AI yet, so the advice starts with the basics.
+// Below "does some steps", AI-absent means people barely use AI yet, so the advice starts with the basics.
 const EARLY_MEANINGS: Readonly<Record<number, string>> = {
-  1: "AI isn't part of how your people work yet. At most, some use a chat tool now and then, much like a search engine.",
-  2: "People use AI to help with parts of their work, but it doesn't do steps of the work yet.",
+  1: "AI isn't part of how your people work yet. At most, some use ChatGPT or similar now and then, much like a search engine.",
+  2: "People use AI to help with their work, but it doesn't yet do any steps by itself.",
 };
+
+const AREA_LABELS: Readonly<Record<Area, string>> = {
+  core: "Core work",
+  customers: "Sales, marketing and support",
+  backOffice: "Finance, people and admin",
+  management: "Reporting, planning and decisions",
+};
+
+// "It does some steps" becomes "Does some steps"; the area questions share one ladder.
+const LEVEL_NAMES: readonly string[] = CHECK_UP_QUESTIONS[0].options.map((o) => {
+  const name = o.label.replace(/^It /, "");
+  return name.charAt(0).toUpperCase() + name.slice(1);
+});
+
+const levelName = (level: number): string => LEVEL_NAMES[level - 1];
 
 const bestLevel = (r: CheckUpResult) => Math.max(...r.areas.map((a) => a.level));
 
@@ -43,32 +66,62 @@ const meaning = (r: CheckUpResult): string =>
 
 const nextStep = (r: CheckUpResult): string => {
   if (r.stage === "ai-native")
-    return "Bring the workflow you most want to improve. In one focused day we'll test how far it can go.";
+    return "Bring the workflow you most want to improve. In one focused day we'll test how much further AI can take it.";
   if (r.stage === "ai-enabled")
-    return "Bring the next workflow you want agents to run. In one focused day we'll build a working prototype of it.";
+    return "Bring the next workflow you want AI to run. In one focused day we'll build a working prototype of it.";
   if (r.closeToNext)
     return "You're one workflow away from AI-enabled. In one focused day we'll choose it with you and build a working prototype.";
-  return "Start with the basics. In one focused day we'll get your people briefing AI well, writing down the context it needs, and organising their work so it builds up over time.";
+  return "Start with the basics. In one focused day, your people will learn to give AI clear instructions, write down what it needs to know about your business, and organise their work so AI's help builds up over time.";
 };
 
-const gapsLine = (gaps: number, areas: number): string => {
-  if (gaps === 0) return "Your answers match what your foundations can support.";
-  return `In ${gaps} of your ${areas} areas, your answers are ahead of what your foundations can support, so we've counted the lower rung.`;
+const areaNote = (a: AreaResult): string | null => {
+  const said = `You said "${levelName(a.claimed).toLowerCase()}"`;
+  if (a.heldBy === "unconfirmed") return `${said}, but not that it ran in normal use in the last month.`;
+  if (a.heldBy === "foundations") return `${said}, but your foundations don't support that yet.`;
+  return null;
 };
+
+const supportLine = (r: CheckUpResult): string => {
+  if (r.supported === 5) return "Your foundations support every level.";
+  const missing =
+    r.missingForNext === 1
+      ? "1 of the basics for the next level isn't"
+      : `${r.missingForNext} of the basics for the next level aren't`;
+  return `Your foundations support up to "${levelName(r.supported).toLowerCase()}". ${missing} in place yet.`;
+};
+
+const provisionalLine = (unknowns: number): string | null =>
+  unknowns === 0
+    ? null
+    : `You answered "I don't know" to ${unknowns} ${unknowns === 1 ? "question" : "questions"}, so treat this result as provisional. We count an unknown as not yet in place.`;
 
 function Result({ result, onRestart }: Readonly<{ result: CheckUpResult; onRestart: () => void }>) {
   const heading = useRef<HTMLHeadingElement>(null);
   useEffect(() => heading.current?.focus(), []);
   const stage = STAGE_NAMES[result.stage];
+  const provisional = provisionalLine(result.unknowns);
 
   return (
     <div className={styles.result}>
       <p className={styles.eyebrow}>Where you are</p>
       <h3 ref={heading} tabIndex={-1} className={styles.stage}>
-        {result.closeToNext ? `${stage}, close to AI-enabled` : stage}
+        {result.closeToNext ? `${stage}, but close to AI-enabled` : stage}
       </h3>
       <p>{meaning(result)}</p>
-      <p>{gapsLine(result.foundationGaps, result.areas.length)}</p>
+      <ul className={styles.areas}>
+        {result.areas.map((a) => {
+          const note = areaNote(a);
+          return (
+            <li key={a.area}>
+              <span className={styles.areaName}>{AREA_LABELS[a.area]}</span>
+              <span className={styles.areaLevel}>{levelName(a.level)}</span>
+              {note && <span className={styles.detail}>{note}</span>}
+            </li>
+          );
+        })}
+      </ul>
+      <p>{supportLine(result)}</p>
+      {provisional && <p>{provisional}</p>}
       <div className={calculator.cta}>
         <p>{nextStep(result)}</p>
         <Link href="/book" className="btn btn-primary">
