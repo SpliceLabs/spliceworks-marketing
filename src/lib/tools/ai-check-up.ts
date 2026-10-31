@@ -141,3 +141,29 @@ export const checkUp = (answers: CheckUpAnswers): CheckUpResult => {
     unknowns: FOUNDATIONS.filter((f) => answers.foundations[f] === undefined).length,
   };
 };
+
+export type Contradiction = Readonly<{
+  area: Area;
+  /** AI runs the workflow, but no workflow runs differently yet; or AI improves it, but nothing is measured. */
+  kind: "noChangedWorkflow" | "notMeasured";
+}>;
+
+const IMPROVES_THE_WORKFLOW = 5;
+const NO_WORKFLOW_IN_DAILY_USE = 2;
+const MEASURED_AGAINST_BEFORE = 5;
+
+/** Answers that don't fit together, to ask about before scoring. An unknown answer contradicts nothing. */
+export const contradictions = (answers: CheckUpAnswers): readonly Contradiction[] => {
+  const { workflowChange, measurement } = answers.foundations;
+  return AREAS.flatMap((area): Contradiction[] => {
+    const claimed = answers.areas[area];
+    const noChange =
+      claimed >= RUNS_THE_WORKFLOW && workflowChange !== undefined && workflowChange <= NO_WORKFLOW_IN_DAILY_USE;
+    const unmeasured =
+      claimed >= IMPROVES_THE_WORKFLOW && measurement !== undefined && measurement < MEASURED_AGAINST_BEFORE;
+    return [
+      ...(noChange ? [{ area, kind: "noChangedWorkflow" as const }] : []),
+      ...(unmeasured ? [{ area, kind: "notMeasured" as const }] : []),
+    ];
+  });
+};

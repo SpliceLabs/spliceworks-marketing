@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { checkUp, type CheckUpAnswers, type Foundation } from "./ai-check-up";
+import { checkUp, contradictions, type CheckUpAnswers, type Foundation } from "./ai-check-up";
 
 const foundationsAt = (score: number): Record<Foundation, number> => ({
   adoption: score,
@@ -93,5 +93,25 @@ describe("checkUp", () => {
     expect(checkUp(firm)).toMatchObject({ supported: 2, stage: "ai-absent", closeToNext: false, foundationGaps: 2 });
     const stronger = { ...firm, foundations: { ...thin, knows: 3, checking: 3 } };
     expect(checkUp(stronger)).toMatchObject({ supported: 3, stage: "ai-absent", closeToNext: true, foundationGaps: 0 });
+  });
+});
+
+describe("contradictions", () => {
+  it("flags a workflow AI runs with none changed, and one it improves without measuring, but not unknowns", () => {
+    const runsNothingChanged = answers({
+      areas: { core: 5, customers: 4, backOffice: 2, management: 1 },
+      foundations: { ...foundationsAt(5), workflowChange: 2, measurement: 3 },
+    });
+    expect(contradictions(runsNothingChanged)).toEqual([
+      { area: "core", kind: "noChangedWorkflow" },
+      { area: "core", kind: "notMeasured" },
+      { area: "customers", kind: "noChangedWorkflow" },
+    ]);
+    const unknowns = answers({
+      areas: allAt(5),
+      foundations: { ...foundationsAt(5), workflowChange: undefined, measurement: undefined },
+    });
+    expect(contradictions(unknowns)).toEqual([]);
+    expect(contradictions(answers())).toEqual([]);
   });
 });
