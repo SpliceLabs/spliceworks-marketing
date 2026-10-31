@@ -1,156 +1,207 @@
 /**
- * The AI check-up's questions. Each area question climbs the same five rungs;
+ * The AI check-up's questions. Each area question climbs the same five levels;
  * each foundation question scores 1 to 5. Options run lowest to highest, except that
- * a risky answer is listed last so it doesn't read as progress.
+ * a risky answer is listed after the ladder so it doesn't read as progress, and
+ * "I don't know" (no score) comes last.
  */
 import type { Area, CheckUpAnswers, Foundation } from "./ai-check-up";
 
-export type Option = Readonly<{ label: string; detail?: string; value: number }>;
+/** `value: null` is "I don't know". */
+export type Option = Readonly<{ label: string; detail?: string; value: number | null }>;
 
-export type Question = Readonly<{ id: string; text: string; options: readonly Option[] }> &
-  (Readonly<{ kind: "area"; key: Area }> | Readonly<{ kind: "foundation"; key: Foundation }>);
+export type Question = Readonly<{
+  id: string;
+  text: string;
+  /** A line under the question that says how to answer it. */
+  hint?: string;
+  /** A line shown above the question, to open a new section. */
+  intro?: string;
+  options: readonly Option[];
+}> &
+  (
+    | Readonly<{ kind: "area"; key: Area }>
+    | Readonly<{ kind: "confirm"; key: Area }>
+    | Readonly<{ kind: "foundation"; key: Foundation }>
+  );
 
-const RUNGS: readonly Option[] = [
-  { label: "It isn't part of the work", detail: "Not used, or a few people try a chat tool now and then", value: 1 },
-  { label: "It helps people", detail: "People routinely use AI to draft, summarise and research", value: 2 },
-  { label: "It does steps", detail: "AI does set steps of the work; people start and finish it", value: 3 },
+const LEVELS: readonly Option[] = [
+  {
+    label: "It isn't part of the work",
+    detail: "Not used, or a few people try ChatGPT or similar now and then",
+    value: 1,
+  },
+  { label: "It helps people", detail: "Most weeks, people use AI to draft, summarise or look things up", value: 2 },
+  {
+    label: "It does some steps",
+    detail: "AI does some steps by itself. People still start and finish the work.",
+    value: 3,
+  },
   {
     label: "It runs the workflow",
-    detail: "AI agents, software that acts on its own, start and run it; people decide at set points",
+    detail: "AI starts the work and sees it through. People make the key decisions.",
     value: 4,
   },
   {
-    label: "It improves the workflow",
-    detail: "Agents run it end to end and improve it from results; people set the goals",
+    label: "It runs and improves the workflow",
+    detail: "AI runs it from start to finish and improves it based on results. People set the goals.",
     value: 5,
   },
 ];
 
-const area = (key: Area, where: string): Question => ({
+const DONT_KNOW: Option = { label: "I don't know", value: null };
+
+const YES = 1;
+const RUNS_THE_WORKFLOW = 4;
+
+/** The id of the follow-up that checks a claim that AI runs an area's workflow. */
+export const confirmId = (key: Area): string => `${key}-confirm`;
+
+export const AREA_NAMES: Readonly<Record<Area, string>> = {
+  core: "your core work, the things you make or deliver",
+  customers: "sales, marketing and support",
+  backOffice: "finance, people and admin",
+  management: "reporting, planning and decisions",
+};
+
+const area = (key: Area): Question => ({
   id: key,
   kind: "area",
   key,
-  text: `How far does AI go in ${where} on a normal week?`,
-  options: RUNGS,
+  text: `Over the last month, how far did AI go in ${AREA_NAMES[key]}?`,
+  hint: "Think of regular work, not one-off trials. Pick the furthest it goes.",
+  options: LEVELS,
 });
 
+const foundation = (
+  key: Foundation,
+  text: string,
+  options: readonly Option[],
+  extra: Readonly<{ hint?: string; intro?: string }> = {},
+): Question => ({ id: key, kind: "foundation", key, text, ...extra, options: [...options, DONT_KNOW] });
+
 export const CHECK_UP_QUESTIONS: readonly Question[] = [
-  area("core", "your core work (what you make or deliver)"),
-  area("customers", "sales, marketing and support"),
-  area("backOffice", "finance, people and admin"),
-  area("management", "reporting, planning and decisions"),
-  {
-    id: "adoption",
-    kind: "foundation",
-    key: "adoption",
-    text: "Of the people whose work is mostly documents, email or a computer, how many use AI in that work every week, beyond the odd chat?",
-    options: [
+  area("core"),
+  area("customers"),
+  area("backOffice"),
+  area("management"),
+  foundation(
+    "adoption",
+    "Think of your people who work mostly at a computer. Roughly what share use AI in their work every week?",
+    [
       { label: "Under 20%", value: 1 },
-      { label: "20 to 40%", value: 2 },
-      { label: "40 to 60%", value: 3 },
-      { label: "60 to 80%", value: 4 },
-      { label: "Over 80%", value: 5 },
+      { label: "20 to 39%", value: 2 },
+      { label: "40 to 59%", value: 3 },
+      { label: "60 to 79%", value: 4 },
+      { label: "80% or more", value: 5 },
     ],
-  },
-  {
-    id: "ownership",
-    kind: "foundation",
-    key: "ownership",
-    text: "Who owns AI at your company?",
-    options: [
-      { label: "Nobody yet", value: 1 },
-      { label: "Keen people, but it's nobody's job", value: 2 },
-      { label: "A named person, alongside their main job", value: 4 },
-      { label: "A named leader or team, with time and a budget", value: 5 },
-    ],
-  },
-  {
-    id: "context",
-    kind: "foundation",
-    key: "context",
-    text: "When AI helps with your work, what does it know about your business?",
-    options: [
-      { label: "Only what someone pastes in each time", value: 1 },
-      { label: "Some notes or documents we've uploaded or connected", value: 3 },
-      { label: "Our documents, data and experts' know-how, kept up to date", value: 5 },
-    ],
-  },
-  {
-    id: "access",
-    kind: "foundation",
-    key: "access",
-    text: "How does AI get at your systems and data?",
-    options: [
+    { intro: "Next, 12 questions on your foundations: the basics that let AI take on more." },
+  ),
+  foundation("inCharge", "Who is in charge of AI at your company?", [
+    { label: "Nobody yet", value: 1 },
+    { label: "Some keen people, but nobody is in charge", value: 2 },
+    { label: "One person, on top of their main job", value: 3 },
+    { label: "A leader or team whose job includes it", value: 5 },
+  ]),
+  foundation("resourcing", "Is money and time set aside for AI?", [
+    { label: "No", value: 1 },
+    { label: "Money for tools, but nobody's time", value: 3 },
+    { label: "Yes, money and someone's time", value: 5 },
+  ]),
+  foundation("knows", "When AI helps with your work, what does it know about your business?", [
+    { label: "Only what someone pastes in each time", value: 1 },
+    { label: "Some documents we've given it", value: 3 },
+    { label: "Our documents and data, and what our best people know", value: 5 },
+  ]),
+  foundation("upkeep", "Is what AI knows about your business kept up to date?", [
+    { label: "No, or we haven't given it anything", value: 1 },
+    { label: "When someone remembers", value: 3 },
+    { label: "Yes, it's someone's job to keep it current", value: 5 },
+  ]),
+  foundation(
+    "reach",
+    "How does AI reach your company's software and data?",
+    [
       { label: "It doesn't: people copy and paste", value: 1 },
-      { label: "Through AI built into tools we already use", value: 3 },
-      { label: "Through connections we've set up and approved", value: 4 },
-      { label: "Through connections that reach only what each task needs, with a record of what AI did", value: 5 },
+      { label: "Through AI built into tools we already use, like Copilot in Microsoft 365", value: 3 },
+      { label: "Through links to our systems that we've set up and approved", value: 5 },
       {
-        label: "Through a shared login, or one that can see far too much",
-        detail: "Riskier than copy and paste, not further along",
+        label: "Through a shared password, or an account that can see far more than it needs",
+        detail: "This is riskier than copy and paste.",
         value: 1,
       },
     ],
-  },
-  {
-    id: "checking",
-    kind: "foundation",
-    key: "checking",
-    text: "How is AI's work checked before it's used?",
-    options: [
-      { label: "Each person checks their own, or doesn't", value: 1 },
-      { label: "Someone reviews it before it's used", value: 3 },
-      { label: "Automatic checks, with people signing off at set points", value: 5 },
-    ],
-  },
-  {
-    id: "measurement",
-    kind: "foundation",
-    key: "measurement",
-    text: "How do you measure what AI changes?",
-    options: [
-      { label: "We don't", value: 1 },
-      { label: "Rough estimates", value: 3 },
-      { label: "Per workflow, compared with how it ran before", value: 5 },
-    ],
-  },
-  {
-    id: "rules",
-    kind: "foundation",
-    key: "rules",
-    text: "What rules cover AI use?",
-    options: [
-      { label: "None, or informal guidance", value: 1 },
-      { label: "A written policy", value: 3 },
-      { label: "Approved tools, data rules, spend limits and a way to switch an agent off", value: 5 },
-    ],
-  },
-  {
-    id: "workflowChange",
-    kind: "foundation",
-    key: "workflowChange",
-    text: "Has AI changed how any recurring work runs, not just how fast people do it?",
-    options: [
-      { label: "Not yet", value: 1 },
-      { label: "We've tried pilots, but none is in daily use", value: 2 },
-      { label: "Yes, one workflow", value: 4 },
-      { label: "Yes, several workflows run differently now", value: 5 },
-    ],
-  },
+    { hint: "If more than one fits, pick the one that covers most of your AI use." },
+  ),
+  foundation("limits", "Can you limit what AI can open, and see what it did?", [
+    { label: "No", value: 1 },
+    { label: "Partly", value: 3 },
+    { label: "Yes: each task opens only what it needs, and we keep a log", value: 5 },
+  ]),
+  foundation("checking", "How do you check AI's work before anyone relies on it?", [
+    { label: "Each person checks their own, if they check at all", value: 1 },
+    { label: "Someone else checks it first", value: 3 },
+    { label: "Software checks it automatically, and a person signs off key decisions", value: 5 },
+  ]),
+  foundation("measurement", "How do you measure the difference AI makes?", [
+    { label: "We don't", value: 1 },
+    { label: "We estimate it roughly", value: 3 },
+    { label: "We measure each workflow against how it ran before", value: 5 },
+  ]),
+  foundation("policy", "What rules do you have for using AI?", [
+    { label: "None, or only informal advice", value: 1 },
+    { label: "A written policy", value: 3 },
+    { label: "A written policy, plus approved tools and data rules", value: 5 },
+  ]),
+  foundation("control", "Could you cap AI's spending, or switch it off, if you needed to?", [
+    { label: "No", value: 1 },
+    { label: "For some of it", value: 3 },
+    { label: "Yes, for all of it", value: 5 },
+  ]),
+  foundation("workflowChange", "Has AI changed the steps of any regular workflow, not just made people faster?", [
+    { label: "Not yet", value: 1 },
+    { label: "We've run trials, but none is in daily use", value: 2 },
+    { label: "Yes, one workflow now runs differently", value: 4 },
+    { label: "Yes, several workflows now run differently", value: 5 },
+  ]),
 ];
 
-/** Turns answers keyed by question id into the scorer's input. */
-export const toCheckUpAnswers = (byId: Readonly<Record<string, number>>): CheckUpAnswers => ({
+const confirm = (key: Area): Question => ({
+  id: confirmId(key),
+  kind: "confirm",
+  key,
+  text: `You said AI runs the workflow in ${AREA_NAMES[key]}. Has it run that way in normal use in the last month?`,
+  options: [
+    { label: "Yes", value: YES },
+    { label: "No", value: 0 },
+    { label: "I'm not sure", value: null },
+  ],
+});
+
+/** The questions to ask, given the answers so far: each area claimed at "runs the workflow" or above gets a follow-up. */
+export const questionsFor = (byId: Readonly<Record<string, number | null>>): readonly Question[] =>
+  CHECK_UP_QUESTIONS.flatMap((q) => {
+    const value = byId[q.id];
+    return q.kind === "area" && typeof value === "number" && value >= RUNS_THE_WORKFLOW ? [q, confirm(q.key)] : [q];
+  });
+
+/** Turns answers keyed by question id into the scorer's input. A null or missing foundation is "I don't know". */
+export const toCheckUpAnswers = (byId: Readonly<Record<string, number | null>>): CheckUpAnswers => ({
   areas: {
     core: byId.core ?? 1,
     customers: byId.customers ?? 1,
     backOffice: byId.backOffice ?? 1,
     management: byId.management ?? 1,
   },
+  confirmed: {
+    core: byId[confirmId("core")] === YES,
+    customers: byId[confirmId("customers")] === YES,
+    backOffice: byId[confirmId("backOffice")] === YES,
+    management: byId[confirmId("management")] === YES,
+  },
   foundations: Object.fromEntries(
-    CHECK_UP_QUESTIONS.filter((q) => q.kind === "foundation" && byId[q.id] !== undefined).map((q) => [
-      q.key,
-      byId[q.id],
-    ]),
+    CHECK_UP_QUESTIONS.flatMap((q) => {
+      const value = byId[q.id];
+      return q.kind === "foundation" && typeof value === "number" ? [[q.key, value] as const] : [];
+    }),
   ),
 });

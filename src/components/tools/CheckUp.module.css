@@ -94,12 +94,67 @@
   color: var(--color-primary);
 }
 
-.score {
-  font-family: var(--font-display);
-  font-size: 20px;
+.areas {
+  display: grid;
+  gap: var(--space-3);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.areas li {
+  display: grid;
+  gap: var(--space-1);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.areaName {
+  font-size: var(--text-caption);
+  color: var(--color-muted);
+}
+
+.areaLevel {
   font-weight: 600;
   color: var(--color-ink);
-  font-variant-numeric: tabular-nums;
+}
+
+.words {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border-radius: var(--radius-ctrl);
+  background: var(--color-surface);
+}
+
+.words dl {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+}
+
+.words dt {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.words dd {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-caption);
+  color: var(--color-muted);
+}
+
+.intro {
+  margin: 0;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.hint {
+  margin: 0;
+  font-size: var(--text-caption);
+  color: var(--color-muted);
 }
 
 /* Headings take focus only so screen readers hear the next question or the result. */
