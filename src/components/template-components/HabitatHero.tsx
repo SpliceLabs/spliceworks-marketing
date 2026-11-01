@@ -2852,7 +2852,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             height: 48px;
             padding: 0 22px;
             background: var(--accent);
-            color: var(--text-on-accent);
+            color: var(--text-on-primary);
             border: 1px solid var(--accent);
             border-radius: var(--radius-ctrl);
             font-weight: 500;
