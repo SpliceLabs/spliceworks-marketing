@@ -11,4 +11,8 @@ describe("sitemap", () => {
     expect(urls).toContain("https://spliceworks.ai/tools");
     expect(urls).toContain("https://spliceworks.ai/tools/ai-cost-of-delay");
   });
+
+  it("stamps every entry with a last-modified date", () => {
+    expect(sitemap().every((e) => e.lastModified instanceof Date)).toBe(true);
+  });
 });

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 import type { Block, Section } from "@/lib/copy/markdown";
+import { breadcrumbJsonLd } from "@/lib/breadcrumbs";
 import { getEntry, getPage } from "@/lib/copy/pages";
 import { faqPageJsonLd, pageFaqIds, resolveFaqSection } from "@/lib/copy/faq";
 import { JsonLd } from "@/components/JsonLd";
@@ -183,12 +184,14 @@ export function CopySection({ section, index, pageUrl }: { section: Section; ind
 /** `children` (e.g. a tool's calculator) render straight after the page header. */
 export function CopyPage({ path, children }: { path: string; children?: ReactNode }) {
   const page = getPage(path);
+  const entry = getEntry(path);
   const last = page.sections[page.sections.length - 1];
   const hasBand = !!closingCta(last);
   const body = hasBand ? page.sections.slice(0, -1) : page.sections;
   const faqIds = pageFaqIds(path);
   return (
     <>
+      {entry.group && <JsonLd data={breadcrumbJsonLd(entry, page.fm.title)} />}
       {faqIds.length > 0 && <JsonLd data={faqPageJsonLd(faqIds)} />}
       <PageHeader path={path} />
       {children}
