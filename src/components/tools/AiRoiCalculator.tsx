@@ -11,6 +11,8 @@ type Field = FieldSpec<keyof AiRoiInputs>;
 
 const percent = (n: number) => `${n}%`;
 
+const PER_PERSON_A_YEAR = { dollars: true, after: "per person a year" } as const;
+
 const GROUPS: readonly (readonly [string, readonly Field[]])[] = [
   [
     "Your team",
@@ -18,20 +20,23 @@ const GROUPS: readonly (readonly [string, readonly Field[]])[] = [
       {
         key: "team",
         label: "People using AI",
-        hint: "Everyone in scope. Defaults fit a software team",
-        format: String,
+        hint: "Everyone who will use AI. The starting values assume a software team.",
+        format: (n) => `${n} ${n === 1 ? "person" : "people"}`,
+        unit: { after: "people" },
       },
       {
         key: "salary",
         label: "Cost per person",
-        hint: "Fully loaded: pay plus tax, benefits and overhead, per year",
+        hint: "Pay plus taxes, benefits and overhead, not salary alone.",
         format: formatUsd,
+        unit: PER_PERSON_A_YEAR,
       },
       {
         key: "timeSaved",
-        label: "Time AI saves",
-        hint: "Net of reviewing AI output. DORA cites 40 to 150 minutes a day",
-        format: percent,
+        label: "Time AI saves each person",
+        hint: "After checking AI's work. One hour of an 8-hour day is 12.5%.",
+        format: (n) => `${n}% of work time`,
+        unit: { after: "% of work time" },
       },
     ],
   ],
@@ -40,33 +45,38 @@ const GROUPS: readonly (readonly [string, readonly Field[]])[] = [
     [
       {
         key: "toolsPerPerson",
-        label: "AI tools per person",
-        hint: "Seats plus usage-based fees, per year",
+        label: "AI tools",
+        hint: "Seats and usage fees.",
         format: formatUsd,
+        unit: PER_PERSON_A_YEAR,
       },
       {
         key: "trainingPerPerson",
-        label: "Training per person",
-        hint: "Courses and coaching. Time spent learning is in the dip",
+        label: "Training",
+        hint: "Courses and coaching. Learning time goes in the dip below.",
         format: formatUsd,
+        unit: { dollars: true, after: "per person, once" },
       },
       {
         key: "infrastructure",
-        label: "Infrastructure",
-        hint: "Platform, data and security, per year",
+        label: "Platform and security",
+        hint: "Data, hosting and security. Enter the total, not per person.",
         format: formatUsd,
+        unit: { dollars: true, after: "a year, whole team" },
       },
       {
         key: "dipPercent",
-        label: "Productivity dip",
-        hint: "Output lost while people learn new ways of working",
-        format: percent,
+        label: "Output lost while learning",
+        hint: "How much slower people work at first, while they learn new ways of working.",
+        format: (n) => `${percent(n)} of output`,
+        unit: { after: "% of output" },
       },
       {
         key: "dipMonths",
-        label: "Months the dip lasts",
-        hint: "No time counts as saved until it ends",
-        format: (n) => `${n} mo`,
+        label: "How long it lasts",
+        hint: "AI saves no time until this ends.",
+        format: (n) => `${n} ${n === 1 ? "month" : "months"}`,
+        unit: { after: "months" },
       },
     ],
   ],

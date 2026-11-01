@@ -28,6 +28,22 @@ describe("AiRoiCalculator", () => {
     expect(screen.getByText(/capacity, not cash/i)).toBeTruthy();
   });
 
+  it("names the unit of every number box, on screen and to screen readers", () => {
+    openAt("");
+    expect(screen.getAllByRole("spinbutton").map((box) => box.getAttribute("aria-label"))).toEqual([
+      "People using AI, in people",
+      "Cost per person, in dollars per person a year",
+      "Time AI saves each person, in % of work time",
+      "AI tools, in dollars per person a year",
+      "Training, in dollars per person, once",
+      "Platform and security, in dollars a year, whole team",
+      "Output lost while learning, in % of output",
+      "How long it lasts, in months",
+    ]);
+    expect(screen.getAllByText("per person a year")).toHaveLength(2);
+    expect(screen.getByRole("slider", { name: "People using AI" }).getAttribute("aria-valuetext")).toBe("50 people");
+  });
+
   it("announces only the headline figure as the numbers change, not the whole panel", () => {
     const { container } = openAt("?t=500&s=176000&p=12.5&a=330&r=9600&i=100000&d=15&m=3");
     const live = container.querySelectorAll("[aria-live]");
