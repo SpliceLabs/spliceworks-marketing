@@ -22,7 +22,7 @@ What each month of waiting on AI costs, plus a line you can paste into your next
 
 ### AI ROI calculator
 
-Whether rolling AI out to your team pays for itself in year one: cost, capacity freed, ROI and payback. [Build your business case](/tools/ai-roi-calculator).
+Whether rolling AI out to your team pays for itself in year one: cost, value of time saved, ROI and payback. [Build your business case](/tools/ai-roi-calculator).
 
 ### AI check-up
 
