@@ -35,7 +35,7 @@ describe("FAQ structured data", () => {
       {
         "@type": "Question",
         name: "What is the cost of delay for AI?",
-        acceptedAnswer: { "@type": "Answer", text: expect.stringContaining("multiply by the months you wait") },
+        acceptedAnswer: { "@type": "Answer", text: expect.stringContaining("then by the months you wait") },
       },
     ]);
   });

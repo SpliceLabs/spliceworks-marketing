@@ -104,23 +104,23 @@ The ability to run it yourself. Your team knows how to manage what we installed 
 
 ### What is the cost of delay for AI?
 
-It's the value you give up each month an AI opportunity isn't running. Add up what each opportunity would be worth per month, then multiply by the months you wait. That money is gone before you spend anything on implementation. [Work out yours](/tools/ai-cost-of-delay).
+It's the value you don't get while AI isn't running a workflow it could take on. Put an average monthly value on each workflow, multiply by how many there are, then by the months you wait. It's counted before you spend anything on implementation. [Work out yours](/tools/ai-cost-of-delay).
 
 ### How do you calculate the cost of delaying AI adoption?
 
-Multiply the number of AI opportunities by the monthly value of each one. That's your monthly cost of delay. Multiply it by the months until you'd go live to get the cumulative cost. We also show half of that as a conservative case, because value usually ramps up rather than arriving on day one. [Run the numbers](/tools/ai-cost-of-delay).
+Multiply the number of AI opportunities by the average monthly value of each one. That's what you lose each month you wait. Multiply it by the months you wait to get the total. We also show half of the total, in case value builds up slowly. That half is an assumption, not a measured figure. [Run the numbers](/tools/ai-cost-of-delay).
 
 ### How do I estimate the monthly value of an AI opportunity?
 
-Start with one workflow. Count the hours your people spend on it each month and multiply by what those hours cost you. Add any revenue it would bring in sooner or errors it would stop. If you can't defend a number, use the low end.
+Start with one workflow. Count the hours AI would save on it each month and multiply by what those hours cost you. Add any revenue it would bring in sooner or errors it would stop, then take off what AI would cost to run. With several workflows, use the average, and don't count the same hours twice. If you can't defend a number, use the low end.
 
 ### Isn't it cheaper to wait until AI matures?
 
-Waiting has a cost too, it's just harder to see. Every month you wait, the value of that work goes unclaimed and your team learns nothing. The tools will keep improving either way. Start on one real workflow now and build it so you can swap tools later without starting over.
+Waiting has a cost too, but it's harder to see. Every month you wait, the value of that work goes unclaimed and your team gets no practice with AI. The tools will keep improving either way. Start on one real workflow now and build it so you can swap tools later without starting over.
 
 ### How do I make the case for AI to my CEO or board?
 
-Show them what waiting costs, in dollars, on work they recognize. Pick one to three workflows, put a monthly value on each and state the cost of a 6-month delay. Then name who is accountable for each one. [The calculator](/tools/ai-cost-of-delay) writes a line you can paste into the deck.
+Show them what waiting costs, in dollars, on work they recognize. Pick one to three workflows, put a monthly value on each and state what a 6-month wait would lose. Then name who is accountable for each one. [The calculator](/tools/ai-cost-of-delay) writes a line you can paste into the deck.
 
 ## Working out the ROI of AI
 
