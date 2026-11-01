@@ -1054,7 +1054,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                     <span
                       className="partition-back"
                       style={{
-                        background: isDark ? "rgba(38, 46, 54, 0.7)" : "rgba(220, 228, 255, 0.85)",
+                        background: isDark ? "rgba(38, 46, 54, 0.7)" : "rgba(248, 227, 214, 0.85)",
                         borderBottom: `2px solid ${isDark ? "#ee6a33" : "#d45a28"}`,
                       }}
                     />
@@ -1063,7 +1063,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                     <span
                       className="partition-left"
                       style={{
-                        background: isDark ? "rgba(238, 106, 51, 0.5)" : "rgba(190, 205, 255, 0.85)",
+                        background: isDark ? "rgba(238, 106, 51, 0.5)" : "rgba(241, 198, 174, 0.85)",
                         borderBottom: `2px solid ${isDark ? "#ee6a33" : "#d45a28"}`,
                       }}
                     />
