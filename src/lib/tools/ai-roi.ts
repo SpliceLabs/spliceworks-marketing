@@ -28,7 +28,7 @@ export type AiRoiResult = Readonly<{
   benefit: number;
   /** null when there is no investment to divide by. */
   roi: number | null;
-  /** null when the rollout returns no value or costs nothing. */
+  /** null when the rollout returns no value, costs nothing, or never pays back. */
   paybackMonths: number | null;
   /** A full year of time saved, less tools and infrastructure: no training, no dip. */
   yearTwoBenefit: number;
@@ -69,6 +69,17 @@ export const AI_ROI = inputCodec({
   },
 });
 
+// Year one repays from time saved after the dip; any remainder from year two's time saved, less the costs that recur.
+const payback = (
+  o: Readonly<{ investment: number; valuePerMonth: number; recurringPerMonth: number; dipMonths: number }>,
+) => {
+  if (o.valuePerMonth <= 0 || o.investment <= 0) return null;
+  const yearOne = o.valuePerMonth * (12 - o.dipMonths);
+  if (o.investment <= yearOne) return o.dipMonths + o.investment / o.valuePerMonth;
+  const laterPerMonth = o.valuePerMonth - o.recurringPerMonth;
+  return laterPerMonth > 0 ? 12 + (o.investment - yearOne) / laterPerMonth : null;
+};
+
 export const aiRoi = (raw: AiRoiInputs): AiRoiResult => {
   const i = AI_ROI.sanitize(raw);
   const hardCosts = (i.toolsPerPerson + i.trainingPerPerson) * i.team + i.infrastructure;
@@ -78,6 +89,7 @@ export const aiRoi = (raw: AiRoiInputs): AiRoiResult => {
   const gainMonths = 12 - i.dipMonths;
   const value = valuePerMonth * gainMonths;
   const benefit = value - investment;
+  const recurring = i.toolsPerPerson * i.team + i.infrastructure;
   return {
     hardCosts,
     dipCost,
@@ -85,8 +97,8 @@ export const aiRoi = (raw: AiRoiInputs): AiRoiResult => {
     value,
     benefit,
     roi: investment > 0 ? benefit / investment : null,
-    paybackMonths: valuePerMonth > 0 && investment > 0 ? i.dipMonths + investment / valuePerMonth : null,
-    yearTwoBenefit: valuePerMonth * 12 - (i.toolsPerPerson * i.team + i.infrastructure),
+    paybackMonths: payback({ investment, valuePerMonth, recurringPerMonth: recurring / 12, dipMonths: i.dipMonths }),
+    yearTwoBenefit: valuePerMonth * 12 - recurring,
     breakEvenTimeSaved: gainMonths > 0 ? (investment / (i.team * i.salary * (gainMonths / 12))) * 100 : null,
   };
 };

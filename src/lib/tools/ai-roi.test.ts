@@ -21,7 +21,8 @@ describe("aiRoi", () => {
       value: 8_250_000,
       benefit: -115_000,
       roi: -115_000 / 8_365_000,
-      paybackMonths: 3 + 8_365_000 / (11_000_000 / 12),
+      // 9 months after the dip repay 8,250,000; the last 115,000 comes from year two, net of tools and infrastructure.
+      paybackMonths: 12 + 115_000 / ((11_000_000 - 265_000) / 12),
       yearTwoBenefit: 10_735_000,
       breakEvenTimeSaved: (8_365_000 / 66_000_000) * 100,
     });
@@ -29,6 +30,13 @@ describe("aiRoi", () => {
 
   it("nets a full year of time saved in year two, less the tools and infrastructure that recur", () => {
     expect(aiRoi(doraDefaults).yearTwoBenefit).toBe(11_000_000 - (330 * 500 + 100_000));
+  });
+
+  it("pays back from year two only net of the tools and infrastructure that recur, and never if those outweigh time saved", () => {
+    expect(aiRoi({ ...doraDefaults, dipMonths: 0 }).paybackMonths).toBe(5_065_000 / (11_000_000 / 12));
+    const thin = { ...doraDefaults, timeSaved: 0.5, toolsPerPerson: 1_000 };
+    expect(aiRoi(thin).yearTwoBenefit).toBeLessThan(0);
+    expect(aiRoi(thin).paybackMonths).toBeNull();
   });
 
   it("finds the share of time AI must save for year one to break even", () => {
