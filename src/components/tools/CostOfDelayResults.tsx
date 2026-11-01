@@ -29,7 +29,7 @@ export function CostOfDelayResults({ inputs }: Readonly<{ inputs: CostOfDelayInp
       <p className={styles.note}>
         If value builds up slowly, we count half of the total. That&rsquo;s an assumption, not a measured figure.
       </p>
-      <ShareActions line={execLine(inputs)} cta="Test this number in a working session" />
+      <ShareActions line={execLine(inputs)} cta="Test your monthly value in a working session" />
     </div>
   );
 }

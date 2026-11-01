@@ -37,6 +37,7 @@ describe("CostOfDelayCalculator", () => {
     const figure = (name: string) => screen.getByText(name, { selector: "dt" }).nextElementSibling?.textContent;
     expect(figure("Total if you wait 1 month")).toBe("$500");
     expect(figure("If value builds up slowly")).toBe("$250");
+    expect(screen.getByRole("link", { name: "Test your monthly value in a working session" })).toBeDefined();
     expect(
       screen.getByText(/slowly, we count half of the total. That.s an assumption, not a measured figure./),
     ).toBeDefined();
