@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/providers/ThemeProvider";
 import { ModeProvider } from "@/providers/ModeProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { CONTACT_EMAIL } from "@/lib/contact";
-import { ORGANIZATION_ID, SITE_URL, absoluteUrl } from "@/lib/site";
+import { OG_IMAGE, ORGANIZATION_ID, SITE_URL, absoluteUrl } from "@/lib/site";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -58,12 +58,14 @@ export const metadata: Metadata = {
     siteName: "Splice Ops",
     locale: "en_US",
     type: "website",
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: "Splice Ops",
     description:
       "A forward-deployed team for knowledge-heavy companies with an AI mandate and no path to production. We put AI to work and keep a named human accountable at every gate.",
+    images: [OG_IMAGE.url],
   },
   robots: {
     index: true,
@@ -86,6 +88,15 @@ const organization = {
   parentOrganization: { "@type": "Organization", name: "Splice Labs Group" },
   founder: { "@type": "Person", name: "Tim Varner", jobTitle: "Founder" },
   employee: [{ "@type": "Person", name: "Jake Krogman", jobTitle: "CTO and AI Systems Architect" }],
+};
+
+const website = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  name: "Splice Ops",
+  url: SITE_URL,
+  publisher: { "@id": ORGANIZATION_ID },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -117,6 +128,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <JsonLd data={organization} />
+        <JsonLd data={website} />
         <ThemeProvider>
           <ModeProvider>{children}</ModeProvider>
         </ThemeProvider>

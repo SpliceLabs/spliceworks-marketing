@@ -6,7 +6,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { Metadata } from "next";
 import { CONTACT_EMAIL } from "@/lib/contact";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, OG_IMAGE } from "@/lib/site";
 import { parsePage, type ParsedPage } from "./markdown";
 
 export interface PageEntry {
@@ -85,7 +85,15 @@ export function pageMetadata(urlPath: string): Metadata {
     title: { absolute: fm.title },
     description: fm.description,
     alternates: { canonical: urlPath },
-    openGraph: { title: fm.title, description: fm.description, url, siteName: "Splice Ops", type: "website" },
-    twitter: { card: "summary_large_image", title: fm.title, description: fm.description },
+    openGraph: {
+      title: fm.title,
+      description: fm.description,
+      url,
+      siteName: "Splice Ops",
+      locale: "en_US",
+      type: "website",
+      images: [OG_IMAGE],
+    },
+    twitter: { card: "summary_large_image", title: fm.title, description: fm.description, images: [OG_IMAGE.url] },
   };
 }

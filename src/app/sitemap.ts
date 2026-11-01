@@ -3,5 +3,6 @@ import { PAGES } from "@/lib/copy/pages";
 import { absoluteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return PAGES.map((p) => ({ url: absoluteUrl(p.path) }));
+  const lastModified = new Date();
+  return PAGES.map((p) => ({ url: absoluteUrl(p.path), lastModified }));
 }
