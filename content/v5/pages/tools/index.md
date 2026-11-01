@@ -18,7 +18,7 @@ Put numbers on the decision before you commit. Each tool runs in your browser an
 
 ### AI cost of delay calculator
 
-What each month of waiting on AI costs, plus a line you can paste into your next board deck. [Work out yours](/tools/ai-cost-of-delay).
+The value you don't get for each month you wait on AI, plus a line you can paste into your next board deck. [Work out yours](/tools/ai-cost-of-delay).
 
 ### AI ROI calculator
 
