@@ -17,20 +17,20 @@ type Cta = Extract<Block, { t: "cta" }>;
 
 /** Header wash colors per area, from the palette the old pages used. */
 const HERO: Record<string, [string, string?]> = {
-  "/services": ["#2447E8", "#D98E14"],
-  "/for": ["#FF6848", "#2447E8"],
-  "/industries": ["#1E9E6A", "#2447E8"],
-  "/how-it-works": ["#7FA4FF"],
-  "/team": ["#D98E14"],
-  "/work": ["#2447E8", "#D98E14"],
-  "/book": ["#2447E8"],
-  "/faq": ["#FFC53D"],
-  "/station": ["#7FA4FF", "#1E9E6A"],
+  "/services": ["var(--color-primary)", "var(--color-attention)"],
+  "/for": ["var(--color-human)", "var(--color-primary)"],
+  "/industries": ["var(--color-complete)", "var(--color-primary)"],
+  "/how-it-works": ["var(--color-primary-mid)"],
+  "/team": ["var(--color-attention)"],
+  "/work": ["var(--color-primary)", "var(--color-attention)"],
+  "/book": ["var(--color-primary)"],
+  "/faq": ["var(--color-attention)"],
+  "/station": ["var(--color-primary-mid)", "var(--color-complete)"],
 };
 
 function heroStyle(path: string): CSSProperties {
   const key = "/" + (path.split("/")[1] ?? "");
-  const [from, to] = HERO[key] ?? ["#2447E8"];
+  const [from, to] = HERO[key] ?? ["var(--color-primary)"];
   return { "--hero-from": from, ...(to ? { "--hero-to": to } : {}) } as CSSProperties;
 }
 
