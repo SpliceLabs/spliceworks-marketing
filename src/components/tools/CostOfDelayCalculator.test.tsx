@@ -9,7 +9,7 @@ const openAt = (query: string) => {
   return render(<CostOfDelayCalculator />);
 };
 
-const monthlyCost = () => screen.getByText("Every month you wait").nextElementSibling?.textContent;
+const monthlyCost = () => screen.getByText("Lost each month you wait").nextElementSibling?.textContent;
 
 afterEach(cleanup);
 
@@ -17,7 +17,7 @@ describe("CostOfDelayCalculator", () => {
   it("shows the result for the numbers in a shared link", () => {
     openAt("?o=4&v=25000&l=9");
     expect(monthlyCost()).toBe("$100,000");
-    expect(screen.getByText("Over 9 months").nextElementSibling?.textContent).toBe("$900,000");
+    expect(screen.getByText("Total if you wait 9 months").nextElementSibling?.textContent).toBe("$900,000");
   });
 
   it("says the unit of every control, in the box and on the slider", () => {
@@ -30,6 +30,16 @@ describe("CostOfDelayCalculator", () => {
       screen.getByRole("spinbutton", { name: "Value of each workflow, in dollars per workflow a month" }),
     ).toBeDefined();
     expect(screen.getByText("per workflow a month")).toBeDefined();
+  });
+
+  it("names each figure as value you don't get, and says the slow case is an assumption", () => {
+    openAt("?o=1&v=500&l=1");
+    const figure = (name: string) => screen.getByText(name, { selector: "dt" }).nextElementSibling?.textContent;
+    expect(figure("Total if you wait 1 month")).toBe("$500");
+    expect(figure("If value builds up slowly")).toBe("$250");
+    expect(
+      screen.getByText(/slowly, we count half of the total. That.s an assumption, not a measured figure./),
+    ).toBeDefined();
   });
 
   it("updates the result and the page link as a slider moves", () => {
@@ -46,7 +56,7 @@ describe("CostOfDelayCalculator", () => {
     expect(window.location.search).toBe("");
     fireEvent.blur(exact);
     expect(window.location.search).toBe("?o=3&v=10000&l=24");
-    expect(screen.getByText("Over 24 months").nextElementSibling?.textContent).toBe("$720,000");
+    expect(screen.getByText("Total if you wait 24 months").nextElementSibling?.textContent).toBe("$720,000");
   });
 
   it("applies a typed value when Enter is pressed", () => {
