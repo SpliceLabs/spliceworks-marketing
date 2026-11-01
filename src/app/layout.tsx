@@ -36,8 +36,8 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Splice Works",
-    template: "%s | Splice Works",
+    default: "Splice Ops",
+    template: "%s | Splice Ops",
   },
   description:
     "A forward-deployed team for knowledge-heavy companies with an AI mandate and no path to production. We put AI to work and keep a named human accountable at every gate.",
@@ -51,17 +51,17 @@ export const metadata: Metadata = {
     apple: "/logo/light/favicon-48.png",
   },
   openGraph: {
-    title: "Splice Works",
+    title: "Splice Ops",
     description:
       "A forward-deployed team for knowledge-heavy companies with an AI mandate and no path to production. We put AI to work and keep a named human accountable at every gate.",
     url: SITE_URL,
-    siteName: "Splice Works",
+    siteName: "Splice Ops",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Splice Works",
+    title: "Splice Ops",
     description:
       "A forward-deployed team for knowledge-heavy companies with an AI mandate and no path to production. We put AI to work and keep a named human accountable at every gate.",
   },
@@ -71,18 +71,18 @@ export const metadata: Metadata = {
   },
 };
 
-// Who we are, for search and AI engines. "Splice Works" plus the parent group and
+// Who we are, for search and AI engines. "Splice Ops" plus the parent group and
 // category keeps us distinct from other companies named Splice.
 const organization = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": ORGANIZATION_ID,
-  name: "Splice Works",
+  name: "Splice Ops",
   url: SITE_URL,
   logo: absoluteUrl("/logo/light/icon-512.png"),
   email: CONTACT_EMAIL,
   description:
-    "Splice Works is a forward-deployed AI enablement team. It puts AI to work in existing companies and keeps a named person accountable at every gate.",
+    "Splice Ops is a forward-deployed AI enablement team. It puts AI to work in existing companies and keeps a named person accountable at every gate.",
   parentOrganization: { "@type": "Organization", name: "Splice Labs Group" },
   founder: { "@type": "Person", name: "Tim Varner", jobTitle: "Founder" },
   employee: [{ "@type": "Person", name: "Jake Krogman", jobTitle: "CTO and AI Systems Architect" }],

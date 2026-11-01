@@ -15,7 +15,7 @@ Splice Station connects agent systems and external tools. Permissioning, audit t
 
 ## What gets deployed is yours to keep
 
-Every Splice Works engagement runs a configuration on Station — hardened, permissioned, and connected to the Brain your people already use. It's yours to operate after the engagement ends.
+Every Splice Ops engagement runs a configuration on Station — hardened, permissioned, and connected to the Brain your people already use. It's yours to operate after the engagement ends.
 
 ---
 

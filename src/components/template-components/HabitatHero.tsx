@@ -753,7 +753,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
     return [
       `# Assessment proposal: ${p.outcome}`,
       "",
-      "Source: Splice Works · spliceworks.ai · Status: sample, no systems connected",
+      "Source: Splice Ops · spliceworks.ai · Status: sample, no systems connected",
       "",
       "## Capability",
       `- ai-native-assessment → ${p.cap}`,
@@ -1859,9 +1859,9 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   </div>
                 ) : (
                   <p className="body" style={{ color: themeColors.muted }}>
-                    Splice Works deploys governed agents that discover, build and operate work across your business.
-                    Every handoff passes through Station, which controls what each function can do, what it can access,
-                    and when a person must approve. Checks run in parallel; nothing consequential runs without a named
+                    Splice Ops deploys governed agents that discover, build and operate work across your business. Every
+                    handoff passes through Station, which controls what each function can do, what it can access, and
+                    when a person must approve. Checks run in parallel; nothing consequential runs without a named
                     human.
                   </p>
                 )}
@@ -1885,7 +1885,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   <button
                     type="button"
                     onClick={() => {
-                      const text = `Evaluate Splice Works for: "${proposal.outcome}". Report capability, context, process, access, approval gate, and artifact.`;
+                      const text = `Evaluate Splice Ops for: "${proposal.outcome}". Report capability, context, process, access, approval gate, and artifact.`;
                       if (navigator.clipboard) navigator.clipboard.writeText(text).then(() => flash("Prompt copied"));
                     }}
                     className="link-btn"

@@ -1,9 +1,9 @@
-# Splice Works Design System
+# Splice Ops Design System
 
-Splice Works is an editorial studio — "a Splice Labs company" — whose identity is built on the idea of a **splice**: two things joined into one continuous run. The mark is a solid **S** and an outlined **W** meeting at a single orange **joint**. Everything in this system follows from that: ink and paper as the base, one blue for structure, one orange dot for emphasis.
+Splice Ops is an editorial studio — "a Splice Labs company" — whose identity is built on the idea of a **splice**: two things joined into one continuous run. The mark is a solid **S** and an outlined **W** meeting at a single orange **joint**. Everything in this system follows from that: ink and paper as the base, one blue for structure, one orange dot for emphasis.
 
 ## Sources
-- `uploads/Editorial habitat hero design/` (zip) — Splice Works logo kit "mark 8a": `dark/` and `light/` folders with favicons (16/32/48), icons (64/128/512), apple-touch 180, android-chrome 192, `avatar-512` (round), `seal-512` (one-colour), `mark@2x`, `lockup-horizontal@2x`, `lockup-endorsed@2x`, `lockup-vertical@2x`, plus a README specifying colours and type.
+- `uploads/Editorial habitat hero design/` (zip) — Splice Ops logo kit "mark 8a": `dark/` and `light/` folders with favicons (16/32/48), icons (64/128/512), apple-touch 180, android-chrome 192, `avatar-512` (round), `seal-512` (one-colour), `mark@2x`, `lockup-horizontal@2x`, `lockup-endorsed@2x`, `lockup-vertical@2x`, plus a README specifying colours and type.
 - `uploads/*.png` — the same dark-tile set at the root of the upload.
 - No Figma, no codebase, no product screenshots, no copy were supplied. Everything beyond the logo kit (colour ramps, type scale, spacing, components, the UI kit) is **derived** and marked as such where it matters.
 

@@ -1,4 +1,4 @@
-# Splice Works logo kit (mark 8a)
+# Splice Ops logo kit (mark 8a)
 
 Solid S · outlined W · orange joint at the splice. Wordmark: Bricolage Grotesque 400, tracked .18em, uppercase. Endorsement: Space Mono, "a Splice Labs company".
 

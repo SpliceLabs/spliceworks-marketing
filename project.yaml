@@ -1,5 +1,5 @@
 id: splice-works
-name: Splice Works
+name: Splice Ops
 type: agent-native-marketing-site
 workflow: .harness/workflows/new-site.yaml
 framework:

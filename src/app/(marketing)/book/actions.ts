@@ -8,7 +8,7 @@ import { bookingEmail, type Answer } from "@/lib/bookEmail";
 import { BOOK_TO, CONTACT_EMAIL } from "@/lib/contact";
 
 /** Must be on a domain verified in the same Resend team as RESEND_API_KEY. */
-const FROM = process.env.BOOK_FROM ?? "Splice Works <forms@spliceworks.ai>";
+const FROM = process.env.BOOK_FROM ?? "Splice Ops <forms@spliceworks.ai>";
 
 export async function submitBooking(_prev: BookState, data: FormData): Promise<BookState> {
   if (String(data.get(HONEYPOT) ?? "")) return { status: "sent" };

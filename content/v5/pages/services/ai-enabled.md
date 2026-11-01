@@ -1,6 +1,6 @@
 ---
 url: /services/ai-enabled
-title: AI Enablement Services That Change the Work | Splice Works
+title: AI Enablement Services That Change the Work | Splice Ops
 description: Your team has the AI tools, but the work hasn't changed. We build one shared brain your people use daily, and get your first workflow run by agents.
 reader: A leader whose company bought AI tools or ran pilots, and nothing about how the work gets done has changed
 job: Recognize they're AI-absent, see what step 1 delivers and where it ends, and book a working session

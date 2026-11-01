@@ -9,7 +9,7 @@ export function SiblingCompanies() {
           <span className={styles.boxDetail}>Venture studio — builds new AI-native companies from scratch</span>
         </div>
         <div className={styles.box} style={{ "--box-color": "#2447E8" } as React.CSSProperties}>
-          <span className={styles.boxLabel}>Splice Works</span>
+          <span className={styles.boxLabel}>Splice Ops</span>
           <span className={styles.boxDetail}>Transforms companies that already exist</span>
         </div>
       </div>

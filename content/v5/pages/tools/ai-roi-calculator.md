@@ -1,6 +1,6 @@
 ---
 url: /tools/ai-roi-calculator
-title: "AI ROI Calculator: Will AI Pay for Itself in Year One? | Splice Works"
+title: "AI ROI Calculator: Will AI Pay for Itself in Year One? | Splice Ops"
 description: "Work out the first-year return on rolling AI out to your team: cost, value of time saved, ROI and payback. Free calculator built on DORA's open method."
 reader: "A CEO, founder or technology leader building the business case for an AI rollout"
 job: "Get a defensible first-year number, then test it in a working session"
@@ -33,7 +33,7 @@ The biggest difference from DORA: DORA counts a full year of time saved on top o
 
 The math runs in your browser. Your numbers are saved in the page's web address so you can share the result, which means anyone who opens that link, including the site's host, can see them.
 
-Updated 1 Nov 2026 · Splice Works
+Updated 1 Nov 2026 · Splice Ops
 
 ## A worked example
 

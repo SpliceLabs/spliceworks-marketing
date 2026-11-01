@@ -1,6 +1,6 @@
 # Splice Station — Deck Narrative (Canonical Copy Deck)
 
-*Matches `splice-station-deck.html`. Visual system: same `sw-` design tokens as `splice-works-investor-deck.html` (this is Splice Labs IP, deployed by Splice Works — same family, own deck).*
+*Matches `splice-station-deck.html`. Visual system: same `sw-` design tokens as `splice-works-investor-deck.html` (this is Splice Labs IP, deployed by Splice Ops — same family, own deck).*
 
 *Framing: reference material, not a pitch. "Know about Station" — what it is, how it's built, where it stands today. Aspirational language is limited to the roadmap slide, and marked as such.*
 
@@ -8,7 +8,7 @@
 
 ## Canonical one-paragraph narrative
 
-> Splice Station is Splice Labs' governed harness runtime — the control plane that lets AI agents execute inside real business systems without unchecked access. Every harness runs through approval gates, connector brokering, and a permanent audit trail before it earns write access. Splice Works installs Station at every client engagement; each harness built for a client becomes reusable IP that hardens the platform for the next deployment.
+> Splice Station is Splice Labs' governed harness runtime — the control plane that lets AI agents execute inside real business systems without unchecked access. Every harness runs through approval gates, connector brokering, and a permanent audit trail before it earns write access. Splice Ops installs Station at every client engagement; each harness built for a client becomes reusable IP that hardens the platform for the next deployment.
 
 **Reference line** (used as the close, slide 8):
 
@@ -53,7 +53,7 @@
 
 **Headline:** Four primitives. One runtime.
 
-**Body:** Every harness Splice Labs or Splice Works builds runs on the same governed spine.
+**Body:** Every harness Splice Labs or Splice Ops builds runs on the same governed spine.
 
 **Diagram — hub and spoke (Station at center, 4 nodes):**
 - **Approval Gates** — harnesses declare gates in `gates/*.yaml`; nothing proceeds past a gate without explicit sign-off; resume tokens pick execution back up after approval.
@@ -83,7 +83,7 @@ Harness declared (`station-pack.yaml`) → Sandbox (dry-run on real data) → Sh
 **Headline:** One runtime, three operating contexts.
 
 **Diagram — 3 cards:**
-- **Internal operations** — Splice Labs and Splice Works run Station on their own workflows first.
+- **Internal operations** — Splice Labs and Splice Ops run Station on their own workflows first.
 - **PE & portfolio operations** — one Station instance, harnesses repeated across portfolio companies.
 - **Enterprise workflow automation** — deployed inside the client's environment; the client supplies its own systems of record, Station supplies the governance layer.
 
@@ -91,16 +91,16 @@ Harness declared (`station-pack.yaml`) → Sandbox (dry-run on real data) → Sh
 
 ---
 
-## Slide 6 — How Splice Works deploys it
+## Slide 6 — How Splice Ops deploys it
 
 **Eyebrow:** Labs builds, Works deploys
 
-**Headline:** Station is the control plane underneath every Splice Works engagement.
+**Headline:** Station is the control plane underneath every Splice Ops engagement.
 
-**Body:** Splice Works installs three things at every client: Splice Station, a scoped harness, and a client-specific brain. Station is the one layer that never gets rebuilt — it's Splice Labs IP, licensed into the deployment, not reinvented per client.
+**Body:** Splice Ops installs three things at every client: Splice Station, a scoped harness, and a client-specific brain. Station is the one layer that never gets rebuilt — it's Splice Labs IP, licensed into the deployment, not reinvented per client.
 
 **Diagram — bidirectional:**
-**Splice Labs** (builds Station + harness IP) ⇄ **Splice Works** (deploys it under governance, into real client operations)
+**Splice Labs** (builds Station + harness IP) ⇄ **Splice Ops** (deploys it under governance, into real client operations)
 
 ---
 
@@ -124,7 +124,7 @@ Harness declared (`station-pack.yaml`) → Sandbox (dry-run on real data) → Sh
 
 **Headline:** Anyone can wire an agent to an API. Station is what makes that safe enough to run — and reusable enough to compound.
 
-**Body:** Splice Station is Splice Labs' governed harness runtime, deployed into every Splice Works engagement. Built once, hardened continuously, running everywhere Splice Works ships.
+**Body:** Splice Station is Splice Labs' governed harness runtime, deployed into every Splice Ops engagement. Built once, hardened continuously, running everywhere Splice Ops ships.
 
 **Line:** Individual harnesses may commoditize. The moat is the governance substrate, the portable harness library, and the compounding vertical intelligence underneath them.
 
@@ -133,6 +133,6 @@ Harness declared (`station-pack.yaml`) → Sandbox (dry-run on real data) → Sh
 ## Open items before this becomes final external copy
 
 - Confirm the version marker ("v0.2", "prototype runtime") is the current disclosable status before this is shown outside Splice Labs/Works.
-- Confirm no specific client/harness names are attached to slide 6 or the closing moat line without separate sign-off — mirrors the same open item on the Splice Works narrative.
+- Confirm no specific client/harness names are attached to slide 6 or the closing moat line without separate sign-off — mirrors the same open item on the Splice Ops narrative.
 - Slide 7's "Live today / In build" split should be re-verified against `docs/architecture/station-build-plan.md` immediately before any external use, since it will drift as the runtime ships.
 - This deck is scoped as internal/Labs-Works reference material, not an investor-facing artifact — confirm audience before any external distribution.

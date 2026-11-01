@@ -1,6 +1,6 @@
 ---
 url: /tools/ai-check-up
-title: "Free AI Check-up: How Ready Is Your Company for AI? | Splice Works"
+title: "Free AI Check-up: How Ready Is Your Company for AI? | Splice Ops"
 description: "Sixteen questions, about seven minutes: see where your company is on the path from AI-absent to AI-native, and whether the basics are in place to support it. A free AI readiness assessment."
 reader: "A CEO, founder or leader who wants to know where the company stands on AI before deciding what to do next"
 job: "Find out where you are on the path, then book a working session"
@@ -48,7 +48,7 @@ Each level needs its own basics in place, and all of them, so one strength can't
 
 We place each area at the level its foundations support. "I don't know" counts as not yet in place, and the result says so. If two answers don't fit together, we ask about them before showing your result. It's a short form of the method we use when we assess a team. The check-up runs in your browser and doesn't store or send your answers.
 
-Updated 31 Oct 2026 · Splice Works
+Updated 31 Oct 2026 · Splice Ops
 
 ## Where you can land
 

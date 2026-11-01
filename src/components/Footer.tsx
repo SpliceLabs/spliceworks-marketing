@@ -20,10 +20,10 @@ export function Footer() {
       <div className={styles.footerInner}>
         <div className={styles.footerGrid}>
           <div className={styles.brand}>
-            <Link href="/" aria-label="Splice Works — part of Splice Labs Group">
+            <Link href="/" aria-label="Splice Ops — part of Splice Labs Group">
               <Image
                 src="/logo/dark/lockup-endorsed@2x.png"
-                alt="Splice Works — part of Splice Labs Group"
+                alt="Splice Ops — part of Splice Labs Group"
                 width={256}
                 height={64}
                 style={{ height: 64, width: "auto", margin: "-14px 0 0 -22px" }}
@@ -48,7 +48,7 @@ export function Footer() {
         </div>
 
         <div className={styles.footerBottom}>
-          <span>© {currentYear} Splice Works · Part of Splice Labs Group</span>
+          <span>© {currentYear} Splice Ops · Part of Splice Labs Group</span>
         </div>
       </div>
     </footer>

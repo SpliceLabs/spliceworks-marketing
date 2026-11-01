@@ -1,6 +1,6 @@
 ---
 url: /services/fractional
-title: Fractional Chief AI Officer, CPTO and CTO | Splice Works
+title: Fractional Chief AI Officer, CPTO and CTO | Splice Ops
 description: A fractional Chief AI Officer, CPTO or CTO on your leadership team, without a full-time hire. Outcomes agreed in writing and reviewed every quarter.
 reader: A CEO, board or founder who needs AI leadership before or beside an engagement, and has no one in the seat
 job: See which seat fits and what it answers for each quarter, then book a working session to start
