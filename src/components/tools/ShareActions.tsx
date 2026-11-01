@@ -32,7 +32,8 @@ export function ShareActions({ line, cta }: Readonly<{ line: string; cta: string
           {cta} <span aria-hidden="true">→</span>
         </Link>
         <p className={styles.note}>
-          Estimate only, not financial advice. Your inputs are kept in this page&rsquo;s link.
+          Estimate only, not financial advice. Your numbers are saved in this page&rsquo;s web address, so anyone you
+          send the link to can see them.
         </p>
       </div>
     </>

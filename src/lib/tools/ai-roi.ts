@@ -5,7 +5,7 @@
  * Pure functions, shared by the calculator, its server-rendered default
  * result and the shareable link.
  */
-import { formatMonths, formatPercent, formatUsd } from "./format";
+import { formatMonths, formatNet, formatPercent, formatUsd } from "./format";
 import { inputCodec, type ToolInputs } from "./inputs";
 
 export type AiRoiInputs = ToolInputs<
@@ -103,23 +103,17 @@ export const aiRoi = (raw: AiRoiInputs): AiRoiResult => {
   };
 };
 
-/** One sentence for a board deck. */
+/** A few sentences for a board deck. */
 export const aiRoiLine = (inputs: AiRoiInputs): string => {
   const { team } = AI_ROI.sanitize(inputs);
-  const { investment, value, benefit, roi, paybackMonths, yearTwoBenefit } = aiRoi(inputs);
-  const opening = `Rolling AI out to our ${team}-person team costs about ${formatUsd(investment)} in year one and frees about ${formatUsd(value)} of capacity`;
-  if (benefit < 0) {
-    const yearTwo = (year: "Year" | "year") =>
-      yearTwoBenefit < 0
-        ? `${year} two is still about ${formatUsd(-yearTwoBenefit)} behind`
-        : `${year} two nets about ${formatUsd(yearTwoBenefit)}`;
-    const later =
-      paybackMonths === null
-        ? `${yearTwo("Year")}.`
-        : `Payback comes in about ${formatMonths(paybackMonths)}, and ${yearTwo("year")}.`;
-    return `${opening}, so year one comes out about ${formatUsd(-benefit)} behind. ${later}`;
-  }
-  const payback = paybackMonths === null ? "" : `, paid back in about ${formatMonths(paybackMonths)}`;
-  const pct = roi === null ? "" : `, a ${formatPercent(roi)} return`;
-  return `${opening}: a net ${formatUsd(benefit)}${pct}${payback}.`;
+  const { hardCosts, dipCost, investment, value, benefit, roi, paybackMonths, yearTwoBenefit } = aiRoi(inputs);
+  const lost = dipCost > 0 ? `, plus about ${formatUsd(dipCost)} of output lost while people learn, and` : " and";
+  const opening = `Rolling AI out to our ${team}-person team costs about ${formatUsd(hardCosts)} in year one${lost} saves time worth about ${formatUsd(value)}.`;
+  const pct = benefit >= 0 && roi !== null ? `, a ${formatPercent(roi)} return` : "";
+  const yearOne = `Year one comes out about ${formatNet(benefit)}${pct}.`;
+  const yearTwo = (year: "Year" | "year") => `${year} two comes out about ${formatNet(yearTwoBenefit)}`;
+  if (paybackMonths !== null)
+    return `${opening} ${yearOne} It pays back in about ${formatMonths(paybackMonths)}, and ${yearTwo("year")}.`;
+  const never = investment > 0 ? ", so it doesn't pay back" : "";
+  return `${opening} ${yearOne} ${yearTwo("Year")}${never}.`;
 };

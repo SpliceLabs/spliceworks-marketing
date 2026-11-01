@@ -1,12 +1,9 @@
 import { AI_ROI, aiRoi, aiRoiLine, type AiRoiInputs, type AiRoiResult } from "@/lib/tools/ai-roi";
-import { formatMonths, formatPercent, formatUsd } from "@/lib/tools/format";
+import { formatMonths, formatNet, formatPercent, formatUsd } from "@/lib/tools/format";
 import { ShareActions } from "./ShareActions";
 import styles from "./Calculator.module.css";
 
 const MOST_TIME_SAVED = AI_ROI.ranges.timeSaved.max;
-
-// A minus sign is easy to miss, so say which way the year went.
-const net = (n: number) => (n < 0 ? `${formatUsd(-n)} behind` : `${formatUsd(n)} ahead`);
 
 const breakEven = (r: AiRoiResult) => {
   if (r.breakEvenTimeSaved === null) return "The dip lasts all year, so year one can't break even.";
@@ -33,7 +30,7 @@ export function AiRoiResults({ inputs }: Readonly<{ inputs: AiRoiInputs }>) {
     ["Value of time saved in year one", formatUsd(r.value)],
     ["Return on investment", roi(r)],
     ["Pays back in", payback(r)],
-    ["Year two, after costs", net(r.yearTwoBenefit)],
+    ["Year two, after costs", formatNet(r.yearTwoBenefit)],
   ];
 
   return (
@@ -42,7 +39,7 @@ export function AiRoiResults({ inputs }: Readonly<{ inputs: AiRoiInputs }>) {
         <div className={styles.figure}>
           <dt>Year one, after costs</dt>
           <dd className={styles.primary} aria-live="polite">
-            {net(r.benefit)}
+            {formatNet(r.benefit)}
           </dd>
         </div>
         {figures.map(([term, value]) => (

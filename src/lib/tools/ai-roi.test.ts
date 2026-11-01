@@ -64,13 +64,19 @@ describe("shareable ROI inputs", () => {
 describe("aiRoiLine", () => {
   it("gives a line an executive can paste", () => {
     expect(aiRoiLine({ ...AI_ROI.defaults, timeSaved: 20 })).toBe(
-      "Rolling AI out to our 50-person team costs about $926,500 in year one and frees about $1,320,000 of capacity: a net $393,500, a 42% return, paid back in about 9 months.",
+      "Rolling AI out to our 50-person team costs about $596,500 in year one, plus about $330,000 of output lost while people learn, and saves time worth about $1,320,000. Year one comes out about $393,500 ahead, a 42% return. It pays back in about 9 months, and year two comes out about $1,643,500 ahead.",
     );
   });
 
   it("says plainly when year one comes out behind", () => {
     expect(aiRoiLine(AI_ROI.defaults)).toBe(
-      "Rolling AI out to our 50-person team costs about $926,500 in year one and frees about $825,000 of capacity, so year one comes out about $101,500 behind. Payback comes in about 13 months, and year two nets about $983,500.",
+      "Rolling AI out to our 50-person team costs about $596,500 in year one, plus about $330,000 of output lost while people learn, and saves time worth about $825,000. Year one comes out about $101,500 behind. It pays back in about 13 months, and year two comes out about $983,500 ahead.",
+    );
+  });
+
+  it("says when it never pays back, and leaves out lost output when there's no dip", () => {
+    expect(aiRoiLine({ ...AI_ROI.defaults, timeSaved: 0.5, dipPercent: 0 })).toBe(
+      "Rolling AI out to our 50-person team costs about $596,500 in year one and saves time worth about $33,000. Year one comes out about $563,500 behind. Year two comes out about $72,500 behind, so it doesn't pay back.",
     );
   });
 });

@@ -73,7 +73,7 @@ describe("AiRoiCalculator", () => {
     const html = renderToStaticMarkup(<AiRoiCalculator />);
     expect(html).toContain("$101,500 behind");
     expect(html).toContain(
-      "year one comes out about $101,500 behind. Payback comes in about 13 months, and year two nets about $983,500.",
+      "Year one comes out about $101,500 behind. It pays back in about 13 months, and year two comes out about $983,500 ahead.",
     );
   });
 });
