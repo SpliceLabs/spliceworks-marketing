@@ -6,8 +6,11 @@ export const formatNet = (n: number): string => (n < 0 ? `${formatUsd(-n)} behin
 
 export const formatPercent = (fraction: number): string => `${Math.round(fraction * 100)}%`;
 
-/** Whole months, at least one. */
-export const formatMonths = (n: number): string => {
-  const whole = Math.max(1, Math.round(n));
-  return `${whole} month${whole === 1 ? "" : "s"}`;
+/** A whole number with its noun, e.g. "1 workflow" or "0 months". */
+export const formatCount = (n: number, noun: string): string => {
+  const whole = Math.round(n);
+  return `${whole} ${noun}${whole === 1 ? "" : "s"}`;
 };
+
+/** Whole months, at least one. */
+export const formatMonths = (n: number): string => formatCount(Math.max(1, n), "month");

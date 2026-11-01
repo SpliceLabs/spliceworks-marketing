@@ -20,6 +20,18 @@ describe("CostOfDelayCalculator", () => {
     expect(screen.getByText("Over 9 months").nextElementSibling?.textContent).toBe("$900,000");
   });
 
+  it("says the unit of every control, in the box and on the slider", () => {
+    openAt("?o=1&v=10000&l=0");
+    const readout = (name: string) => screen.getByRole("slider", { name }).getAttribute("aria-valuetext");
+    expect(readout("AI opportunities")).toBe("1 workflow");
+    expect(readout("Value of each workflow")).toBe("$10,000 per workflow a month");
+    expect(readout("Months you wait")).toBe("0 months");
+    expect(
+      screen.getByRole("spinbutton", { name: "Value of each workflow, in dollars per workflow a month" }),
+    ).toBeDefined();
+    expect(screen.getByText("per workflow a month")).toBeDefined();
+  });
+
   it("updates the result and the page link as a slider moves", () => {
     openAt("");
     fireEvent.change(screen.getByRole("slider", { name: "AI opportunities" }), { target: { value: "5" } });
@@ -29,7 +41,7 @@ describe("CostOfDelayCalculator", () => {
 
   it("applies a typed value only when the field loses focus, kept inside the range", () => {
     openAt("");
-    const exact = screen.getByRole("spinbutton", { name: "Months until you start, exact value" });
+    const exact = screen.getByRole("spinbutton", { name: "Months you wait, in months" });
     fireEvent.change(exact, { target: { value: "99" } });
     expect(window.location.search).toBe("");
     fireEvent.blur(exact);
@@ -39,7 +51,7 @@ describe("CostOfDelayCalculator", () => {
 
   it("applies a typed value when Enter is pressed", () => {
     openAt("");
-    const exact = screen.getByRole("spinbutton", { name: "Monthly value of each, exact value" });
+    const exact = screen.getByRole("spinbutton", { name: "Value of each workflow, in dollars per workflow a month" });
     fireEvent.change(exact, { target: { value: "20000" } });
     fireEvent.keyDown(exact, { key: "Enter" });
     expect(monthlyCost()).toBe("$60,000");
@@ -53,16 +65,16 @@ describe("CostOfDelayCalculator", () => {
 
   it("keeps focus in the box after Enter, so keyboard users can carry on", () => {
     openAt("");
-    const exact = screen.getByRole("spinbutton", { name: "AI opportunities, exact value" });
+    const exact = screen.getByRole("spinbutton", { name: "AI opportunities, in workflows" });
     exact.focus();
     fireEvent.change(exact, { target: { value: "7" } });
     fireEvent.keyDown(exact, { key: "Enter" });
-    expect(document.activeElement).toBe(screen.getByRole("spinbutton", { name: "AI opportunities, exact value" }));
+    expect(document.activeElement).toBe(screen.getByRole("spinbutton", { name: "AI opportunities, in workflows" }));
   });
 
   it("shows the kept value, not the typed one, when an entry snaps back to it", () => {
     openAt("?o=3&v=10000&l=24");
-    const exact = screen.getByRole("spinbutton", { name: "Months until you start, exact value" });
+    const exact = screen.getByRole("spinbutton", { name: "Months you wait, in months" });
     fireEvent.change(exact, { target: { value: "99" } });
     fireEvent.blur(exact);
     expect(exact).toHaveProperty("value", "24");
