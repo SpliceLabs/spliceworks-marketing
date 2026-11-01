@@ -22,11 +22,10 @@ export function Footer() {
           <div className={styles.brand}>
             <Link href="/" aria-label="Splice Ops — part of Splice Labs Group">
               <Image
-                src="/logo/dark/lockup-endorsed@2x.png"
+                src="/logo/splice-ops-lockup.svg"
                 alt="Splice Ops — part of Splice Labs Group"
-                width={256}
-                height={64}
-                style={{ height: 64, width: "auto", margin: "-14px 0 0 -22px" }}
+                width={160}
+                height={40}
               />
             </Link>
             <p className={styles.description}>Put AI to work. Keep people accountable.</p>

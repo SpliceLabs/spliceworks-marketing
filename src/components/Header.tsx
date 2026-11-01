@@ -32,19 +32,8 @@ export function Header() {
       </a>
       <div className={styles.headerInner}>
         <Link href="/" className={styles.logo} aria-label="Splice Ops — part of Splice Labs Group">
-          <span className={styles.logoImg}>
-            <Image
-              src={isDark ? "/logo/dark/mark@2x.png" : "/logo/light/mark@2x.png"}
-              alt=""
-              width={56}
-              height={31}
-              priority
-            />
-          </span>
-          <span className={styles.logoText}>
-            <span className={styles.wordmark}>Splice Ops</span>
-            <span className={styles.endorsement}>part of Splice Labs Group</span>
-          </span>
+          <Image src="/logo/splice-ops-lockup.svg" alt="" width={128} height={32} priority className={styles.logoImg} />
+          <span className={styles.endorsement}>part of Splice Labs Group</span>
         </Link>
 
         <nav className={styles.nav} aria-label="Main navigation">

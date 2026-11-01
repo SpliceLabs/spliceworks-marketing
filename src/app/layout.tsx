@@ -45,10 +45,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/logo/light/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/logo/light/favicon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/logo/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo/favicon-48.png", sizes: "48x48", type: "image/png" },
     ],
-    apple: "/logo/light/favicon-48.png",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     title: "Splice Ops",
@@ -79,7 +79,7 @@ const organization = {
   "@id": ORGANIZATION_ID,
   name: "Splice Ops",
   url: SITE_URL,
-  logo: absoluteUrl("/logo/light/icon-512.png"),
+  logo: absoluteUrl("/logo/icon-512.png"),
   email: CONTACT_EMAIL,
   description:
     "Splice Ops is a forward-deployed AI enablement team. It puts AI to work in existing companies and keeps a named person accountable at every gate.",

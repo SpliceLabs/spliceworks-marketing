@@ -36,25 +36,9 @@
 }
 
 .logoImg {
-  position: relative;
-  width: 56px;
-  height: 31px;
+  width: 128px;
+  height: 32px;
   flex: none;
-}
-
-.logoText {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  white-space: nowrap;
-}
-
-.wordmark {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 1;
-  letter-spacing: -0.035em;
 }
 
 .endorsement {
@@ -195,7 +179,7 @@
 }
 
 @media (max-width: 640px) {
-  .logoText {
+  .endorsement {
     display: none;
   }
 }
