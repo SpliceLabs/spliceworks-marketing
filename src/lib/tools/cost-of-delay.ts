@@ -17,9 +17,9 @@ export type CostOfDelayResult = Readonly<{
 
 export const COST_OF_DELAY = inputCodec({
   ranges: {
-    opportunities: { min: 1, max: 10, step: 1 },
-    monthlyValue: { min: 500, max: 500_000, step: 500 },
-    lagMonths: { min: 1, max: 24, step: 1 },
+    opportunities: { min: 0, max: 10, step: 1 },
+    monthlyValue: { min: 0, max: 500_000, step: 500 },
+    lagMonths: { min: 0, max: 24, step: 1 },
   },
   defaults: { opportunities: 3, monthlyValue: 10_000, lagMonths: 6 },
   queryKeys: { opportunities: "o", monthlyValue: "v", lagMonths: "l" },

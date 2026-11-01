@@ -16,17 +16,28 @@ describe("costOfDelay", () => {
     });
   });
 
+  it("shows nothing lost when there are no workflows, no value or no wait", () => {
+    expect(costOfDelay({ opportunities: 0, monthlyValue: 10_000, lagMonths: 6 }).cumulative).toBe(0);
+    expect(costOfDelay({ opportunities: 3, monthlyValue: 0, lagMonths: 6 }).monthly).toBe(0);
+    expect(costOfDelay({ opportunities: 3, monthlyValue: 10_000, lagMonths: 0 })).toEqual({
+      monthly: 30_000,
+      cumulative: 0,
+      conservative: 0,
+    });
+  });
+
   it("keeps inputs inside the ranges the calculator offers", () => {
-    expect(costOfDelay({ opportunities: 50, monthlyValue: 1, lagMonths: 99 })).toEqual({
+    expect(costOfDelay({ opportunities: 50, monthlyValue: 600, lagMonths: 99 })).toEqual({
       monthly: 5_000,
       cumulative: 120_000,
       conservative: 60_000,
     });
-    expect(costOfDelay({ opportunities: 0, monthlyValue: 9_000_000, lagMonths: 0 })).toEqual({
-      monthly: 500_000,
-      cumulative: 500_000,
-      conservative: 250_000,
+    expect(costOfDelay({ opportunities: -2, monthlyValue: 9_000_000, lagMonths: -1 })).toEqual({
+      monthly: 0,
+      cumulative: 0,
+      conservative: 0,
     });
+    expect(costOfDelay({ opportunities: 1, monthlyValue: 9_000_000, lagMonths: 1 }).monthly).toBe(500_000);
   });
 
   it("snaps inputs to the calculator's steps: whole opportunities and months, $500 increments", () => {
@@ -76,6 +87,6 @@ describe("shareable inputs", () => {
   });
 
   it("clamps shared values into range", () => {
-    expect(parseCostOfDelayInputs("o=99&v=10&l=0")).toEqual({ opportunities: 10, monthlyValue: 500, lagMonths: 1 });
+    expect(parseCostOfDelayInputs("o=99&v=10&l=-3")).toEqual({ opportunities: 10, monthlyValue: 0, lagMonths: 0 });
   });
 });
