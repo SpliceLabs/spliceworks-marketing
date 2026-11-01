@@ -1,10 +1,10 @@
 /**
- * AI cost of delay: what each month of waiting on AI costs, before any
- * implementation spend. Pure functions, shared by the calculator, its
+ * AI cost of delay: the value each month of waiting on AI leaves unclaimed,
+ * before any implementation cost. Pure functions, shared by the calculator, its
  * server-rendered default result and the shareable link.
  */
 
-import { formatUsd } from "./format";
+import { formatCount, formatUsd } from "./format";
 import { inputCodec, type ToolInputs } from "./inputs";
 
 export type CostOfDelayInputs = ToolInputs<"opportunities" | "monthlyValue" | "lagMonths">;
@@ -31,7 +31,7 @@ export const sanitizeCostOfDelayInputs = COST_OF_DELAY.sanitize;
 export const serializeCostOfDelayInputs = COST_OF_DELAY.serialize;
 export const parseCostOfDelayInputs = COST_OF_DELAY.parse;
 
-/** Share of the full estimate we show as the conservative case. */
+/** Share of the total we count if value builds up slowly. An assumption, not a measured figure. */
 export const CONSERVATIVE_SHARE = 0.5;
 
 export const costOfDelay = (inputs: CostOfDelayInputs): CostOfDelayResult => {
@@ -41,10 +41,8 @@ export const costOfDelay = (inputs: CostOfDelayInputs): CostOfDelayResult => {
   return { monthly, cumulative, conservative: cumulative * CONSERVATIVE_SHARE };
 };
 
-export { formatUsd };
-
 export const execLine = (inputs: CostOfDelayInputs): string => {
   const { lagMonths } = sanitizeCostOfDelayInputs(inputs);
-  const { monthly, cumulative } = costOfDelay(inputs);
-  return `Every month we wait on AI costs us about ${formatUsd(monthly)}. A ${lagMonths}-month delay costs about ${formatUsd(cumulative)} before we spend a dollar on implementation.`;
+  const { monthly, cumulative, conservative } = costOfDelay(inputs);
+  return `Every month we wait on AI, we miss about ${formatUsd(monthly)} of value. Waiting ${formatCount(lagMonths, "month")} misses about ${formatUsd(cumulative)}, or ${formatUsd(conservative)} if value builds up slowly. Both are before any implementation cost.`;
 };

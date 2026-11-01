@@ -70,7 +70,7 @@ describe("CostOfDelayCalculator", () => {
   it("renders the default worked result on the server, before any script runs", () => {
     const html = renderToStaticMarkup(<CostOfDelayCalculator />);
     expect(html).toContain("$30,000");
-    expect(html).toContain("A 6-month delay costs about $180,000");
+    expect(html).toContain("Waiting 6 months misses about $180,000");
   });
 
   it("keeps focus in the box after Enter, so keyboard users can carry on", () => {

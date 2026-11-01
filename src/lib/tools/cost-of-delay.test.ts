@@ -60,13 +60,13 @@ describe("costOfDelay", () => {
 describe("execLine", () => {
   it("gives a line an executive can paste", () => {
     expect(execLine({ opportunities: 3, monthlyValue: 10_000, lagMonths: 6 })).toBe(
-      "Every month we wait on AI costs us about $30,000. A 6-month delay costs about $180,000 before we spend a dollar on implementation.",
+      "Every month we wait on AI, we miss about $30,000 of value. Waiting 6 months misses about $180,000, or $90,000 if value builds up slowly. Both are before any implementation cost.",
     );
   });
 
   it("says month, not months, for a one-month delay", () => {
     expect(execLine({ opportunities: 1, monthlyValue: 500, lagMonths: 1 })).toContain(
-      "A 1-month delay costs about $500",
+      "Waiting 1 month misses about $500,",
     );
   });
 });
