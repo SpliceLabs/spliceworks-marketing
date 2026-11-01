@@ -87,7 +87,7 @@
   display: block;
   height: 2px;
   margin-top: 4px;
-  background: var(--color-primary);
+  background: var(--color-accent-ring);
   border-radius: 1px;
   width: 0;
   transition: width var(--duration-panel) var(--ease-move);

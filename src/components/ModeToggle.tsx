@@ -71,7 +71,7 @@ export function ModeToggle() {
         }
 
         .mode-toggle-labels span.active {
-          color: var(--text-body);
+          color: var(--color-accent-text);
         }
 
         .mode-toggle:focus-visible {
