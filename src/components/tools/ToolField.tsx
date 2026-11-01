@@ -2,17 +2,23 @@ import { useId, useState, type KeyboardEvent } from "react";
 import type { Range } from "@/lib/tools/inputs";
 import styles from "./Calculator.module.css";
 
+/** Shown either side of the number box, e.g. "$" and "per person a year". */
+export type Unit = Readonly<{ dollars?: boolean; after: string }>;
+
 export type FieldSpec<K extends string> = Readonly<{
   key: K;
   label: string;
   hint: string;
   format: (n: number) => string;
+  unit?: Unit;
 }>;
+
+const spoken = (unit: Unit) => `in ${unit.dollars ? "dollars " : ""}${unit.after}`;
 
 type Props = Readonly<{ field: FieldSpec<string>; range: Range; value: number; onChange: (value: number) => void }>;
 
 /** A slider plus an exact-value box. Typed values apply on blur or Enter, so a half-typed number isn't clamped mid-entry. */
-export function ToolField({ field: { label, hint, format }, range, value, onChange }: Props) {
+export function ToolField({ field: { label, hint, format, unit }, range, value, onChange }: Props) {
   const id = useId();
   // What's being typed; null shows the committed value.
   const [draft, setDraft] = useState<string | null>(null);
@@ -30,16 +36,24 @@ export function ToolField({ field: { label, hint, format }, range, value, onChan
         <label htmlFor={id} className={styles.label}>
           {label}
         </label>
-        <input
-          type="number"
-          className={styles.number}
-          aria-label={`${label}, exact value`}
-          {...range}
-          value={draft ?? value}
-          onChange={(e) => setDraft(e.currentTarget.value)}
-          onBlur={commit}
-          onKeyDown={commitOnEnter}
-        />
+        <span className={styles.entry}>
+          {unit?.dollars && <span aria-hidden="true">$</span>}
+          <input
+            type="number"
+            className={styles.number}
+            aria-label={`${label}, ${unit ? spoken(unit) : "exact value"}`}
+            {...range}
+            value={draft ?? value}
+            onChange={(e) => setDraft(e.currentTarget.value)}
+            onBlur={commit}
+            onKeyDown={commitOnEnter}
+          />
+          {unit && (
+            <span className={styles.unit} aria-hidden="true">
+              {unit.after}
+            </span>
+          )}
+        </span>
       </div>
       <input
         id={id}

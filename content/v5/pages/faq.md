@@ -126,7 +126,7 @@ Show them what waiting costs, in dollars, on work they recognize. Pick one to th
 
 ### How do you calculate the ROI of AI?
 
-Add up what the rollout costs in year one: tools, training, infrastructure and the dip in output while people learn. Then work out the capacity it frees: people × cost per person × the share of time AI saves. Net benefit is that capacity minus the cost, and ROI is net benefit divided by the cost. [Run the numbers](/tools/ai-roi-calculator).
+Add up what the rollout costs in year one: tools, training, platform and security, and the output lost while people learn. Then work out the value of the time AI saves: people × cost per person × the share of work time AI saves, counted only for the months after people have learned. Net benefit is that value minus the cost, and ROI is net benefit divided by the cost. [Run the numbers](/tools/ai-roi-calculator).
 
 ### Is time saved by AI real money?
 
@@ -134,7 +134,7 @@ Only if you use it. Freed hours become money when they go into work you'd otherw
 
 ### How much time does AI really save?
 
-It depends on the work, so measure one workflow before you commit. Our calculator starts at 12.5% of each person's time, the default in DORA's AI ROI calculator. Treat that as a starting point, not a promise, and use your own number once you have it.
+It depends on the work, so measure one workflow before you commit. Our calculator starts at 12.5% of each person's work time, the default in DORA's AI ROI calculator. Treat that as a starting point, not a promise, and use your own number once you have it.
 
 ### Why does AI make teams slower before they get faster?
 
@@ -146,7 +146,7 @@ Don't put everyone through it at once. Start with one workflow and the few peopl
 
 ### How long does AI take to pay back?
 
-Divide the first-year cost by the monthly value of the time it frees, then add the months the dip lasts, since nothing is saved until it ends. With our calculator's defaults, a 50-person team pays back in about 13 months. Your own numbers will move that a lot, which is why we test them on a real workflow.
+Count the months until the time AI saves has covered the year-one cost. Nothing is saved while people are still learning, and from year two the tools and platform costs come back, so take those off. With our calculator's starting values, a 50-person team pays back in about 13 months. Your own numbers will move that a lot, which is why we test them on a real workflow.
 
 ## Getting ready for AI
 

@@ -28,9 +28,24 @@
 
 .fieldHead {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: var(--space-4);
+  gap: var(--space-2) var(--space-4);
+}
+
+.entry {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-1);
+  font-family: var(--font-mono);
+  color: var(--color-ink);
+}
+
+.unit {
+  font-family: var(--font-ui);
+  font-size: var(--text-caption);
+  color: var(--color-muted);
 }
 
 .label {
