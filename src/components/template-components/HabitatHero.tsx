@@ -221,8 +221,8 @@ const AGENTS: Agent[] = [
     id: "scout",
     name: "Evidence intake",
     role: "research",
-    shirt: "#2447E8",
-    pants: "#152238",
+    shirt: "#b8481b",
+    pants: "#1a1d21",
     skin: "#D9A277",
     home: [229, 202, 28],
     carry: true,
@@ -239,8 +239,8 @@ const AGENTS: Agent[] = [
     id: "mica",
     name: "Path ranking",
     role: "coordination",
-    shirt: "#2447E8",
-    pants: "#28334A",
+    shirt: "#b8481b",
+    pants: "#2a323a",
     skin: "#B97952",
     home: [600, 90, 28],
     active: [1],
@@ -256,8 +256,8 @@ const AGENTS: Agent[] = [
     id: "forge",
     name: "Assembly",
     role: "build",
-    shirt: "#152238",
-    pants: "#0A1220",
+    shirt: "#1a1d21",
+    pants: "#0a0d10",
     skin: "#E2B38C",
     home: [832, 188, 28],
     active: [2],
@@ -274,7 +274,7 @@ const AGENTS: Agent[] = [
     name: "Ari",
     role: "human approver",
     human: true,
-    shirt: "#FF6848",
+    shirt: "#b8407a",
     pants: "#553025",
     skin: "#C88964",
     home: [219, 524, 22],
@@ -292,8 +292,8 @@ const AGENTS: Agent[] = [
     id: "orbit",
     name: "Runtime monitor",
     role: "operations",
-    shirt: "#2447E8",
-    pants: "#25384F",
+    shirt: "#b8481b",
+    pants: "#2a323a",
     skin: "#8E5739",
     home: [640, 728, 28],
     active: [4],
@@ -309,8 +309,8 @@ const AGENTS: Agent[] = [
     id: "nell",
     name: "Interview capture",
     role: "analyst",
-    shirt: "#7A4DB3",
-    pants: "#28334A",
+    shirt: "#7b5bb5",
+    pants: "#2a323a",
     skin: "#E4B896",
     home: [165, 346, 0],
     work: { 0: [125, 296, 0] },
@@ -327,8 +327,8 @@ const AGENTS: Agent[] = [
     id: "theo",
     name: "Metrics tracking",
     role: "data",
-    shirt: "#3E6A9E",
-    pants: "#25384F",
+    shirt: "#2f6fb0",
+    pants: "#2a323a",
     skin: "#D9A277",
     home: [470, 600, 0],
     work: { 4: [585, 690, 0] },
@@ -345,7 +345,7 @@ const AGENTS: Agent[] = [
     id: "sol",
     name: "Test run",
     role: "qa",
-    shirt: "#1E9E6A",
+    shirt: "#0b7a4b",
     pants: "#163D31",
     skin: "#E2B38C",
     home: [930, 120, 0],
@@ -381,7 +381,7 @@ const AGENTS: Agent[] = [
     id: "juno",
     name: "Access audit",
     role: "security",
-    shirt: "#D98E14",
+    shirt: "#e8a317",
     pants: "#4A3A16",
     skin: "#C88964",
     home: [940, 330, 0],
@@ -399,8 +399,8 @@ const AGENTS: Agent[] = [
     id: "kit",
     name: "Release check",
     role: "release",
-    shirt: "#152238",
-    pants: "#25384F",
+    shirt: "#1a1d21",
+    pants: "#2a323a",
     skin: "#B97952",
     home: [860, 660, 0],
     work: { 4: [905, 585, 0] },
@@ -861,7 +861,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
           : chapter > Math.max(...ag.active)
             ? `done · ${ag.task}`
             : "idle · waiting for handoff",
-        statusColor: busy ? "#2447E8" : "#4A515C",
+        statusColor: busy ? "#b8481b" : "#5a5e64",
         hasChapter: true,
         ch: ag.ch,
       };
@@ -872,7 +872,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
       const p = proposal;
       const bodyText = typeof it.body === "function" ? it.body(p) : it.body;
       let status = "";
-      let statusColor = "#2447E8";
+      let statusColor = "#b8481b";
       if (sel === "gate") {
         status = waiting
           ? "waiting for Ari · checks 3/3"
@@ -881,7 +881,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             : chapter === 2
               ? "checks running 0/3"
               : "closed";
-        statusColor = waiting ? "#FF6848" : "#2447E8";
+        statusColor = waiting ? "#b8407a" : "#b8481b";
       } else if (sel === "dock") {
         status = done ? `ready · ${p.artifact}` : "empty";
       } else if (sel === "hub") {
@@ -917,7 +917,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
         access: "scoped",
         limits: "Cannot approve itself",
         status: chapter === st.ch ? "active" : "waiting",
-        statusColor: chapter === st.ch ? "#2447E8" : "#4A515C",
+        statusColor: chapter === st.ch ? "#b8481b" : "#5a5e64",
         hasChapter: true,
         ch: st.ch,
       };
@@ -931,26 +931,26 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
   const themeColors = useMemo(() => {
     return isDark
       ? {
-          stage: "#080E1A", // deeper dark for contrast
-          plane: "#0F1A30", // dark surface
-          planeLine: "#2447E8", // primary blue glow lines
-          grid: "#1a2744", // subtle grid
+          stage: "#090b0e", // deeper dark for contrast
+          plane: "#0e1114", // dark surface
+          planeLine: "#ee6a33", // primary orange glow lines
+          grid: "#1a2026", // subtle grid
           text: "#FFFFFF", // pure white text
-          muted: "#AEB8CC", // muted
-          accent: "#2447E8", // primary blue
-          card: "#152238", // card bg
-          line: "#2E3F66", // line
+          muted: "#8f98a1", // muted
+          accent: "#ee6a33", // primary orange
+          card: "#151a1f", // card bg
+          line: "#262e36", // line
         }
       : {
-          stage: "#0F1A30", // dark stage even in light mode for drama
+          stage: "#0e1114", // dark stage even in light mode for drama
           plane: "#FFFFFF", // bright white plane for contrast
-          planeLine: "#2447E8", // primary blue lines
-          grid: "#E8EDFF", // light blue-tinted grid
-          text: "#152238", // dark text
-          muted: "#52607A", // muted
-          accent: "#2447E8", // primary blue
+          planeLine: "#b8481b", // primary orange lines
+          grid: "#ebe6d9", // warm paper grid
+          text: "#1a1d21", // dark text
+          muted: "#5a5e64", // muted
+          accent: "#b8481b", // primary orange
           card: "#FFFFFF", // white cards
-          line: "#D9D9CF", // line
+          line: "#d9d2c1", // line
         };
   }, [isDark]);
 
@@ -973,7 +973,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             <div
               className="stage-bg"
               style={{
-                background: `radial-gradient(ellipse at 50% 0%, ${isDark ? "rgba(36,71,232,0.15)" : "rgba(36,71,232,0.08)"} 0%, transparent 60%)`,
+                background: `radial-gradient(ellipse at 50% 0%, ${isDark ? "rgba(238, 106, 51, 0.15)" : "rgba(184, 72, 27, 0.08)"} 0%, transparent 60%)`,
               }}
             />
             <div
@@ -981,7 +981,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
               style={{
                 position: "absolute",
                 inset: "-40px",
-                backgroundImage: `radial-gradient(${isDark ? "rgba(127,164,255,0.4)" : "rgba(36,71,232,0.2)"} 1px, transparent 1px)`,
+                backgroundImage: `radial-gradient(${isDark ? "rgba(238, 106, 51, 0.4)" : "rgba(184, 72, 27, 0.2)"} 1px, transparent 1px)`,
                 backgroundSize: "32px 32px",
                 opacity: 0.6,
               }}
@@ -1014,8 +1014,8 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                 }}
               />
               {/* Plane sides */}
-              <div className="plane-side-bottom" style={{ background: isDark ? "#0A1220" : "#BECDFF" }} />
-              <div className="plane-side-left" style={{ background: isDark ? "#070D18" : "#7FA4FF" }} />
+              <div className="plane-side-bottom" style={{ background: isDark ? "#0a0d10" : "#f1c6ae" }} />
+              <div className="plane-side-left" style={{ background: isDark ? "#07090b" : "#d45a28" }} />
 
               {/* Work Desks with Cubicle Partitions - positioned near agent stations */}
               {[
@@ -1054,8 +1054,8 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                     <span
                       className="partition-back"
                       style={{
-                        background: isDark ? "rgba(46, 63, 102, 0.7)" : "rgba(220, 228, 255, 0.85)",
-                        borderBottom: `2px solid ${isDark ? "#2447E8" : "#7FA4FF"}`,
+                        background: isDark ? "rgba(38, 46, 54, 0.7)" : "rgba(220, 228, 255, 0.85)",
+                        borderBottom: `2px solid ${isDark ? "#ee6a33" : "#d45a28"}`,
                       }}
                     />
                   )}
@@ -1063,8 +1063,8 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                     <span
                       className="partition-left"
                       style={{
-                        background: isDark ? "rgba(36, 71, 232, 0.5)" : "rgba(190, 205, 255, 0.85)",
-                        borderBottom: `2px solid ${isDark ? "#2447E8" : "#7FA4FF"}`,
+                        background: isDark ? "rgba(238, 106, 51, 0.5)" : "rgba(190, 205, 255, 0.85)",
+                        borderBottom: `2px solid ${isDark ? "#ee6a33" : "#d45a28"}`,
                       }}
                     />
                   )}
@@ -1072,33 +1072,33 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   <span
                     className="desk-top"
                     style={{
-                      background: isDark ? "#1F2A3F" : "#FFFFFF",
-                      border: `1px solid ${isDark ? "#2E3F66" : "#BEB7A9"}`,
-                      boxShadow: `inset 0 -5px ${isDark ? "#152238" : "#E8E1D5"}`,
+                      background: isDark ? "#1a2026" : "#FFFFFF",
+                      border: `1px solid ${isDark ? "#262e36" : "#BEB7A9"}`,
+                      boxShadow: `inset 0 -5px ${isDark ? "#151a1f" : "#E8E1D5"}`,
                     }}
                   >
                     {/* Monitor - standing upright */}
                     <span
                       className="desk-monitor"
                       style={{
-                        borderTop: `2px solid ${isDark ? "#2447E8" : "#152238"}`,
-                        borderLeft: `2px solid ${isDark ? "#2447E8" : "#152238"}`,
-                        borderRight: `2px solid ${isDark ? "#2447E8" : "#152238"}`,
-                        borderBottom: `4px solid ${isDark ? "#2447E8" : "#152238"}`,
-                        background: desk.active ? (isDark ? "#2447E8" : "#DCE4FF") : isDark ? "#0F1A30" : "#F5F4EE",
-                        boxShadow: desk.active ? `0 0 8px ${isDark ? "#2447E8" : "#7FA4FF"}` : "none",
+                        borderTop: `2px solid ${isDark ? "#ee6a33" : "#1a1d21"}`,
+                        borderLeft: `2px solid ${isDark ? "#ee6a33" : "#1a1d21"}`,
+                        borderRight: `2px solid ${isDark ? "#ee6a33" : "#1a1d21"}`,
+                        borderBottom: `4px solid ${isDark ? "#ee6a33" : "#1a1d21"}`,
+                        background: desk.active ? (isDark ? "#ee6a33" : "#f8e3d6") : isDark ? "#0e1114" : "#f4f0e6",
+                        boxShadow: desk.active ? `0 0 8px ${isDark ? "#ee6a33" : "#d45a28"}` : "none",
                       }}
                     />
                   </span>
                   {/* Desk sides */}
-                  <span className="desk-side-front" style={{ background: isDark ? "#152238" : "#E3DED3" }} />
-                  <span className="desk-side-left" style={{ background: isDark ? "#0F1A30" : "#D3CDBF" }} />
+                  <span className="desk-side-front" style={{ background: isDark ? "#151a1f" : "#E3DED3" }} />
+                  <span className="desk-side-left" style={{ background: isDark ? "#0e1114" : "#d3cdbf" }} />
                   {/* Chair */}
                   <span
                     className="desk-chair"
                     style={{
-                      background: desk.active ? "#DCE4FF" : "#E8E1D5",
-                      border: `1px solid ${desk.active ? "#2447E8" : "#BEB7A9"}`,
+                      background: desk.active ? "#f8e3d6" : "#E8E1D5",
+                      border: `1px solid ${desk.active ? "#b8481b" : "#BEB7A9"}`,
                     }}
                   />
                 </div>
@@ -1113,7 +1113,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   top: 400,
                   width: 386,
                   transform: "translateZ(1px) rotate(-149.1deg)",
-                  borderColor: isDark ? "#2E3F66" : "#CFC9BD",
+                  borderColor: isDark ? "#262e36" : "#CFC9BD",
                 }}
               />
               <div
@@ -1124,7 +1124,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   top: 400,
                   width: 313,
                   transform: "translateZ(1px) rotate(-82.6deg)",
-                  borderColor: isDark ? "#2E3F66" : "#CFC9BD",
+                  borderColor: isDark ? "#262e36" : "#CFC9BD",
                 }}
               />
               <div
@@ -1135,7 +1135,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   top: 400,
                   width: 345,
                   transform: "translateZ(1px) rotate(-37.9deg)",
-                  borderColor: isDark ? "#2E3F66" : "#CFC9BD",
+                  borderColor: isDark ? "#262e36" : "#CFC9BD",
                 }}
               />
               <div
@@ -1146,7 +1146,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   top: 400,
                   width: 320,
                   transform: "translateZ(1px) rotate(21.4deg)",
-                  borderColor: isDark ? "#2E3F66" : "#CFC9BD",
+                  borderColor: isDark ? "#262e36" : "#CFC9BD",
                 }}
               />
               <div
@@ -1157,7 +1157,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   top: 400,
                   width: 338,
                   transform: "translateZ(1px) rotate(76.3deg)",
-                  borderColor: isDark ? "#2E3F66" : "#CFC9BD",
+                  borderColor: isDark ? "#262e36" : "#CFC9BD",
                 }}
               />
               <div
@@ -1168,7 +1168,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   top: 400,
                   width: 363,
                   transform: "translateZ(1px) rotate(122.7deg)",
-                  borderColor: isDark ? "#2E3F66" : "#CFC9BD",
+                  borderColor: isDark ? "#262e36" : "#CFC9BD",
                 }}
               />
               {/* Human control line (orange) */}
@@ -1180,7 +1180,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   top: 400,
                   width: 363,
                   transform: "translateZ(1px) rotate(160deg)",
-                  borderColor: "#FF6848",
+                  borderColor: "#b8407a",
                   opacity: 0.35,
                 }}
               />
@@ -1194,7 +1194,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   top: 215,
                   width: 180,
                   transform: "translateZ(1px) rotate(-4.2deg)",
-                  borderColor: chapter === 0 ? "#2447E8" : chapter > 0 ? "#BECDFF" : "#CFC9BD",
+                  borderColor: chapter === 0 ? "#b8481b" : chapter > 0 ? "#f1c6ae" : "#CFC9BD",
                 }}
               />
               <div
@@ -1205,7 +1205,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   top: 239,
                   width: 160,
                   transform: "translateZ(1px) rotate(-13.3deg)",
-                  borderColor: chapter === 0 ? "#2447E8" : chapter > 0 ? "#BECDFF" : "#CFC9BD",
+                  borderColor: chapter === 0 ? "#b8481b" : chapter > 0 ? "#f1c6ae" : "#CFC9BD",
                 }}
               />
               <div
@@ -1216,7 +1216,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   top: 263,
                   width: 146,
                   transform: "translateZ(1px) rotate(-24.6deg)",
-                  borderColor: chapter === 0 ? "#2447E8" : chapter > 0 ? "#BECDFF" : "#CFC9BD",
+                  borderColor: chapter === 0 ? "#b8481b" : chapter > 0 ? "#f1c6ae" : "#CFC9BD",
                 }}
               />
               <div
@@ -1227,7 +1227,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   top: 202,
                   width: 388,
                   transform: "translateZ(1px) rotate(-16.8deg)",
-                  borderColor: chapter === 1 ? "#2447E8" : chapter > 1 ? "#BECDFF" : "#CFC9BD",
+                  borderColor: chapter === 1 ? "#b8481b" : chapter > 1 ? "#f1c6ae" : "#CFC9BD",
                 }}
               />
               <div
@@ -1238,7 +1238,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   top: 90,
                   width: 252,
                   transform: "translateZ(1px) rotate(22.9deg)",
-                  borderColor: chapter === 2 ? "#2447E8" : chapter > 2 ? "#BECDFF" : "#CFC9BD",
+                  borderColor: chapter === 2 ? "#b8481b" : chapter > 2 ? "#f1c6ae" : "#CFC9BD",
                 }}
               />
               <div
@@ -1249,7 +1249,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   top: 188,
                   width: 330,
                   transform: "translateZ(1px) rotate(85.5deg)",
-                  borderColor: chapter === 3 ? "#2447E8" : chapter > 3 ? "#BECDFF" : "#CFC9BD",
+                  borderColor: chapter === 3 ? "#b8481b" : chapter > 3 ? "#f1c6ae" : "#CFC9BD",
                 }}
               />
               <div
@@ -1260,7 +1260,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   top: 517,
                   width: 303,
                   transform: "translateZ(1px) rotate(135.9deg)",
-                  borderColor: chapter === 4 ? "#2447E8" : chapter > 4 ? "#BECDFF" : "#CFC9BD",
+                  borderColor: chapter === 4 ? "#b8481b" : chapter > 4 ? "#f1c6ae" : "#CFC9BD",
                 }}
               />
               <div
@@ -1271,7 +1271,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   top: 728,
                   width: 277,
                   transform: "translateZ(1px) rotate(-175.2deg)",
-                  borderColor: chapter === 5 ? "#2447E8" : "#CFC9BD",
+                  borderColor: chapter === 5 ? "#b8481b" : "#CFC9BD",
                 }}
               />
 
@@ -1347,24 +1347,24 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                 const w = s.id === "gate" && waiting;
                 const hot = hover === s.id || sel === s.id;
                 const isDone = s.id === "dock" && done;
-                const bg = s.dark ? "#152238" : w ? "#FFF1ED" : isDone ? "#D9F2E6" : active ? "#DCE4FF" : "#FFFFFF";
+                const bg = s.dark ? "#1a1d21" : w ? "#f8e4ee" : isDone ? "#ddf1e6" : active ? "#f8e3d6" : "#FFFFFF";
                 const line = s.dark
-                  ? "#FF6848"
+                  ? "#b8407a"
                   : w
-                    ? "#FF6848"
+                    ? "#b8407a"
                     : isDone
-                      ? "#1E9E6A"
+                      ? "#0b7a4b"
                       : active || hot
-                        ? "#2447E8"
+                        ? "#b8481b"
                         : s.dashed
-                          ? "#B3B3AE"
-                          : "#D3D2CB";
+                          ? "#a8a398"
+                          : "#d9d2c1";
                 const glow = w
-                  ? "0 0 0 6px rgba(255,104,72,.18)"
+                  ? "0 0 0 6px rgba(184, 64, 122, .18)"
                   : hot
-                    ? "0 0 0 6px rgba(36,71,232,.22)"
+                    ? "0 0 0 6px rgba(184, 72, 27, .22)"
                     : active
-                      ? "0 0 0 6px rgba(36,71,232,.14)"
+                      ? "0 0 0 6px rgba(184, 72, 27, .14)"
                       : "none";
 
                 return (
@@ -1397,7 +1397,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                       style={{
                         width: s.w,
                         height: s.h,
-                        background: s.dark ? "#0D1626" : "#E3DED3",
+                        background: s.dark ? "#0a0d10" : "#E3DED3",
                       }}
                     />
                     <span
@@ -1405,15 +1405,15 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                       style={{
                         width: s.h,
                         height: s.d,
-                        background: s.dark ? "#0A1220" : "#D3CDBF",
+                        background: s.dark ? "#0a0d10" : "#d3cdbf",
                       }}
                     />
                     <span
                       className="station-num"
                       style={{
                         transform: `translateZ(${s.h}px) rotateZ(42deg) rotateX(-58deg)`,
-                        background: s.dark ? "#FF6848" : active ? "#2447E8" : "#FFFFFF",
-                        color: s.dark || active ? "#FFFFFF" : "#4A515C",
+                        background: s.dark ? "#b8407a" : active ? "#b8481b" : "#FFFFFF",
+                        color: s.dark || active ? "#FFFFFF" : "#5a5e64",
                       }}
                     >
                       {s.num}
@@ -1448,9 +1448,9 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                     <span
                       className="agent-chip"
                       style={{
-                        background: hot ? (human ? "#FFF1ED" : "#DCE4FF") : "#FFFFFF",
-                        border: `1px solid ${human ? "#FF6848" : busy || hot ? "#2447E8" : "#D3D2CB"}`,
-                        color: human ? "#B83A1F" : "#152238",
+                        background: hot ? (human ? "#f8e4ee" : "#f8e3d6") : "#FFFFFF",
+                        border: `1px solid ${human ? "#b8407a" : busy || hot ? "#b8481b" : "#d9d2c1"}`,
+                        color: human ? "#a3346c" : "#1a1d21",
                       }}
                     >
                       {isAgent ? (human ? `human:${a.id}` : `harness:${slug(a.name)}`) : `${a.name} · ${a.role}`}
@@ -1459,7 +1459,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                       <span
                         className="agent-task"
                         style={{
-                          background: human ? "#FF6848" : "#2447E8",
+                          background: human ? "#b8407a" : "#b8481b",
                           color: "#FFFFFF",
                         }}
                       >
@@ -1491,8 +1491,8 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                 <span
                   className="gate-label"
                   style={{
-                    border: `1px solid ${waiting ? "#FF6848" : chapter >= 4 || approved ? "#1E9E6A" : "#8B93A1"}`,
-                    color: waiting ? "#FF6848" : chapter >= 4 || approved ? "#1E9E6A" : "#8B93A1",
+                    border: `1px solid ${waiting ? "#b8407a" : chapter >= 4 || approved ? "#0b7a4b" : "#8c8675"}`,
+                    color: waiting ? "#b8407a" : chapter >= 4 || approved ? "#0b7a4b" : "#8c8675",
                   }}
                 >
                   {isAgent
@@ -1513,26 +1513,26 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                 >
                   <span
                     className="gate-post-left"
-                    style={{ background: waiting ? "#FF6848" : chapter >= 4 || approved ? "#1E9E6A" : "#8B93A1" }}
+                    style={{ background: waiting ? "#b8407a" : chapter >= 4 || approved ? "#0b7a4b" : "#8c8675" }}
                   />
                   <span
                     className="gate-post-right"
-                    style={{ background: waiting ? "#FF6848" : chapter >= 4 || approved ? "#1E9E6A" : "#8B93A1" }}
+                    style={{ background: waiting ? "#b8407a" : chapter >= 4 || approved ? "#0b7a4b" : "#8c8675" }}
                   />
                   <span
                     className="gate-top"
-                    style={{ background: waiting ? "#FF6848" : chapter >= 4 || approved ? "#1E9E6A" : "#8B93A1" }}
+                    style={{ background: waiting ? "#b8407a" : chapter >= 4 || approved ? "#0b7a4b" : "#8c8675" }}
                   />
                   <span
                     className="gate-fill"
-                    style={{ background: waiting ? "#FFF1ED" : chapter >= 4 || approved ? "#D9F2E6" : "#F5F4EE" }}
+                    style={{ background: waiting ? "#f8e4ee" : chapter >= 4 || approved ? "#ddf1e6" : "#f4f0e6" }}
                   />
                 </span>
               </div>
 
               {/* Human control station with approve button */}
               <div className="human-control" style={{ transform: "translateZ(22px) rotateZ(42deg) rotateX(-58deg)" }}>
-                <span className="human-label" style={{ border: "1px solid #FF6848", color: "#B83A1F" }}>
+                <span className="human-label" style={{ border: "1px solid #b8407a", color: "#a3346c" }}>
                   {isAgent ? "station:human_control" : "Human control · Ari"}
                 </span>
                 <button
@@ -1541,9 +1541,9 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   disabled={!waiting}
                   className="approve-btn"
                   style={{
-                    background: waiting ? "#FF6848" : approved || chapter >= 4 ? "#D9F2E6" : "#F5F4EE",
-                    color: waiting ? "#FFFFFF" : approved || chapter >= 4 ? "#12684A" : "#4A515C",
-                    border: `1.5px solid ${waiting ? "#FF6848" : approved || chapter >= 4 ? "#1E9E6A" : "#D3D2CB"}`,
+                    background: waiting ? "#b8407a" : approved || chapter >= 4 ? "#ddf1e6" : "#f4f0e6",
+                    color: waiting ? "#FFFFFF" : approved || chapter >= 4 ? "#0b7a4b" : "#5a5e64",
+                    border: `1.5px solid ${waiting ? "#b8407a" : approved || chapter >= 4 ? "#0b7a4b" : "#d9d2c1"}`,
                     cursor: waiting ? "pointer" : "default",
                   }}
                 >
@@ -1653,21 +1653,21 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             </div>
 
             {/* Legend */}
-            <div className="legend" style={{ background: "rgba(15,26,48,.85)", color: "#F6F4E9" }}>
+            <div className="legend" style={{ background: "rgba(14, 17, 20, .85)", color: "#f4f0e6" }}>
               <span>
-                <span className="legend-dot" style={{ background: "#D98E14" }} />
+                <span className="legend-dot" style={{ background: "#e8a317" }} />
                 Sample run
               </span>
               <span>
-                <span className="legend-dot" style={{ background: "#2447E8" }} />
+                <span className="legend-dot" style={{ background: "#b8481b" }} />
                 Agent work
               </span>
               <span>
-                <span className="legend-dot" style={{ background: "#FF6848" }} />
+                <span className="legend-dot" style={{ background: "#b8407a" }} />
                 Human authority
               </span>
               <span>
-                <span className="legend-dot" style={{ background: "#1E9E6A" }} />
+                <span className="legend-dot" style={{ background: "#0b7a4b" }} />
                 Artifact
               </span>
               <span style={{ color: themeColors.muted }}>Drag to rotate · click anything to inspect</span>
@@ -1727,7 +1727,10 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             )}
 
             {/* Chapter strip */}
-            <div className="chapters" style={{ background: isDark ? "rgba(15,26,48,0.98)" : "rgba(246,244,233,0.98)" }}>
+            <div
+              className="chapters"
+              style={{ background: isDark ? "rgba(14, 17, 20, 0.98)" : "rgba(244, 240, 230, 0.98)" }}
+            >
               {CH.map((c, i) => (
                 <button
                   key={c.n}
@@ -1735,8 +1738,8 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                   onClick={() => goTo(i)}
                   className="chapter"
                   style={{
-                    borderTop: `3px solid ${i === chapter ? (i === 3 ? "#FF6848" : "#2447E8") : "transparent"}`,
-                    background: i === chapter ? (isDark ? "#1F2A3F" : "#F5F4EE") : "transparent",
+                    borderTop: `3px solid ${i === chapter ? (i === 3 ? "#b8407a" : "#b8481b") : "transparent"}`,
+                    background: i === chapter ? (isDark ? "#1a2026" : "#f4f0e6") : "transparent",
                   }}
                 >
                   <span
@@ -1749,34 +1752,34 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                       style={{
                         background: isDark
                           ? c.tag === "parallel"
-                            ? "rgba(127,164,255,0.16)"
+                            ? "rgba(238, 106, 51, 0.16)"
                             : c.tag === "gate"
-                              ? "rgba(255,142,118,0.16)"
+                              ? "rgba(235, 111, 166, 0.16)"
                               : c.tag === "output"
-                                ? "rgba(111,203,154,0.16)"
-                                : "rgba(255,255,255,0.08)"
+                                ? "rgba(47, 208, 138, 0.16)"
+                                : "rgba(255, 255, 255, 0.08)"
                           : c.tag === "parallel"
-                            ? "#DCE4FF"
+                            ? "#f8e3d6"
                             : c.tag === "gate"
-                              ? "#FFF1ED"
+                              ? "#f8e4ee"
                               : c.tag === "output"
-                                ? "#D9F2E6"
-                                : "#F5F4EE",
+                                ? "#ddf1e6"
+                                : "#f4f0e6",
                         color: isDark
                           ? c.tag === "parallel"
-                            ? "#7FA4FF"
+                            ? "#ee6a33"
                             : c.tag === "gate"
-                              ? "#FF8E76"
+                              ? "#eb6fa6"
                               : c.tag === "output"
-                                ? "#6FCB9A"
-                                : "#AEB8CC"
+                                ? "#2fd08a"
+                                : "#8f98a1"
                           : c.tag === "parallel"
-                            ? "#2447E8"
+                            ? "#b8481b"
                             : c.tag === "gate"
-                              ? "#B83A1F"
+                              ? "#a3346c"
                               : c.tag === "output"
-                                ? "#12684A"
-                                : "#4A515C",
+                                ? "#0b7a4b"
+                                : "#5a5e64",
                       }}
                     >
                       {c.tag}
@@ -1894,7 +1897,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                     Copy LLM prompt
                   </button>
                   {note && (
-                    <span className="flash-note" style={{ color: "#1E9E6A" }}>
+                    <span className="flash-note" style={{ color: "#0b7a4b" }}>
                       {note}
                     </span>
                   )}
@@ -1989,7 +1992,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                       .reverse()
                       .map((f, i) => (
                         <li key={i} style={{ color: themeColors.text }}>
-                          <span style={{ color: "#B3B3AE" }}>›</span>
+                          <span style={{ color: "#a8a398" }}>›</span>
                           {f}
                         </li>
                       ))}
@@ -2020,7 +2023,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
                 </p>
               </div>
               <div className="feature">
-                <span className="kicker" style={{ color: "#B83A1F" }}>
+                <span className="kicker" style={{ color: "#a3346c" }}>
                   Human authority
                 </span>
                 <h3 style={{ color: themeColors.text }}>Nothing runs past Ari</h3>
@@ -2087,8 +2090,8 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             inset: 0;
             border-radius: 4px;
             box-shadow:
-              0 0 80px rgba(36, 71, 232, 0.15),
-              0 0 160px rgba(36, 71, 232, 0.08);
+              0 0 80px rgba(238, 106, 51, 0.15),
+              0 0 160px rgba(238, 106, 51, 0.08);
           }
 
           .plane-side-bottom {
@@ -2129,23 +2132,23 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             position: absolute;
             inset: 0;
             transform: translateZ(40px);
-            background: #152238;
-            border: 2px solid #2447e8;
+            background: #1a1d21;
+            border: 2px solid #ee6a33;
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow:
-              0 0 30px rgba(36, 71, 232, 0.4),
-              0 0 60px rgba(36, 71, 232, 0.2),
-              inset 0 0 20px rgba(36, 71, 232, 0.1);
+              0 0 30px rgba(238, 106, 51, 0.4),
+              0 0 60px rgba(238, 106, 51, 0.2),
+              inset 0 0 20px rgba(238, 106, 51, 0.1);
           }
 
           .hub-ring-outer {
             width: 110px;
             height: 110px;
             border-radius: 50%;
-            border: 2px solid #2447e8;
+            border: 2px solid #ee6a33;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -2155,7 +2158,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            border: 1px dashed #7fa4ff;
+            border: 1px dashed #ee6a33;
           }
 
           .hub-side-bottom {
@@ -2166,7 +2169,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             height: 40px;
             transform-origin: top;
             transform: rotateX(90deg);
-            background: #0d1626;
+            background: #0a0d10;
           }
 
           .hub-side-left {
@@ -2177,7 +2180,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             height: 170px;
             transform-origin: right;
             transform: rotateY(90deg);
-            background: #0a1220;
+            background: #0a0d10;
           }
 
           .hub-label {
@@ -2201,17 +2204,17 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             font-size: 13px;
             font-weight: 600;
             color: #ffffff;
-            background: #152238;
+            background: #1a1d21;
             padding: 3px 10px;
             border-radius: 999px;
-            border: 1px solid #2447e8;
+            border: 1px solid #ee6a33;
             white-space: nowrap;
           }
 
           .hub-label-sub {
             font-family: var(--font-label);
             font-size: 9.5px;
-            color: #152238;
+            color: #1a1d21;
             padding: 2px 7px;
             border-radius: 999px;
             white-space: nowrap;
@@ -2311,18 +2314,18 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             padding: 3px 8px;
             border-radius: 3px;
             white-space: nowrap;
-            box-shadow: 0 2px 8px rgba(36, 71, 232, 0.25);
+            box-shadow: 0 2px 8px rgba(184, 72, 27, 0.25);
             animation: taskpulse 1.5s ease-in-out infinite;
           }
 
           @keyframes taskpulse {
             0%,
             100% {
-              box-shadow: 0 2px 8px rgba(36, 71, 232, 0.25);
+              box-shadow: 0 2px 8px rgba(184, 72, 27, 0.25);
               transform: scale(1);
             }
             50% {
-              box-shadow: 0 4px 16px rgba(36, 71, 232, 0.4);
+              box-shadow: 0 4px 16px rgba(184, 72, 27, 0.4);
               transform: scale(1.02);
             }
           }
@@ -2332,7 +2335,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             width: 24px;
             height: 38px;
             display: block;
-            filter: drop-shadow(0 3px 2px rgba(21, 34, 56, 0.18));
+            filter: drop-shadow(0 3px 2px rgba(14, 17, 20, 0.18));
           }
 
           .agent-hat {
@@ -2361,7 +2364,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             width: 14px;
             height: 11px;
             border-radius: 4px;
-            border: 1px solid rgba(21, 34, 56, 0.25);
+            border: 1px solid rgba(14, 17, 20, 0.25);
           }
 
           .agent-body {
@@ -2417,7 +2420,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             top: 35px;
             width: 8px;
             height: 3px;
-            background: #152238;
+            background: #1a1d21;
             border-radius: 2px;
           }
 
@@ -2427,7 +2430,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             top: 35px;
             width: 8px;
             height: 3px;
-            background: #152238;
+            background: #1a1d21;
             border-radius: 2px;
           }
 
@@ -2438,7 +2441,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             width: 9px;
             height: 11px;
             background: #ffffff;
-            border: 1px solid #2447e8;
+            border: 1px solid #b8481b;
             border-radius: 1px;
           }
 
@@ -2563,9 +2566,9 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
               transform 800ms cubic-bezier(0.2, 0.8, 0.2, 1),
               opacity 500ms;
             background: #ffffff;
-            border: 1px solid #1e9e6a;
+            border: 1px solid #0b7a4b;
             border-radius: 5px;
-            box-shadow: 0 8px 24px rgba(21, 34, 56, 0.14);
+            box-shadow: 0 8px 24px rgba(14, 17, 20, 0.14);
             padding: 6px 8px;
             display: flex;
             flex-direction: column;
@@ -2578,20 +2581,20 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             font-size: 7.5px;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: #1e9e6a;
+            color: #0b7a4b;
           }
 
           .artifact-title {
             font-size: 9.5px;
             font-weight: 600;
             line-height: 1.2;
-            color: #152238;
+            color: #1a1d21;
           }
 
           .artifact-meta {
             font-family: var(--font-label);
             font-size: 7.5px;
-            color: #4a515c;
+            color: #5a5e64;
             margin-top: auto;
           }
 
@@ -2617,7 +2620,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             display: inline-block;
             width: 1px;
             height: 18px;
-            background: #4a515c;
+            background: #5a5e64;
             animation: cue 1.6s ease-in-out infinite;
           }
 
@@ -2659,7 +2662,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             z-index: 5;
             width: min(320px, calc(100% - 28px));
             border-radius: 6px;
-            box-shadow: 0 16px 40px rgba(21, 34, 56, 0.14);
+            box-shadow: 0 16px 40px rgba(14, 17, 20, 0.14);
             padding: 14px 16px 16px;
             display: flex;
             flex-direction: column;
@@ -2738,8 +2741,8 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             bottom: 0;
             z-index: 4;
             display: flex;
-            border-top: 1px solid rgba(46, 63, 102, 0.6);
-            background: rgba(246, 244, 233, 0.98);
+            border-top: 1px solid rgba(38, 46, 54, 0.6);
+            background: rgba(244, 240, 230, 0.98);
             overflow-x: auto;
           }
 
@@ -2855,7 +2858,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             font-weight: 500;
             text-decoration: none;
             cursor: pointer;
-            box-shadow: 0 2px 4px rgba(21, 34, 56, 0.1);
+            box-shadow: 0 2px 4px rgba(14, 17, 20, 0.1);
             transition:
               background-color 0.2s ease-out,
               border-color 0.2s ease-out,
@@ -2866,13 +2869,13 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
           .btn-accent:hover {
             background: var(--accent-hover);
             border-color: var(--accent-hover);
-            box-shadow: 0 8px 24px rgba(59, 92, 233, 0.35);
+            box-shadow: 0 8px 24px rgba(212, 90, 40, 0.35);
             transform: translateY(-3px);
           }
 
           .btn-accent:active {
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(59, 92, 233, 0.25);
+            box-shadow: 0 4px 12px rgba(212, 90, 40, 0.25);
           }
 
           .btn-secondary {
@@ -2895,7 +2898,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
           }
 
           .btn-secondary:hover {
-            background: rgba(21, 34, 56, 0.06);
+            background: rgba(14, 17, 20, 0.06);
             transform: translateY(-2px);
           }
 
@@ -2957,7 +2960,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
           }
 
           .code-key {
-            color: #7fa4ff;
+            color: var(--color-primary);
             flex: 0 0 130px;
           }
 
@@ -3006,7 +3009,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
 
           .outcome-form input:focus {
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(36, 71, 232, 0.25);
+            box-shadow: 0 0 0 3px rgba(184, 72, 27, 0.25);
           }
 
           .btn-primary {
@@ -3181,10 +3184,10 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
           @keyframes gatepulse {
             0%,
             100% {
-              box-shadow: 0 0 0 0 rgba(255, 104, 72, 0);
+              box-shadow: 0 0 0 0 rgba(184, 64, 122, 0);
             }
             50% {
-              box-shadow: 0 0 0 12px rgba(255, 104, 72, 0.22);
+              box-shadow: 0 0 0 12px rgba(184, 64, 122, 0.22);
             }
           }
 
@@ -3228,9 +3231,9 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             padding: 5px 6px;
             transform-origin: 50% 100%;
             background: #ffffff;
-            border: 1px solid #d3d2cb;
+            border: 1px solid #d9d2c1;
             border-radius: 4px;
-            box-shadow: 0 1px 2px rgba(21, 34, 56, 0.08);
+            box-shadow: 0 1px 2px rgba(14, 17, 20, 0.08);
             display: flex;
             flex-direction: column;
             gap: 3px;
@@ -3240,28 +3243,28 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
           }
 
           .ctx-button:hover {
-            border-color: #2447e8;
+            border-color: #b8481b;
           }
 
           .ctx-bar {
             display: block;
             height: 2px;
             width: 70%;
-            background: #2447e8;
+            background: #b8481b;
           }
 
           .ctx-bar-2 {
             display: block;
             height: 2px;
             width: 50%;
-            background: #d3d2cb;
+            background: #d9d2c1;
           }
 
           .ctx-name {
             font-family: var(--font-label);
             font-size: 7.5px;
             line-height: 1.2;
-            color: #152238;
+            color: #1a1d21;
             margin-top: auto;
           }
 
@@ -3273,14 +3276,14 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             margin: -30px 0 0 -20px;
             transform-origin: 50% 100%;
             background: #ffffff;
-            border: 1px solid #2447e8;
+            border: 1px solid #b8481b;
             border-radius: 3px;
             padding: 3px 4px;
             font-family: var(--font-label);
             font-size: 7px;
             line-height: 1.3;
-            color: #2447e8;
-            box-shadow: 0 1px 2px rgba(21, 34, 56, 0.08);
+            color: #b8481b;
+            box-shadow: 0 1px 2px rgba(14, 17, 20, 0.08);
             pointer-events: none;
             animation: evidenceIn 0.3s ease;
           }
@@ -3300,7 +3303,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             display: block;
             height: 2px;
             width: 60%;
-            background: #dce4ff;
+            background: #f8e3d6;
             margin-top: 3px;
           }
 
@@ -3320,7 +3323,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             height: 32px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 6px;
-            background: rgba(15, 26, 48, 0.8);
+            background: rgba(14, 17, 20, 0.8);
             color: #ffffff;
             font-size: 16px;
             cursor: pointer;
@@ -3331,8 +3334,8 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
           }
 
           .zoom-btn:hover {
-            background: rgba(36, 71, 232, 0.8);
-            border-color: rgba(36, 71, 232, 0.5);
+            background: rgba(184, 72, 27, 0.8);
+            border-color: rgba(184, 72, 27, 0.5);
           }
 
           /* Signal animations */
@@ -3352,78 +3355,78 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
           }
 
           .signal-0a {
-            background: #2447e8;
-            box-shadow: 0 0 0 4px rgba(36, 71, 232, 0.18);
+            background: #b8481b;
+            box-shadow: 0 0 0 4px rgba(184, 72, 27, 0.18);
             animation: sig0a 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
           }
           .signal-0b {
-            background: #2447e8;
-            box-shadow: 0 0 0 4px rgba(36, 71, 232, 0.18);
+            background: #b8481b;
+            box-shadow: 0 0 0 4px rgba(184, 72, 27, 0.18);
             animation: sig0b 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s infinite;
           }
           .signal-0c {
-            background: #2447e8;
-            box-shadow: 0 0 0 4px rgba(36, 71, 232, 0.18);
+            background: #b8481b;
+            box-shadow: 0 0 0 4px rgba(184, 72, 27, 0.18);
             animation: sig0c 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s infinite;
           }
           .signal-1 {
-            background: #2447e8;
-            box-shadow: 0 0 0 4px rgba(36, 71, 232, 0.18);
+            background: #b8481b;
+            box-shadow: 0 0 0 4px rgba(184, 72, 27, 0.18);
             animation: sig1 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
           }
           .signal-2 {
-            background: #2447e8;
-            box-shadow: 0 0 0 4px rgba(36, 71, 232, 0.18);
+            background: #b8481b;
+            box-shadow: 0 0 0 4px rgba(184, 72, 27, 0.18);
             animation: sig2 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
           }
           .signal-2a {
-            background: #2447e8;
-            box-shadow: 0 0 0 4px rgba(36, 71, 232, 0.18);
+            background: #b8481b;
+            box-shadow: 0 0 0 4px rgba(184, 72, 27, 0.18);
             animation: sig2a 1s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
           }
           .signal-2b {
-            background: #2447e8;
-            box-shadow: 0 0 0 4px rgba(36, 71, 232, 0.18);
+            background: #b8481b;
+            box-shadow: 0 0 0 4px rgba(184, 72, 27, 0.18);
             animation: sig2b 1s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
           }
           .signal-2c {
-            background: #2447e8;
-            box-shadow: 0 0 0 4px rgba(36, 71, 232, 0.18);
+            background: #b8481b;
+            box-shadow: 0 0 0 4px rgba(184, 72, 27, 0.18);
             animation: sig2c 1s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
           }
           .signal-3 {
-            background: #2447e8;
-            box-shadow: 0 0 0 4px rgba(36, 71, 232, 0.18);
+            background: #b8481b;
+            box-shadow: 0 0 0 4px rgba(184, 72, 27, 0.18);
             animation: sig3 2.6s cubic-bezier(0.2, 0.8, 0.2, 1) 1 forwards;
           }
           .signal-3a {
-            background: #1e9e6a;
-            box-shadow: 0 0 0 4px rgba(45, 134, 85, 0.2);
+            background: #0b7a4b;
+            box-shadow: 0 0 0 4px rgba(11, 122, 75, 0.2);
             animation: sig3a 1s cubic-bezier(0.2, 0.8, 0.2, 1) 1 forwards;
           }
           .signal-3b {
-            background: #1e9e6a;
-            box-shadow: 0 0 0 4px rgba(45, 134, 85, 0.2);
+            background: #0b7a4b;
+            box-shadow: 0 0 0 4px rgba(11, 122, 75, 0.2);
             animation: sig3b 1s cubic-bezier(0.2, 0.8, 0.2, 1) 1 forwards;
           }
           .signal-3c {
-            background: #1e9e6a;
-            box-shadow: 0 0 0 4px rgba(45, 134, 85, 0.2);
+            background: #0b7a4b;
+            box-shadow: 0 0 0 4px rgba(11, 122, 75, 0.2);
             animation: sig3c 1s cubic-bezier(0.2, 0.8, 0.2, 1) 1 forwards;
           }
           .signal-approve {
-            background: #ff6848;
-            box-shadow: 0 0 0 4px rgba(255, 104, 72, 0.2);
+            background: #b8407a;
+            box-shadow: 0 0 0 4px rgba(184, 64, 122, 0.2);
             animation: sig6 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 1 forwards;
           }
           .signal-4 {
-            background: #2447e8;
-            box-shadow: 0 0 0 4px rgba(36, 71, 232, 0.18);
+            background: #b8481b;
+            box-shadow: 0 0 0 4px rgba(184, 72, 27, 0.18);
             animation: sig4 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
           }
           .signal-5 {
-            background: #1e9e6a;
-            box-shadow: 0 0 0 4px rgba(45, 134, 85, 0.2);
+            background: #0b7a4b;
+            box-shadow: 0 0 0 4px rgba(11, 122, 75, 0.2);
             animation: sig5 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
           }
 
