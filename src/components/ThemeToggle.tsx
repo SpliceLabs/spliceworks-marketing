@@ -71,7 +71,7 @@ export function ThemeToggle() {
         }
 
         .theme-toggle-labels span.active {
-          color: var(--text-body);
+          color: var(--color-accent-text);
         }
 
         .theme-toggle:focus-visible {

@@ -303,7 +303,12 @@ h4 {
 }
 
 .eyebrow-accent {
-  color: var(--color-primary);
+  color: var(--color-accent-text);
+}
+
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-ink);
 }
 
 /* Data text */

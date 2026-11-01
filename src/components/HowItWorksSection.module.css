@@ -50,7 +50,7 @@
 
 .eyebrow b {
   font-weight: 500;
-  color: var(--color-primary);
+  color: var(--color-accent-text);
   white-space: nowrap;
 }
 
