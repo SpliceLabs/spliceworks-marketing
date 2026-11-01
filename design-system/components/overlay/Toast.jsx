@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon } from '../core/Icon.jsx';
 export function Toast({ tone = 'neutral', title, children, action, onDismiss, style }) {
   const icon = { neutral: 'info', success: 'circle-check', warning: 'triangle-alert', danger: 'octagon-alert' }[tone];
-  const col = { neutral: 'var(--sw-blue-soft)', success: '#5FD3A3', warning: '#F2B94B', danger: '#FF8A85' }[tone];
+  const col = { neutral: 'var(--sw-blue-soft)', success: '#2FD08A', warning: '#F2B53A', danger: '#F0605A' }[tone];
   return React.createElement('div', { role: 'status', style: { display: 'flex', alignItems: 'flex-start', gap: 12, width: 360, maxWidth: '100%', padding: '12px 14px', background: 'var(--sw-ink)', color: 'var(--sw-paper)', borderRadius: 'var(--radius-md)', boxShadow: 'var(--shadow-lg)', borderLeft: '3px solid ' + col, boxSizing: 'border-box', ...style } },
     React.createElement(Icon, { name: icon, size: 18, style: { color: col, marginTop: 1 } }),
     React.createElement('div', { style: { flex: 1, minWidth: 0 } },

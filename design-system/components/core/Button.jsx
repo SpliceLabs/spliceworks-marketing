@@ -11,7 +11,7 @@ export function Button({ variant = 'primary', size = 'md', icon, iconRight, disa
     accent: { bg: 'var(--accent)', hbg: 'var(--accent-hover)', pbg: 'var(--accent-press)', fg: 'var(--text-on-accent)', bd: 'var(--accent)' },
     secondary: { bg: 'transparent', hbg: 'var(--bg-sunken)', pbg: 'var(--sw-ink-100)', fg: 'var(--text-body)', bd: 'var(--border-strong)' },
     ghost: { bg: 'transparent', hbg: 'var(--bg-sunken)', pbg: 'var(--sw-ink-100)', fg: 'var(--text-body)', bd: 'transparent' },
-    danger: { bg: 'var(--danger)', hbg: '#B8241F', pbg: '#8F1A16', fg: '#fff', bd: 'var(--danger)' },
+    danger: { bg: 'var(--danger)', hbg: '#A02722', pbg: '#9E2622', fg: '#fff', bd: 'var(--danger)' },
   }[variant];
   const bg = press ? v.pbg : hover ? v.hbg : v.bg;
   const s = { display: block ? 'flex' : 'inline-flex', width: block ? '100%' : undefined, alignItems: 'center', justifyContent: 'center', gap: 8, height: H[size], padding: '0 ' + PX[size], font: 'var(--weight-medium) ' + FS[size] + '/1 var(--font-sans)', letterSpacing: 'var(--tracking-tight)', color: v.fg, background: bg, border: 'var(--border-w-strong) solid ' + v.bd, borderRadius: 'var(--radius-sm)', cursor: disabled ? 'not-allowed' : 'pointer', opacity: disabled ? 0.45 : 1, transition: 'var(--motion-hover)', whiteSpace: 'nowrap', textDecoration: 'none', boxSizing: 'border-box', ...style };
