@@ -1,6 +1,6 @@
 ---
 url: /industries
-title: AI for Manufacturing and Agencies | Splice Works
+title: AI for Manufacturing and Agencies | Splice Ops
 description: AI fitted to how your industry already works, starting with what your experts know. See where we're working and how we learn your world.
 reader: A buyer checking "do you know my world?" before booking
 job: Believe we fit AI to how their industry already works, then open their industry page or book a working session

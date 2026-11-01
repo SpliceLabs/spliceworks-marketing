@@ -4,12 +4,12 @@ export function SiblingCompanies() {
   return (
     <div className={styles.diagram}>
       <div className={styles.row}>
-        <div className={styles.box} style={{ "--box-color": "#D98E14" } as React.CSSProperties}>
+        <div className={styles.box} style={{ "--box-color": "var(--color-attention)" } as React.CSSProperties}>
           <span className={styles.boxLabel}>Splice Labs</span>
           <span className={styles.boxDetail}>Venture studio — builds new AI-native companies from scratch</span>
         </div>
-        <div className={styles.box} style={{ "--box-color": "#2447E8" } as React.CSSProperties}>
-          <span className={styles.boxLabel}>Splice Works</span>
+        <div className={styles.box} style={{ "--box-color": "var(--color-primary)" } as React.CSSProperties}>
+          <span className={styles.boxLabel}>Splice Ops</span>
           <span className={styles.boxDetail}>Transforms companies that already exist</span>
         </div>
       </div>

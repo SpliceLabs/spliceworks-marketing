@@ -1,4 +1,4 @@
-# Splice Works — Investor Narrative (Canonical Copy Deck)
+# Splice Ops — Investor Narrative (Canonical Copy Deck)
 
 *Matches `splice-works-investor-deck.html`. Voice-checked against `VOICE.md` + `VOICE-MEMO.md`.*
 
@@ -6,11 +6,11 @@
 
 ## Canonical one-paragraph narrative
 
-> Splice Works deploys governed AI infrastructure into company operations. We install Splice Station, specialized harnesses, and client-specific brains — starting from one high-value problem, live in two weeks, shipped in thirty days. Every engagement ships a working system. What we learn hardens the platform for the next one.
+> Splice Ops deploys governed AI infrastructure into company operations. We install Splice Station, specialized harnesses, and client-specific brains — starting from one high-value problem, live in two weeks, shipped in thirty days. Every engagement ships a working system. What we learn hardens the platform for the next one.
 
 **Thesis line** (used as the slide 10 headline):
 
-> Splice Works' edge is not that it can build an agent. It is that it can deploy governed, portable, maintainable agentic systems into a real business quickly — then compound what it learns into the next deployment.
+> Splice Ops' edge is not that it can build an agent. It is that it can deploy governed, portable, maintainable agentic systems into a real business quickly — then compound what it learns into the next deployment.
 
 ---
 
@@ -95,7 +95,7 @@ Week 1–2 Station live → Sandbox (built, tested on real data) → Shadow mode
 
 **Headline:** We don't cold-start trust. We borrow it.
 
-**Diagram — hub and spoke (Splice Works at center):**
+**Diagram — hub and spoke (Splice Ops at center):**
 - **PE firms & portfolios** — one relationship, a portfolio of targets.
 - **Accelerators & VC networks** (e.g. Jumpstart) — early access to AI-native-primed companies.
 - **Channel partners** — license or distribute harnesses. No direct sales build-out.
@@ -155,12 +155,12 @@ Week 1–2 Station live → Sandbox (built, tested on real data) → Shadow mode
 
 **Eyebrow:** How this fits together
 
-**Headline:** Splice Labs builds. Splice Works deploys.
+**Headline:** Splice Labs builds. Splice Ops deploys.
 
 **Diagram — bidirectional:**
-**Splice Labs** (builds the AI-native systems, agents, and infrastructure, including Station) ⇄ **Splice Works** (deploys it into real operations, under governance. Client work hardens the platform.)
+**Splice Labs** (builds the AI-native systems, agents, and infrastructure, including Station) ⇄ **Splice Ops** (deploys it into real operations, under governance. Client work hardens the platform.)
 
-**Line:** Splice Works runs on its own stack. Site, GTM, and skills libraries — dogfooded, not just sold.
+**Line:** Splice Ops runs on its own stack. Site, GTM, and skills libraries — dogfooded, not just sold.
 
 **Footnote:** Standalone brand. Footer credit: "a Splice Labs company." Structured to operate — and potentially be evaluated — independently.
 
@@ -170,7 +170,7 @@ Week 1–2 Station live → Sandbox (built, tested on real data) → Shadow mode
 
 **Headline:** The edge isn't building an agent. It's deploying one that compounds.
 
-**Body:** Splice Works deploys governed AI infrastructure into company operations. One high-value problem. Station in two weeks. A working system in thirty days.
+**Body:** Splice Ops deploys governed AI infrastructure into company operations. One high-value problem. Station in two weeks. A working system in thirty days.
 
 **CTA:** Tell us the problem you want solved.
 

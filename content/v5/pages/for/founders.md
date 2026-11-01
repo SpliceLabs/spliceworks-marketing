@@ -1,6 +1,6 @@
 ---
 url: /for/founders
-title: "AI for Founders and Small Teams | Splice Works"
+title: "AI for Founders and Small Teams | Splice Ops"
 description: "Founder and the whole team? We turn the workflow eating your week into one agents run, from inbound lead to booked meeting, and leave you able to run it."
 reader: "A founder or very small team who is the whole AI directive"
 job: "Believe no company is too small and that one working session gets a real workflow running, then book a working session"

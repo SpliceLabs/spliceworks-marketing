@@ -1,6 +1,6 @@
 ---
 url: /how-it-works
-title: How It Works: From AI-Absent to AI-Native | Splice Works
+title: How It Works: From AI-Absent to AI-Native | Splice Ops
 description: One working session, then two steps: AI-absent to AI-enabled, then AI-enabled to AI-native. Who does what, and how we keep people accountable.
 reader: The champion making the AI mandate real (head of operations, CTO, CIO), checking the process before recommending it
 job: Understand the working session, the two steps and who does what, and be confident enough to book a working session

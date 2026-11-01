@@ -1,8 +1,8 @@
 ---
 url: /for/accelerators
-title: "AI for Accelerator and Incubator Cohorts | Splice Works"
+title: "AI for Accelerator and Incubator Cohorts | Splice Ops"
 description: "Give every founder in your cohort a way to put AI to work: a working session each, a first workflow for those who want more, spend caps, a kill switch."
-reader: "An accelerator program lead deciding whether to recommend Splice Works or partner with us"
+reader: "An accelerator program lead deciding whether to recommend Splice Ops or partner with us"
 job: "See one safe AI path for the whole cohort, then book a working session to talk about the cohort"
 primary_cta: "Book a working session → /book"
 status: provisional

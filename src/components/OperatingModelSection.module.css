@@ -24,7 +24,7 @@
   opacity: 0.08;
   display: block;
   margin-bottom: var(--space-3);
-  background: linear-gradient(135deg, #2447e8 0%, #7fa4ff 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-mid) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -45,7 +45,7 @@
 
 .eyebrow b {
   font-weight: 500;
-  color: #2447e8;
+  color: var(--color-primary);
   white-space: nowrap;
 }
 
@@ -134,18 +134,18 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: var(--card-color, #2447e8);
+  background: var(--card-color, var(--color-primary));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
 }
 
 .modelCard:hover {
-  border-color: var(--card-color, #2447e8);
+  border-color: var(--card-color, var(--color-primary));
   transform: translateY(-4px);
   box-shadow:
-    0 8px 16px rgba(36, 71, 232, 0.1),
-    0 16px 32px rgba(36, 71, 232, 0.08);
+    0 8px 16px color-mix(in srgb, var(--color-primary) 10%, transparent),
+    0 16px 32px color-mix(in srgb, var(--color-primary) 8%, transparent);
 }
 
 .modelCard:hover::before {
@@ -153,8 +153,8 @@
 }
 
 .cardActive {
-  border-color: var(--card-color, #2447e8);
-  background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+  border-color: var(--card-color, var(--color-primary));
+  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-raised) 100%);
 }
 
 :global([data-theme="ink"]) .cardActive {
@@ -180,7 +180,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #dce4ff;
+  background: var(--color-primary-soft);
   border-radius: 10px;
 }
 
@@ -201,7 +201,7 @@
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--card-color, #2447e8);
+  color: var(--card-color, var(--color-primary));
 }
 
 .modelCard p {
@@ -281,21 +281,21 @@
 }
 
 .taghuman {
-  color: #ff6848;
-  background: #ffeee9;
-  border: 1px solid #ff6848;
+  color: var(--color-human);
+  background: var(--color-human-soft);
+  border: 1px solid var(--color-human);
 }
 
 :global([data-theme="ink"]) .taghuman {
   color: var(--color-human);
-  background: rgba(255, 142, 118, 0.14);
+  background: color-mix(in srgb, var(--color-human) 14%, transparent);
   border-color: var(--color-human);
 }
 
 .tagrunning {
-  color: #2447e8;
-  background: #dce4ff;
-  border: 1px solid #2447e8;
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+  border: 1px solid var(--color-primary);
 }
 
 :global([data-theme="ink"]) .tagrunning {

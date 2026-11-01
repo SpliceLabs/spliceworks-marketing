@@ -2,13 +2,13 @@ import styles from "./ControlPath.module.css";
 
 const steps = [
   { id: "propose", label: "trigger", title: "Agent proposes", color: "var(--color-structure-deep)", dashed: false },
-  { id: "permission", label: "access", title: "Permission", color: "#2447E8", dashed: false },
-  { id: "policy", label: "access", title: "Policy", color: "#2447E8", dashed: false },
-  { id: "risk", label: "compliance", title: "Risk scored", color: "#1E9E6A", dashed: false },
-  { id: "approval", label: "conditional", title: "Human approval", color: "#FF6848", dashed: true },
+  { id: "permission", label: "access", title: "Permission", color: "var(--color-primary)", dashed: false },
+  { id: "policy", label: "access", title: "Policy", color: "var(--color-primary)", dashed: false },
+  { id: "risk", label: "compliance", title: "Risk scored", color: "var(--color-complete)", dashed: false },
+  { id: "approval", label: "conditional", title: "Human approval", color: "var(--color-human)", dashed: true },
   { id: "execute", label: "runtime", title: "Execute", color: "var(--color-structure-deep)", dashed: false },
-  { id: "verify", label: "evidence", title: "Verify", color: "#9B59B6", dashed: false },
-  { id: "audit", label: "audit", title: "Audit", color: "#7FA4FF", dashed: false },
+  { id: "verify", label: "evidence", title: "Verify", color: "var(--color-state-unknown)", dashed: false },
+  { id: "audit", label: "audit", title: "Audit", color: "var(--color-primary-mid)", dashed: false },
 ];
 
 export function ControlPath() {

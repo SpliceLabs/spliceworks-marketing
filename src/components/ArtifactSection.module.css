@@ -23,8 +23,8 @@
   opacity: 0.08;
   display: block;
   margin-bottom: var(--space-3);
-  color: #2447e8;
-  background: linear-gradient(135deg, #2447e8 0%, #7fa4ff 100%);
+  color: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-mid) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -45,7 +45,7 @@
 
 .eyebrow b {
   font-weight: 500;
-  color: #2447e8;
+  color: var(--color-primary);
   white-space: nowrap;
 }
 
@@ -95,20 +95,20 @@
   align-items: center;
   gap: 6px;
   padding: 4px 10px;
-  background: #dce4ff;
-  border: 1px solid #7fa4ff;
+  background: var(--color-primary-soft);
+  border: 1px solid var(--color-primary-mid);
   border-radius: 999px;
   font-family: var(--font-mono);
   font-size: 11px;
-  color: #152238;
+  color: var(--color-ink);
   transition: all 0.2s ease;
 }
 
 .agentBadge:hover {
-  background: #2447e8;
-  color: white;
+  background: var(--color-primary);
+  color: var(--text-on-primary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(36, 71, 232, 0.3);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-primary) 30%, transparent);
 }
 
 :global([data-theme="ink"]) .agentBadge {
@@ -121,29 +121,29 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #2447e8;
+  background: var(--color-primary);
 }
 
 .agentBadge:hover .agentDot {
-  background: white;
+  background: var(--color-raised);
 }
 
 /* Artifact panel - office desk style */
 .artifact {
-  border: 2px solid #2447e8;
+  border: 2px solid var(--color-primary);
   border-radius: 8px;
   background: var(--color-surface);
   overflow: hidden;
   box-shadow:
-    0 4px 6px rgba(36, 71, 232, 0.08),
-    0 12px 24px rgba(36, 71, 232, 0.12);
+    0 4px 6px color-mix(in srgb, var(--color-primary) 8%, transparent),
+    0 12px 24px color-mix(in srgb, var(--color-primary) 12%, transparent);
   transition: box-shadow 0.3s ease;
 }
 
 .artifact:hover {
   box-shadow:
-    0 8px 12px rgba(36, 71, 232, 0.12),
-    0 24px 48px rgba(36, 71, 232, 0.16);
+    0 8px 12px color-mix(in srgb, var(--color-primary) 12%, transparent),
+    0 24px 48px color-mix(in srgb, var(--color-primary) 16%, transparent);
 }
 
 .artifactHeader {
@@ -154,7 +154,7 @@
   border-bottom: 1px solid var(--color-line);
   align-items: center;
   flex-wrap: wrap;
-  background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-raised) 100%);
 }
 
 :global([data-theme="ink"]) .artifactHeader {
@@ -191,7 +191,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #1e9e6a;
+  background: var(--color-complete);
   animation: pulse 2s ease-in-out infinite;
 }
 
@@ -220,20 +220,20 @@
   align-items: center;
   gap: 6px;
   border-radius: var(--radius-pill);
-  border: 1px solid #1e9e6a;
+  border: 1px solid var(--color-complete);
   padding: 4px 12px;
   white-space: nowrap;
   font-family: var(--font-mono);
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #1e9e6a;
-  background: #e6f4ed;
+  color: var(--color-complete);
+  background: var(--color-complete-soft);
 }
 
 :global([data-theme="ink"]) .tagComplete {
   color: var(--color-complete);
-  background: rgba(111, 203, 154, 0.14);
+  background: color-mix(in srgb, var(--color-complete) 14%, transparent);
   border-color: var(--color-complete);
 }
 
@@ -258,7 +258,7 @@
   flex-direction: column;
   gap: 8px;
   text-align: left;
-  background: white;
+  background: var(--color-raised);
   cursor: pointer;
   transition: all 0.25s ease;
   border: none;
@@ -277,13 +277,13 @@
   top: 0;
   width: 3px;
   height: 100%;
-  background: #2447e8;
+  background: var(--color-primary);
   transform: scaleY(0);
   transition: transform 0.2s ease;
 }
 
 .artifactCell:hover {
-  background: #f8f9ff;
+  background: var(--color-surface);
 }
 
 :global([data-theme="ink"]) .artifactCell:hover {
@@ -303,16 +303,16 @@
 }
 
 .cellActive {
-  background: #dce4ff !important;
+  background: var(--color-primary-soft) !important;
 }
 
 :global([data-theme="ink"]) .cellActive {
-  background: rgba(127, 164, 255, 0.14) !important;
+  background: color-mix(in srgb, var(--color-primary) 14%, transparent) !important;
 }
 
 .cellActive::before {
   transform: scaleY(1);
-  background: #2447e8;
+  background: var(--color-primary);
 }
 
 .cellHeader {
@@ -342,11 +342,11 @@
   align-items: center;
   gap: 4px;
   padding: 2px 8px;
-  background: #dce4ff;
+  background: var(--color-primary-soft);
   border-radius: 4px;
   font-family: var(--font-mono);
   font-size: 10px;
-  color: #2447e8;
+  color: var(--color-primary);
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -359,7 +359,7 @@
 .agentIcon {
   width: 10px;
   height: 10px;
-  background: #2447e8;
+  background: var(--color-primary);
   border-radius: 50%;
   position: relative;
 }
@@ -371,7 +371,7 @@
   left: 2px;
   width: 6px;
   height: 6px;
-  background: white;
+  background: var(--color-raised);
   border-radius: 50%;
 }
 
@@ -416,7 +416,7 @@
 
 .evidenceBars span {
   height: 4px;
-  background: linear-gradient(90deg, #2447e8, #7fa4ff);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-mid));
   border-radius: 2px;
   animation: barGrow 0.4s ease;
 }
@@ -441,7 +441,7 @@
   border-top: 1px solid var(--color-line);
   align-items: center;
   flex-wrap: wrap;
-  background: linear-gradient(135deg, #fafbff 0%, #ffffff 100%);
+  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-raised) 100%);
 }
 
 :global([data-theme="ink"]) .artifactFooter {
@@ -476,7 +476,7 @@
   color: var(--color-paper);
   border-color: var(--color-ink);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(21, 34, 56, 0.2);
+  box-shadow: 0 4px 12px rgba(14, 17, 20, 0.2);
 }
 
 .btn:active {
@@ -484,15 +484,15 @@
 }
 
 .btnPrimary {
-  background: #2447e8;
-  color: white;
-  border-color: #2447e8;
+  background: var(--color-primary);
+  color: var(--text-on-primary);
+  border-color: var(--color-primary);
 }
 
 .btnPrimary:hover {
-  background: #1a35b8;
-  border-color: #1a35b8;
-  box-shadow: 0 4px 12px rgba(36, 71, 232, 0.4);
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-primary) 40%, transparent);
 }
 
 @media (max-width: 1100px) {

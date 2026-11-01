@@ -29,7 +29,7 @@
   opacity: 0.08;
   display: block;
   margin-bottom: var(--space-3);
-  background: linear-gradient(135deg, #2447e8 0%, #7fa4ff 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-mid) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -50,7 +50,7 @@
 
 .eyebrow b {
   font-weight: 500;
-  color: #2447e8;
+  color: var(--color-primary);
   white-space: nowrap;
 }
 
@@ -100,7 +100,7 @@
 .timelineFill {
   display: block;
   height: 100%;
-  background: linear-gradient(90deg, #2447e8, #1e9e6a);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-complete));
   border-radius: 4px;
   transition: width 0.5s ease;
 }
@@ -150,12 +150,12 @@
 }
 
 .nodeComplete .nodeNum {
-  background: var(--node-color, #2447e8);
-  color: white;
+  background: var(--node-color, var(--color-primary));
+  color: var(--node-on, var(--text-on-primary));
 }
 
 .nodeActive .nodeNum {
-  box-shadow: 0 0 0 4px rgba(36, 71, 232, 0.2);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 20%, transparent);
   transform: scale(1.1);
 }
 
@@ -173,7 +173,7 @@
 }
 
 .nodeActive .nodeLabel {
-  color: var(--node-color, #2447e8);
+  color: var(--node-text, var(--color-primary));
   font-weight: 600;
 }
 
@@ -188,13 +188,13 @@
 }
 
 .connectorFilled {
-  background: linear-gradient(90deg, var(--node-color, #2447e8), #7fa4ff);
+  background: linear-gradient(90deg, var(--node-color, var(--color-primary)), var(--color-primary-mid));
 }
 
 /* Stage detail card */
 .stageDetail {
-  background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
-  border: 2px solid var(--stage-color, #2447e8);
+  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-raised) 100%);
+  border: 2px solid var(--stage-color, var(--color-primary));
   border-radius: 12px;
   padding: var(--space-6);
   transition: border-color 0.3s ease;
@@ -228,8 +228,8 @@
   font-size: 12px;
   font-weight: 600;
   padding: 4px 10px;
-  background: var(--stage-color, #2447e8);
-  color: white;
+  background: var(--stage-color, var(--color-primary));
+  color: var(--stage-on, var(--text-on-primary));
   border-radius: 4px;
 }
 
@@ -246,8 +246,8 @@
   font-family: var(--font-mono);
   font-size: 11px;
   padding: 4px 10px;
-  background: #dce4ff;
-  color: #2447e8;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
   border-radius: 999px;
 }
 
@@ -289,12 +289,12 @@
   align-items: center;
   gap: 6px;
   padding: 6px 12px;
-  background: white;
-  border: 1px solid #7fa4ff;
+  background: var(--color-raised);
+  border: 1px solid var(--color-primary-mid);
   border-radius: 999px;
   font-family: var(--font-mono);
   font-size: 11px;
-  color: #2447e8;
+  color: var(--color-primary);
 }
 
 :global([data-theme="ink"]) .agentChip {
@@ -306,7 +306,7 @@
 .agentDot {
   width: 6px;
   height: 6px;
-  background: #2447e8;
+  background: var(--color-primary);
   border-radius: 50%;
 }
 
@@ -322,8 +322,8 @@
   align-items: center;
   gap: 8px;
   padding: 10px 20px;
-  background: var(--stage-color, #2447e8);
-  color: white;
+  background: var(--stage-color, var(--color-primary));
+  color: var(--stage-on, var(--text-on-primary));
   border: none;
   border-radius: 6px;
   font-family: var(--font-ui);
@@ -335,7 +335,7 @@
 
 .nextBtn:hover {
   transform: translateX(4px);
-  box-shadow: 0 4px 12px rgba(36, 71, 232, 0.3);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-primary) 30%, transparent);
 }
 
 .completeTag {
@@ -343,8 +343,8 @@
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: #e6f4ed;
-  color: #1e9e6a;
+  background: var(--color-complete-soft);
+  color: var(--color-complete);
   border-radius: 999px;
   font-family: var(--font-mono);
   font-size: 12px;
@@ -352,14 +352,14 @@
 }
 
 :global([data-theme="ink"]) .completeTag {
-  background: rgba(111, 203, 154, 0.14);
+  background: color-mix(in srgb, var(--color-complete) 14%, transparent);
   color: var(--color-complete);
 }
 
 .completeDot {
   width: 8px;
   height: 8px;
-  background: #1e9e6a;
+  background: var(--color-complete);
   border-radius: 50%;
   animation: pulse 2s ease infinite;
 }
@@ -400,14 +400,14 @@
 }
 
 .stage:hover {
-  border-color: var(--stage-color, #2447e8);
+  border-color: var(--stage-color, var(--color-primary));
   transform: translateY(-2px);
 }
 
 .stageActive {
-  border-color: var(--stage-color, #2447e8);
-  background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
-  box-shadow: 0 4px 12px rgba(36, 71, 232, 0.15);
+  border-color: var(--stage-color, var(--color-primary));
+  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-raised) 100%);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-primary) 15%, transparent);
 }
 
 :global([data-theme="ink"]) .stageActive {
@@ -421,7 +421,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: var(--stage-color, #2447e8);
+  background: var(--stage-color, var(--color-primary));
   border-radius: 8px 8px 0 0;
 }
 
@@ -432,7 +432,7 @@
 }
 
 .stageActive .miniNum {
-  color: var(--stage-color, #2447e8);
+  color: var(--stage-text, var(--color-primary));
 }
 
 .miniTitle {

@@ -1,6 +1,6 @@
 ---
 url: /station
-title: Station: the system our work runs on | Splice Works
+title: Station: the system our work runs on | Splice Ops
 description: The governed AI workspace behind our work: spend caps, a kill switch, full logging, and an accountable person behind every decision that matters.
 reader: A technical reader or security reviewer who has heard the name Station
 job: Trust that the work runs on a governed system the client controls, then book a working session

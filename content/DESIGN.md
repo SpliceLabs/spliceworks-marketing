@@ -1,6 +1,6 @@
 # Design Specifications
 
-Design requirements and specifications for Splice Works marketing site.
+Design requirements and specifications for Splice Ops marketing site.
 
 ---
 

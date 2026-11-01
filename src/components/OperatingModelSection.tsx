@@ -12,7 +12,7 @@ const models = [
     responsibilities: ["Set business objectives", "Define boundaries", "Approve key decisions", "Own outcomes"],
     tag: "authority",
     tagType: "human",
-    color: "#FF6848",
+    color: "var(--color-human)",
   },
   {
     id: "splice-agents",
@@ -23,7 +23,7 @@ const models = [
     responsibilities: ["Execute defined tasks", "Follow permissions", "Request approvals", "Report status"],
     tag: "bounded work",
     tagType: "running",
-    color: "#2447E8",
+    color: "var(--color-primary)",
   },
   {
     id: "splice-specialists",
@@ -34,7 +34,7 @@ const models = [
     responsibilities: ["System architecture", "Quality assurance", "Edge case handling", "Continuous improvement"],
     tag: "judgment",
     tagType: "human",
-    color: "#1E9E6A",
+    color: "var(--color-complete)",
   },
 ];
 
@@ -60,17 +60,17 @@ export function OperatingModelSection() {
         </p>
         <div className={styles.summary}>
           <div className={styles.summaryItem}>
-            <span className={styles.summaryIcon} style={{ background: "#FF6848" }} aria-hidden="true" />
+            <span className={styles.summaryIcon} style={{ background: "var(--color-human)" }} aria-hidden="true" />
             <span>Human control</span>
           </div>
           <span className={styles.summaryArrow}>→</span>
           <div className={styles.summaryItem}>
-            <span className={styles.summaryIcon} style={{ background: "#2447E8" }} aria-hidden="true" />
+            <span className={styles.summaryIcon} style={{ background: "var(--color-primary)" }} aria-hidden="true" />
             <span>Agent execution</span>
           </div>
           <span className={styles.summaryArrow}>→</span>
           <div className={styles.summaryItem}>
-            <span className={styles.summaryIcon} style={{ background: "#1E9E6A" }} aria-hidden="true" />
+            <span className={styles.summaryIcon} style={{ background: "var(--color-complete)" }} aria-hidden="true" />
             <span>Expert oversight</span>
           </div>
         </div>

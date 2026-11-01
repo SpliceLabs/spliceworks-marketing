@@ -20,13 +20,12 @@ export function Footer() {
       <div className={styles.footerInner}>
         <div className={styles.footerGrid}>
           <div className={styles.brand}>
-            <Link href="/" aria-label="Splice Works — part of Splice Labs Group">
+            <Link href="/" aria-label="Splice Ops — part of Splice Labs Group">
               <Image
-                src="/logo/dark/lockup-endorsed@2x.png"
-                alt="Splice Works — part of Splice Labs Group"
-                width={256}
-                height={64}
-                style={{ height: 64, width: "auto", margin: "-14px 0 0 -22px" }}
+                src="/logo/splice-ops-lockup.svg"
+                alt="Splice Ops — part of Splice Labs Group"
+                width={160}
+                height={40}
               />
             </Link>
             <p className={styles.description}>Put AI to work. Keep people accountable.</p>
@@ -48,7 +47,7 @@ export function Footer() {
         </div>
 
         <div className={styles.footerBottom}>
-          <span>© {currentYear} Splice Works · Part of Splice Labs Group</span>
+          <span>© {currentYear} Splice Ops · Part of Splice Labs Group</span>
         </div>
       </div>
     </footer>

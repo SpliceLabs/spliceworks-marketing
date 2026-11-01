@@ -85,7 +85,7 @@ export function pageMetadata(urlPath: string): Metadata {
     title: { absolute: fm.title },
     description: fm.description,
     alternates: { canonical: urlPath },
-    openGraph: { title: fm.title, description: fm.description, url, siteName: "Splice Works", type: "website" },
+    openGraph: { title: fm.title, description: fm.description, url, siteName: "Splice Ops", type: "website" },
     twitter: { card: "summary_large_image", title: fm.title, description: fm.description },
   };
 }

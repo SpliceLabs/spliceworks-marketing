@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"SpliceWorksDesignSystem_f2e5fb","components":[{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Icon","sourcePath":"components/core/Icon.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"Badge","sourcePath":"components/display/Badge.jsx"},{"name":"Card","sourcePath":"components/display/Card.jsx"},{"name":"Tabs","sourcePath":"components/display/Tabs.jsx"},{"name":"Tag","sourcePath":"components/display/Tag.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"Input","sourcePath":"components/forms/Input.jsx"},{"name":"Radio","sourcePath":"components/forms/Radio.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"Dialog","sourcePath":"components/overlay/Dialog.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"}],"sourceHashes":{"components/core/Button.jsx":"1a764bef438f","components/core/Icon.jsx":"58a5756c2b9a","components/core/IconButton.jsx":"8c59087deea5","components/display/Badge.jsx":"febd6a7682c4","components/display/Card.jsx":"4e41c6a58d25","components/display/Tabs.jsx":"cac50761f0fc","components/display/Tag.jsx":"d961368d9827","components/forms/Checkbox.jsx":"f45c1c3c2319","components/forms/Input.jsx":"c9595de8f8d8","components/forms/Radio.jsx":"b009210b0774","components/forms/Select.jsx":"66f9eb868e40","components/forms/Switch.jsx":"a98876be5f89","components/overlay/Dialog.jsx":"89254b6d4df6","components/overlay/Toast.jsx":"de111ccd4848","components/overlay/Tooltip.jsx":"23f1bedb659d","ui_kits/editorial-site/Article.jsx":"952706593c5e","ui_kits/editorial-site/ArticleGrid.jsx":"051d26df8b51","ui_kits/editorial-site/Footer.jsx":"676c5bfa5236","ui_kits/editorial-site/Hero.jsx":"0b37f0f4e729","ui_kits/editorial-site/Nav.jsx":"f343f29850f5","ui_kits/editorial-site/Subscribe.jsx":"d7ba82a92112","ui_kits/editorial-site/app.jsx":"3bc899d41aa2"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":4,"namespace":"SpliceWorksDesignSystem_f2e5fb","components":[{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Icon","sourcePath":"components/core/Icon.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"Badge","sourcePath":"components/display/Badge.jsx"},{"name":"Card","sourcePath":"components/display/Card.jsx"},{"name":"Tabs","sourcePath":"components/display/Tabs.jsx"},{"name":"Tag","sourcePath":"components/display/Tag.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"Input","sourcePath":"components/forms/Input.jsx"},{"name":"Radio","sourcePath":"components/forms/Radio.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"Dialog","sourcePath":"components/overlay/Dialog.jsx"},{"name":"Toast","sourcePath":"components/overlay/Toast.jsx"},{"name":"Tooltip","sourcePath":"components/overlay/Tooltip.jsx"}],"sourceHashes":{"components/core/Button.jsx":"49cf9c81c773","components/core/Icon.jsx":"58a5756c2b9a","components/core/IconButton.jsx":"8c59087deea5","components/display/Badge.jsx":"81c3ab06ba60","components/display/Card.jsx":"4e41c6a58d25","components/display/Tabs.jsx":"cac50761f0fc","components/display/Tag.jsx":"d961368d9827","components/forms/Checkbox.jsx":"f45c1c3c2319","components/forms/Input.jsx":"c9595de8f8d8","components/forms/Radio.jsx":"b009210b0774","components/forms/Select.jsx":"66f9eb868e40","components/forms/Switch.jsx":"a98876be5f89","components/overlay/Dialog.jsx":"89254b6d4df6","components/overlay/Toast.jsx":"d8273d52ba4b","components/overlay/Tooltip.jsx":"23f1bedb659d","ui_kits/editorial-site/Article.jsx":"48a9efc86fbd","ui_kits/editorial-site/ArticleGrid.jsx":"051d26df8b51","ui_kits/editorial-site/Footer.jsx":"0589fefaffa1","ui_kits/editorial-site/Hero.jsx":"0b37f0f4e729","ui_kits/editorial-site/Nav.jsx":"d81e2bf6e644","ui_kits/editorial-site/Subscribe.jsx":"d7ba82a92112","ui_kits/editorial-site/app.jsx":"3bc899d41aa2"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -114,8 +114,8 @@ function Button({
     },
     danger: {
       bg: 'var(--danger)',
-      hbg: '#B8241F',
-      pbg: '#8F1A16',
+      hbg: '#A02722',
+      pbg: '#9E2622',
       fg: '#fff',
       bd: 'var(--danger)'
     }
@@ -243,9 +243,9 @@ function Badge({
     neutral: ['var(--bg-sunken)', 'var(--text-secondary)'],
     accent: ['var(--accent-soft)', 'var(--sw-blue-600)'],
     joint: ['var(--joint-soft)', 'var(--sw-joint-700)'],
-    success: ['var(--success-soft)', '#12684A'],
-    warning: ['var(--warning-soft)', '#7A4E08'],
-    danger: ['var(--danger-soft)', '#8F1A16'],
+    success: ['var(--success-soft)', '#0B7A4B'],
+    warning: ['var(--warning-soft)', '#7A5200'],
+    danger: ['var(--danger-soft)', '#9E2622'],
     ink: ['var(--sw-ink)', 'var(--sw-paper)']
   }[tone];
   return React.createElement('span', {
@@ -1070,9 +1070,9 @@ function Toast({
   }[tone];
   const col = {
     neutral: 'var(--sw-blue-soft)',
-    success: '#5FD3A3',
-    warning: '#F2B94B',
-    danger: '#FF8A85'
+    success: '#2FD08A',
+    warning: '#F2B53A',
+    danger: '#F0605A'
   }[tone];
   return React.createElement('div', {
     role: 'status',
@@ -1284,7 +1284,7 @@ function Article({
     style: {
       font: 'var(--weight-medium) var(--text-md)/1.2 var(--font-sans)'
     }
-  }, "Splice Works field team"), /*#__PURE__*/React.createElement("div", {
+  }, "Splice Ops field team"), /*#__PURE__*/React.createElement("div", {
     style: {
       font: 'var(--label-sm)',
       letterSpacing: 'var(--tracking-label)',
@@ -1502,7 +1502,7 @@ function Footer() {
     }
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("img", {
     src: "../../assets/logo/dark/lockup-endorsed@2x.png",
-    alt: "Splice Works \u2014 a Splice Labs company",
+    alt: "Splice Ops \u2014 a Splice Labs company",
     style: {
       height: 64,
       margin: '-14px 0 0 -22px'
@@ -1514,7 +1514,7 @@ function Footer() {
       maxWidth: '36ch',
       margin: '8px 0 0'
     }
-  }, "An editorial project about the places where habitats are joined, cut, and joined again.")), col('Read', ['Issues', 'Field notes', 'Data', 'Reports']), col('Splice Works', ['About', 'Method', 'Contributors', 'Contact']), col('Follow', ['Weekly brief', 'RSS', 'Archive'])), /*#__PURE__*/React.createElement("div", {
+  }, "An editorial project about the places where habitats are joined, cut, and joined again.")), col('Read', ['Issues', 'Field notes', 'Data', 'Reports']), col('Splice Ops', ['About', 'Method', 'Contributors', 'Contact']), col('Follow', ['Weekly brief', 'RSS', 'Archive'])), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       justifyContent: 'space-between',
@@ -1526,7 +1526,7 @@ function Footer() {
       textTransform: 'uppercase',
       color: 'var(--sw-ink-300)'
     }
-  }, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 Splice Works \xB7 A Splice Labs company"), /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 Splice Ops \xB7 A Splice Labs company"), /*#__PURE__*/React.createElement("span", {
     style: {
       display: 'flex',
       alignItems: 'center',
@@ -1704,7 +1704,7 @@ function Nav({
     }
   }, /*#__PURE__*/React.createElement("img", {
     src: `../../assets/logo/${dark ? 'dark' : 'light'}/lockup-horizontal@2x.png`,
-    alt: "Splice Works",
+    alt: "Splice Ops",
     style: {
       height: 36,
       margin: '0 -20px'

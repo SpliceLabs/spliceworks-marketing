@@ -1,6 +1,6 @@
 ---
 url: /tools/ai-cost-of-delay
-title: "AI Cost of Delay Calculator: What Waiting on AI Costs | Splice Works"
+title: "AI Cost of Delay Calculator: What Waiting on AI Costs | Splice Ops"
 description: "Work out what each month of waiting on AI costs your company. Free calculator, the formula behind it, and a line you can paste into your next board deck."
 reader: "A CEO, founder or technology leader deciding whether to start on AI now or later"
 job: "Put a dollar figure on waiting, then test it in a working session"
@@ -28,7 +28,7 @@ Value of each workflow is your average, in dollars per workflow a month, after w
 
 The calculator takes 0 to 10 workflows, $0 to $500,000 per workflow a month, and 0 to 24 months. The math runs in your browser. Your numbers are saved in this page's web address, so anyone you send the link to, and the site's host, can see them.
 
-Updated 1 Nov 2026 · Splice Works
+Updated 1 Nov 2026 · Splice Ops
 
 ## A worked example
 

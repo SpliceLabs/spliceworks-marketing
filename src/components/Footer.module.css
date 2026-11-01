@@ -1,8 +1,8 @@
 .footer {
-  background: #0f1a30;
-  color: #f6f4e9;
+  background: #0e1114;
+  color: #e6e9ec;
   padding: 64px 32px 40px;
-  border-top: 1px solid #2e3f66;
+  border-top: 1px solid #262e36;
 }
 
 .footerInner {
@@ -39,7 +39,7 @@
 .description {
   font-family: var(--font-body);
   font-size: 14px;
-  color: #aeb8cc;
+  color: #8f98a1;
   max-width: 32ch;
   margin: 4px 0 0;
   line-height: 1.55;
@@ -56,17 +56,17 @@
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #7c8490;
+  color: #78828b;
   margin-bottom: 8px;
   padding-bottom: 8px;
-  border-bottom: 1px solid #2e3f66;
+  border-bottom: 1px solid #262e36;
 }
 
 .link {
   position: relative;
   display: inline-flex;
   align-items: center;
-  color: #aeb8cc;
+  color: #8f98a1;
   text-decoration: none;
   font-family: var(--font-ui);
   font-size: 13px;
@@ -83,7 +83,7 @@
   left: -12px;
   width: 4px;
   height: 4px;
-  background: #2447e8;
+  background: #ee6a33;
   border-radius: 50%;
   opacity: 0;
   transform: scale(0);
@@ -93,7 +93,7 @@
 }
 
 .link:hover {
-  color: #f6f4e9;
+  color: #e6e9ec;
   transform: translateX(6px);
 }
 
@@ -108,26 +108,26 @@
   align-items: center;
   margin-top: 48px;
   padding-top: 20px;
-  border-top: 1px solid #2e3f66;
+  border-top: 1px solid #262e36;
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #7c8490;
+  color: #78828b;
 }
 
 .status {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #6fcb9a;
+  color: #2fd08a;
 }
 
 .statusDot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #6fcb9a;
+  background: #2fd08a;
   animation: pulse 1.6s ease-in-out infinite;
 }
 

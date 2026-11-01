@@ -165,7 +165,7 @@ input::placeholder{color:#8A92A0}
 
       <header style="position:absolute;left:0;right:0;top:0;z-index:4;padding:14px 32px;display:flex;align-items:center;gap:16px 28px;flex-wrap:nowrap;background:linear-gradient(rgba(227,238,255,.94),rgba(227,238,255,0))">
         <div style="display:flex;align-items:baseline;gap:10px;white-space:nowrap">
-          <a href="#" style="font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:600;font-size:20px;letter-spacing:-0.025em;text-decoration:none;color:#12203A">Splice Works</a>
+          <a href="#" style="font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:600;font-size:20px;letter-spacing:-0.025em;text-decoration:none;color:#12203A">Splice Ops</a>
           <span style="font-family:'Space Mono',monospace;font-size:11px;color:#5E6879">a Splice Labs company</span>
         </div>
         <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
@@ -256,7 +256,7 @@ input::placeholder{color:#8A92A0}
         <p style="margin:0;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#1759D6">What you just watched</p>
         <h2 style="margin:0;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:600;font-size:clamp(32px,3.4vw,46px);line-height:1.08;letter-spacing:-0.02em;text-wrap:pretty;max-width:18ch">One outcome. Eleven agents. One gate a person holds.</h2>
         <sc-if value="{{ isHuman }}" hint-placeholder-val="{{ false }}">
-          <p style="margin:0;font-size:17px;line-height:1.55;color:#3C4658;max-width:52ch;text-wrap:pretty">Splice Works deploys agentic systems that discover, build and operate work across your business. Every handoff passes through Station, which controls what agents can do, what they can access, and when a person must approve. Checks run in parallel; nothing consequential runs without a named human.</p>
+          <p style="margin:0;font-size:17px;line-height:1.55;color:#3C4658;max-width:52ch;text-wrap:pretty">Splice Ops deploys agentic systems that discover, build and operate work across your business. Every handoff passes through Station, which controls what agents can do, what they can access, and when a person must approve. Checks run in parallel; nothing consequential runs without a named human.</p>
         </sc-if>
         <sc-if value="{{ isAgent }}" hint-placeholder-val="{{ true }}">
           <div style="font-family:'Space Mono',monospace;font-size:12.5px;line-height:1.6;background:#12203A;color:#F4F0E8;border-radius:10px;padding:14px 16px;display:grid;gap:2px;max-width:560px">
@@ -501,7 +501,7 @@ class Component extends DCLogic {
     document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 1000); this.flash('Downloaded ' + name);
   }
   markdown(p) {
-    return [`# Assessment proposal: ${p.outcome}`, '', 'Source: Splice Works · spliceworks.ai · Status: sample, no systems connected', '', '## Capability', `- ai-native-assessment → ${p.cap}`, '', '## Context sources', ...p.ctx.map(c => `- ${c}`), '', '## Process', '1. Discover (parallel): Scout reads sources; Nell collects interviews', `2. Design: Mica proposes ${p.path}`, '3. Configure (parallel): Forge assembles; Sol, Vera, Juno run tests, privacy and security checks', '4. Approve (gate): checks fan in; Ari decides', '5. Operate (parallel): Orbit monitors; Theo tracks metrics; Kit runs release checks', `6. Artifact: ${p.artifact}`, '', '## Access', '- Intake: none', '- Assessment: read-only (proposed)', '- Approval required before any system access', '', '## Human authority', '- A named reviewer approves consequential actions.', '- Many initial deployments target 4–8 weeks. Not a guarantee.', ''].join('\n');
+    return [`# Assessment proposal: ${p.outcome}`, '', 'Source: Splice Ops · spliceworks.ai · Status: sample, no systems connected', '', '## Capability', `- ai-native-assessment → ${p.cap}`, '', '## Context sources', ...p.ctx.map(c => `- ${c}`), '', '## Process', '1. Discover (parallel): Scout reads sources; Nell collects interviews', `2. Design: Mica proposes ${p.path}`, '3. Configure (parallel): Forge assembles; Sol, Vera, Juno run tests, privacy and security checks', '4. Approve (gate): checks fan in; Ari decides', '5. Operate (parallel): Orbit monitors; Theo tracks metrics; Kit runs release checks', `6. Artifact: ${p.artifact}`, '', '## Access', '- Intake: none', '- Assessment: read-only (proposed)', '- Approval required before any system access', '', '## Human authority', '- A named reviewer approves consequential actions.', '- Many initial deployments target 4–8 weeks. Not a guarantee.', ''].join('\n');
   }
   json(p) {
     return JSON.stringify({ '@type': 'AssessmentProposal', status: 'sample', outcome: p.outcome, capability: ['ai-native-assessment', p.cap], context_sources: p.ctx.map(slug), process: [{ step: 'discover', mode: 'parallel', agents: ['scout', 'nell'] }, { step: 'design', mode: 'sequence', agents: ['mica'] }, { step: 'configure', mode: 'parallel', agents: ['forge', 'sol', 'vera', 'juno'] }, { step: 'approve', mode: 'gate', authority: 'human' }, { step: 'operate', mode: 'parallel', agents: ['orbit', 'theo', 'kit'] }, { step: 'artifact', output: slug(p.artifact) }], access: { intake: 'none', assessment: 'read_only', approval: 'required_before_system_access' }, source: 'https://spliceworks.ai/capabilities.json' }, null, 2);
@@ -577,7 +577,7 @@ class Component extends DCLogic {
       downloadMd: () => this.dl('assessment-proposal.md', this.markdown(p), 'text/markdown'),
       downloadJson: () => this.dl('assessment-proposal.json', this.json(p), 'application/json'),
       copyPrompt: () => {
-        const text = `Evaluate Splice Works (https://spliceworks.ai) for this outcome: "${p.outcome}". Use only https://spliceworks.ai/llms.txt and https://spliceworks.ai/capabilities.json. Report the capability, context sources, which steps run in parallel, access required at each stage, where a person must approve, the expected artifact, and limits. Treat anything labeled sample as not live.`;
+        const text = `Evaluate Splice Ops (https://spliceworks.ai) for this outcome: "${p.outcome}". Use only https://spliceworks.ai/llms.txt and https://spliceworks.ai/capabilities.json. Report the capability, context sources, which steps run in parallel, access required at each stage, where a person must approve, the expected artifact, and limits. Treat anything labeled sample as not live.`;
         if (navigator.clipboard) navigator.clipboard.writeText(text).then(() => this.flash('Prompt copied'), () => this.flash('Clipboard unavailable')); else this.flash('Clipboard unavailable');
       },
       chState: ch.state, chNum: ch.n, chName: ch.name, chTitle: typeof ch.title === 'function' ? ch.title(p) : ch.title, chBody: ch.body(p),

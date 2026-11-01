@@ -1,6 +1,6 @@
 ---
 url: /team
-title: Our Team: Operators Who Run AI Every Day | Splice Works
+title: Our Team: Operators Who Run AI Every Day | Splice Ops
 description: Meet Tim Varner and Jake Krogman, plus a wider team from global banks, developer platforms and production AI. We run Splice on the methods we bring you.
 reader: A buyer checking who is behind the work before booking a working session
 job: Believe a credible, hands-on team does the work, then book a working session

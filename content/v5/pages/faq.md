@@ -1,6 +1,6 @@
 ---
 url: /faq
-title: AI Enablement FAQ: Cost, Accountability, Data | Splice Works
+title: AI Enablement FAQ: Cost, Accountability, Data | Splice Ops
 description: Plain answers on cost, speed, who's accountable when AI gets it wrong, data, lock-in, and what you keep after the engagement.
 reader: Any buyer weighing an objection; also AI search tools and agents
 job: Have each objection answered plainly, then book a working session

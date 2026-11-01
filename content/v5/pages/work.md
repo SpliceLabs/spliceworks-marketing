@@ -1,6 +1,6 @@
 ---
 url: /work
-title: Our Work: AI Agents We Run, and Client Builds | Splice Works
+title: Our Work: AI Agents We Run, and Client Builds | Splice Ops
 description: We run Splice on our own methods: software factory, company brain, sales agents. Plus anonymized work for clients and design partners, with status.
 reader: A buyer who wants proof before booking a working session
 job: Believe we've run what we sell, see real (anonymized) work in progress, then book a working session

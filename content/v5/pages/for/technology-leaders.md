@@ -1,6 +1,6 @@
 ---
 url: /for/technology-leaders
-title: "AI Delivery and Governance for CTOs and CIOs | Splice Works"
+title: "AI Delivery and Governance for CTOs and CIOs | Splice Ops"
 description: "Handed the AI mandate? Get workflows into production in the systems you already run, with spend caps, a kill switch, full logging and no lock-in."
 reader: "The CTO, CIO, CPO or Chief AI Officer asked to deliver the AI directive"
 job: "Believe they can deliver the mandate without building the governance themselves, then book a working session (or the fractional seat if the AI role is empty)"
