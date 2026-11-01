@@ -44,6 +44,7 @@
   /* Run states */
   --color-attention: #e8a317;
   --color-attention-soft: #fbebc4;
+  --color-attention-text: #7a5200;
   --color-complete: #0b7a4b;
   --color-complete-soft: #ddf1e6;
   --color-blocked: #c0302b;
@@ -168,6 +169,7 @@
   --color-on-human: #0e1114;
   --color-attention: #f2b53a;
   --color-attention-soft: #2e2819;
+  --color-attention-text: #f2b53a;
   --color-complete: #2fd08a;
   --color-complete-soft: #132c25;
   --color-blocked: #f0605a;
