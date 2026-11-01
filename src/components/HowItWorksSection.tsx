@@ -12,7 +12,9 @@ const stages = [
     description:
       "We map how work actually moves — across people, systems, data, and decisions — then rank the opportunities by value, feasibility, and risk.",
     duration: "1-2 weeks",
-    color: "#2447E8",
+    color: "var(--color-primary)",
+    onColor: "var(--text-on-primary)",
+    textColor: "var(--color-primary)",
   },
   {
     id: 1,
@@ -22,7 +24,9 @@ const stages = [
     description:
       "The same team builds it into your environment — real data, real integrations, real constraints. Your Brain goes live early in the engagement; evaluation and gates are designed in from day one, not bolted on after.",
     duration: "4-12 weeks",
-    color: "#D98E14",
+    color: "var(--color-attention)",
+    onColor: "var(--text-on-accent)",
+    textColor: "var(--color-attention-text)",
   },
   {
     id: 2,
@@ -32,7 +36,9 @@ const stages = [
     description:
       "We stay embedded — measuring what works, improving the system, finding the next opportunity worth going after. What works becomes capability your team keeps.",
     duration: "Ongoing",
-    color: "#1E9E6A",
+    color: "var(--color-complete)",
+    onColor: "var(--text-on-primary)",
+    textColor: "var(--color-complete)",
   },
 ];
 
@@ -88,7 +94,13 @@ export function HowItWorksSection() {
               type="button"
               className={`${styles.progressNode} ${activeStage >= i ? styles.nodeComplete : ""} ${activeStage === i ? styles.nodeActive : ""}`}
               onClick={() => handleStageClick(i)}
-              style={{ "--node-color": stage.color } as React.CSSProperties}
+              style={
+                {
+                  "--node-color": stage.color,
+                  "--node-on": stage.onColor,
+                  "--node-text": stage.textColor,
+                } as React.CSSProperties
+              }
             >
               <span className={styles.nodeNum}>{String(i + 1).padStart(2, "0")}</span>
               <span className={styles.nodeLabel}>{stage.label}</span>
@@ -102,7 +114,13 @@ export function HowItWorksSection() {
         {/* Active stage detail */}
         <div
           className={styles.stageDetail}
-          style={{ "--stage-color": stages[activeStage].color } as React.CSSProperties}
+          style={
+            {
+              "--stage-color": stages[activeStage].color,
+              "--stage-on": stages[activeStage].onColor,
+              "--stage-text": stages[activeStage].textColor,
+            } as React.CSSProperties
+          }
         >
           <div className={styles.stageHeader}>
             <span className={styles.stageNum}>{String(activeStage + 1).padStart(2, "0")}</span>
@@ -132,7 +150,13 @@ export function HowItWorksSection() {
               type="button"
               className={`${styles.stage} ${activeStage === i ? styles.stageActive : ""}`}
               onClick={() => handleStageClick(i)}
-              style={{ "--stage-color": stage.color } as React.CSSProperties}
+              style={
+                {
+                  "--stage-color": stage.color,
+                  "--stage-on": stage.onColor,
+                  "--stage-text": stage.textColor,
+                } as React.CSSProperties
+              }
             >
               <span className={styles.miniNum}>{String(i + 1).padStart(2, "0")}</span>
               <span className={styles.miniTitle}>{stage.title}</span>
