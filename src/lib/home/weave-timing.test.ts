@@ -16,6 +16,16 @@ describe("weave timing", () => {
     expect(turnFraction).toBeLessThan(0.7);
   });
 
+  it("marks the rejection from the moment the redraft reaches the review gate until it has left it", () => {
+    const { rejectFrom, rejectTo, turnFraction } = weaveTiming();
+    expect(rejectFrom).toBeCloseTo(
+      pathLength("M820 100 H1000 C1070 100 1070 230 1000 230 H330") / pathLength(REDRAFT_PATH),
+      6,
+    );
+    expect(rejectTo).toBeGreaterThan(rejectFrom);
+    expect(rejectTo).toBeLessThan(turnFraction);
+  });
+
   it("travels at the same speed as the main dot", () => {
     const { redraftSeconds } = weaveTiming();
     expect(redraftSeconds / pathLength(REDRAFT_PATH)).toBeCloseTo(MAIN_SECONDS / pathLength(MAIN_PATH), 8);

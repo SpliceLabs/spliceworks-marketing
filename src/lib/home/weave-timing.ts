@@ -13,10 +13,15 @@ const APPROVED_FLOW =
 
 export const REDRAFT_PATH = `${RETRY_LEG} ${APPROVED_FLOW}`;
 
+const TO_GATE = "M820 100 H1000 C1070 100 1070 230 1000 230 H330";
+const PAST_GATE = `${TO_GATE} V196 C330 170 380 164 450 164`;
+
 export const weaveTiming = () => {
   const total = pathLength(REDRAFT_PATH);
   return {
     turnFraction: pathLength(RETRY_LEG) / total,
+    rejectFrom: pathLength(TO_GATE) / total,
+    rejectTo: pathLength(PAST_GATE) / total,
     redraftSeconds: (MAIN_SECONDS * total) / pathLength(MAIN_PATH),
   };
 };
