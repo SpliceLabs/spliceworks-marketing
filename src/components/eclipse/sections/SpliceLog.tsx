@@ -1,77 +1,79 @@
 import Link from "next/link";
-import { SPLICE_LOG } from "@/lib/home/splice-log";
-import { Ital, Kicker, Strip } from "@/components/ds/parts";
+import { SPLICE_LOG, type LogEntry } from "@/lib/home/splice-log";
+import { Ital, Strip } from "@/components/ds/parts";
+import { TicketStrip } from "../TicketStrip";
 
-const ART =
-  "radial-gradient(ellipse 70% 90% at 30% 110%,var(--yellow) 0,var(--orange) 34%,rgba(243,47,146,.4) 62%,transparent 82%),var(--card-2)";
+const WASH: Record<LogEntry["badge"], string> = {
+  "FREE TOOL":
+    "radial-gradient(circle at 50% 50%, #1A1718 0 14%, transparent 15%), radial-gradient(ellipse at 42% 50%, #F2A65A 0, transparent 52%), radial-gradient(ellipse at 60% 50%, #E8899A 0, transparent 52%), #EEEAE2",
+  "OUR TOOL":
+    "radial-gradient(circle at 50% 50%, #1E1E20 0 14%, transparent 15%), radial-gradient(ellipse at 42% 50%, #3E9C93 0, transparent 52%), radial-gradient(ellipse at 60% 50%, #BFE6D4 0, transparent 52%), #EEEAE2",
+  NEW: "radial-gradient(circle at 50% 50%, #1A1718 0 14%, transparent 15%), radial-gradient(ellipse at 42% 50%, #F2A65A 0, transparent 52%), radial-gradient(ellipse at 60% 50%, #E8899A 0, transparent 52%), #EEEAE2",
+};
+
+const BADGE: Record<LogEntry["badge"], string> = { "FREE TOOL": "Free tool", "OUR TOOL": "Our tool", NEW: "New" };
+
+const ReadArrow = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M5 12h14M13 6l6 6-6 6" />
+  </svg>
+);
+
+const Ticket = ({ entry }: { entry: LogEntry }) => (
+  <Link className="ticket" href={entry.href}>
+    <span className="notch l" />
+    <span className="notch r" />
+    <span className="media" style={{ background: WASH[entry.badge] }}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      {entry.poster ? <img src={entry.poster} alt="" /> : null}
+      <span className={entry.badge === "NEW" ? "badge new" : "badge"}>{BADGE[entry.badge]}</span>
+    </span>
+    <span className="name">
+      {entry.name} {entry.code}
+    </span>
+    <span className="meta">
+      <span>[{entry.kind}]</span>
+      <span>{entry.status}</span>
+    </span>
+    <span className="track">
+      <i style={{ left: `${entry.track}%` }} />
+    </span>
+    <span className="desc">{entry.summary}</span>
+    <span className="foot">
+      <span className="read">
+        {entry.cta}
+        <ReadArrow />
+      </span>
+    </span>
+  </Link>
+);
 
 export const SpliceLog = () => (
-  <section id="log" className="sec wrap">
-    <Strip n="05" label="The Splice Log" />
-    <Kicker>Our own tools, and new ones we’ve tested</Kicker>
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "flex-end",
-        gap: 20,
-        flexWrap: "wrap",
-        marginBottom: 36,
-      }}
+  <section id="log" className="sec">
+    <div className="wrap">
+      <Strip n="05" label="The Splice Log" />
+    </div>
+    <TicketStrip
+      head={
+        <div>
+          <span className="kicker">[Splice Log] Our own tools, and new ones we’ve tested</span>
+          <h2 className="h2" style={{ marginTop: "var(--space-12)" }}>
+            New AI, <Ital>tested and integrated daily, for you.</Ital>
+          </h2>
+        </div>
+      }
     >
-      <h2 className="h2" style={{ maxWidth: 820 }}>
-        New AI, <Ital>tested and integrated daily, for you.</Ital>
-      </h2>
-      <Link className="kicker tlink" href="#log" style={{ textDecoration: "none" }}>
-        [+] Read the log
-      </Link>
-    </div>
-    <div className="logrow">
-      {SPLICE_LOG.map((e) => (
-        <article key={e.code} className="lcard">
-          <div
-            style={{
-              height: 150,
-              borderRadius: 12,
-              position: "relative",
-              background: ART,
-              border: "1px solid var(--line)",
-            }}
-          >
-            <span className="pill solid" style={{ position: "absolute", left: 10, top: 10 }}>
-              {e.badge}
-            </span>
-          </div>
-          <div style={{ padding: "0 8px", display: "flex", flexDirection: "column", gap: 12, flex: 1 }}>
-            <h3
-              style={{
-                margin: 0,
-                font: "400 20px/1.2 var(--font-eclipse-mono),monospace",
-                letterSpacing: "-.01em",
-                textTransform: "uppercase",
-              }}
-            >
-              {e.name} {e.code}
-            </h3>
-            <div
-              className="kicker"
-              style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap", fontSize: 11 }}
-            >
-              <span>[{e.kind}]</span>
-              <span>{e.status}</span>
-            </div>
-            <p
-              className="kicker"
-              style={{ flex: 1, textTransform: "none", letterSpacing: ".01em", lineHeight: 1.6, color: "var(--ink)" }}
-            >
-              {e.summary}
-            </p>
-            <Link className="btn sm" href={e.href} style={{ alignSelf: "flex-start" }}>
-              {e.cta} →
-            </Link>
-          </div>
-        </article>
+      {SPLICE_LOG.map((entry) => (
+        <Ticket key={entry.code} entry={entry} />
       ))}
-    </div>
+    </TicketStrip>
   </section>
 );
