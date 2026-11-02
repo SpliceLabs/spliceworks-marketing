@@ -7,7 +7,7 @@ framework:
   packageManager: pnpm
 deployment:
   adapter: vercel
-  productionDomain: spliceworks.ai
+  productionDomain: www.spliceops.ai
   requiresHumanApproval: true
 sources:
   truth: content/SOURCE-OF-TRUTH.md

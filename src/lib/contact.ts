@@ -6,8 +6,8 @@
  * CONTACT_EMAIL  shown on the site (footer, /book) and in `{{contact_email}}` in the copy
  * BOOK_TO        where /book submissions are sent (defaults to CONTACT_EMAIL)
  *
- * The founders chose info@spliceworks.ai; switch CONTACT_EMAIL to it once that
- * domain receives mail.
+ * The site uses hello@splicelabs.xyz until a spliceops.ai address is confirmed to
+ * receive mail; then switch CONTACT_EMAIL to it.
  */
 export const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "hello@splicelabs.xyz";
 

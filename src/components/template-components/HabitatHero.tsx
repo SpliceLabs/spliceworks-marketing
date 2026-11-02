@@ -753,7 +753,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
     return [
       `# Assessment proposal: ${p.outcome}`,
       "",
-      "Source: Splice Ops · spliceworks.ai · Status: sample, no systems connected",
+      "Source: Splice Ops · spliceops.ai · Status: sample, no systems connected",
       "",
       "## Capability",
       `- ai-native-assessment → ${p.cap}`,
