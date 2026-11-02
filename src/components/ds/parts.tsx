@@ -1,8 +1,10 @@
 import type { ReactNode } from "react";
 
-export const Strip = ({ n, label }: { n: string; label: string }) => (
+export const Strip = ({ n, label, total = "08" }: { n: string; label: string; total?: string }) => (
   <div className="strip">
-    <span className="kicker">{n} / 08</span>
+    <span className="kicker">
+      {n} / {total}
+    </span>
     <i />
     <span className="kicker">{label}</span>
   </div>

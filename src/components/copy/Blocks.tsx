@@ -37,8 +37,8 @@ export function CtaLine({ block }: { block: Cta }) {
 export function CopyTable({ block }: { block: Extract<Block, { t: "table" }> }) {
   const rowHeaders = block.head[0]?.length === 0;
   return (
-    <div className={styles.tableWrap}>
-      <table className={styles.table}>
+    <div className="tblwrap">
+      <table className="tl">
         <thead>
           <tr>
             {block.head.map((cell, i) =>
