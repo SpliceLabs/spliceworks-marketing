@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Ital, Kicker } from "../parts";
+import { Ital, Kicker } from "@/components/ds/parts";
 import { WeaveReel } from "../WeaveReel";
 
 const TAGS = [

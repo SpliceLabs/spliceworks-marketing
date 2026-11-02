@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Space_Grotesk, Inter, Space_Mono } from "next/font/google";
+import { Fragment_Mono, Instrument_Serif, Outfit } from "next/font/google";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { ModeProvider } from "@/providers/ModeProvider";
 import { JsonLd } from "@/components/JsonLd";
@@ -7,31 +7,19 @@ import { CONTACT_EMAIL } from "@/lib/contact";
 import { OG_IMAGE, ORGANIZATION_ID, SITE_URL, absoluteUrl } from "@/lib/site";
 import "./globals.css";
 
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
+const outfit = Outfit({ variable: "--font-outfit", subsets: ["latin"], display: "swap" });
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: "400",
+  style: ["normal", "italic"],
 });
-
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const fragmentMono = Fragment_Mono({
+  variable: "--font-fragment-mono",
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const spaceMono = Space_Mono({
-  variable: "--font-space-mono",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "700"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -103,7 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${bricolage.variable} ${spaceGrotesk.variable} ${inter.variable} ${spaceMono.variable}`}
+      className={`${outfit.variable} ${instrumentSerif.variable} ${fragmentMono.variable}`}
       suppressHydrationWarning
     >
       <head>

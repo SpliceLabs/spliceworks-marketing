@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { SPLICE_LOG } from "@/lib/home/splice-log";
-import { Ital, Kicker, Strip } from "../parts";
+import { Ital, Kicker, Strip } from "@/components/ds/parts";
 
 const ART =
   "radial-gradient(ellipse 70% 90% at 30% 110%,var(--yellow) 0,var(--orange) 34%,rgba(243,47,146,.4) 62%,transparent 82%),var(--card-2)";

@@ -1,0 +1,196 @@
+/* SpliceOps design tokens (the Eclipse system). The short names (--bg, --ink,
+   --orange ...) are the system; the --color-* names are legacy aliases mapped
+   by role so existing component CSS follows the system. Orange as text is
+   always --otext; --orange is for graphics and the dot. */
+
+:root {
+  --bg: #fcfcfa;
+  --ink: #16161a;
+  --muted: #55565c;
+  --soft: #6e6f74;
+  --card: #f2f0eb;
+  --card-2: #f7f5f1;
+  --line: rgba(22, 22, 26, 0.12);
+  --line-2: rgba(22, 22, 26, 0.22);
+  --orange: #e8590c;
+  --pink: #f32f92;
+  --glow: #ff5c00;
+  --yellow: #f7d774;
+  --otext: #c2410c;
+  --white: #ffffff;
+  --dark: #16161a;
+  --ondark: #fcfcfa;
+  --navbg: rgba(252, 252, 250, 0.86);
+  --blob: 0.2;
+  --shadow: 0 2px 4px rgba(22, 22, 26, 0.05), 0 16px 40px rgba(22, 22, 26, 0.08);
+  --gray: #8f8f94;
+  --chipline: #bdbdbd;
+  --person: #00755d;
+  --acc: #e8590c;
+  --surf: #ffffff;
+  --sec: #55565c;
+  --retry: #7c63ff;
+
+  --color-paper: var(--bg);
+  --color-surface: var(--card-2);
+  --color-raised: var(--white);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--ink);
+  --color-structure: var(--line-2);
+  --color-structure-soft: var(--card);
+  --color-structure-deep: var(--gray);
+
+  --color-primary: var(--otext);
+  --color-primary-hover: #9a3412;
+  --color-primary-mid: var(--orange);
+  --color-primary-soft: #fbebdd;
+  --color-on-primary: #ffffff;
+
+  --color-accent: var(--person);
+  --color-accent-soft: #d7eee8;
+  --color-accent-text: var(--person);
+  --color-on-accent: #ffffff;
+  --color-accent-ring: var(--person);
+
+  --color-human: var(--pink);
+  --color-human-text: #b01e6b;
+  --color-human-soft: #fbe3ef;
+  --color-on-human: #ffffff;
+
+  --color-attention: #e8a317;
+  --color-attention-soft: #fbebc4;
+  --color-attention-text: #7a5200;
+  --color-complete: #0b7a4b;
+  --color-complete-soft: #ddf1e6;
+  --color-blocked: #c0302b;
+  --color-blocked-soft: #f8e0de;
+  --color-state-idle: #a8a398;
+  --color-state-unknown: #7b5bb5;
+
+  --font-sans: var(--font-outfit), "Helvetica Neue", Arial, sans-serif;
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
+  --font-mono: var(--font-fragment-mono), ui-monospace, monospace;
+  --font-display: var(--font-sans);
+  --font-ui: var(--font-sans);
+  --font-body: var(--font-sans);
+  --font-label: var(--font-mono);
+
+  --text-display-xl: 112px;
+  --text-display-lg: 56px;
+  --text-display-md: 26px;
+  --text-body-size: 17px;
+  --text-ui: 14px;
+  --text-mono: 12px;
+  --text-caption: 13px;
+
+  --display-weight: 600;
+  --display-tracking: -0.04em;
+  --display-leading: 1.02;
+
+  --measure: 64ch;
+  --workspace: 1440px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  --radius-panel: 20px;
+  --radius-ctrl: 12px;
+  --radius-pill: 999px;
+
+  --duration-control: 150ms;
+  --duration-panel: 240ms;
+  --duration-move: 900ms;
+  --duration-route: 700ms;
+  --ease-move: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  --focus-ring: 2px solid var(--ink);
+  --focus-offset: 3px;
+
+  --bg-surface: var(--color-surface);
+  --bg-raised: var(--color-raised);
+  --text-body: var(--color-ink);
+  --text-secondary: var(--color-muted);
+  --text-on-accent: var(--color-on-accent);
+  --text-on-primary: var(--color-on-primary);
+  --border: var(--color-line);
+  --border-strong: var(--color-line-strong);
+  --accent: var(--color-primary);
+  --accent-hover: var(--color-primary-hover);
+  --accent-soft: var(--color-primary-soft);
+  --link: var(--color-primary);
+  --link-hover: var(--color-primary-hover);
+
+  --shadow-sm: 0 1px 2px rgba(14, 17, 20, 0.06);
+  --shadow-md: 0 4px 12px rgba(14, 17, 20, 0.08);
+  --shadow-lg: 0 12px 32px rgba(14, 17, 20, 0.12);
+  --shadow-focus: 0 0 0 2px var(--ink);
+}
+
+[data-theme="ink"],
+[data-theme="operational"],
+.operational {
+  --bg: #0e1114;
+  --ink: #edeff1;
+  --muted: #9aa1a9;
+  --soft: #8a929a;
+  --card: #171c21;
+  --card-2: #12161a;
+  --line: rgba(237, 239, 241, 0.14);
+  --line-2: rgba(237, 239, 241, 0.24);
+  --orange: #ee6a33;
+  --pink: #ff5c9a;
+  --glow: #ff6a2b;
+  --yellow: #f2c86b;
+  --otext: #ff8a55;
+  --white: #1b2127;
+  --dark: #1c2229;
+  --ondark: #edeff1;
+  --navbg: rgba(14, 17, 20, 0.86);
+  --blob: 0.14;
+  --shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  --gray: #6b737c;
+  --chipline: #3a434c;
+  --person: #00d6a4;
+  --acc: #ee6a33;
+  --surf: #1b2127;
+  --sec: #9aa1a9;
+  --retry: #9a86ff;
+
+  --color-primary-hover: #ffa27a;
+  --color-primary-soft: #2a1810;
+  --color-on-primary: #0e1114;
+  --color-accent-soft: #0f3a33;
+  --color-accent-text: #5cf0cb;
+  --color-on-accent: #0e1114;
+  --color-human-text: #ff8fba;
+  --color-human-soft: #2d1e28;
+  --color-on-human: #0e1114;
+  --color-attention: #f2b53a;
+  --color-attention-soft: #2e2819;
+  --color-attention-text: #f2b53a;
+  --color-complete: #2fd08a;
+  --color-complete-soft: #132c25;
+  --color-blocked: #f0605a;
+  --color-blocked-soft: #2e1c1e;
+  --color-state-idle: #4a545e;
+  --color-state-unknown: #a98bea;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.45);
+
+  color: var(--color-ink);
+  background: var(--color-paper);
+}

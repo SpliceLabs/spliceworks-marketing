@@ -1,5 +1,5 @@
 import { GapDiagram } from "../diagrams/GapDiagram";
-import { Ital, Kicker, Strip } from "../parts";
+import { Ital, Kicker, Strip } from "@/components/ds/parts";
 
 const ROWS = [
   ["Everyone has Copilot or ChatGPT.", "The workflows still run the way they always have."],

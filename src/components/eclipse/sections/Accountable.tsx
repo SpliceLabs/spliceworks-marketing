@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FlowDiagram } from "../diagrams/FlowDiagram";
-import { Ital, Kicker, Strip } from "../parts";
+import { Ital, Kicker, Strip } from "@/components/ds/parts";
 
 const PILLARS = [
   {

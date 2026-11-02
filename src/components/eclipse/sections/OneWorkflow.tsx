@@ -1,5 +1,5 @@
 import { OneWorkflowPicker } from "../OneWorkflowPicker";
-import { Check, HeatBar, Ital, Kicker, Strip } from "../parts";
+import { Check, HeatBar, Ital, Kicker, Strip } from "@/components/ds/parts";
 
 const LEAVE_WITH = [
   "A working prototype of that workflow",

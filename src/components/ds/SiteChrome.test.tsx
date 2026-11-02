@@ -1,17 +1,17 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { ThemeProvider } from "@/providers/ThemeProvider";
-import { EclipseFooter } from "./EclipseFooter";
-import { EclipseHeader } from "./EclipseHeader";
+import { SiteFooter } from "./SiteFooter";
+import { SiteHeader } from "./SiteHeader";
 
 const header = () =>
   renderToStaticMarkup(
     <ThemeProvider>
-      <EclipseHeader />
+      <SiteHeader />
     </ThemeProvider>,
   );
 
-describe("Eclipse header", () => {
+describe("Site header", () => {
   it("links the primary nav to real routes", () => {
     const out = header();
     ["/services", "/how-it-works", "/work", "/team", "/tools"].forEach((href) =>
@@ -31,8 +31,8 @@ describe("Eclipse header", () => {
   });
 });
 
-describe("Eclipse footer", () => {
-  const out = () => renderToStaticMarkup(<EclipseFooter email="hello@splicelabs.xyz" />);
+describe("Site footer", () => {
+  const out = () => renderToStaticMarkup(<SiteFooter email="hello@splicelabs.xyz" />);
 
   it("shows the sign-off and the contact address", () => {
     expect(out()).toContain("Put AI to work. Keep people accountable.");

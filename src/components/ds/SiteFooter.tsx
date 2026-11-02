@@ -33,7 +33,7 @@ const COLUMNS: readonly Column[] = [
   },
 ];
 
-export const EclipseFooter = ({ email }: { email: string }) => (
+export const SiteFooter = ({ email }: { email: string }) => (
   <footer className="wrap foot" style={{ paddingTop: 32, paddingBottom: 56, borderTop: "1px solid var(--line)" }}>
     <div
       style={{

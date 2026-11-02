@@ -1,5 +1,5 @@
 import { BringYourAi } from "../BringYourAi";
-import { Ital, Kicker, Strip } from "../parts";
+import { Ital, Kicker, Strip } from "@/components/ds/parts";
 
 type Step = { n: string; title: string; body: string; ring: string; dot?: boolean };
 

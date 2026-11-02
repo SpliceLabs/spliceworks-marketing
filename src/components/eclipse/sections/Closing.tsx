@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Ital, PRICING_LINE, Strip } from "../parts";
+import { Ital, PRICING_LINE, Strip } from "@/components/ds/parts";
 
 const TOOLS = [
   ["AI cost of delay calculator", "/tools/ai-cost-of-delay"],

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useTheme } from "@/providers/ThemeProvider";
 import { Logo } from "./Logo";
 
@@ -13,18 +14,24 @@ const NAV = [
   ["Tools", "/tools"],
 ] as const;
 
-export const EclipseHeader = () => {
+export const SiteHeader = () => {
+  const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
   const ink = theme === "ink";
   return (
     <header className="nav">
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
       <div className="wrap in">
         <Logo href="/" />
         <nav aria-label="Primary">
           <ul>
             {NAV.map(([label, href]) => (
               <li key={href}>
-                <Link href={href}>{label}</Link>
+                <Link href={href} aria-current={pathname === href ? "page" : undefined}>
+                  {label}
+                </Link>
               </li>
             ))}
           </ul>

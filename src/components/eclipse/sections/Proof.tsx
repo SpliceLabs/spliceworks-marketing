@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Ital, Kicker, Strip } from "../parts";
+import { Ital, Kicker, Strip } from "@/components/ds/parts";
 
 const RUNNING = [
   {

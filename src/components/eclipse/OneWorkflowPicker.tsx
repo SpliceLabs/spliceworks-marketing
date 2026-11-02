@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { PRICING_LINE } from "./parts";
+import { PRICING_LINE } from "@/components/ds/parts";
 
 export const WORKFLOW_CHOICES = ["Quotes and requests", "Exceptions", "Reporting", "Something else"] as const;
 
