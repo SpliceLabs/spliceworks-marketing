@@ -14,6 +14,32 @@ const COLUMNS: readonly Column[] = [
     ],
   },
   {
+    title: "Who it's for",
+    links: [
+      ["CEOs and boards", "/for/ceos-and-boards"],
+      ["Technology leaders", "/for/technology-leaders"],
+      ["Founders", "/for/founders"],
+      ["Investors", "/for/investors"],
+      ["Accelerators", "/for/accelerators"],
+    ],
+  },
+  {
+    title: "Industries",
+    links: [
+      ["Manufacturing", "/industries/manufacturing"],
+      ["Agencies", "/industries/agencies"],
+    ],
+  },
+  {
+    title: "Free tools",
+    links: [
+      ["All tools", "/tools"],
+      ["AI cost of delay", "/tools/ai-cost-of-delay"],
+      ["AI ROI calculator", "/tools/ai-roi-calculator"],
+      ["AI check-up", "/tools/ai-check-up"],
+    ],
+  },
+  {
     title: "Company",
     links: [
       ["How it works", "/how-it-works"],
@@ -21,7 +47,7 @@ const COLUMNS: readonly Column[] = [
       ["Team", "/team"],
       ["Station", "/station"],
       ["Splice Log", "/#log"],
-      ["Free tools", "/tools"],
+      ["FAQ", "/faq"],
     ],
   },
   {
@@ -34,45 +60,48 @@ const COLUMNS: readonly Column[] = [
 ];
 
 export const SiteFooter = ({ email }: { email: string }) => (
-  <footer className="wrap foot" style={{ paddingTop: 32, paddingBottom: 56, borderTop: "1px solid var(--line)" }}>
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        gap: 16,
-        flexWrap: "wrap",
-        marginBottom: 36,
-      }}
-    >
-      <span style={{ display: "inline-flex", alignItems: "center", gap: 14 }}>
+  <footer className="footer">
+    <div className="wrap">
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          gap: "var(--space-80)",
+          flexWrap: "wrap",
+          alignItems: "center",
+          marginBottom: "var(--space-36)",
+        }}
+      >
         <Logo href="/" />
-        <span className="kicker kd" style={{ marginLeft: 6 }}>
-          Splice Labs
+        <span className="serif-i" style={{ fontSize: "var(--font-size-22)", color: "var(--ink)" }}>
+          Put AI to work. Keep people accountable.
         </span>
-      </span>
-      <span className="ital" style={{ fontSize: 22 }}>
-        Put AI to work. Keep people accountable.
-      </span>
-    </div>
-    <div className="g4">
-      {COLUMNS.map((c) => (
-        <div key={c.title} style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-          <span className="kicker">{c.title}</span>
-          {c.links.map(([label, href]) => (
-            <Link key={href} href={href}>
-              {label}
-            </Link>
-          ))}
-        </div>
-      ))}
-      <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-        <span className="kicker">Contact</span>
-        <a href={`mailto:${email}`}>{email}</a>
       </div>
+      <div className="cols">
+        {COLUMNS.map((c) => (
+          <div key={c.title}>
+            <h2 className="fh">{c.title}</h2>
+            <ul>
+              {c.links.map(([label, href]) => (
+                <li key={href}>
+                  <Link href={href}>{label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+        <div>
+          <h2 className="fh">Contact</h2>
+          <ul>
+            <li>
+              <a href={`mailto:${email}`}>{email}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p className="mono" style={{ marginTop: "var(--space-36)" }}>
+        © Splice Labs
+      </p>
     </div>
-    <p className="kicker" style={{ margin: "40px 0 0" }}>
-      © Splice Labs
-    </p>
   </footer>
 );

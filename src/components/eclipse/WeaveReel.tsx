@@ -6,7 +6,7 @@ import { WeaveDiagram } from "./diagrams/WeaveDiagram";
 export const WeaveReel = () => {
   const [paused, setPaused] = useState(false);
   return (
-    <div className={`reel${paused ? " paused" : ""}`} style={{ marginTop: 48, textAlign: "left" }}>
+    <div className={`weave${paused ? " paused" : ""}`} style={{ marginTop: 48, textAlign: "left" }}>
       <div
         style={{
           display: "flex",

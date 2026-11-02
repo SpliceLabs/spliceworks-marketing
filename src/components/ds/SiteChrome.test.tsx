@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
+import { SiteShell } from "./SiteShell";
 
 const header = () =>
   renderToStaticMarkup(
@@ -26,8 +27,40 @@ describe("Site header", () => {
     expect(out).toContain('aria-pressed="false"');
   });
 
-  it("books through /book", () => {
-    expect(header()).toContain('href="/book"');
+  it("books through /book with the settled label", () => {
+    const out = header();
+    expect(out).toContain('href="/book"');
+    expect(out).toContain("Book a session");
+  });
+
+  it("follows the system nav markup, with a menu button for narrow screens", () => {
+    const out = header();
+    expect(out).toContain('class="nav"');
+    expect(out).toContain('class="wrap in"');
+    expect(out).toContain('id="navlist"');
+    expect(out).toMatch(
+      /class="btn ghost sm menu-btn"[^>]*aria-controls="navlist"[^>]*aria-expanded="false"|aria-expanded="false"[^>]*aria-controls="navlist"/,
+    );
+  });
+
+  it("names the product SpliceOps", () => {
+    expect(header()).toContain('aria-label="SpliceOps home"');
+  });
+});
+
+describe("Site shell", () => {
+  it("lays the glow and grain under the page, as the system does", () => {
+    const out = renderToStaticMarkup(
+      <ThemeProvider>
+        <SiteShell>
+          <p>hi</p>
+        </SiteShell>
+      </ThemeProvider>,
+    );
+    expect(out).toContain('class="bg"');
+    ["blob b1", "blob b2", "blob b3", "grain"].forEach((c) => expect(out).toContain(`class="${c}"`));
+    expect(out).toContain('class="page"');
+    expect(out).toContain('id="main-content"');
   });
 });
 
@@ -37,6 +70,16 @@ describe("Site footer", () => {
   it("shows the sign-off and the contact address", () => {
     expect(out()).toContain("Put AI to work. Keep people accountable.");
     expect(out()).toContain("hello@splicelabs.xyz");
+  });
+
+  it("uses the system footer with its column headings", () => {
+    expect(out()).toContain('class="footer"');
+    expect(out()).toContain('class="cols"');
+    expect(out()).toContain('class="fh"');
+  });
+
+  it("signs off in the serif accent", () => {
+    expect(out()).toContain('class="serif-i"');
   });
 
   it("routes machine readers to llms.txt", () => {

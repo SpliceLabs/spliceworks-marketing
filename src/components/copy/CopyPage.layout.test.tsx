@@ -30,7 +30,7 @@ describe("copy page rhythm", () => {
       const secs = sectionsOf(path);
       secs.forEach((s, i) => {
         expect(s.html).toContain(`${String(i + 1).padStart(2, "0")} / ${String(secs.length).padStart(2, "0")}`);
-        expect(s.html).toMatch(/<h2[^>]*>[\s\S]*?(class="ital"|<em)/);
+        expect(s.html).toMatch(/<h2[^>]*>[\s\S]*?(class="serif-i"|<em)/);
       });
     });
   });

@@ -11,7 +11,7 @@ export const SectionTitle = ({ nodes }: { nodes: Inline[] }) => {
   return (
     <>
       {lead}
-      {tail ? <span className="ital">{tail}</span> : null}
+      {tail ? <span className="serif-i">{tail}</span> : null}
     </>
   );
 };

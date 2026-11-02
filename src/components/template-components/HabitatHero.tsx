@@ -2796,7 +2796,7 @@ export function HabitatHero({ autoplay = true, chapterSeconds = 4 }: HabitatHero
             z-index: 2;
             max-width: var(--workspace);
             margin: 0 auto;
-            padding: 72px clamp(var(--space-6), 5vw, var(--space-20)) 96px;
+            padding: 72px clamp(var(--space-24), 5vw, var(--space-80)) 96px;
           }
 
           .editorial-content {

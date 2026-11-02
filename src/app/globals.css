@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   Splice Ops — base styles (tokens: src/styles/tokens.css)
+   Base styles (system tokens: src/styles/spliceops, Ink: ink.css, site layer: site.css)
    ========================================================================== */
 
-@import "../styles/tokens.css";
-@import "../styles/ds.css";
+@import "../styles/spliceops/tokens.css";
+@import "../styles/ink.css";
+@import "../styles/spliceops/bundle.css";
+@import "../styles/site.css";
 
 /* ==========================================================================
    Base Styles
@@ -33,9 +35,9 @@ body {
 .skip-link {
   position: absolute;
   top: -100px;
-  left: var(--space-4);
+  left: var(--space-16);
   z-index: 100;
-  padding: var(--space-2) var(--space-4);
+  padding: var(--space-8) var(--space-16);
   background: var(--accent);
   color: var(--text-on-primary);
   border-radius: var(--radius-ctrl);
@@ -43,7 +45,7 @@ body {
 }
 
 .skip-link:focus {
-  top: var(--space-4);
+  top: var(--space-16);
 }
 
 /* Focus styles */
@@ -141,7 +143,7 @@ h4 {
 .tag {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--space-4);
   padding: 2px 8px;
   font-family: var(--font-mono);
   font-size: var(--text-mono);
@@ -210,7 +212,7 @@ h4 {
   background: var(--color-surface);
   border: 1px solid var(--color-line);
   border-radius: var(--radius-panel);
-  padding: var(--space-6);
+  padding: var(--space-24);
 }
 
 /* ==========================================================================
@@ -223,7 +225,7 @@ h4 {
   background: var(--color-raised);
   border: 1px solid var(--color-line);
   border-radius: var(--radius-ctrl);
-  padding: var(--space-3) var(--space-4);
+  padding: var(--space-12) var(--space-16);
   transition:
     border-color var(--duration-control) ease-out,
     box-shadow var(--duration-control) ease-out;
@@ -250,7 +252,7 @@ h4 {
 .rule {
   border: none;
   border-top: 1px solid var(--color-line);
-  margin: var(--space-8) 0;
+  margin: var(--space-32) 0;
 }
 
 .rule-strong {
@@ -265,7 +267,7 @@ h4 {
   width: 100%;
   max-width: var(--workspace);
   margin-inline: auto;
-  padding-inline: clamp(var(--space-6), 5vw, var(--space-20));
+  padding-inline: clamp(var(--space-24), 5vw, var(--space-80));
 }
 
 .measure {
@@ -273,11 +275,11 @@ h4 {
 }
 
 .section {
-  padding-block: var(--space-24);
+  padding-block: var(--space-96);
 }
 
 .section-sm {
-  padding-block: var(--space-16);
+  padding-block: var(--space-64);
 }
 
 /* ==========================================================================

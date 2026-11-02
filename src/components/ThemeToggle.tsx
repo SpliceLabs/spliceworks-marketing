@@ -24,11 +24,11 @@ export function ThemeToggle() {
         .theme-toggle {
           display: inline-flex;
           align-items: center;
-          gap: var(--space-2);
+          gap: var(--space-8);
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: var(--space-1);
+          padding: var(--space-4);
         }
 
         .theme-toggle-track {
@@ -58,7 +58,7 @@ export function ThemeToggle() {
 
         .theme-toggle-labels {
           display: flex;
-          gap: var(--space-1);
+          gap: var(--space-4);
           font-family: var(--font-label);
           font-size: var(--text-2xs);
           letter-spacing: var(--tracking-label);

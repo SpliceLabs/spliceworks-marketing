@@ -1,13 +1,13 @@
 .section {
-  padding: var(--space-16) 0;
+  padding: var(--space-64) 0;
   border-top: 1px solid var(--color-line);
   display: grid;
   grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
-  gap: var(--space-12);
+  gap: var(--space-48);
   max-width: var(--workspace);
   margin: 0 auto;
-  padding-left: clamp(var(--space-6), 5vw, var(--space-20));
-  padding-right: clamp(var(--space-6), 5vw, var(--space-20));
+  padding-left: clamp(var(--space-24), 5vw, var(--space-80));
+  padding-right: clamp(var(--space-24), 5vw, var(--space-80));
 }
 
 .left {
@@ -22,7 +22,7 @@
   letter-spacing: -0.05em;
   opacity: 0.08;
   display: block;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-12);
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-mid) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -43,14 +43,14 @@
 .quotes {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-4);
+  gap: var(--space-16);
 }
 
 .quote {
   margin: 0;
   border: 1px solid var(--color-line);
   border-radius: 8px;
-  padding: var(--space-5);
+  padding: var(--space-20);
   background: var(--color-surface);
   font-family: var(--font-ui);
   font-size: 15px;
@@ -95,7 +95,7 @@
 @media (max-width: 1100px) {
   .section {
     grid-template-columns: 1fr;
-    gap: var(--space-8);
+    gap: var(--space-32);
   }
 
   .quotes {
@@ -127,7 +127,7 @@
 }
 
 .footer {
-  margin: var(--space-6) 0 0;
+  margin: var(--space-24) 0 0;
   font-family: var(--font-display);
   font-size: 20px;
   font-weight: 600;

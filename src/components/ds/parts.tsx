@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 export const Strip = ({ n, label, total = "08" }: { n: string; label: string; total?: string }) => (
-  <div className="strip">
+  <div className="secno">
     <span className="kicker">
       {n} / {total}
     </span>
@@ -17,7 +17,7 @@ export const Kicker = ({ num, children }: { num?: string; children: ReactNode })
   </p>
 );
 
-export const Ital = ({ children }: { children: ReactNode }) => <span className="ital">{children}</span>;
+export const Ital = ({ children }: { children: ReactNode }) => <span className="serif-i">{children}</span>;
 
 export const HEAT = ["#F32F92", "#EF3D65", "#EC4B39", "#E8590C", "#ED832F", "#F2AD51", "#F7D774"] as const;
 

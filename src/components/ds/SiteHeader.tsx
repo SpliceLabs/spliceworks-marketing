@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useTheme } from "@/providers/ThemeProvider";
 import { Logo } from "./Logo";
 
@@ -14,19 +15,33 @@ const NAV = [
   ["Tools", "/tools"],
 ] as const;
 
+const SCROLL_EDGE = 8;
+
 export const SiteHeader = () => {
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const ink = theme === "ink";
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > SCROLL_EDGE);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const className = ["nav", scrolled ? "scrolled" : "", open ? "open" : ""].filter(Boolean).join(" ");
+
   return (
-    <header className="nav">
+    <header className={className.length ? className : "nav"}>
       <a href="#main-content" className="skip-link">
         Skip to content
       </a>
       <div className="wrap in">
         <Logo href="/" />
-        <nav aria-label="Primary">
-          <ul>
+        <nav aria-label="Primary" style={{ display: "contents" }}>
+          <ul id="navlist" onClick={() => setOpen(false)}>
             {NAV.map(([label, href]) => (
               <li key={href}>
                 <Link href={href} aria-current={pathname === href ? "page" : undefined}>
@@ -36,7 +51,7 @@ export const SiteHeader = () => {
             ))}
           </ul>
         </nav>
-        <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+        <div className="actions">
           <button
             type="button"
             className="toggle"
@@ -50,6 +65,15 @@ export const SiteHeader = () => {
           <Link className="btn sm" href="/book">
             Book a session
           </Link>
+          <button
+            type="button"
+            className="btn ghost sm menu-btn"
+            aria-controls="navlist"
+            aria-expanded={open}
+            onClick={() => setOpen((o) => !o)}
+          >
+            Menu
+          </button>
         </div>
       </div>
     </header>

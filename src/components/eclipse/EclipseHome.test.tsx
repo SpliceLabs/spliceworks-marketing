@@ -16,7 +16,7 @@ describe("Eclipse home", () => {
   it("has exactly one h1, the headline", () => {
     const out = html();
     expect(count(out, /<h1[ >]/g)).toBe(1);
-    expect(out).toContain('<span class="ital">don’t replace.</span>');
+    expect(out).toContain('<span class="serif-i">don’t replace.</span>');
   });
 
   it("numbers its eight sections", () => {

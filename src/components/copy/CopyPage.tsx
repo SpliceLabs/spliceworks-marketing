@@ -45,7 +45,7 @@ export function PageHeader({ path }: { path: string }) {
   const page = getPage(path);
   const { group } = getEntry(path);
   return (
-    <section className="wrap hdr">
+    <section className="wrap pagehead">
       {group && (
         <Link
           href={group.href}
