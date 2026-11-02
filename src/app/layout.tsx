@@ -32,11 +32,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/logo/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/logo/favicon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icons/favicon.svg", type: "image/svg+xml" },
+      { url: "/icons/favicon-32.png", sizes: "32x32", type: "image/png" },
     ],
-    apple: "/apple-touch-icon.png",
+    apple: { url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
   },
   openGraph: {
     title: "SpliceOps",
@@ -69,7 +68,7 @@ const organization = {
   "@id": ORGANIZATION_ID,
   name: "SpliceOps",
   url: SITE_URL,
-  logo: absoluteUrl("/logo/icon-512.png"),
+  logo: absoluteUrl("/icons/apple-touch-icon.png"),
   email: CONTACT_EMAIL,
   sameAs: SAME_AS,
   description:
