@@ -43,9 +43,10 @@ describe("Eclipse home", () => {
     expect(count(out, /<svg[^>]*role="img"[^>]*aria-label="/g)).toBeGreaterThanOrEqual(3);
   });
 
-  it("renders the six log entries and the free-tools strip", () => {
+  it("renders the three free-tool log entries, without Station, Brain or Supadata", () => {
     const out = html();
-    ["LG-120", "LG-121", "LG-122", "ST-01", "BR-02", "LG-119"].forEach((c) => expect(out).toContain(c));
+    ["LG-120", "LG-121", "LG-122"].forEach((c) => expect(out).toContain(c));
+    ["ST-01", "BR-02", "LG-119"].forEach((c) => expect(out).not.toContain(c));
     expect(out).toContain("Free tools, no email needed");
   });
 

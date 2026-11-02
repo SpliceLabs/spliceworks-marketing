@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 import { SPLICE_LOG } from "./splice-log";
 
 describe("splice log", () => {
-  it("lists the six entries the home page shows", () => {
-    expect(SPLICE_LOG).toHaveLength(6);
+  it("lists the three free tools the home page shows", () => {
+    expect(SPLICE_LOG).toHaveLength(3);
   });
 
   it("gives every entry a unique code", () => {

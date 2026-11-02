@@ -48,43 +48,4 @@ export const SPLICE_LOG: readonly LogEntry[] = [
     href: "/tools/ai-check-up",
     track: 100,
   },
-  {
-    badge: "OUR TOOL",
-    name: "Station",
-    code: "ST-01",
-    kind: "Workspace",
-    status: "In use · runs daily",
-    summary:
-      "The governed AI workspace behind our work: spend caps, a kill switch, full logging, and an accountable person behind every decision that matters.",
-    cta: "Read the entry",
-    href: "/station",
-    track: 50,
-    poster: "/log/E16-station-poster.jpg",
-  },
-  {
-    badge: "OUR TOOL",
-    name: "Brain",
-    code: "BR-02",
-    kind: "Memory",
-    status: "In use · used daily",
-    summary:
-      "Your company’s shared brain: your prompts, skills and knowledge in one place, checked against your policies.",
-    cta: "Read the entry",
-    href: "#log",
-    track: 50,
-    poster: "/log/E17-brain-poster.jpg",
-  },
-  {
-    badge: "NEW",
-    name: "Supadata",
-    code: "LG-119",
-    kind: "Transcript API",
-    status: "Added · 01.11.2026",
-    summary:
-      "Turns the spoken audio of a public video into text in one call. Paired with on-screen text, it makes searchable notes.",
-    cta: "Read the entry",
-    href: "#log",
-    track: 96,
-    poster: "/log/E21-supadata-poster.jpg",
-  },
 ];
