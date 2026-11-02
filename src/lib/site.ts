@@ -8,6 +8,8 @@ export const OG_IMAGE = {
   alt: "SpliceOps: AI in production, with a named human accountable at every gate.",
 };
 
+export const SAME_AS: readonly string[] = ["https://www.linkedin.com/company/spliceops"];
+
 export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 
 export const absoluteUrl = (urlPath: string): string => `${SITE_URL}${urlPath === "/" ? "" : urlPath}`;

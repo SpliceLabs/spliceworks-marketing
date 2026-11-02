@@ -26,6 +26,13 @@ describe("WeaveDiagram", () => {
     expect(html).toMatch(/H330 V196[^"]*820 126 V100 H1000[^"]*H330 V360/);
   });
 
+  it("turns the review gate into a red cross while the redraft is rejected, then back to a tick", () => {
+    expect(html).toContain("gate-x");
+    expect(html).toMatch(/@keyframes ec-gate-x\s*\{/);
+    expect(html).toMatch(/@keyframes ec-gate-tick\s*\{/);
+    expect(html).toContain("--color-border-error");
+  });
+
   it("describes the redraft in the accessible label", () => {
     expect(html).toMatch(/aria-label="[^"]*redraft/i);
   });

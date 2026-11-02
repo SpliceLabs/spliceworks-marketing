@@ -1,6 +1,21 @@
 import { MAIN_PATH, REDRAFT_PATH, weaveTiming } from "@/lib/home/weave-timing";
 
-const { redraftSeconds } = weaveTiming();
+const { redraftSeconds, rejectFrom, rejectTo } = weaveTiming();
+
+const FADE = 0.012;
+const pct = (fraction: number) => `${(fraction * 100).toFixed(2)}%`;
+const rejectWindow = (inside: string, outside: string, property: string) =>
+  `0%,${pct(rejectFrom - FADE)}{${property}:${outside}}${pct(rejectFrom)},${pct(rejectTo)}{${property}:${inside}}${pct(rejectTo + FADE)},100%{${property}:${outside}}`;
+
+const GATE_CSS = [
+  `@keyframes ec-gate-tick{${rejectWindow("0", "1", "opacity")}}`,
+  `@keyframes ec-gate-x{${rejectWindow("1", "0", "opacity")}}`,
+  `@keyframes ec-gate-diamond{${rejectWindow("var(--color-border-error)", "var(--person)", "fill")}}`,
+].join("");
+
+const gateStyle = (name: string) => ({
+  animation: `${name} ${redraftSeconds}s linear -2s infinite`,
+});
 
 export const WeaveDiagram = () => (
   <svg
@@ -9,6 +24,7 @@ export const WeaveDiagram = () => (
     aria-label="People set goals and guardrails on one side of a stitched seam and agents do the work on the other. Work crosses the seam to a person for review. Approved work ships. Rejected work goes back to the agents with a captured learning, is redrafted, and then follows the approved path to ship. Every step builds an audit trail, on a foundation of governance, observability and the company brain."
     style={{ width: "100%", height: "auto", display: "block" }}
   >
+    <style>{GATE_CSS}</style>
     <rect x="40" y="30" width="560" height="422" rx="16" className="fs-pe ss-line" style={{ strokeWidth: 1.5 }} />
     <path d="M600 30 H1144 A16 16 0 0 1 1160 46 V436 A16 16 0 0 1 1144 452 H600 Z" className="fs-dark" />
     <text x="64" y="58" className="fl-t fs-per">
@@ -56,12 +72,22 @@ export const WeaveDiagram = () => (
     <text x="820" y="105" textAnchor="middle" className="fl-c fs-ond">
       Agents draft
     </text>
-    <polygon points="330,213 347,230 330,247 313,230" className="fs-per ss-surf" style={{ strokeWidth: 4 }} />
+    <polygon
+      points="330,213 347,230 330,247 313,230"
+      className="fs-per ss-surf gate-diamond"
+      style={{ strokeWidth: 4, ...gateStyle("ec-gate-diamond") }}
+    />
     <path
       d="M324 230 l4 5 l8 -10"
       fill="none"
-      className="ss-surf"
-      style={{ strokeWidth: 2.5, strokeLinecap: "round", strokeLinejoin: "round" }}
+      className="ss-surf gate-tick"
+      style={{ strokeWidth: 2.5, strokeLinecap: "round", strokeLinejoin: "round", ...gateStyle("ec-gate-tick") }}
+    />
+    <path
+      d="M324 224 l12 12 M336 224 l-12 12"
+      fill="none"
+      className="ss-surf gate-x"
+      style={{ strokeWidth: 2.8, strokeLinecap: "round", opacity: 0, ...gateStyle("ec-gate-x") }}
     />
     <circle
       cx="330"
