@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Ital, Kicker, Strip } from "@/components/ds/parts";
+import { TableCards } from "@/components/ds/TableCards";
 
 const RUNNING = [
   {
@@ -77,29 +78,20 @@ export const Proof = () => (
     </section>
     <section className="sec wrap" style={{ paddingTop: 0 }}>
       <div className="g2" style={{ alignItems: "start", gridTemplateColumns: "minmax(0,1.5fr) minmax(0,1fr)" }}>
-        <table className="tl">
-          <caption className="sr">Building it yourself compared with building it with Splice</caption>
-          <thead>
-            <tr>
-              <th scope="col">
-                <span className="sr">Topic</span>
-              </th>
-              <th scope="col">Build it yourself</th>
-              <th scope="col" style={{ color: "var(--ink)" }}>
-                With Splice
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {COMPARE.map(([topic, yours, ours]) => (
-              <tr key={topic}>
-                <th scope="row">{topic}</th>
-                <td style={{ color: "var(--muted)" }}>{yours}</td>
-                <td>{ours}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <TableCards
+          cards={[
+            {
+              n: "01",
+              title: "Build it yourself",
+              rows: COMPARE.map(([topic, yours]) => ({ label: topic, value: yours })),
+            },
+            {
+              n: "02",
+              title: "With Splice",
+              rows: COMPARE.map(([topic, , ours]) => ({ label: topic, value: ours })),
+            },
+          ]}
+        />
         <div style={{ position: "sticky", top: 100 }}>
           <Kicker num="05">Build it yourself, or with us</Kicker>
           <h2 className="h2" style={{ fontSize: "clamp(30px,3.8vw,48px)" }}>

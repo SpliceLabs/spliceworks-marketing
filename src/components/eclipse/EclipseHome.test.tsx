@@ -54,4 +54,10 @@ describe("Eclipse home", () => {
     const hosts = hrefs.filter((h) => /^https?:/.test(h)).map((h) => new URL(h.replaceAll("&amp;", "&")).host);
     expect([...new Set(hosts)].sort()).toEqual(["chatgpt.com", "claude.ai", "gemini.google.com"]);
   });
+
+  it("never lays out three or four cards across, and uses no table", () => {
+    const out = html();
+    expect(out).not.toMatch(/class="(g3|g4|ht|pillars)[ "]/);
+    expect(out).not.toContain("<table");
+  });
 });

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FlowDiagram } from "../diagrams/FlowDiagram";
 import { Ital, Kicker, Strip } from "@/components/ds/parts";
+import { TableCards } from "@/components/ds/TableCards";
 
 const PILLARS = [
   {
@@ -46,19 +47,9 @@ export const Accountable = () => (
       <div className="card white" style={{ padding: 28, borderRadius: 24 }}>
         <FlowDiagram />
       </div>
-      <div className="g3" style={{ marginTop: 48 }}>
-        {PILLARS.map((p) => (
-          <div key={p.n} style={{ borderTop: "1px solid var(--line-2)", paddingTop: 18 }}>
-            <p className="kicker kn" style={{ margin: "0 0 10px" }}>
-              {p.n}
-            </p>
-            <h3 className="h3" style={{ marginBottom: 10 }}>
-              {p.title}
-            </h3>
-            <p style={{ margin: 0, color: "var(--muted)" }}>{p.body}</p>
-          </div>
-        ))}
-      </div>
+      <TableCards
+        cards={PILLARS.map((p) => ({ n: p.n, title: p.title, rows: [{ label: "In practice", value: p.body }] }))}
+      />
     </div>
   </section>
 );

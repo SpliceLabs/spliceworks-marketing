@@ -47,21 +47,26 @@ export const YourAi = () => (
       </div>
       <BringYourAi />
     </div>
-    <p className="kicker" style={{ margin: "72px 0 28px" }}>
-      What happens when you paste it
-    </p>
-    <ol className="ht" style={{ listStyle: "none", margin: 0, padding: 0 }}>
-      {STEPS.map((s) => (
-        <li key={s.n}>
-          <span className="cnum" style={{ border: `1.5px solid ${s.ring}` }}>
-            {s.dot ? <span style={{ width: 10, height: 10, borderRadius: "50%", background: "var(--pink)" }} /> : s.n}
-          </span>
-          <h3 className="h3" style={{ fontSize: 20, margin: "18px 0 8px" }}>
-            {s.title}
-          </h3>
-          <p style={{ margin: 0, color: "var(--muted)", fontSize: 16 }}>{s.body}</p>
-        </li>
-      ))}
-    </ol>
+    <div className="g2" style={{ marginTop: 72, alignItems: "start" }}>
+      <Kicker>What happens when you paste it</Kicker>
+      <ol className="vt" style={{ listStyle: "none", margin: 0, padding: 0 }}>
+        {STEPS.map((s) => (
+          <li
+            key={s.n}
+            style={{ display: "grid", gridTemplateColumns: "26px minmax(0,1fr)", gap: 20, alignItems: "start" }}
+          >
+            <span className="n" style={{ border: `1.5px solid ${s.ring}` }}>
+              {s.dot ? <span style={{ width: 10, height: 10, borderRadius: "50%", background: "var(--pink)" }} /> : s.n}
+            </span>
+            <div>
+              <h3 className="h3" style={{ fontSize: 20, margin: "0 0 8px" }}>
+                {s.title}
+              </h3>
+              <p style={{ margin: 0, color: "var(--muted)", fontSize: 16 }}>{s.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
   </section>
 );
