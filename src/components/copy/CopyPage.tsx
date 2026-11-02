@@ -115,9 +115,17 @@ const firstPlainList = (blocks: Block[]) =>
       !b.items.every((it) => it.raw.startsWith('"')),
   );
 
-function CheckCard({ list }: { list: Extract<Block, { t: "list" }> }) {
+const isLeadIn = (b: Block | undefined): b is Extract<Block, { t: "para" }> =>
+  b?.t === "para" && b.raw.trimEnd().endsWith(":");
+
+function CheckCard({ list, title }: { list: Extract<Block, { t: "list" }>; title?: Block }) {
   return (
     <div className="card white" style={{ padding: "12px 28px" }}>
+      {title?.t === "para" ? (
+        <p className="kicker" style={{ margin: "16px 0 4px" }}>
+          <InlineLines lines={title.lines} />
+        </p>
+      ) : null}
       <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
         {list.items.map((it, i) => (
           <li key={i} className="crow" style={i === 0 ? { borderTop: 0 } : undefined}>
@@ -218,7 +226,9 @@ export function CopySection({ frame, pageUrl }: { frame: Frame; pageUrl: string 
 
   if (plan.kind === "split") {
     const list = plan.visual === "list" ? firstPlainList(section.blocks) : undefined;
-    const textBlocks = list ? section.blocks.filter((b) => b !== list) : section.blocks;
+    const leadIn = list ? section.blocks[section.blocks.indexOf(list) - 1] : undefined;
+    const title = isLeadIn(leadIn) ? leadIn : undefined;
+    const textBlocks = list ? section.blocks.filter((b) => b !== list && b !== title) : section.blocks;
     return (
       <SectionFrame frame={frame}>
         <div className={`g2${plan.side === "right" ? " rev" : ""}`} style={{ alignItems: "start" }}>
@@ -228,7 +238,7 @@ export function CopySection({ frame, pageUrl }: { frame: Frame; pageUrl: string 
               <Prose blocks={textBlocks} />
             </div>
           </div>
-          {list ? <CheckCard list={list} /> : <OrnamentVisual kind={plan.ornament} />}
+          {list ? <CheckCard list={list} title={title} /> : <OrnamentVisual kind={plan.ornament} />}
         </div>
       </SectionFrame>
     );
