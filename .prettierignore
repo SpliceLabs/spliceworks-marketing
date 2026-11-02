@@ -9,3 +9,6 @@ public/
 .docs/
 .craft/
 approvals/
+
+# Vendored SpliceOps design system v0.1.0.
+src/styles/spliceops/
