@@ -278,6 +278,28 @@
   margin-top: var(--space-3);
 }
 
+.cardBody ul,
+.cardBody ol {
+  padding-left: 1.25em;
+  list-style-position: outside;
+}
+
+.cardBody ul {
+  list-style-type: disc;
+}
+
+.cardBody ol {
+  list-style-type: decimal;
+}
+
+.cardBody li + li {
+  margin-top: var(--space-2);
+}
+
+.cardBody :is(ul, ol) + * {
+  margin-top: var(--space-4);
+}
+
 .stack {
   display: flex;
   flex-direction: column;
