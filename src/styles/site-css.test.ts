@@ -7,6 +7,10 @@ const site = fs.readFileSync(path.join(__dirname, "site.css"), "utf8");
 const globals = fs.readFileSync(path.join(__dirname, "../app/globals.css"), "utf8");
 
 describe("site stylesheet", () => {
+  it("keeps anchors and new pages clear of the sticky header", () => {
+    expect(globals).toMatch(/html\s*\{[^}]*scroll-padding-top:\s*73px/);
+  });
+
   it("defines the keyframes the diagrams animate with", () => {
     ["ec-run", "ec-tick", "ec-plw", "ec-pl5", "ec-aw0", "ec-au0"].forEach((name) =>
       expect(site).toContain(`@keyframes ${name}`),

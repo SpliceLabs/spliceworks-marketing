@@ -27,6 +27,12 @@ describe("Site header", () => {
     expect(out).toContain('aria-pressed="false"');
   });
 
+  it("shows a hamburger icon for the menu and an icon for the theme toggle on narrow screens", () => {
+    const out = header();
+    expect(out).toMatch(/<button[^>]*aria-label="Menu"[^>]*><svg/);
+    expect(out).toContain('class="theme-icon"');
+  });
+
   it("books through /book with the settled label", () => {
     const out = header();
     expect(out).toContain('href="/book"');

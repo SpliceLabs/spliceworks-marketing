@@ -336,6 +336,44 @@
   background: var(--ink);
   color: var(--color-text-inverse);
 }
+.theme-icon {
+  display: none;
+}
+@media (max-width: 1060px) {
+  .toggle {
+    min-height: 40px;
+    min-width: 40px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+  }
+  .toggle .seg {
+    display: none;
+  }
+  .toggle .theme-icon {
+    display: block;
+  }
+  .menu-btn {
+    padding: 0 12px;
+  }
+}
+@media (max-width: 400px) {
+  .nav .in {
+    gap: 12px;
+  }
+  .nav .logo {
+    font-size: 19px;
+  }
+  .nav .actions {
+    gap: 6px;
+  }
+  .nav .actions .btn.sm {
+    padding-inline: 12px;
+  }
+  .nav .actions .menu-btn {
+    padding-inline: 10px;
+  }
+}
 
 .fs-pe {
   fill: var(--card-2);
@@ -732,6 +770,7 @@
 }
 .vis-orb {
   padding: 0;
+  min-height: 0;
   aspect-ratio: 5 / 4;
   background:
     radial-gradient(circle at 50% 50%, var(--color-surface-dark) 0 17%, transparent 17.5%),
