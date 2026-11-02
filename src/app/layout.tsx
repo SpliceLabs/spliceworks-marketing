@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/providers/ThemeProvider";
 import { ModeProvider } from "@/providers/ModeProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { CONTACT_EMAIL } from "@/lib/contact";
-import { OG_IMAGE, ORGANIZATION_ID, SITE_URL, absoluteUrl } from "@/lib/site";
+import { OG_IMAGE, ORGANIZATION_ID, SAME_AS, SITE_URL, absoluteUrl } from "@/lib/site";
 import "./globals.css";
 
 const outfit = Outfit({ variable: "--font-outfit", subsets: ["latin"], display: "swap" });
@@ -71,6 +71,7 @@ const organization = {
   url: SITE_URL,
   logo: absoluteUrl("/logo/icon-512.png"),
   email: CONTACT_EMAIL,
+  sameAs: SAME_AS,
   description:
     "SpliceOps is a forward-deployed AI enablement team. It puts AI to work in existing companies and keeps a named person accountable at every gate.",
   parentOrganization: { "@type": "Organization", name: "Splice Labs Group" },
