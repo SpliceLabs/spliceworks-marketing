@@ -48,23 +48,6 @@ body {
   top: var(--space-16);
 }
 
-/* Focus styles */
-:focus-visible {
-  outline: none;
-  box-shadow: var(--shadow-focus);
-}
-
-/* Links */
-a:not([class]) {
-  color: var(--link);
-  text-decoration: none;
-  transition: color var(--duration-control) ease-out;
-}
-
-a:not([class]):hover {
-  color: var(--link-hover);
-}
-
 /* ==========================================================================
    Typography
    ========================================================================== */

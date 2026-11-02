@@ -882,3 +882,17 @@
     padding-top: 48px;
   }
 }
+
+.tcard-h a,
+.tcard dd a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--orange);
+  text-underline-offset: 5px;
+}
+.tcard-h a {
+  text-decoration-thickness: var(--border-width-thick);
+}
+.tcard-h a:hover {
+  text-decoration-color: var(--ink);
+}
