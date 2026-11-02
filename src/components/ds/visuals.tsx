@@ -2,11 +2,7 @@ import { GapDiagram } from "@/components/eclipse/diagrams/GapDiagram";
 import type { Ornament } from "@/lib/copy/section-layout";
 import { HeatBar } from "./parts";
 
-const Orb = () => (
-  <figure className="vis vis-orb" aria-hidden="true" style={{ margin: 0 }}>
-    <figcaption className="kicker">Delivered on Station</figcaption>
-  </figure>
-);
+const Orb = () => <figure className="vis vis-orb" aria-hidden="true" style={{ margin: 0 }}></figure>;
 
 const Seam = () => (
   <div className="vis" aria-hidden="true">
