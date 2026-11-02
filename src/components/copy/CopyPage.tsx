@@ -1,6 +1,7 @@
+import { AskBox } from "./AskBox";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import type { Block, Section, Subsection } from "@/lib/copy/markdown";
+import { inlineText, type Block, type Section, type Subsection } from "@/lib/copy/markdown";
 import { breadcrumbJsonLd } from "@/lib/breadcrumbs";
 import { getEntry, getPage } from "@/lib/copy/pages";
 import { faqPageJsonLd, pageFaqIds, resolveFaqSection } from "@/lib/copy/faq";
@@ -311,6 +312,11 @@ export function CopyPage({ path, children }: { path: string; children?: ReactNod
         />
       ))}
       {hasBand && <ClosingBand section={last} />}
+      <section className="wrap" style={{ paddingBlock: "var(--space-32) var(--space-48)" }}>
+        <div className="narrow">
+          <AskBox title={inlineText(page.h1)} path={path} />
+        </div>
+      </section>
     </>
   );
 }

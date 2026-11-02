@@ -1,3 +1,4 @@
+import { tableToCards } from "@/lib/copy/table-cards";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { Block, Inline } from "@/lib/copy/markdown";
@@ -35,41 +36,30 @@ export function CtaLine({ block }: { block: Cta }) {
 }
 
 export function CopyTable({ block }: { block: Extract<Block, { t: "table" }> }) {
-  const rowHeaders = block.head[0]?.length === 0;
   return (
-    <div className="tblwrap">
-      <table className="tl">
-        <thead>
-          <tr>
-            {block.head.map((cell, i) =>
-              cell.length === 0 ? (
-                <td key={i} />
-              ) : (
-                <th key={i} scope="col">
-                  <InlineNodes nodes={cell} />
-                </th>
-              ),
-            )}
-          </tr>
-        </thead>
-        <tbody>
-          {block.rows.map((row, r) => (
-            <tr key={r}>
-              {row.map((cell, c) =>
-                c === 0 && rowHeaders ? (
-                  <th key={c} scope="row">
-                    <InlineNodes nodes={cell} />
-                  </th>
-                ) : (
-                  <td key={c}>
-                    <InlineNodes nodes={cell} />
-                  </td>
-                ),
-              )}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="tcards">
+      {tableToCards(block).map((card) => (
+        <article className="tcard" key={card.n}>
+          <span className="tcard-n" aria-hidden="true">
+            {card.n}
+          </span>
+          <h3 className="tcard-h">
+            <InlineNodes nodes={[...card.title]} />
+          </h3>
+          <dl>
+            {card.rows.map((row, i) => (
+              <div className="tcard-row" key={i}>
+                <dt>
+                  <InlineNodes nodes={[...row.label]} />
+                </dt>
+                <dd>
+                  <InlineNodes nodes={[...row.value]} />
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </article>
+      ))}
     </div>
   );
 }

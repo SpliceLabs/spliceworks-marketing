@@ -40,8 +40,23 @@ describe("copy page rhythm", () => {
     expect(kinds.size).toBeGreaterThanOrEqual(3);
   });
 
-  it("renders tables with the design-system table", () => {
+  it("renders tables as comparison cards, never a table", () => {
     const html = renderToStaticMarkup(<CopyPage path="/services" />);
-    expect(html).toContain('class="tl"');
+    expect(html).toContain('class="tcards"');
+    expect(html).toContain('class="tcard"');
+    expect(html).not.toContain("<table");
+  });
+
+  it("never puts more than two comparison cards in one row group of a record table", () => {
+    const html = renderToStaticMarkup(<CopyPage path="/work" />);
+    expect(html).not.toMatch(/class="g3"|class="g4"/);
+  });
+
+  it("ends every page with the ask box before the footer", () => {
+    PAGES.forEach((path) => {
+      const html = renderToStaticMarkup(<CopyPage path={path} />);
+      expect(html).toContain('class="askbox"');
+      expect(html.lastIndexOf('class="askbox"')).toBeGreaterThan(html.lastIndexOf("<section"));
+    });
   });
 });
