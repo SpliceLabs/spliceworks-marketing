@@ -1,4 +1,3 @@
-import type { ReactNode } from "react";
 import { Accountable } from "./sections/Accountable";
 import { Closing } from "./sections/Closing";
 import { Gap } from "./sections/Gap";
@@ -9,7 +8,7 @@ import { Proof } from "./sections/Proof";
 import { SpliceLog } from "./sections/SpliceLog";
 import { YourAi } from "./sections/YourAi";
 
-export const EclipseHome = ({ headline }: { headline: ReactNode }) => (
+export const EclipseHome = ({ headline }: { headline: string }) => (
   <>
     <Hero headline={headline} />
     <Gap />

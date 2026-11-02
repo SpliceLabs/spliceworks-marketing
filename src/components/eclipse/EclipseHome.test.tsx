@@ -6,13 +6,7 @@ import { EclipseHome } from "./EclipseHome";
 const html = () =>
   renderToStaticMarkup(
     <ThemeProvider>
-      <EclipseHome
-        headline={
-          <>
-            Splice, <span className="ital">don’t replace.</span>
-          </>
-        }
-      />
+      <EclipseHome headline="Splice, don't replace." />
     </ThemeProvider>,
   );
 
@@ -22,7 +16,7 @@ describe("Eclipse home", () => {
   it("has exactly one h1, the headline", () => {
     const out = html();
     expect(count(out, /<h1[ >]/g)).toBe(1);
-    expect(out).toContain("don’t replace.");
+    expect(out).toContain('<span class="ital">don’t replace.</span>');
   });
 
   it("numbers its eight sections", () => {
