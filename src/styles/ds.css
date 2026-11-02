@@ -534,6 +534,21 @@ button:focus-visible {
 .pt {
   animation: ec-run 12s linear infinite;
 }
+@keyframes ec-retry-turn {
+  0%,
+  29.07% {
+    fill: var(--retry);
+  }
+  29.08%,
+  100% {
+    fill: var(--acc);
+  }
+}
+.pt-retry {
+  animation:
+    ec-run 12s linear infinite,
+    ec-retry-turn 12s linear infinite;
+}
 .pl {
   opacity: 0;
   transform-box: fill-box;
@@ -543,6 +558,7 @@ button:focus-visible {
   animation: ec-tick 2.4s ease-in-out infinite;
 }
 .paused .pt,
+.paused .pt-retry,
 .paused .pl,
 .paused .tk,
 .paused .au {
@@ -573,7 +589,8 @@ button:focus-visible {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .pt {
+  .pt,
+  .pt-retry {
     display: none;
   }
   .pl,

@@ -1,8 +1,12 @@
+import { MAIN_PATH, REDRAFT_PATH, weaveTiming } from "@/lib/home/weave-timing";
+
+const { redraftSeconds } = weaveTiming();
+
 export const WeaveDiagram = () => (
   <svg
     viewBox="0 0 1200 640"
     role="img"
-    aria-label="People set goals and guardrails on one side of a stitched seam and agents do the work on the other. Work crosses the seam to a person for review. Approved work ships; rejected work goes back to the agents with a captured learning. Every step builds an audit trail, on a foundation of governance, observability and the company brain."
+    aria-label="People set goals and guardrails on one side of a stitched seam and agents do the work on the other. Work crosses the seam to a person for review. Approved work ships. Rejected work goes back to the agents with a captured learning, is redrafted, and then follows the approved path to ship. Every step builds an audit trail, on a foundation of governance, observability and the company brain."
     style={{ width: "100%", height: "auto", display: "block" }}
   >
     <rect x="40" y="30" width="560" height="422" rx="16" className="fs-pe ss-line" style={{ strokeWidth: 1.5 }} />
@@ -45,8 +49,8 @@ export const WeaveDiagram = () => (
       width="150"
       height="36"
       rx="10"
-      fill="none"
-      className="ss-ond"
+
+      className="fs-dark ss-ond"
       style={{ strokeWidth: 1.5 }}
     />
     <text x="820" y="105" textAnchor="middle" className="fl-c fs-ond">
@@ -80,8 +84,8 @@ export const WeaveDiagram = () => (
       width="130"
       height="36"
       rx="10"
-      fill="none"
-      className="ss-ond"
+
+      className="fs-dark ss-ond"
       style={{ strokeWidth: 1.5 }}
     />
     <text x="830" y="365" textAnchor="middle" className="fl-c fs-ond">
@@ -127,8 +131,7 @@ export const WeaveDiagram = () => (
         r="8"
         className="fs-acc pt"
         style={{
-          offsetPath:
-            "path('M105 100 H1000 C1070 100 1070 230 1000 230 H330 V360 H1000 C1070 360 1070 415 1000 415 H105 C40 415 40 100 105 100 Z')",
+          offsetPath: `path('${MAIN_PATH}')`,
           animationDelay: "0s",
         }}
       />
@@ -138,8 +141,7 @@ export const WeaveDiagram = () => (
         r="3.2"
         className="fs-surf pt"
         style={{
-          offsetPath:
-            "path('M105 100 H1000 C1070 100 1070 230 1000 230 H330 V360 H1000 C1070 360 1070 415 1000 415 H105 C40 415 40 100 105 100 Z')",
+          offsetPath: `path('${MAIN_PATH}')`,
           animationDelay: "0s",
         }}
       />
@@ -149,12 +151,11 @@ export const WeaveDiagram = () => (
         cx="0"
         cy="0"
         r="7"
-        className="fs-retry pt"
+        className="fs-retry pt-retry"
         style={{
-          offsetPath:
-            "path('M820 100 H1000 C1070 100 1070 230 1000 230 H330 V196 C330 170 380 164 450 164 H700 C760 164 800 150 820 126 V100 Z')",
+          offsetPath: `path('${REDRAFT_PATH}')`,
           animationDelay: "-2s",
-          animationDuration: "8s",
+          animationDuration: `${redraftSeconds}s`,
         }}
       />
       <circle
@@ -163,10 +164,9 @@ export const WeaveDiagram = () => (
         r="2.8"
         className="fs-surf pt"
         style={{
-          offsetPath:
-            "path('M820 100 H1000 C1070 100 1070 230 1000 230 H330 V196 C330 170 380 164 450 164 H700 C760 164 800 150 820 126 V100 Z')",
+          offsetPath: `path('${REDRAFT_PATH}')`,
           animationDelay: "-2s",
-          animationDuration: "8s",
+          animationDuration: `${redraftSeconds}s`,
         }}
       />
     </g>

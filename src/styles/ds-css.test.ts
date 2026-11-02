@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { weaveTiming } from "@/lib/home/weave-timing";
 
 const ds = fs.readFileSync(path.join(__dirname, "ds.css"), "utf8");
 const globals = fs.readFileSync(path.join(__dirname, "../app/globals.css"), "utf8");
@@ -27,5 +28,19 @@ describe("design system stylesheet", () => {
 
   it("lets the pause control freeze animation on the element that carries .paused", () => {
     expect(ds).toMatch(/\.paused \.pt/);
+  });
+
+  it("turns the redraft dot orange at the exact share of the loop where it re-enters the agents step", () => {
+    const percent = (weaveTiming().turnFraction * 100).toFixed(2);
+    const block = ds.match(/@keyframes ec-retry-turn \{([\s\S]*?)\n\}/)?.[1] ?? "";
+    expect(block).toContain(`${percent}%`);
+    expect(block).toMatch(/fill: var\(--retry\)/);
+    expect(block).toMatch(/fill: var\(--acc\)/);
+  });
+
+  it("runs the redraft dot on both animations and freezes and hides it like the other dots", () => {
+    expect(ds).toMatch(/\.pt-retry \{[^}]*ec-run[^}]*ec-retry-turn/);
+    expect(ds).toMatch(/\.paused \.pt-retry/);
+    expect(ds).toMatch(/prefers-reduced-motion: reduce\) \{\s*\.pt,\s*\.pt-retry/);
   });
 });
