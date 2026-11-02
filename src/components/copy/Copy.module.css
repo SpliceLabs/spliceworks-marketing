@@ -7,7 +7,7 @@
 
 .eyebrow {
   display: inline-block;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-16);
   font-family: var(--font-mono);
   font-size: var(--text-mono);
   text-transform: uppercase;
@@ -28,7 +28,7 @@
 }
 
 .lead > p {
-  margin: 0 0 var(--space-4);
+  margin: 0 0 var(--space-16);
 }
 
 .lead > p:last-child {
@@ -43,7 +43,7 @@
 /* Section ----------------------------------------------------------------- */
 
 .sectionHead {
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-32);
   max-width: 36ch;
   text-wrap: balance;
 }
@@ -61,7 +61,7 @@
 }
 
 .prose > * + * {
-  margin-top: var(--space-4);
+  margin-top: var(--space-16);
 }
 
 /* Running text keeps the reading measure; tables and grids get more room. */
@@ -111,12 +111,12 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-12);
 }
 
 .list > li {
   position: relative;
-  padding-left: var(--space-6);
+  padding-left: var(--space-24);
 }
 
 .list > li::before {
@@ -131,7 +131,7 @@
 }
 
 .list .list {
-  margin-top: var(--space-2);
+  margin-top: var(--space-8);
 }
 
 .list .list > li::before {
@@ -145,7 +145,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-16);
 }
 
 .steps > li {
@@ -191,7 +191,7 @@
 .table td {
   text-align: left;
   vertical-align: top;
-  padding: var(--space-3) var(--space-4);
+  padding: var(--space-12) var(--space-16);
   border-bottom: 1px solid var(--color-line);
 }
 
@@ -227,8 +227,8 @@
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-  gap: var(--space-4);
-  margin-top: var(--space-8);
+  gap: var(--space-16);
+  margin-top: var(--space-32);
 }
 
 .cards:first-child {
@@ -238,7 +238,7 @@
 .card {
   position: relative;
   overflow: hidden;
-  padding: var(--space-6);
+  padding: var(--space-24);
   border: 1px solid var(--color-line);
   border-radius: 12px;
   background: var(--color-surface);
@@ -260,7 +260,7 @@
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.2;
-  margin: 0 0 var(--space-3);
+  margin: 0 0 var(--space-12);
   color: var(--color-ink);
 }
 
@@ -275,14 +275,19 @@
 }
 
 .cardBody > * + * {
-  margin-top: var(--space-3);
+  margin-top: var(--space-12);
+}
+
+.cardBody p + p,
+.cardBody :is(ul, ol) + p {
+  margin-top: var(--space-16);
 }
 
 .stack {
   display: flex;
   flex-direction: column;
-  gap: var(--space-10);
-  margin-top: var(--space-10);
+  gap: var(--space-40);
+  margin-top: var(--space-40);
 }
 
 .stack:first-child {
@@ -295,7 +300,7 @@
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.2;
-  margin: 0 0 var(--space-4);
+  margin: 0 0 var(--space-16);
   color: var(--color-ink);
 }
 
@@ -303,12 +308,12 @@
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
-  gap: var(--space-4);
+  gap: var(--space-16);
 }
 
 .feature {
   margin: 0;
-  padding: var(--space-5);
+  padding: var(--space-20);
   border: 1px solid var(--color-line);
   border-radius: 8px;
   background: var(--color-surface);
@@ -319,7 +324,7 @@
 
 .feature strong {
   display: block;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-8);
   font-family: var(--font-display);
   font-size: 18px;
   letter-spacing: -0.02em;
@@ -336,13 +341,13 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-2);
-  margin-top: var(--space-6);
+  gap: var(--space-8);
+  margin-top: var(--space-24);
 }
 
 .lead + .cta,
 .prose > * + .cta {
-  margin-top: var(--space-6);
+  margin-top: var(--space-24);
 }
 
 .ctaSub {
@@ -357,7 +362,7 @@
 }
 
 .ctaBandBody p {
-  margin: 0 0 var(--space-3);
+  margin: 0 0 var(--space-12);
 }
 
 .ctaBandBody a {
@@ -366,7 +371,7 @@
 }
 
 .ctaBandSub {
-  margin: var(--space-3) 0 0;
+  margin: var(--space-12) 0 0;
   font-size: 13px;
   color: color-mix(in srgb, var(--color-paper) 70%, transparent);
 }
@@ -386,8 +391,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: var(--space-4);
-  padding: var(--space-4) 0;
+  gap: var(--space-16);
+  padding: var(--space-16) 0;
   cursor: pointer;
   list-style: none;
 }
@@ -424,7 +429,7 @@
 }
 
 .faqAnswer {
-  padding: 0 0 var(--space-5);
+  padding: 0 0 var(--space-20);
   font-size: 16px;
   line-height: 1.65;
   color: var(--color-muted);
@@ -435,26 +440,26 @@
 }
 
 .faqAnswer > * + * {
-  margin-top: var(--space-3);
+  margin-top: var(--space-12);
 }
 
 .after {
-  margin-top: var(--space-6);
+  margin-top: var(--space-24);
 }
 
 .faqCategory + .faqCategory {
-  margin-top: var(--space-12);
+  margin-top: var(--space-48);
 }
 
 .faqCategoryTitle {
   font-size: var(--text-display-md);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-16);
 }
 
 /* Routes strip (home) ------------------------------------------------------- */
 
 .routes {
-  padding: var(--space-8) 0;
+  padding: var(--space-32) 0;
   border-top: 1px solid var(--color-line);
   font-size: 14px;
   line-height: 1.8;
@@ -471,14 +476,14 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-24);
   max-width: 760px;
-  margin-top: var(--space-8);
+  margin-top: var(--space-32);
 }
 
 .fieldset {
   margin: 0;
-  padding: var(--space-5);
+  padding: var(--space-20);
   border: 1px solid var(--color-line);
   border-radius: 8px;
   background: var(--color-surface);
@@ -489,7 +494,7 @@
   float: left;
   width: 100%;
   padding: 0;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-12);
   font-family: var(--font-ui);
   font-size: 15px;
   font-weight: 600;
@@ -504,7 +509,7 @@
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--color-primary);
-  margin-right: var(--space-2);
+  margin-right: var(--space-8);
 }
 
 .hint {
@@ -515,13 +520,13 @@
 .options {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-  gap: var(--space-2) var(--space-4);
+  gap: var(--space-8) var(--space-16);
 }
 
 .option {
   display: flex;
   align-items: flex-start;
-  gap: var(--space-2);
+  gap: var(--space-8);
   font-size: 15px;
   line-height: 1.45;
   color: var(--color-ink);
@@ -536,13 +541,13 @@
 .inputs {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-  gap: var(--space-4);
+  gap: var(--space-16);
 }
 
 .inputLabel {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-8);
   font-family: var(--font-ui);
   font-size: 14px;
   font-weight: 600;
@@ -565,7 +570,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-3);
+  gap: var(--space-12);
 }
 
 .formError {
@@ -576,8 +581,8 @@
 
 .formDone {
   max-width: 760px;
-  margin-top: var(--space-8);
-  padding: var(--space-5);
+  margin-top: var(--space-32);
+  padding: var(--space-20);
   border: 1px solid var(--color-line);
   border-left: 3px solid var(--color-primary);
   border-radius: 8px;
@@ -590,7 +595,7 @@
 }
 
 .formDoneTitle {
-  margin-bottom: var(--space-2) !important;
+  margin-bottom: var(--space-8) !important;
   font-family: var(--font-ui);
   font-weight: 600;
 }

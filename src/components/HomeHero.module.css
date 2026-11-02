@@ -31,13 +31,13 @@
 .heroInner {
   display: grid;
   grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-  gap: var(--space-12);
+  gap: var(--space-48);
   align-items: center;
 }
 
 .eyebrow {
   display: block;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-16);
   font-family: var(--font-mono);
   font-size: var(--text-mono);
   text-transform: uppercase;
@@ -52,7 +52,7 @@
   font-weight: 700;
   letter-spacing: var(--display-tracking);
   line-height: 1.05;
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-20);
   color: white;
   max-width: 34ch;
 }
@@ -62,14 +62,14 @@
   color: rgba(255, 255, 255, 0.78);
   max-width: 60ch;
   line-height: 1.6;
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-32);
 }
 
 .chips {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-3);
-  margin-bottom: var(--space-8);
+  gap: var(--space-12);
+  margin-bottom: var(--space-32);
 }
 
 .chip {
@@ -96,7 +96,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-6);
+  gap: var(--space-24);
 }
 
 .ctaGroup {

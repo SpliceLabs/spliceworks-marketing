@@ -1,13 +1,13 @@
 .section {
-  padding: var(--space-16) 0;
+  padding: var(--space-64) 0;
   border-top: 1px solid var(--color-line);
   display: grid;
   grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
-  gap: var(--space-12);
+  gap: var(--space-48);
   max-width: var(--workspace);
   margin: 0 auto;
-  padding-left: clamp(var(--space-6), 5vw, var(--space-20));
-  padding-right: clamp(var(--space-6), 5vw, var(--space-20));
+  padding-left: clamp(var(--space-24), 5vw, var(--space-80));
+  padding-right: clamp(var(--space-24), 5vw, var(--space-80));
 }
 
 .left {
@@ -22,7 +22,7 @@
   letter-spacing: -0.05em;
   opacity: 0.08;
   display: block;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-12);
   color: var(--color-primary);
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-mid) 100%);
   -webkit-background-clip: text;
@@ -32,10 +32,10 @@
 
 .eyebrow {
   display: flex;
-  gap: var(--space-3);
+  gap: var(--space-12);
   align-items: baseline;
   flex-wrap: wrap;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-12);
   font-family: var(--font-mono);
   font-size: var(--text-mono);
   text-transform: uppercase;
@@ -61,7 +61,7 @@
 
 .sub {
   color: var(--color-muted);
-  margin-top: var(--space-4);
+  margin-top: var(--space-16);
   max-width: 44ch;
   font-size: 15px;
   line-height: 1.55;
@@ -69,8 +69,8 @@
 
 /* Agent contributors list */
 .agentList {
-  margin-top: var(--space-6);
-  padding-top: var(--space-4);
+  margin-top: var(--space-24);
+  padding-top: var(--space-16);
   border-top: 1px solid var(--color-line);
 }
 
@@ -81,7 +81,7 @@
   letter-spacing: 0.12em;
   color: var(--color-muted);
   display: block;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-8);
 }
 
 .agents {
@@ -149,8 +149,8 @@
 .artifactHeader {
   display: flex;
   justify-content: space-between;
-  gap: var(--space-3);
-  padding: var(--space-4) var(--space-6);
+  gap: var(--space-12);
+  padding: var(--space-16) var(--space-24);
   border-bottom: 1px solid var(--color-line);
   align-items: center;
   flex-wrap: wrap;
@@ -164,7 +164,7 @@
 .headerRight {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-12);
 }
 
 .runId {
@@ -251,7 +251,7 @@
 
 /* Interactive cells */
 .artifactCell {
-  padding: var(--space-4) var(--space-6);
+  padding: var(--space-16) var(--space-24);
   border-bottom: 1px solid var(--color-line);
   border-right: 1px solid var(--color-line);
   display: flex;
@@ -434,10 +434,10 @@
 }
 
 .artifactFooter {
-  padding: var(--space-4) var(--space-6);
+  padding: var(--space-16) var(--space-24);
   display: flex;
   justify-content: space-between;
-  gap: var(--space-3);
+  gap: var(--space-12);
   border-top: 1px solid var(--color-line);
   align-items: center;
   flex-wrap: wrap;
@@ -450,13 +450,13 @@
 
 .actions {
   display: flex;
-  gap: var(--space-2);
+  gap: var(--space-8);
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-8);
   border-radius: 6px;
   border: 1px solid var(--color-line-strong);
   background: transparent;
@@ -498,7 +498,7 @@
 @media (max-width: 1100px) {
   .section {
     grid-template-columns: 1fr;
-    gap: var(--space-8);
+    gap: var(--space-32);
   }
 
   .artifactBody {

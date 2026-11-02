@@ -1,6 +1,6 @@
 ---
 url: /
-title: Splice Ops | Become AI-Native, One Workflow at a Time
+title: SpliceOps | Become AI-Native, One Workflow at a Time
 description: A forward-deployed team that puts AI to work on your critical workflows, in your systems, with an accountable person behind every decision that matters.
 reader: "Primary: the operator, technology or business leader handed the AI mandate. Secondary: the CEO, board member or founder who issued it (routed to /for/ceos-and-boards and /for/founders)"
 job: Recognize their own situation in one screen, place themselves on the path, and book a working session
@@ -10,13 +10,13 @@ supersedes: 04-site-copy/pages/index.md in splice-works-site-copy-2026-10-07-v3.
 open: [working-session price and terms (#3), proof results (#8), naming-policy line (#21), "AI-absent" vs "AI-equipped" label test (founder call), hero A vs E test]
 ---
 
-# Your CEO said "become an AI company." We make it real.
+# Splice, don't replace.
 
-We turn what your experts know and how your company already works into workflows run by people and AI, inside the systems you already use.
+Your CEO said "become an AI company." We build AI into the work you already do. Agents run it. You stay in control.
 
 **Book a working session** → /book
 
-Start with one real workflow. Leave with something working.
+One paid day, one workflow, a working prototype. A paid day, credited in full if you go on to work with us.
 
 ## You bought the AI. The work didn't change.
 

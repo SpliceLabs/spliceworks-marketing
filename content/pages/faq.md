@@ -1,6 +1,6 @@
 ---
 title: FAQ
-description: Common questions about Splice Ops
+description: Common questions about SpliceOps
 route: /faq
 priority: P2
 ---

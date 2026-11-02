@@ -16,9 +16,9 @@ import {
 } from "@/lib/tools/cost-of-delay";
 import { AI_ROI, aiRoi } from "@/lib/tools/ai-roi";
 
-/** SEO title without the " | Splice Ops" suffix, for link text. */
+/** SEO title without the " | SpliceOps" suffix, for link text. */
 export function shortTitle(urlPath: string): string {
-  return getPage(urlPath).fm.title.replace(/\s*\|\s*Splice Ops$/, "");
+  return getPage(urlPath).fm.title.replace(/\s*\|\s*SpliceOps$/, "");
 }
 
 /** Markdown with site-relative links made absolute, for agents reading it off-site. */
@@ -55,7 +55,7 @@ export function llmsTxt(): string {
   if (missing.length) throw new Error(`llms.txt is missing ${missing.map((p) => p.path).join(", ")}`);
 
   const lines = [
-    "# Splice Ops",
+    "# SpliceOps",
     "",
     `> ${home.fm.description}`,
     "",
@@ -78,7 +78,7 @@ export function llmsTxt(): string {
     `- [llms-full.txt](${absUrl("/llms-full.txt")}): the full text of every page, including every FAQ answer`,
     `- [capabilities.json](${absUrl("/capabilities.json")}): services, pages and audiences as JSON`,
     "",
-    "Splice Ops is part of Splice Labs Group.",
+    "SpliceOps is part of Splice Labs Group.",
     "",
   );
   return lines.join("\n");
@@ -86,7 +86,7 @@ export function llmsTxt(): string {
 
 export function llmsFullTxt(): string {
   const parts = [
-    "# Splice Ops: full site content",
+    "# SpliceOps: full site content",
     "",
     `> ${getPage("/").fm.description}`,
     "",
@@ -151,7 +151,7 @@ export function capabilities() {
   const { categories } = getFaq();
 
   return {
-    name: "Splice Ops",
+    name: "SpliceOps",
     description: home.fm.description,
     tagline: "Put AI to work. Keep people accountable.",
     url: SITE_URL,

@@ -1,5 +1,5 @@
 id: splice-works
-name: Splice Ops
+name: SpliceOps
 type: agent-native-marketing-site
 workflow: .harness/workflows/new-site.yaml
 framework:
@@ -7,7 +7,7 @@ framework:
   packageManager: pnpm
 deployment:
   adapter: vercel
-  productionDomain: spliceworks.ai
+  productionDomain: www.spliceops.ai
   requiresHumanApproval: true
 sources:
   truth: content/SOURCE-OF-TRUTH.md

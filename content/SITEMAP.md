@@ -12,7 +12,7 @@
 Splice Labs Group                    (owns shared infrastructure)
 ├── Splice Labs                      (venture studio — creates new AI-native companies)
 │   └── runs its venture-formation runtime on Station
-└── Splice Ops                     (forward-deployed team — converts existing
+└── SpliceOps                     (forward-deployed team — converts existing
     │                                 companies into AI-native ones)
     └── runs its internal transformation system on Station, deploys the Brain and Station to clients
 
@@ -21,15 +21,15 @@ Splice Station                       (governed platform underneath everything �
 ```
 
 **Non-technical summary (usable as hero/about copy verbatim):**
-> AI is everywhere and accountable for nothing. Splice Ops feeds everything your company knows into one shared Brain your people use every day, then puts it to work through Station — governed agents, with a named human accountable at every gate.
+> AI is everywhere and accountable for nothing. SpliceOps feeds everything your company knows into one shared Brain your people use every day, then puts it to work through Station — governed agents, with a named human accountable at every gate.
 
 | Layer | What it is | Where it lives on this site |
 |-------|-----------|-----------------|
-| **Splice Ops** | The forward-deployed team. Converts *existing* companies into AI-native ones. This site. | `/`, `/services`, `/how-we-work`, `/about` |
+| **SpliceOps** | The forward-deployed team. Converts *existing* companies into AI-native ones. This site. | `/`, `/services`, `/how-we-work`, `/about` |
 | **Splice Station** | The governed platform underneath — by itself it does nothing. Permissioning, audit trails, telemetry, security, SSO, integrations. Needs a configuration/runtime plugged in to do work. Managed by default, portable by design. | Own primary nav page: `/station` |
-| **Internal transformation system** | Splice Ops' proprietary transformation system for moving a client from AI-naive to AI-advanced. Runs on Station. **Not handed to clients.** | Named explicitly in `/how-we-work` ("we use AI to deliver AI" commitment) — internal capability only, never a sold product |
+| **Internal transformation system** | SpliceOps' proprietary transformation system for moving a client from AI-naive to AI-advanced. Runs on Station. **Not handed to clients.** | Named explicitly in `/how-we-work` ("we use AI to deliver AI" commitment) — internal capability only, never a sold product |
 | **The Brain** | The shared knowledge layer — everything a company knows, in one place its people use every day. The AI-enabled step, live inside 30 days, before Station and agents take over. | Introduced on `/station` and `/` as the first deliverable, paid off in `/how-we-work`'s Deploy phase |
-| **Venture-formation runtime** *(out of scope for this site)* | Splice Labs' (venture studio, sibling to Splice Ops) runtime for venture formation — generation, validation, creation of new companies. | Not part of Splice Ops' IA. Worth a one-line corporate-structure mention on `/about` only, since it clarifies Splice Ops is one of several things built on Station. |
+| **Venture-formation runtime** *(out of scope for this site)* | Splice Labs' (venture studio, sibling to SpliceOps) runtime for venture formation — generation, validation, creation of new companies. | Not part of SpliceOps' IA. Worth a one-line corporate-structure mention on `/about` only, since it clarifies SpliceOps is one of several things built on Station. |
 
 Security/audit/SSO is folded into `/station` as a section (it's literally what Station does) rather than kept as a separate primary nav item. A deeper compliance page remains at `/security` for procurement audiences, linked from `/station`'s footer, not the primary nav.
 
@@ -75,7 +75,7 @@ Note: Lovable's separate "AI Enablement" and "AI Infrastructure" surfaces are in
 
 ## Homepage Sections
 
-1. Hero with Habitat visualization — subhead: "AI is everywhere and accountable for nothing. Splice Ops feeds everything your company knows into one shared Brain your people use every day, then puts it to work through Station — governed agents, with a named human accountable at every gate."
+1. Hero with Habitat visualization — subhead: "AI is everywhere and accountable for nothing. SpliceOps feeds everything your company knows into one shared Brain your people use every day, then puts it to work through Station — governed agents, with a named human accountable at every gate."
 2. Methodology overview: Diagnose → Deploy → Operate & Scale (3 cards)
 3. Services teaser: 4 surfaces (Build, Embed, Operate, Decide)
 4. Station introduction + "what you keep is the Brain and Station" hook

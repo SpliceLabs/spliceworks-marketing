@@ -1,8 +1,8 @@
 .calculator {
   display: grid;
-  gap: var(--space-8);
+  gap: var(--space-32);
   grid-template-columns: minmax(0, 1fr);
-  padding: var(--space-8);
+  padding: var(--space-32);
   border: 1px solid var(--color-line);
   border-radius: var(--radius-panel);
   background: var(--color-raised);
@@ -17,13 +17,13 @@
 
 .inputs {
   display: grid;
-  gap: var(--space-6);
+  gap: var(--space-24);
   align-content: start;
 }
 
 .field {
   display: grid;
-  gap: var(--space-2);
+  gap: var(--space-8);
 }
 
 .fieldHead {
@@ -31,13 +31,13 @@
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: var(--space-2) var(--space-4);
+  gap: var(--space-8) var(--space-16);
 }
 
 .entry {
   display: inline-flex;
   align-items: baseline;
-  gap: var(--space-1);
+  gap: var(--space-4);
   font-family: var(--font-mono);
   color: var(--color-ink);
 }
@@ -56,7 +56,7 @@
 
 .number {
   width: 9.5ch;
-  padding: var(--space-1) var(--space-2);
+  padding: var(--space-4) var(--space-8);
   border: 1px solid var(--color-line-strong);
   border-radius: var(--radius-ctrl);
   background: var(--color-surface);
@@ -78,20 +78,20 @@
 
 .results {
   display: grid;
-  gap: var(--space-5);
+  gap: var(--space-20);
   align-content: start;
 }
 
 .figures {
   display: grid;
-  gap: var(--space-4);
+  gap: var(--space-16);
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   margin: 0;
 }
 
 .figure {
   display: grid;
-  gap: var(--space-1);
+  gap: var(--space-4);
 }
 
 .figure dt {
@@ -115,7 +115,7 @@
 
 .line {
   margin: 0;
-  padding: var(--space-4) var(--space-5);
+  padding: var(--space-16) var(--space-20);
   border-left: 3px solid var(--color-primary);
   background: var(--color-surface);
   font-size: 17px;
@@ -126,14 +126,14 @@
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-3);
+  gap: var(--space-12);
 }
 
 .cta {
   display: grid;
-  gap: var(--space-2);
+  gap: var(--space-8);
   justify-items: start;
-  padding-top: var(--space-4);
+  padding-top: var(--space-16);
   border-top: 1px solid var(--color-line);
 }
 
@@ -145,7 +145,7 @@
 
 .group {
   display: grid;
-  gap: var(--space-6);
+  gap: var(--space-24);
   margin: 0;
   padding: 0;
   border: 0;
@@ -153,7 +153,7 @@
 }
 
 .legend {
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-8);
   padding: 0;
   font-family: var(--font-ui);
   font-size: var(--text-caption);

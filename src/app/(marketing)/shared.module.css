@@ -4,7 +4,7 @@
 
 /* Page Header */
 .pageHeader {
-  padding: var(--space-24) 0 var(--space-16);
+  padding: var(--space-96) 0 var(--space-64);
   border-bottom: 1px solid var(--color-line);
 }
 
@@ -14,7 +14,7 @@
   font-weight: var(--display-weight);
   letter-spacing: var(--display-tracking);
   line-height: var(--display-leading);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-16);
   color: var(--color-ink);
 }
 
@@ -56,16 +56,16 @@
 
 /* CTA Section */
 .cta {
-  padding: var(--space-20) 0;
+  padding: var(--space-80) 0;
 }
 
 .ctaSunken {
-  padding: var(--space-20) 0;
+  padding: var(--space-80) 0;
   background: var(--color-structure-soft);
 }
 
 .ctaDark {
-  padding: var(--space-20) 0;
+  padding: var(--space-80) 0;
   background: var(--color-ink);
   color: var(--color-paper);
 }
@@ -81,13 +81,13 @@
   font-size: var(--text-display-md);
   font-weight: var(--display-weight);
   letter-spacing: -0.02em;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-12);
 }
 
 .ctaBody {
   font-size: 17px;
   color: var(--color-muted);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-24);
   line-height: 1.55;
 }
 
@@ -111,27 +111,27 @@
 
 /* Section */
 .section {
-  padding: var(--space-20) 0;
+  padding: var(--space-80) 0;
 }
 
 .sectionSm {
-  padding: var(--space-12) 0;
+  padding: var(--space-48) 0;
 }
 
 .sectionSunken {
-  padding: var(--space-20) 0;
+  padding: var(--space-80) 0;
   background: var(--color-structure-soft);
 }
 
 .sectionDark {
-  padding: var(--space-20) 0;
+  padding: var(--space-80) 0;
   background: var(--color-ink);
   color: var(--color-paper);
 }
 
 /* Section header */
 .sectionHeader {
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-40);
 }
 
 .sectionHeadline {
@@ -151,13 +151,13 @@
 .cardGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-4);
+  gap: var(--space-16);
 }
 
 .cardGridNarrow {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--space-4);
+  gap: var(--space-16);
 }
 
 /* Card content */
@@ -166,7 +166,7 @@
   font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.02em;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-8);
   color: var(--color-ink);
 }
 
@@ -184,7 +184,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-muted);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-8);
 }
 
 .detailList {
@@ -196,9 +196,9 @@
 .detailList li {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-8);
   font-size: 14px;
-  padding: var(--space-1) 0;
+  padding: var(--space-4) 0;
   color: var(--color-ink);
 }
 
@@ -219,14 +219,14 @@
 .twoCol {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-12);
+  gap: var(--space-48);
   align-items: start;
 }
 
 @media (max-width: 900px) {
   .twoCol {
     grid-template-columns: 1fr;
-    gap: var(--space-8);
+    gap: var(--space-32);
   }
 }
 
@@ -239,14 +239,14 @@
   letter-spacing: -0.05em;
   opacity: 0.12;
   color: var(--color-ink);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-8);
 }
 
 /* Feature grid */
 .featureGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-4);
+  gap: var(--space-16);
 }
 
 @media (max-width: 900px) {

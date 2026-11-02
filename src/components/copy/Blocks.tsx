@@ -1,3 +1,5 @@
+import { tableToCards } from "@/lib/copy/table-cards";
+import { TableCards } from "@/components/ds/TableCards";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { Block, Inline } from "@/lib/copy/markdown";
@@ -35,42 +37,17 @@ export function CtaLine({ block }: { block: Cta }) {
 }
 
 export function CopyTable({ block }: { block: Extract<Block, { t: "table" }> }) {
-  const rowHeaders = block.head[0]?.length === 0;
   return (
-    <div className={styles.tableWrap}>
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            {block.head.map((cell, i) =>
-              cell.length === 0 ? (
-                <td key={i} />
-              ) : (
-                <th key={i} scope="col">
-                  <InlineNodes nodes={cell} />
-                </th>
-              ),
-            )}
-          </tr>
-        </thead>
-        <tbody>
-          {block.rows.map((row, r) => (
-            <tr key={r}>
-              {row.map((cell, c) =>
-                c === 0 && rowHeaders ? (
-                  <th key={c} scope="row">
-                    <InlineNodes nodes={cell} />
-                  </th>
-                ) : (
-                  <td key={c}>
-                    <InlineNodes nodes={cell} />
-                  </td>
-                ),
-              )}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <TableCards
+      cards={tableToCards(block).map((card) => ({
+        n: card.n,
+        title: <InlineNodes nodes={[...card.title]} />,
+        rows: card.rows.map((row) => ({
+          label: <InlineNodes nodes={[...row.label]} />,
+          value: <InlineNodes nodes={[...row.value]} />,
+        })),
+      }))}
+    />
   );
 }
 

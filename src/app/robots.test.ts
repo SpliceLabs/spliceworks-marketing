@@ -21,6 +21,6 @@ describe("robots", () => {
   });
 
   it("points crawlers at the sitemap", () => {
-    expect(robots().sitemap).toBe("https://spliceworks.ai/sitemap.xml");
+    expect(robots().sitemap).toBe("https://www.spliceops.ai/sitemap.xml");
   });
 });

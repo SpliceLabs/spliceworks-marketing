@@ -1,9 +1,9 @@
 ---
 url: /for/ceos-and-boards
-title: "AI Strategy for CEOs and Boards, Delivered | Splice Ops"
+title: "AI Strategy for CEOs and Boards, Delivered | SpliceOps"
 description: "The board asked for an AI plan. We turn it into workflows run by agents, in your systems, with an accountable person behind every decision that matters."
 reader: "The CEO, COO or board member who issued the AI directive and owns the follow-through"
-job: "Believe Splice Ops turns the mandate into results with someone accountable, then book a working session"
+job: "Believe SpliceOps turns the mandate into results with someone accountable, then book a working session"
 primary_cta: "Book a working session → /book"
 status: provisional
 sources: ["The job", "Narrative spine", "Audience and triggers", "The two offerings", "Step-1 milestone examples", "Core messages", "The working session", "Proof", "Objections and answers", "Claims register", "Audience landing pages (/for/leadership-teams)"]

@@ -8,9 +8,9 @@ describe("breadcrumbJsonLd", () => {
       "Fractional",
     );
     expect(ld.itemListElement.map((c) => c.item)).toEqual([
-      "https://spliceworks.ai",
-      "https://spliceworks.ai/services",
-      "https://spliceworks.ai/services/fractional",
+      "https://www.spliceops.ai",
+      "https://www.spliceops.ai/services",
+      "https://www.spliceops.ai/services/fractional",
     ]);
     expect(ld.itemListElement.map((c) => c.position)).toEqual([1, 2, 3]);
   });

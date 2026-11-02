@@ -5,7 +5,7 @@ Every `[TBD]` was filled or removed. The copy follows the founder decisions in
 decision, or was cut until there's evidence.
 
 ## Standing in (confirm)
-- **Contact:** the founders chose info@spliceworks.ai, but spliceworks.ai has no inbox (no MX records) yet, so the site and the booking form use hello@splicelabs.xyz. Switch by setting `CONTACT_EMAIL` on Vercel (then redeploy) once info@spliceworks.ai receives mail.
+- **Contact:** the founders chose an address on the old spliceworks.ai domain, which now redirects to spliceops.ai. The site and the booking form use hello@splicelabs.xyz until a spliceops.ai address is confirmed to receive mail. Switch by setting `CONTACT_EMAIL` on Vercel (then redeploy).
 - **Booking form:** submissions are emailed to the contact inbox through Resend, sent from `BOOK_FROM` (forms@splicelabs.xyz in production) with reply-to set to the visitor.
 - **Session price:** no number shown; "fee agreed with you before you book, credited in full."
 
