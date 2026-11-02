@@ -1,5 +1,5 @@
 /** The site's origin and absolute URLs. No imports, so client and layout code can use it too. */
-export const SITE_URL = "https://spliceworks.ai";
+export const SITE_URL = "https://www.spliceops.ai";
 
 export const OG_IMAGE = {
   url: "/og/splice-ops.png",
