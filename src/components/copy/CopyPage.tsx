@@ -143,13 +143,13 @@ function CheckCard({ list, title }: { list: Extract<Block, { t: "list" }>; title
 
 function SubPillars({ subs }: { subs: Subsection[] }) {
   return (
-    <div className={`pillars ${subs.length === 2 || subs.length === 4 ? "c2" : "c3"}`}>
+    <div className="tcards">
       {subs.map((sub, i) => (
-        <article key={sub.slug} id={sub.slug} className="pillar">
-          <p className="kicker kn" style={{ margin: "0 0 10px" }}>
+        <article key={sub.slug} id={sub.slug} className="tcard">
+          <span className="tcard-n" aria-hidden="true">
             {String(i + 1).padStart(2, "0")}
-          </p>
-          <h3 className="h3" style={{ marginBottom: 10 }}>
+          </span>
+          <h3 className="tcard-h">
             <InlineNodes nodes={sub.title} />
           </h3>
           <div className={styles.cardBody}>

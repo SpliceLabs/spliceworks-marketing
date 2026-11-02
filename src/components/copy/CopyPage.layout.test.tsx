@@ -47,9 +47,12 @@ describe("copy page rhythm", () => {
     expect(html).not.toContain("<table");
   });
 
-  it("never puts more than two comparison cards in one row group of a record table", () => {
-    const html = renderToStaticMarkup(<CopyPage path="/work" />);
-    expect(html).not.toMatch(/class="g3"|class="g4"/);
+  it("shows subsections as cards in the system's two-column grid, never three across", () => {
+    PAGES.forEach((path) => {
+      const html = renderToStaticMarkup(<CopyPage path={path} />);
+      expect(html).not.toMatch(/class="pillars|class="g3"|class="g4"/);
+    });
+    expect(renderToStaticMarkup(<CopyPage path="/work" />)).toMatch(/<article id="[^"]+" class="tcard">/);
   });
 
   it("ends every page with the ask box before the footer", () => {
