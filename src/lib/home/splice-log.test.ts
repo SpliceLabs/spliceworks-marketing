@@ -19,4 +19,9 @@ describe("splice log", () => {
   it("keeps every link on-site", () => {
     expect(SPLICE_LOG.every((e) => e.href.startsWith("/") || e.href.startsWith("#"))).toBe(true);
   });
+
+  it("places every entry on the ticket track and serves posters from /log", () => {
+    expect(SPLICE_LOG.every((e) => e.track >= 0 && e.track <= 100)).toBe(true);
+    SPLICE_LOG.filter((e) => e.poster).forEach((e) => expect(e.poster).toMatch(/^\/log\/.+\.jpg$/));
+  });
 });
