@@ -89,7 +89,7 @@ export function pageMetadata(urlPath: string): Metadata {
       title: fm.title,
       description: fm.description,
       url,
-      siteName: "Splice Ops",
+      siteName: "SpliceOps",
       locale: "en_US",
       type: "website",
       images: [OG_IMAGE],

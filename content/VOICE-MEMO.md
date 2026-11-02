@@ -1,6 +1,6 @@
 # Voice memo — Do's, Don'ts, and the review protocol
 
-This memo is the working reference for anyone or any agent drafting Splice Ops copy. Check a draft against this *before* writing, and run the humanizer pass *after* every draft or revision. `VOICE.md` holds the five core rules; this memo expands them into checkable Do's and Don'ts.
+This memo is the working reference for anyone or any agent drafting SpliceOps copy. Check a draft against this *before* writing, and run the humanizer pass *after* every draft or revision. `VOICE.md` holds the five core rules; this memo expands them into checkable Do's and Don'ts.
 
 ## The five rules
 
@@ -21,7 +21,7 @@ This memo is the working reference for anyone or any agent drafting Splice Ops c
 - Active voice, active subject. "We install Station," not "Station is installed."
 - Cut the sentence in half. Then cut it again.
 - End on the strongest word.
-- State the claim plainly. "Splice Ops deploys X," not "Splice Ops aims to help deploy X."
+- State the claim plainly. "SpliceOps deploys X," not "SpliceOps aims to help deploy X."
 - Address the reader directly — "you," "we." Invite, don't lecture.
 - Vary sentence length on purpose. A short line after a longer one lands harder.
 - Read it out loud before calling it done. If it sounds like a person, keep it.
@@ -41,7 +41,7 @@ This memo is the working reference for anyone or any agent drafting Splice Ops c
 - Restating one claim three different ways in three consecutive sentences
 - Exclamation marks. Emoji.
 - Title Case Headings — sentence case only.
-- "I" — always "we" for Splice Ops, "you" for the reader.
+- "I" — always "we" for SpliceOps, "you" for the reader.
 - A claim with no number and no mechanism behind it.
 
 ---

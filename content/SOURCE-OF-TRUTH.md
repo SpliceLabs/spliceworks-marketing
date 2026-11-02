@@ -2,7 +2,7 @@
 
 ## Company
 
-**Splice Ops** is the consulting and delivery arm of Splice Labs. We help organizations deploy AI-native systems — from assessment through operation.
+**SpliceOps** is the consulting and delivery arm of Splice Labs. We help organizations deploy AI-native systems — from assessment through operation.
 
 - **Parent:** Splice Labs
 - **Domain:** www.spliceops.ai (spliceops.ai and spliceworks.ai redirect to it)

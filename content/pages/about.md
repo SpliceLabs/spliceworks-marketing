@@ -9,13 +9,13 @@ priority: P1
 
 # We turn existing companies AI-native
 
-Splice Ops is a forward-deployed team inside Splice Labs Group. We find where AI creates real leverage, build the systems that capture it, and stay accountable through production.
+SpliceOps is a forward-deployed team inside Splice Labs Group. We find where AI creates real leverage, build the systems that capture it, and stay accountable through production.
 
 ---
 
 ## Where we sit
 
-Splice Labs Group owns the shared infrastructure, Splice Station, underneath everything we build. Splice Labs, a sibling company, is the venture studio that creates new AI-native companies from scratch, running its own runtime on Station to do it. Splice Ops transforms companies that already exist, running its own engagement toolkit internally and leaving the Brain and Station behind as the client's own operating backbone.
+Splice Labs Group owns the shared infrastructure, Splice Station, underneath everything we build. Splice Labs, a sibling company, is the venture studio that creates new AI-native companies from scratch, running its own runtime on Station to do it. SpliceOps transforms companies that already exist, running its own engagement toolkit internally and leaving the Brain and Station behind as the client's own operating backbone.
 
 ---
 

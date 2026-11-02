@@ -1,6 +1,6 @@
 ---
 url: /tools
-title: "Free AI Planning Tools for Leaders | Splice Ops"
+title: "Free AI Planning Tools for Leaders | SpliceOps"
 description: "Free calculators that put numbers on your AI decisions, with every formula shown. Start with what waiting costs, then what AI returns."
 reader: "A leader weighing an AI decision who wants numbers before a conversation"
 job: "Use a tool, see how it works, then book a working session"

@@ -1,6 +1,6 @@
 ---
 url: /
-title: Splice Ops | Become AI-Native, One Workflow at a Time
+title: SpliceOps | Become AI-Native, One Workflow at a Time
 description: A forward-deployed team that puts AI to work on your critical workflows, in your systems, with an accountable person behind every decision that matters.
 reader: "Primary: the operator, technology or business leader handed the AI mandate. Secondary: the CEO, board member or founder who issued it (routed to /for/ceos-and-boards and /for/founders)"
 job: Recognize their own situation in one screen, place themselves on the path, and book a working session

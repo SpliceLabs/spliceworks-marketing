@@ -19,7 +19,7 @@ See `VOICE-MEMO.md` for the expanded Do/Don't reference and the humanizer review
 
 ## Do
 
-- Use "we" for Splice Ops, "you" for the reader
+- Use "we" for SpliceOps, "you" for the reader
 - Use numerals always ("12 sites", "4 agents")
 - Use sentence case for headings ("Read the docs")
 - Use middle dot for meta ("6 Sep 2026 · 4 min")

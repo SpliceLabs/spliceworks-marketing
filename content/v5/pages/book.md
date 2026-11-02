@@ -1,6 +1,6 @@
 ---
 url: /book
-title: Book an AI Working Session | Splice Ops
+title: Book an AI Working Session | SpliceOps
 description: One focused day on one of your real workflows. Leave with a working prototype and a decision, not a deck. Paid, and credited in full if you go on to work with us.
 reader: Anyone ready to act on an AI mandate: a CEO, board member, founder, technology leader, accelerator program lead or investor
 job: Request a working session, saying who it's for, who asked for AI, who owns it and where they are today

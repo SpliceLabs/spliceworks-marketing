@@ -1,5 +1,5 @@
 ---
-title: Splice Ops
+title: SpliceOps
 description: Turn your company AI-native
 route: /
 priority: P0
@@ -9,7 +9,7 @@ priority: P0
 
 # Turn your company AI-native
 
-AI is everywhere and accountable for nothing. Splice Ops feeds everything your company knows into one shared Brain your people use every day, then puts it to work through Station — governed agents, with a named human accountable at every gate.
+AI is everywhere and accountable for nothing. SpliceOps feeds everything your company knows into one shared Brain your people use every day, then puts it to work through Station — governed agents, with a named human accountable at every gate.
 
 You have AI tools. You don't have an AI-native company yet.
 

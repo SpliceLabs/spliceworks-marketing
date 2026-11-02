@@ -297,7 +297,7 @@ export function CopyPage({ path, children }: { path: string; children?: ReactNod
   const body = hasBand ? page.sections.slice(0, -1) : page.sections;
   const faqIds = pageFaqIds(path);
   const plans = planLayouts(body.map(classifySection));
-  const label = entry.group?.label ?? "Splice Ops";
+  const label = entry.group?.label ?? "SpliceOps";
   return (
     <>
       {entry.group && <JsonLd data={breadcrumbJsonLd(entry, page.fm.title)} />}

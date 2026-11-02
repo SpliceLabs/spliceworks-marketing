@@ -5,7 +5,7 @@ export const OG_IMAGE = {
   url: "/og/splice-ops.png",
   width: 1200,
   height: 630,
-  alt: "Splice Ops: AI in production, with a named human accountable at every gate.",
+  alt: "SpliceOps: AI in production, with a named human accountable at every gate.",
 };
 
 export const ORGANIZATION_ID = `${SITE_URL}/#organization`;

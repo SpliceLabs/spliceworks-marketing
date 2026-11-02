@@ -1,6 +1,6 @@
 ---
 url: /services
-title: AI Enablement and AI-Native Services | Splice Ops
+title: AI Enablement and AI-Native Services | SpliceOps
 description: Two steps: AI-absent to AI-enabled, then AI-enabled to AI-native. Or a fractional Chief AI Officer. Start where you are; a working session places you.
 reader: A buyer choosing a way in, who needs to know which service fits their company now
 job: Place their company on the path and go to the right service page, or straight to a working session
