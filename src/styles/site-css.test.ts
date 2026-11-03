@@ -67,4 +67,9 @@ describe("site stylesheet", () => {
     expect(site).toMatch(/\.paused \.pt-retry/);
     expect(site).toMatch(/prefers-reduced-motion: reduce\) \{\s*\.pt,\s*\.pt-retry/);
   });
+
+  it("sets spec sheet tables and subheads in mono like the reference", () => {
+    expect(site).toMatch(/\.lf2-sec-b \.lg-table\s*\{[^}]*var\(--mono\)/);
+    expect(site).toMatch(/\.lf2-sec-b h3\s*\{[^}]*text-transform:\s*uppercase/);
+  });
 });
