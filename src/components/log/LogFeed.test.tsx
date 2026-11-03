@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { cleanup, render, screen } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 import { makeEntry } from "@/lib/log/test-support";
 import { LogFeed } from "./LogFeed";
@@ -32,5 +32,16 @@ describe("LogFeed", () => {
     expect(screen.getByText("Showing 3 entries")).toBeTruthy();
     expect(screen.getByText("Sorted newest first")).toBeTruthy();
     expect(titles()).toEqual(["Alpha check", "Beta tool", "Gamma"]);
+  });
+
+  it("filters by what is typed and updates the count, with a message when nothing matches", () => {
+    render(<LogFeed entries={entries} filter={null} />);
+    const search = screen.getByRole("searchbox", { name: "Search entries" });
+    fireEvent.change(search, { target: { value: "beta" } });
+    expect(titles()).toEqual(["Beta tool", "Gamma"]);
+    expect(screen.getByText("Showing 2 entries")).toBeTruthy();
+    fireEvent.change(search, { target: { value: "zzz" } });
+    expect(screen.getByText("Showing 0 entries")).toBeTruthy();
+    expect(screen.getByText("Nothing matches that search.")).toBeTruthy();
   });
 });
