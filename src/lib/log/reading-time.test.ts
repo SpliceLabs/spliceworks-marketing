@@ -33,4 +33,8 @@ describe("reading time", () => {
   it("counts the words of an image's alt text but not its address", () => {
     expect(wordCount("![a small chart](/log/x/chart.png)")).toBe(3);
   });
+
+  it("leaves fenced code out of the count", () => {
+    expect(wordCount("Two words.\n\n```bash\ncurl one two three four five six\n```")).toBe(2);
+  });
 });
