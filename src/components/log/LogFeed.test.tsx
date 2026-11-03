@@ -24,7 +24,7 @@ const entries = [
   }),
 ];
 
-const titles = () => screen.getAllByRole("link").map((link) => link.querySelector(".title")?.textContent);
+const titles = () => screen.getAllByRole("link").map((link) => link.querySelector(".title .name")?.textContent);
 
 describe("LogFeed", () => {
   it("lists the entries newest first with the count and the sorted line", () => {

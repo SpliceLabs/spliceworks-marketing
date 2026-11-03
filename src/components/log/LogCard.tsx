@@ -17,7 +17,9 @@ export const LogCard = ({ entry }: { entry: CardEntry }) => (
         <time dateTime={entry.published}>{formatLogDate(entry.published)}</time> · {entry.readingMinutes} min read
       </span>
     </span>
-    <span className="title">{entry.title}</span>
+    <span className="title">
+      <span className="name">{entry.title}</span> <span className="code">{entry.code}</span>
+    </span>
     <span className="desc">{entry.description}</span>
     <span className="foot">
       <span className="read">

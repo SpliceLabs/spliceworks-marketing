@@ -1014,3 +1014,15 @@
 .lf2-status {
   margin-top: 0;
 }
+
+/* Splice Log: card titles read like a printed label */
+.lg-card .title {
+  font: var(--font-weight-regular) var(--font-size-18) / var(--font-line-height-120) var(--mono);
+  letter-spacing: var(--font-letter-spacing-p040);
+  text-transform: uppercase;
+}
+.lg-card .title .code {
+  white-space: nowrap;
+  color: var(--muted);
+  font-size: var(--font-size-12);
+}

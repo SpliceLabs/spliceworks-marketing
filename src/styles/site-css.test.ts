@@ -76,4 +76,8 @@ describe("site stylesheet", () => {
   it("lays the type chips and the search and sort controls on one row", () => {
     expect(site).toMatch(/\.lg-tools\s*\{[^}]*justify-content:\s*space-between/);
   });
+
+  it("sets card titles in mono capitals like a printed label", () => {
+    expect(site).toMatch(/\.lg-card \.title\s*\{[^}]*var\(--mono\)[^}]*text-transform:\s*uppercase/);
+  });
 });
