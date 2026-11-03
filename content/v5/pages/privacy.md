@@ -31,7 +31,7 @@ This notice covers www.spliceops.ai. SpliceOps is the consulting arm of Splice L
 
 ## Gojiberry
 
-Gojiberry identifies visitors to a website. We use it to see which companies visit this site, and to follow up with relevant business outreach.
+Gojiberry identifies visitors to a website. We use it to see which companies visit this site. We may then look for relevant business contacts at that company, who may not be the person who visited, and contact them with relevant business outreach.
 
 According to Gojiberry's own policy, it collects your IP address, the pages you visit, where you came from and how long you stay. Its visitor identification runs on Snitcher, and results are shown at company level. It may set cookies or other identifiers in your browser. Read its policy at https://gojiberry.ai/privacy-policy. Gojiberry is operated by Superfruits SAS, Paris, France.
 

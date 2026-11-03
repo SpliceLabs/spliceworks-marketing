@@ -32,4 +32,9 @@ describe("Privacy notice", () => {
       "When someone opens a shared link, the address, including those inputs, reaches our host and Gojiberry",
     );
   });
+
+  it("says a company visit may lead to outreach to other business contacts at that company", () => {
+    const { body } = getPage("/privacy");
+    expect(body).toContain("relevant business contacts at that company, who may not be the person who visited");
+  });
 });
