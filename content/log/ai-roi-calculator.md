@@ -1,13 +1,12 @@
 ---
-type: tool
+type: launch
 code: LG-00121
 title: AI ROI
 description: "Whether rolling AI out to your team pays for itself in year one: cost, value of time saved, ROI and payback."
 published: 2026-11-03
 status: published
 stage: all
-tool_status: live
-checked: 2026-11-03
+disclosure: "Splice built and runs this tool."
 cta:
   label: Open the tool
   href: /tools/ai-roi-calculator
