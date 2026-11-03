@@ -35,4 +35,19 @@ describe("consent store", () => {
       open: false,
     });
   });
+
+  it("treats unreadable storage as no choice, and still honours a choice made this visit", () => {
+    const broken = {
+      getItem: () => {
+        throw new Error("blocked");
+      },
+      setItem: () => {
+        throw new Error("blocked");
+      },
+    };
+    const store = createConsentStore({ storage: broken, gpc: false });
+    expect(store.getSnapshot()).toEqual({ consent: "unset", open: true });
+    store.accept();
+    expect(store.getSnapshot()).toEqual({ consent: "granted", open: false });
+  });
 });

@@ -7,8 +7,24 @@ export type ConsentStorage = {
   readonly setItem: (key: string, value: string) => void;
 };
 
+const readStored = (storage: ConsentStorage): string | null => {
+  try {
+    return storage.getItem(CONSENT_KEY);
+  } catch {
+    return null;
+  }
+};
+
+const writeStored = (storage: ConsentStorage, value: string) => {
+  try {
+    storage.setItem(CONSENT_KEY, value);
+  } catch {
+    return;
+  }
+};
+
 export const createConsentStore = ({ storage, gpc }: { storage: ConsentStorage; gpc: boolean }) => {
-  const initial = resolveConsent({ stored: storage.getItem(CONSENT_KEY), gpc });
+  const initial = resolveConsent({ stored: readStored(storage), gpc });
   let snapshot: ConsentSnapshot = { consent: initial, open: initial === "unset" };
   let listeners: readonly (() => void)[] = [];
 
@@ -18,7 +34,7 @@ export const createConsentStore = ({ storage, gpc }: { storage: ConsentStorage; 
   };
 
   const choose = (consent: "granted" | "denied") => {
-    storage.setItem(CONSENT_KEY, consent);
+    writeStored(storage, consent);
     update({ consent, open: false });
   };
 
