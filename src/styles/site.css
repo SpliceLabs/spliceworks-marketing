@@ -1031,3 +1031,11 @@
 .lg-facts .lf2-facts {
   margin: 0;
 }
+
+/* Splice Log: the drifting glow reads at the strength the prototype shows */
+body:has(.lg-page) {
+  --opacity-glow: 0.28;
+}
+[data-theme="ink"] body:has(.lg-page) {
+  --opacity-glow: 0.36;
+}

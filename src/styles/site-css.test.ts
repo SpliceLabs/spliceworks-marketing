@@ -84,4 +84,10 @@ describe("site stylesheet", () => {
   it("keeps the fact pills flush inside the facts row", () => {
     expect(site).toMatch(/\.lg-facts \.lf2-facts\s*\{[^}]*margin:\s*0/);
   });
+
+  it("turns the background glow up on Log pages in both themes and leaves the motion rule to the system", () => {
+    expect(site).toMatch(/body:has\(\.lg-page\)\s*\{[^}]*--opacity-glow:\s*0?\.\d+/);
+    expect(site).toMatch(/\[data-theme="ink"\] body:has\(\.lg-page\)\s*\{[^}]*--opacity-glow:\s*0?\.\d+/);
+    expect(site).not.toMatch(/lg-page[^{]*\.blob\s*\{[^}]*animation/);
+  });
 });
