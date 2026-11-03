@@ -47,7 +47,7 @@ const COLUMNS: readonly Column[] = [
       ["Work", "/work"],
       ["Team", "/team"],
       ["Station", "/station"],
-      ["Splice Log", "/#log"],
+      ["Splice Log", "/log"],
       ["FAQ", "/faq"],
     ],
   },

@@ -5,7 +5,8 @@ import { describe, expect, it } from "vitest";
 const read = (name: string) => fs.readFileSync(path.join(__dirname, name), "utf8");
 
 const lightCss = read("spliceops/tokens.css");
-const inkCss = read("ink.css");
+const inkCss = read("spliceops/tokens.css");
+const bundleCss = read("spliceops/bundle.css");
 
 type Rgb = readonly [number, number, number];
 
@@ -127,8 +128,8 @@ describe("ink theme", () => {
     expect(contrast(resolve(ink, "--color-surface-dark"), resolve(ink, "--color-surface-page"))).toBeGreaterThan(1.12);
   });
 
-  it("is switched by data-theme only, with no light-mode leakage", () => {
+  it("is switched by data-theme only, and the bundle turns the colour scheme dark for it", () => {
     expect(inkCss).toContain('[data-theme="ink"]');
-    expect(inkCss).toContain("color-scheme: dark");
+    expect(bundleCss).toMatch(/\[data-theme="ink"\]\s*\{\s*color-scheme:\s*dark/);
   });
 });

@@ -44,7 +44,7 @@ export const TicketStrip = ({ head, children }: { head: ReactNode; children: Rea
       <div className="wrap cards-head">
         {head}
         <div style={{ display: "flex", gap: "var(--space-14)", alignItems: "center" }}>
-          <Link className="link" href="#log">
+          <Link className="link" href="/log">
             [+] Read the log
           </Link>
           <div className="arrows">

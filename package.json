@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "pnpm log:codes",
     "dev": "next dev",
     "build": "node scripts/check-tbd.mjs --build && next build",
     "start": "next start",
@@ -12,12 +13,15 @@
     "check:tbd": "node scripts/check-tbd.mjs",
     "type-check": "tsc --noEmit",
     "test": "vitest run",
-    "prepare": "simple-git-hooks"
+    "prepare": "simple-git-hooks",
+    "log:codes": "tsx scripts/log-codes.ts"
   },
   "dependencies": {
     "next": "16.3.4",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -33,11 +37,12 @@
     "prettier": "3.9.10",
     "simple-git-hooks": "^2.14.0",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5",
     "vitest": "^4.1.12"
   },
   "packageManager": "pnpm@10.30.3",
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint && pnpm format:check && pnpm type-check && pnpm test"
+    "pre-commit": "pnpm log:codes --stage && pnpm lint && pnpm format:check && pnpm type-check && pnpm test"
   }
 }

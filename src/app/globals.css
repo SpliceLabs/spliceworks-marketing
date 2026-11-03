@@ -1,11 +1,10 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   Base styles (system tokens: src/styles/spliceops, Ink: ink.css, site layer: site.css)
+   Base styles (system tokens: src/styles/spliceops, Ink theme included, site layer: site.css)
    ========================================================================== */
 
 @import "../styles/spliceops/tokens.css";
-@import "../styles/ink.css";
 @import "../styles/spliceops/bundle.css";
 @import "../styles/site.css";
 
