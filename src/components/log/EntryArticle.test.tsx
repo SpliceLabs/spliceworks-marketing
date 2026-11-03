@@ -31,10 +31,13 @@ describe("EntryArticle", () => {
     expect(out).toContain("One sentence.");
   });
 
-  it("shows stage, tool status and checked date as chips", () => {
-    expect(out).toContain("AI-enabled");
-    expect(out).toContain("Status: testing");
-    expect(out).toContain("Checked 1 Nov 2026");
+  it("shows stage, type, logged date, status and checked date as dot-and-label pills", () => {
+    expect(out).toContain('class="lf2-facts"');
+    ["<dt>Stage</dt><dd>AI-enabled</dd>", "<dt>Type</dt><dd>Tool</dd>", "<dt>Logged</dt><dd>4 Nov 2026</dd>"].forEach(
+      (pill) => expect(out).toContain(pill),
+    );
+    expect(out).toContain("<dt>Status</dt><dd>testing</dd>");
+    expect(out).toContain("<dt>Checked</dt><dd>1 Nov 2026</dd>");
   });
 
   it("lists sources with their host, and shows the disclosure", () => {

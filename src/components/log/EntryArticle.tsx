@@ -18,12 +18,13 @@ import { SpecSheet } from "./SpecSheet";
 
 const Date_ = ({ iso }: { iso: string }) => <time dateTime={iso}>{formatLogDate(iso)}</time>;
 
-const facts = (entry: LogEntry): readonly string[] => [
-  STAGE_LABELS[entry.stage],
-  ...(entry.tool_status ? [`Status: ${entry.tool_status}`] : []),
-  ...(entry.checked ? [`Checked ${formatLogDate(entry.checked)}`] : []),
-  ...(entry.updated ? [`Updated ${formatLogDate(entry.updated)}`] : []),
-  `${entry.readingMinutes} min read`,
+const facts = (entry: LogEntry): readonly (readonly [string, string])[] => [
+  ["Stage", STAGE_LABELS[entry.stage]],
+  ["Type", TYPE_LABELS[entry.type]],
+  ["Logged", formatLogDate(entry.published)],
+  ...(entry.tool_status ? [["Status", entry.tool_status] as const] : []),
+  ...(entry.checked ? [["Checked", formatLogDate(entry.checked)] as const] : []),
+  ...(entry.updated ? [["Updated", formatLogDate(entry.updated)] as const] : []),
 ];
 
 const ToolContent = ({ entry }: { entry: LogEntry }) => {
@@ -63,11 +64,14 @@ export const EntryArticle = ({ entry, related }: { entry: LogEntry; related: rea
           <EntryMedia entry={entry} className="lg-hero-media" />
         </div>
         <div className="lg-facts">
-          <ul>
-            {facts(entry).map((fact) => (
-              <li key={fact}>{fact}</li>
+          <dl className="lf2-facts">
+            {facts(entry).map(([label, value]) => (
+              <div key={label}>
+                <dt>{label}</dt>
+                <dd>{value}</dd>
+              </div>
             ))}
-          </ul>
+          </dl>
           <ShareBar url={url} title={entry.title} small />
         </div>
         <EntryActions entry={entry} />

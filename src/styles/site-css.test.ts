@@ -80,4 +80,8 @@ describe("site stylesheet", () => {
   it("sets card titles in mono capitals like a printed label", () => {
     expect(site).toMatch(/\.lg-card \.title\s*\{[^}]*var\(--mono\)[^}]*text-transform:\s*uppercase/);
   });
+
+  it("keeps the fact pills flush inside the facts row", () => {
+    expect(site).toMatch(/\.lg-facts \.lf2-facts\s*\{[^}]*margin:\s*0/);
+  });
 });

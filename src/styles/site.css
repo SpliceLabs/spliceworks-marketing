@@ -1026,3 +1026,8 @@
   color: var(--muted);
   font-size: var(--font-size-12);
 }
+
+/* Splice Log: fact pills inside the facts row */
+.lg-facts .lf2-facts {
+  margin: 0;
+}
