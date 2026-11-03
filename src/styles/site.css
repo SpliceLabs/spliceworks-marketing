@@ -1039,3 +1039,38 @@ body:has(.lg-page) {
 [data-theme="ink"] body:has(.lg-page) {
   --opacity-glow: 0.36;
 }
+
+.consent {
+  position: fixed;
+  left: var(--space-16);
+  bottom: var(--space-16);
+  z-index: var(--z-banner-fixed);
+  max-width: 320px;
+  padding: var(--space-16) var(--space-18);
+  background: var(--card);
+  color: var(--ink);
+  border: var(--border-width-hairline) solid var(--line);
+  border-radius: var(--radius-14);
+  box-shadow: var(--shadow-float);
+  font: var(--font-weight-regular) var(--font-size-14) / var(--font-line-height-160) var(--sans);
+}
+.consent p {
+  margin: 0 0 var(--space-12);
+  color: var(--ink-2);
+}
+.consent a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.consent-actions {
+  display: flex;
+  gap: var(--space-8);
+}
+@media (max-width: 720px) {
+  .consent {
+    right: var(--space-16);
+    max-width: none;
+    bottom: calc(var(--space-80) + var(--space-8));
+  }
+}
