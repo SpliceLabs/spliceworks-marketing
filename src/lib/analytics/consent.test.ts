@@ -7,4 +7,9 @@ describe("consent", () => {
     expect(resolveConsent({ stored: "granted", gpc: false })).toBe("granted");
     expect(resolveConsent({ stored: "denied", gpc: false })).toBe("denied");
   });
+
+  it("treats a Global Privacy Control signal as a decline unless the visitor chose otherwise", () => {
+    expect(resolveConsent({ stored: null, gpc: true })).toBe("denied");
+    expect(resolveConsent({ stored: "granted", gpc: true })).toBe("granted");
+  });
 });
