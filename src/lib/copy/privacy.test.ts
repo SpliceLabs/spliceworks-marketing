@@ -37,4 +37,13 @@ describe("Privacy notice", () => {
     const { body } = getPage("/privacy");
     expect(body).toContain("relevant business contacts at that company, who may not be the person who visited");
   });
+
+  it("keeps rights, retention and age language to what we can stand behind", () => {
+    const { body } = getPage("/privacy");
+    expect(body).toContain("We reply within the time the law requires.");
+    expect(body).toContain("Residents of some US states may have additional rights under applicable law.");
+    expect(body).not.toContain("Global Privacy Control");
+    expect(body).toContain("up to 24 months after our last substantive contact");
+    expect(body).toContain("not meant for anyone under 18");
+  });
 });

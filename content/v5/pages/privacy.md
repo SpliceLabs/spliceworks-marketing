@@ -58,13 +58,13 @@ Some providers process data outside the UK and EEA, including in the United Stat
 
 ## How long we keep it
 
-Booking requests and emails: as long as we need them to reply to you and for any work that follows, then we delete or anonymise them. Other data: only as long as we need it for the reasons above. Gojiberry sets its own retention. If you opt out, we keep your email address or company name on a list so we don't contact you again.
+Booking requests and emails: up to 24 months after our last substantive contact, or longer where we need them for an engagement or a legal or accounting duty, then we delete or anonymise them. Other data: only as long as we need it for the reasons above. Gojiberry sets its own retention. If you opt out, we keep your email address or company name on a list so we don't contact you again.
 
 ## Your rights
 
-You can ask us what we hold about you, to correct it, delete it, or stop using it. In the EU, EEA and UK you can also ask for restriction and portability, object to processing based on legitimate interests (including direct marketing), and withdraw consent where we rely on it. You can complain to your data protection authority. In California you can ask to know, correct and delete your personal information, opt out of sale or sharing, and you won't be treated worse for asking. We will honour Global Privacy Control signals once our consent choice is live.
+You can ask us what we hold about you, to correct it, delete it, or stop using it. In the EU, EEA and UK you can also ask for restriction and portability, object to processing based on legitimate interests (including direct marketing), and withdraw consent where we rely on it. You can complain to your data protection authority. Residents of some US states may have additional rights under applicable law.
 
-Email {{contact_email}}. We reply within 30 days. We may ask you to confirm who you are.
+Email {{contact_email}}. We reply within the time the law requires. We may ask you to confirm who you are.
 
 ## Opt out of visitor identification
 
@@ -74,7 +74,7 @@ Email {{contact_email}}. We reply within 30 days. We may ask you to confirm who 
 
 ## Children
 
-This site is for businesses. It is not meant for anyone under 16, and we don't knowingly collect their data. If you think a child sent us data, tell us and we will delete it.
+This site is for businesses. It is not meant for anyone under 18, and we don't knowingly collect their data. If you think a child sent us data, tell us and we will delete it.
 
 ## Changes
 
