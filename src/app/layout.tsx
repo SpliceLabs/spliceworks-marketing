@@ -3,6 +3,7 @@ import { Fragment_Mono, Instrument_Serif, Outfit } from "next/font/google";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { ModeProvider } from "@/providers/ModeProvider";
 import { JsonLd } from "@/components/JsonLd";
+import { GojiberryVisitors } from "@/components/analytics/GojiberryVisitors";
 import { CONTACT_EMAIL } from "@/lib/contact";
 import { OG_IMAGE, ORGANIZATION_ID, SAME_AS, SITE_URL, absoluteUrl } from "@/lib/site";
 import "./globals.css";
@@ -113,6 +114,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             `,
           }}
         />
+        <GojiberryVisitors />
       </head>
       <body>
         <JsonLd data={organization} />
