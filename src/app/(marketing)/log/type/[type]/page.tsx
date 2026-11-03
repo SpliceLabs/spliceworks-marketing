@@ -20,7 +20,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
   return isType(type)
     ? logMetadata({
         title: `${TYPE_PLURALS[type]} | Splice Log`,
-        description: `Every ${TYPE_PLURALS[type].toLowerCase()} entry in the Splice Log, newest first.`,
+        description: `${TYPE_PLURALS[type]} from the Splice Log, newest first.`,
         path: `/log/type/${type}`,
       })
     : {};
@@ -33,7 +33,7 @@ export default async function Page({ params }: Props) {
   return (
     <LogArchive
       title={TYPE_PLURALS[type]}
-      lead={`Every ${TYPE_PLURALS[type].toLowerCase()} entry in the log, newest first.`}
+      lead={`${TYPE_PLURALS[type]} in the log, newest first.`}
       entries={all.filter((entry) => entry.type === type)}
       filter={<TypeFilter entries={all} active={type} />}
     />
