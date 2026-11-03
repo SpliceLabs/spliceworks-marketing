@@ -7,6 +7,7 @@ import { absoluteUrl } from "@/lib/site";
 import { STAGE_LABELS, TYPE_LABELS } from "@/lib/log/types";
 import { EntryBody } from "./EntryBody";
 import { splitSections } from "@/lib/log/sections";
+import { EntryActions } from "./EntryActions";
 import { EntryMedia } from "./EntryMedia";
 import { LogBlocks } from "./LogBlocks";
 import { LogCard } from "./LogCard";
@@ -69,6 +70,7 @@ export const EntryArticle = ({ entry, related }: { entry: LogEntry; related: rea
           </ul>
           <ShareBar url={url} title={entry.title} small />
         </div>
+        <EntryActions entry={entry} />
       </header>
       <div className="wrap">
         {entry.type === "tool" ? <ToolContent entry={entry} /> : <EntryBody body={entry.body} />}

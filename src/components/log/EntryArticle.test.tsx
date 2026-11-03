@@ -70,4 +70,13 @@ describe("EntryArticle", () => {
     expect(article).toContain("lg-toc");
     expect(article).not.toContain('id="spec"');
   });
+
+  it("shows the action buttons under the facts: Install and Read the full spec on a tool, none on a guide", () => {
+    const withInstall = renderToStaticMarkup(
+      <EntryArticle entry={{ ...entry, body: "## Overview\n\nA.\n\n## Install and connect\n\nB." }} related={[]} />,
+    );
+    expect(withInstall).toMatch(/<a class="btn" href="#install-and-connect">Install and connect/);
+    expect(withInstall).toMatch(/<a class="btn ghost" href="#spec">Read the full spec<\/a>/);
+    expect(renderToStaticMarkup(<EntryArticle entry={makeEntry()} related={[]} />)).not.toContain("lf2-ctas");
+  });
 });
