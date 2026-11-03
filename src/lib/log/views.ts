@@ -21,6 +21,7 @@ export const typeCounts = (entries: readonly LogEntry[]): Readonly<Record<EntryT
     analysis: count("analysis"),
     perspective: count("perspective"),
     guide: count("guide"),
+    launch: count("launch"),
   };
 };
 

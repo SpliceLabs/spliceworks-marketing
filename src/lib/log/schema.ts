@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { isIsoDate } from "./format-date";
 
-export const ENTRY_TYPES = ["tool", "case", "research", "analysis", "perspective", "guide"] as const;
+export const ENTRY_TYPES = ["tool", "case", "research", "analysis", "perspective", "guide", "launch"] as const;
 export const STAGES = ["absent", "enabled", "native", "all"] as const;
 export const ROLES = ["ceo", "tech", "founder", "accelerator", "investor"] as const;
 export const TOOL_STATUSES = ["added", "testing", "watching", "in-use", "live"] as const;

@@ -15,6 +15,8 @@ const WASH: Readonly<Record<string, string>> = {
     "radial-gradient(ellipse at 36% 52%, #E8899A 0, transparent 55%), radial-gradient(ellipse at 66% 48%, #F7D26A 0, transparent 55%), #EEEAE2",
   perspective:
     "radial-gradient(ellipse at 50% 62%, #F28A4F 0, transparent 55%), radial-gradient(ellipse at 38% 38%, #E8899A 0, transparent 52%), #EEEAE2",
+  launch:
+    "radial-gradient(ellipse at 40% 50%, #F28A4F 0, transparent 55%), radial-gradient(ellipse at 64% 50%, #F7D26A 0, transparent 52%), #EEEAE2",
   guide:
     "radial-gradient(ellipse at 36% 50%, #BFE6D4 0, transparent 55%), radial-gradient(ellipse at 64% 52%, #F7D26A 0, transparent 55%), #EEEAE2",
 };
