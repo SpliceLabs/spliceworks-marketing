@@ -42,7 +42,7 @@ Set on Vercel (or in `.env.local`). Pages are prerendered, so a change takes a r
 
 | Variable | Default | Used for |
 |---|---|---|
-| `CONTACT_EMAIL` | `hello@splicelabs.xyz` | Footer, /book, and `{{contact_email}}` in the copy |
+| `CONTACT_EMAIL` | `hello@spliceops.ai` | Footer, /book, and `{{contact_email}}` in the copy |
 | `BOOK_TO` | `CONTACT_EMAIL` | Where /book form submissions are sent |
 | `BOOK_FROM` | `SpliceOps <forms@splicelabs.xyz>` | Sender; must be on a domain verified in the Resend team |
 | `RESEND_API_KEY` | none | Resend key; without it the form shows an error with `CONTACT_EMAIL` |
