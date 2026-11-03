@@ -3,6 +3,7 @@ type: tool
 code: LG-00118
 title: Jev x ManyChat
 description: We tested a fast yes/no model on 80 invented Instagram DMs from a Python script and compared it with a plain keyword list, then sent 12 more through a live ManyChat flow.
+lede_em: fast
 published: 2026-11-03
 status: published
 stage: native

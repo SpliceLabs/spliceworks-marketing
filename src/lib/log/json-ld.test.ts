@@ -26,4 +26,9 @@ describe("articleJsonLd", () => {
   it("falls back to the generated share image when there is no hero", () => {
     expect(articleJsonLd(makeEntry({ slug: "a-guide" })).image).toBe("https://www.spliceops.ai/log/a-guide/og.png");
   });
+
+  it("keeps the description plain when the lede has an italic phrase", () => {
+    const data = articleJsonLd(makeEntry({ description: "A fast model.", lede_em: "fast" }));
+    expect(data.description).toBe("A fast model.");
+  });
 });

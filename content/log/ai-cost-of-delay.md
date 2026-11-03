@@ -3,6 +3,7 @@ type: launch
 code: LG-00120
 title: AI cost of delay
 description: "The value you don't get for each month you wait on AI, plus a line you can paste into your next board deck."
+lede_em: each month you wait
 published: 2026-11-03
 status: published
 stage: all
