@@ -2,6 +2,7 @@ import Link from "next/link";
 import { AskBox } from "@/components/copy/AskBox";
 import type { LogEntry } from "@/lib/log/entries";
 import { formatLogDate } from "@/lib/log/format-date";
+import { emphasize } from "@/lib/log/emphasis";
 import { entryPath } from "@/lib/log/json-ld";
 import { absoluteUrl } from "@/lib/site";
 import { STAGE_LABELS, TYPE_LABELS } from "@/lib/log/types";
@@ -58,8 +59,20 @@ export const EntryArticle = ({ entry, related }: { entry: LogEntry; related: rea
           </span>
           <span>{entry.readingMinutes} min read</span>
         </div>
-        <h1 className="lg-title">{entry.title}</h1>
-        <p className="lg-lead">{entry.description}</p>
+        <div className="lf2-title">
+          <h1>{entry.title}</h1>
+          <p className="lf2-dek">
+            {emphasize(entry.description, entry.lede_em).map((part) =>
+              part.em ? (
+                <span key={part.text} className="serif-i">
+                  {part.text}
+                </span>
+              ) : (
+                part.text
+              ),
+            )}
+          </p>
+        </div>
         <div className="lg-hero">
           <EntryMedia entry={entry} className="lg-hero-media" />
         </div>

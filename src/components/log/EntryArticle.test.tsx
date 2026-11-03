@@ -82,4 +82,13 @@ describe("EntryArticle", () => {
     expect(withInstall).toMatch(/<a class="btn ghost" href="#spec">Read the full spec<\/a>/);
     expect(renderToStaticMarkup(<EntryArticle entry={makeEntry()} related={[]} />)).not.toContain("lf2-ctas");
   });
+
+  it("puts the lede beside the h1 with its italic phrase in serif", () => {
+    const lede = renderToStaticMarkup(
+      <EntryArticle entry={{ ...entry, description: "A fast model.", lede_em: "fast" }} related={[]} />,
+    );
+    expect(lede).toMatch(
+      /class="lf2-title"><h1[^>]*>Supadata<\/h1><p class="lf2-dek">A <span class="serif-i">fast<\/span> model\.<\/p>/,
+    );
+  });
 });
