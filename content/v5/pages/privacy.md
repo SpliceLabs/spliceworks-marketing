@@ -35,6 +35,8 @@ Gojiberry identifies visitors to a website. We use it to see which companies vis
 
 According to Gojiberry's own policy, it collects your IP address, the pages you visit, where you came from and how long you stay. Its visitor identification runs on Snitcher, and results are shown at company level. It may set cookies or other identifiers in your browser. Read its policy at https://gojiberry.ai/privacy-policy. Gojiberry is operated by Superfruits SAS, Paris, France.
 
+Gojiberry's script loads in a waiting mode and doesn't start identifying visits until you choose Accept in our cookie banner. You can change your choice at any time with Cookie settings in the footer. If your browser sends a Global Privacy Control signal, we treat it as a Decline. If you withdraw a choice you gave earlier, the page reloads so the script stops.
+
 ## Why we use your data
 
 - To reply to your booking request or email, and to prepare for and agree a working session.
@@ -66,6 +68,7 @@ Email {{contact_email}}. We reply within the time the law requires. We may ask y
 
 ## Opt out of visitor identification
 
+- Choose Decline in our cookie banner, or change your choice with Cookie settings in the footer.
 - Use Gojiberry's privacy choices: https://gojiberry.ai/optout.
 - Email {{contact_email}} and we will stop contacting you across our systems, keep you on our suppression list, and ask Gojiberry to remove you.
 - Block the script in your browser. Most ad and tracker blockers do. The site works the same without it.

@@ -41,7 +41,7 @@ describe("Privacy notice", () => {
     const { body } = getPage("/privacy");
     expect(body).toContain("We reply within the time the law requires.");
     expect(body).toContain("Residents of some US states may have additional rights under applicable law.");
-    expect(body).not.toContain("Global Privacy Control");
+    expect(body).not.toContain("We will honour Global Privacy Control");
     expect(body).toContain("up to 24 months after our last substantive contact");
     expect(body).toContain(
       "We retain visitor-identification and business-contact data only for as long as reasonably necessary for relevant business outreach, subject to applicable legal requirements. If you opt out of our marketing, we maintain suppression records to prevent further contact. You can contact us to request access, deletion or other applicable privacy rights, including requests involving our service providers.",
@@ -71,5 +71,12 @@ describe("Privacy notice", () => {
       "Where we take steps toward a contract with you personally, we may rely on contractual necessity.",
     );
     expect(body).not.toContain("you asked us to take steps before a contract");
+  });
+
+  it("describes the cookie banner, Global Privacy Control and how to change the choice", () => {
+    const { body } = getPage("/privacy");
+    expect(body).toContain("doesn't start identifying visits until you choose Accept in our cookie banner");
+    expect(body).toContain("Cookie settings");
+    expect(body).toContain("If your browser sends a Global Privacy Control signal, we treat it as a Decline.");
   });
 });
