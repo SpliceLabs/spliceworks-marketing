@@ -40,7 +40,10 @@ const GROUPS: { title: string; paths: string[] }[] = [
       "/for/investors",
     ],
   },
-  { title: "Industries", paths: ["/industries", "/industries/manufacturing", "/industries/agencies"] },
+  {
+    title: "Industries",
+    paths: ["/industries", "/industries/manufacturing", "/industries/agencies", "/industries/other"],
+  },
   {
     title: "Free tools",
     paths: ["/tools", "/tools/ai-cost-of-delay", "/tools/ai-roi-calculator", "/tools/ai-check-up"],
@@ -180,7 +183,7 @@ export function capabilities() {
       "/for/accelerators",
       "/for/investors",
     ].map(pageRef),
-    industries: ["/industries/manufacturing", "/industries/agencies"].map(pageRef),
+    industries: ["/industries/manufacturing", "/industries/agencies", "/industries/other"].map(pageRef),
     station: pageRef("/station"),
     tools: [costOfDelayTool(), aiRoiTool()],
     faq: {

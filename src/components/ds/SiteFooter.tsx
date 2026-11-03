@@ -28,6 +28,7 @@ const COLUMNS: readonly Column[] = [
     links: [
       ["Manufacturing", "/industries/manufacturing"],
       ["Agencies", "/industries/agencies"],
+      ["Other industries", "/industries/other"],
     ],
   },
   {

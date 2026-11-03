@@ -40,7 +40,7 @@ Agents handle editorial, creative and contract reviews, and the agency's people 
 
 ## Don't see your industry?
 
-If your work depends on what a few people know, and a wrong answer is expensive, we've probably worked on something like it. Bring one workflow to a working session and we'll show you.
+Not on the list? Bring one workflow. If your work depends on what a few people know, and a wrong answer is expensive, we've probably worked on something like it. Bring one workflow to a working session and we'll show you, or read [how we start in other industries](/industries/other).
 
 **Book a working session** → /book
 

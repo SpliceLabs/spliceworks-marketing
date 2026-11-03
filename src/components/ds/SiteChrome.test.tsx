@@ -88,6 +88,11 @@ describe("Site footer", () => {
     expect(out()).toContain('class="serif-i"');
   });
 
+  it("links the other-industries page under Industries", () => {
+    expect(out()).toContain('href="/industries/other"');
+    expect(out()).toContain("Other industries");
+  });
+
   it("routes machine readers to llms.txt", () => {
     expect(out()).toContain('href="/llms.txt"');
     expect(out()).toContain('href="/llms-full.txt"');
