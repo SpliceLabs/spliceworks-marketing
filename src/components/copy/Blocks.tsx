@@ -82,6 +82,7 @@ function BlockView({ block }: { block: Block }) {
         </h4>
       );
     case "hr":
+    case "code":
       return null;
   }
 }
