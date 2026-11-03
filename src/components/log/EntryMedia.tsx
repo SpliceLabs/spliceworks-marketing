@@ -12,7 +12,7 @@ export const EntryMedia = ({ entry, className = "" }: { entry: CardEntry; classN
         ) : null}
       </>
     ) : (
-      <i className="lg-disc" aria-hidden="true" />
+      <i className="lg-orb" aria-hidden="true" />
     )}
     <span className="lg-tag">
       {TYPE_LABELS[entry.type]} · {entry.code}

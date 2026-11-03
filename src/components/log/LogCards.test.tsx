@@ -41,7 +41,7 @@ describe("LogCard", () => {
 
   it("uses the type wash and the disc when there is no hero", () => {
     expect(out).toContain("lg-w-tool");
-    expect(out).toContain("lg-disc");
+    expect(out).toContain("lg-orb");
     expect(out).not.toContain("lg-mk");
   });
 
