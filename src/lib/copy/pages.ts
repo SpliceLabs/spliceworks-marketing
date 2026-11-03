@@ -39,6 +39,7 @@ export const PAGES: PageEntry[] = [
   { path: "/industries", file: "industries/index.md" },
   { path: "/industries/manufacturing", file: "industries/manufacturing.md", group: INDUSTRIES },
   { path: "/industries/agencies", file: "industries/agencies.md", group: INDUSTRIES },
+  { path: "/industries/other", file: "industries/other.md", group: INDUSTRIES },
   { path: "/how-it-works", file: "how-it-works.md" },
   { path: "/team", file: "team.md" },
   { path: "/work", file: "work.md" },
