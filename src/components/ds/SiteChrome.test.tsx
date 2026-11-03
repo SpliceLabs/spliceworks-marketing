@@ -71,11 +71,11 @@ describe("Site shell", () => {
 });
 
 describe("Site footer", () => {
-  const out = () => renderToStaticMarkup(<SiteFooter email="hello@splicelabs.xyz" />);
+  const out = () => renderToStaticMarkup(<SiteFooter email="hello@spliceops.ai" />);
 
   it("shows the sign-off and the contact address", () => {
     expect(out()).toContain("Put AI to work. Keep people accountable.");
-    expect(out()).toContain("hello@splicelabs.xyz");
+    expect(out()).toContain("hello@spliceops.ai");
   });
 
   it("links the privacy notice", () => {
