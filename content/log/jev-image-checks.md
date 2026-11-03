@@ -29,6 +29,10 @@ sources:
 related:
   - jev
   - supadata
+hero:
+  src: /log/E18-jev-poster.jpg
+  video: /log/E18-jev.mp4
+  alt: "A dark ring with a small window onto green and blue light"
 ---
 
 Field test by Angelo Pullen, checked 3 November 2026. Every figure comes from saved test logs; the brand is not named.

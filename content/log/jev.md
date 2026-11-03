@@ -79,6 +79,10 @@ sources:
 related:
   - jev-image-checks
   - supadata
+hero:
+  src: /log/E18-jev-poster.jpg
+  video: /log/E18-jev.mp4
+  alt: "A dark ring with a small window onto green and blue light"
 ---
 
 ## Overview
