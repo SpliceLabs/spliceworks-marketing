@@ -51,7 +51,7 @@ const GROUPS: { title: string; paths: string[] }[] = [
     title: "Free tools",
     paths: ["/tools", "/tools/ai-cost-of-delay", "/tools/ai-roi-calculator", "/tools/ai-check-up"],
   },
-  { title: "Proof and reference", paths: ["/team", "/work", "/faq", "/station"] },
+  { title: "Proof and reference", paths: ["/team", "/work", "/faq", "/station", "/privacy"] },
 ];
 
 const logLines = (entries: readonly LogEntry[]): string[] =>
