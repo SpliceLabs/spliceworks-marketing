@@ -46,4 +46,9 @@ describe("Privacy notice", () => {
     expect(body).toContain("up to 24 months after our last substantive contact");
     expect(body).toContain("not meant for anyone under 18");
   });
+
+  it("names the legal entity and its postal address", () => {
+    const { body } = getPage("/privacy");
+    expect(body).toContain("Splice Labs Group, Inc., 19120 Sweet Clover Ln, Tampa, FL 33647");
+  });
 });

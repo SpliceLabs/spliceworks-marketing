@@ -6,14 +6,14 @@ reader: A visitor, buyer or reviewer checking what this site does with their dat
 job: Understand what we collect and how to object or opt out
 status: provisional
 sources: [Privacy notice first draft, Gojiberry privacy policy]
-open: [Counsel review, Controller legal entity and postal address, Consent banner for EU, EEA and UK visitors, Booking data retention period]
+open: [Counsel review, Consent banner for EU, EEA and UK visitors, Booking data retention period]
 ---
 
 # Privacy notice
 
 Last updated 3 Nov 2026.
 
-This notice covers www.spliceops.ai. SpliceOps is the consulting arm of Splice Labs Group, and Splice Labs Group is responsible for your data on this site. Questions or requests: {{contact_email}}.
+This notice covers www.spliceops.ai. SpliceOps is the consulting arm of Splice Labs Group. Splice Labs Group, Inc., 19120 Sweet Clover Ln, Tampa, FL 33647, is responsible for your data on this site. Questions or requests: {{contact_email}}.
 
 ## What we collect
 
