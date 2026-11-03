@@ -21,6 +21,7 @@ const frontmatter = z.strictObject({
   type: z.enum(ENTRY_TYPES),
   title: text,
   description: text,
+  lede_em: text.optional(),
   published: isoDate,
   updated: isoDate.optional(),
   status: z.enum(ENTRY_STATUSES),
@@ -53,6 +54,9 @@ const schema = frontmatter.superRefine((value, ctx) => {
   }
   if (TYPES_NEEDING_DISCLOSURE.includes(value.type) && !value.disclosure) {
     issue("disclosure", `required for ${value.type} entries: say who built the product`);
+  }
+  if (value.lede_em && !value.description.includes(value.lede_em)) {
+    issue("lede_em", "must be a phrase that appears in the description");
   }
   if (value.tool_status && value.type !== "tool") issue("tool_status", "only allowed on tool entries");
   if (value.updated && value.updated < value.published) issue("updated", "must not be before published");

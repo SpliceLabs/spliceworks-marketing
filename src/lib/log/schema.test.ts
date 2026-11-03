@@ -89,4 +89,9 @@ describe("Log frontmatter", () => {
   it("names the field in each error", () => {
     expect(errorsFor(base({ title: "" })).join()).toMatch(/^title/);
   });
+
+  it("accepts an italic phrase that appears in the description and rejects one that does not", () => {
+    expect(errorsFor(base({ description: "A fast model.", lede_em: "fast" }))).toEqual([]);
+    expect(errorsFor(base({ lede_em: "fast" })).join()).toMatch(/lede_em/);
+  });
 });
