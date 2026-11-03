@@ -13,4 +13,10 @@ describe("browse", () => {
   it("lists newest first when there is no query", () => {
     expect(slugs(browse(entries, { query: "", sort: "newest" }))).toEqual(["a", "b", "c"]);
   });
+
+  it("keeps entries whose title or description contains every word of the query, ignoring case", () => {
+    expect(slugs(browse(entries, { query: "  BETA ", sort: "newest" }))).toEqual(["b", "c"]);
+    expect(slugs(browse(entries, { query: "beta tool", sort: "newest" }))).toEqual(["b"]);
+    expect(browse(entries, { query: "nothing like this", sort: "newest" })).toEqual([]);
+  });
 });
