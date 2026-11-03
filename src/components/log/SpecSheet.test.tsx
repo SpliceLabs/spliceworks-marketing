@@ -31,4 +31,11 @@ describe("SpecSheet", () => {
     expect(out).toContain('href="#overview"');
     expect(out).toMatch(/<span>02<\/span>\s*Specifications|<span>02<\/span>Specifications/);
   });
+
+  it("sets each section in two columns, number and heading left, content right, keeping tables as tables", () => {
+    const out = render();
+    expect(out.match(/class="lf2-sec"/g)).toHaveLength(2);
+    expect(out).toMatch(/<span class="lf2-sec-n">02<\/span><h2>Specifications<\/h2>/);
+    expect(out).toMatch(/class="lf2-sec-b"[\s\S]*<table/);
+  });
 });

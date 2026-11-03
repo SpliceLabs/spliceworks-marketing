@@ -1,6 +1,7 @@
 import type { LogEntry } from "@/lib/log/entries";
 import { formatLogDate } from "@/lib/log/format-date";
 import type { LogSection } from "@/lib/log/sections";
+import { KeyTakeaways, LogBlocks } from "./LogBlocks";
 import { STAGE_LABELS, TYPE_LABELS } from "@/lib/log/types";
 
 const subline = (entry: LogEntry): readonly string[] => [
@@ -37,5 +38,20 @@ export const SpecSheet = ({ entry, sections }: { entry: LogEntry; sections: read
         </a>
       ))}
     </nav>
+    {sections.map((section, index) => (
+      <section key={section.slug} id={section.slug} className="lf2-sec">
+        <div className="lf2-sec-h">
+          <span className="lf2-sec-n">{number(index)}</span>
+          <h2>{section.heading}</h2>
+        </div>
+        <div className="lf2-sec-b">
+          {section.heading === "In short" ? (
+            <KeyTakeaways blocks={section.blocks} />
+          ) : (
+            <LogBlocks blocks={section.blocks} />
+          )}
+        </div>
+      </section>
+    ))}
   </div>
 );
