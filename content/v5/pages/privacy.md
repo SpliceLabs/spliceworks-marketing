@@ -42,7 +42,7 @@ According to Gojiberry's own policy, it collects your IP address, the pages you 
 - To remember your theme and mode.
 - To identify companies that visit and follow up with business outreach.
 
-Where the GDPR applies, our basis for replying to you and preparing a session is that you asked us to take steps before a contract. For security and outreach it is legitimate interests. Remembering your theme and mode is needed for a feature you chose.
+Where the GDPR applies, we rely on our legitimate interests to respond to business enquiries, maintain and secure the website, and conduct relevant business outreach. Where we take steps toward a contract with you personally, we may rely on contractual necessity. Where required by law, we obtain consent before using non-essential tracking technologies. You may object to our direct marketing at any time. Remembering your theme and mode is needed for a feature you chose.
 
 ## Who receives it
 

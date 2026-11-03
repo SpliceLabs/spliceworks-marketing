@@ -56,4 +56,15 @@ describe("Privacy notice", () => {
     const { body } = getPage("/privacy");
     expect(body).not.toContain("We don't yet ask for consent");
   });
+
+  it("relies on legitimate interests for business enquiries and reserves contractual necessity for the individual", () => {
+    const { body } = getPage("/privacy");
+    expect(body).toContain(
+      "we rely on our legitimate interests to respond to business enquiries, maintain and secure the website, and conduct relevant business outreach",
+    );
+    expect(body).toContain(
+      "Where we take steps toward a contract with you personally, we may rely on contractual necessity.",
+    );
+    expect(body).not.toContain("you asked us to take steps before a contract");
+  });
 });
