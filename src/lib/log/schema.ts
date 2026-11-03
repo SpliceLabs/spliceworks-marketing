@@ -38,7 +38,13 @@ const frontmatter = z.strictObject({
   series: text.optional(),
   author: text.optional(),
   client: text.optional(),
-  hero: z.strictObject({ src: z.string().startsWith("/", "must start with /"), alt: text }).optional(),
+  hero: z
+    .strictObject({
+      src: z.string().startsWith("/", "must start with /"),
+      alt: text,
+      video: z.string().startsWith("/", "must start with /").optional(),
+    })
+    .optional(),
   related: z.array(text).optional(),
   pinned: z.boolean().optional(),
   cta: z.strictObject({ label: text, href: z.string().startsWith("/", "must start with /") }).optional(),

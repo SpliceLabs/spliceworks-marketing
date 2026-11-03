@@ -64,6 +64,12 @@ describe("Log frontmatter", () => {
     expect(errorsFor(base({ hero: { src: "/log/x/hero.png", alt: "A chart" } }))).toEqual([]);
   });
 
+  it("takes an optional hero video that starts with a slash, beside the still", () => {
+    const hero = { src: "/log/x/hero.jpg", alt: "A chart" };
+    expect(errorsFor(base({ hero: { ...hero, video: "/log/x/hero.mp4" } }))).toEqual([]);
+    expect(errorsFor(base({ hero: { ...hero, video: "log/x/hero.mp4" } })).join()).toMatch(/video/);
+  });
+
   it("rejects dates that are not ISO calendar dates, and an update before the publish date", () => {
     expect(errorsFor(base({ published: "04.11.2026" })).join()).toMatch(/published/);
     expect(errorsFor(base({ published: "2026-02-30" })).join()).toMatch(/published/);
