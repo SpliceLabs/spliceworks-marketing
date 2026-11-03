@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CookieSettingsButton } from "@/components/analytics/CookieSettingsButton";
 import { Logo } from "./Logo";
 
 type Column = { title: string; links: readonly (readonly [string, string])[] };
@@ -102,7 +103,7 @@ export const SiteFooter = ({ email }: { email: string }) => (
         </div>
       </div>
       <p className="mono" style={{ marginTop: "var(--space-36)" }}>
-        © Splice Labs
+        © Splice Labs · <CookieSettingsButton />
       </p>
     </div>
   </footer>

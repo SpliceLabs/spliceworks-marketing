@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { ConsentController } from "@/components/analytics/ConsentController";
 import { CONTACT_EMAIL } from "@/lib/contact";
 import { SamePageScroll } from "./SamePageScroll";
 import { SiteFooter } from "./SiteFooter";
@@ -18,5 +19,6 @@ export const SiteShell = ({ children }: { children: ReactNode }) => (
       <main id="main-content">{children}</main>
       <SiteFooter email={CONTACT_EMAIL} />
     </div>
+    <ConsentController />
   </>
 );
