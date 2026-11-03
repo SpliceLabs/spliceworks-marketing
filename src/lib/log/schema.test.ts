@@ -48,6 +48,11 @@ describe("Log frontmatter", () => {
     expect(errorsFor(launch)).toEqual([]);
   });
 
+  it("requires a disclosure on launch entries because the product is ours", () => {
+    expect(errorsFor(base({ type: "launch", sources: undefined })).join()).toMatch(/disclosure/);
+    expect(errorsFor(base({ type: "launch", sources: undefined, disclosure: " " })).join()).toMatch(/disclosure/);
+  });
+
   it("requires alt text whenever a hero image is set", () => {
     expect(errorsFor(base({ hero: { src: "/log/x/hero.png" } })).join()).toMatch(/hero/);
     expect(errorsFor(base({ hero: { src: "/log/x/hero.png", alt: "" } })).join()).toMatch(/hero/);

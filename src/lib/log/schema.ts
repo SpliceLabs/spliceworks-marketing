@@ -14,6 +14,7 @@ const isoDate = z.string().refine(isIsoDate, "must be a calendar date written YY
 const text = z.string().trim().min(1, "must not be empty");
 
 const TYPES_NEEDING_SOURCES: readonly EntryType[] = ["analysis", "research", "guide"];
+const TYPES_NEEDING_DISCLOSURE: readonly EntryType[] = ["launch"];
 const TYPES_NEEDING_CHECKED: readonly EntryType[] = ["tool", "research"];
 
 const frontmatter = z.strictObject({
@@ -49,6 +50,9 @@ const schema = frontmatter.superRefine((value, ctx) => {
   }
   if (TYPES_NEEDING_CHECKED.includes(value.type) && !value.checked) {
     issue("checked", `required for ${value.type} entries: the date the facts were checked`);
+  }
+  if (TYPES_NEEDING_DISCLOSURE.includes(value.type) && !value.disclosure) {
+    issue("disclosure", `required for ${value.type} entries: say who built the product`);
   }
   if (value.tool_status && value.type !== "tool") issue("tool_status", "only allowed on tool entries");
   if (value.updated && value.updated < value.published) issue("updated", "must not be before published");
