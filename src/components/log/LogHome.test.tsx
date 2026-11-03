@@ -22,6 +22,12 @@ describe("LogHome", () => {
     expect(out.match(/href="\/log\/pinned-one"/g)).toHaveLength(1 + 1);
   });
 
+  it("puts search, sort and the entry count on the feed", () => {
+    expect(out).toContain('type="search"');
+    expect(out).toContain("Showing 2 entries");
+    expect(out).toContain("Sorted newest first");
+  });
+
   it("lists tools in the tested tools section", () => {
     expect(out).toContain('href="/log/a-tool"');
   });
