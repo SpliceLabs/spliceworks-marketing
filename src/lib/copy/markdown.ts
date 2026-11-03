@@ -32,6 +32,8 @@ export type Block =
   | { t: "list"; ordered: boolean; items: ListItem[]; raw: string }
   | { t: "table"; head: Inline[][]; rows: Inline[][][]; raw: string }
   | { t: "hr"; raw: string }
+  /** A fenced code block, kept verbatim. */
+  | { t: "code"; lang: string; text: string; raw: string }
   /** `**Book a working session** → /book` (or `(submits the form)`), plus the lines under it. */
   | { t: "cta"; label: string; href: string; submit: boolean; sub: Inline[][]; raw: string };
 
@@ -157,6 +159,7 @@ export function splitFrontmatter(src: string): { fm: Frontmatter; body: string }
 const HEADING_RE = /^(#{1,6})\s+(.*)$/;
 const LIST_RE = /^(\s*)(-|\d+\.)\s+(.*)$/;
 const HR_RE = /^-{3,}\s*$/;
+const FENCE_RE = /^```\s*([a-z0-9+-]*)\s*$/i;
 const CTA_RE = /^\*\*(Book a working session)\*\*\s+(?:→\s+(\/\S*)|\(submits the form\))\s*$/;
 
 function splitRow(line: string): string[] {
@@ -212,7 +215,8 @@ export function parseBlocks(body: string): Block[] {
   const blocks: Block[] = [];
   let i = 0;
   const isBlank = (l: string) => l.trim() === "";
-  const startsBlock = (l: string) => HEADING_RE.test(l) || HR_RE.test(l) || l.trim().startsWith("|") || LIST_RE.test(l);
+  const startsBlock = (l: string) =>
+    FENCE_RE.test(l.trim()) || HEADING_RE.test(l) || HR_RE.test(l) || l.trim().startsWith("|") || LIST_RE.test(l);
 
   while (i < lines.length) {
     const line = lines[i];
@@ -221,7 +225,13 @@ export function parseBlocks(body: string): Block[] {
       continue;
     }
     let m: RegExpExecArray | null;
-    if ((m = HEADING_RE.exec(line))) {
+    if ((m = FENCE_RE.exec(line.trim()))) {
+      const code: string[] = [];
+      i++;
+      while (i < lines.length && !FENCE_RE.test(lines[i].trim())) code.push(lines[i++]);
+      i++;
+      blocks.push({ t: "code", lang: m[1], text: code.join("\n"), raw: code.join("\n") });
+    } else if ((m = HEADING_RE.exec(line))) {
       blocks.push({ t: "heading", level: m[1].length, c: parseInline(m[2].trim()), raw: m[2].trim() });
       i++;
     } else if (HR_RE.test(line)) {

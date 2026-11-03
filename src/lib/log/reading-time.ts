@@ -2,6 +2,7 @@ export const WORDS_PER_MINUTE = 250;
 
 const stripMarkup = (body: string): string =>
   body
+    .replace(/^```[\s\S]*?^```/gm, " ")
     .replace(/!\[([^\]]*)\]\([^)]*\)/g, "$1")
     .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
     .replace(/<[^>]+>/g, " ")

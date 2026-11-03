@@ -81,6 +81,12 @@ const BlockView = ({ block }: { block: Block }): ReactNode => {
           <InlineNodes nodes={block.c} />
         </h3>
       );
+    case "code":
+      return (
+        <pre className="lg-code-block" tabIndex={0}>
+          <code>{block.text}</code>
+        </pre>
+      );
     case "cta":
     case "hr":
       return null;

@@ -68,4 +68,10 @@ describe("EntryBody", () => {
   it("opens external links safely in a new tab", () => {
     expect(out).toContain('rel="noopener noreferrer"');
   });
+
+  it("renders fenced code as a preformatted block, escaped", () => {
+    const out = renderToStaticMarkup(<EntryBody body={"## Install\n\n```bash\ncurl <url> && echo ok\n```"} />);
+    expect(out).toContain("<pre");
+    expect(out).toContain("curl &lt;url&gt; &amp;&amp; echo ok");
+  });
 });
