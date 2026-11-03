@@ -15,7 +15,6 @@ sources:
   sitemap: content/SITEMAP.md
   copy: content/COPY.md
   design: content/DESIGN.md
-  designSystem: design-system
   contracts: contracts
   approvals: approvals
 contractProfiles:

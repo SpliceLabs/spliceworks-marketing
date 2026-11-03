@@ -13,7 +13,6 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
     // Design system is external
-    "design-system/**",
   ]),
 ]);
 
