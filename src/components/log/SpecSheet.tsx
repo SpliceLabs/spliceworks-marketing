@@ -10,7 +10,9 @@ const subline = (entry: LogEntry): readonly string[] => [
   ...(entry.checked ? [`Checked / ${formatLogDate(entry.checked)}`] : []),
 ];
 
-export const SpecSheet = ({ entry }: { entry: LogEntry; sections: readonly LogSection[] }) => (
+const number = (index: number): string => String(index + 1).padStart(2, "0");
+
+export const SpecSheet = ({ entry, sections }: { entry: LogEntry; sections: readonly LogSection[] }) => (
   <div id="spec" className="lf2-entry lf2-spec">
     <div className="spec-bar">
       <span>Spec sheet · {entry.title}</span>
@@ -26,5 +28,14 @@ export const SpecSheet = ({ entry }: { entry: LogEntry; sections: readonly LogSe
         {entry.title} <span className="serif-i">technical specification</span>
       </p>
     </div>
+    <nav className="lf2-toc" aria-label="Contents">
+      <span>Contents</span>
+      {sections.map((section, index) => (
+        <a key={section.slug} href={`#${section.slug}`}>
+          <span>{number(index)}</span>
+          {section.heading}
+        </a>
+      ))}
+    </nav>
   </div>
 );

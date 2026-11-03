@@ -24,4 +24,11 @@ describe("SpecSheet", () => {
     expect(out).toContain("LG-00118");
     expect(out).toContain('<span class="serif-i">technical specification</span>');
   });
+
+  it("lists the sections in a mono contents row with numbered links", () => {
+    const out = render();
+    expect(out).toContain('class="lf2-toc"');
+    expect(out).toContain('href="#overview"');
+    expect(out).toMatch(/<span>02<\/span>\s*Specifications|<span>02<\/span>Specifications/);
+  });
 });
