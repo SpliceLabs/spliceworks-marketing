@@ -35,6 +35,7 @@
     "prettier": "3.9.10",
     "simple-git-hooks": "^2.14.0",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5",
     "vitest": "^4.1.12"
   },
