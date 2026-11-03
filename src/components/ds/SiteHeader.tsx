@@ -9,7 +9,7 @@ import { Logo } from "./Logo";
 const NAV = [
   ["Services", "/services"],
   ["How it works", "/how-it-works"],
-  ["Splice Log", "/#log"],
+  ["Splice Log", "/log"],
   ["Work", "/work"],
   ["Team", "/team"],
   ["Tools", "/tools"],

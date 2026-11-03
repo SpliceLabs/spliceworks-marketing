@@ -15,6 +15,9 @@ import {
   serializeCostOfDelayInputs,
 } from "@/lib/tools/cost-of-delay";
 import { AI_ROI, aiRoi } from "@/lib/tools/ai-roi";
+import type { LogEntry } from "@/lib/log/entries";
+import { entryPath } from "@/lib/log/json-ld";
+import { STAGE_LABELS, TYPE_LABELS } from "@/lib/log/types";
 
 /** SEO title without the " | SpliceOps" suffix, for link text. */
 export function shortTitle(urlPath: string): string {
@@ -51,7 +54,22 @@ const GROUPS: { title: string; paths: string[] }[] = [
   { title: "Proof and reference", paths: ["/team", "/work", "/faq", "/station"] },
 ];
 
-export function llmsTxt(): string {
+const logLines = (entries: readonly LogEntry[]): string[] =>
+  entries.length === 0
+    ? []
+    : [
+        "## Splice Log",
+        "",
+        `- [Splice Log](${absUrl("/log")}): what we tested, built and think about AI at work, dated and sourced`,
+        `- [RSS feed](${absUrl("/log/feed.xml")})`,
+        ...entries.map(
+          (entry) =>
+            `- [${entry.title}](${absUrl(entryPath(entry.slug))}): ${TYPE_LABELS[entry.type]}, ${entry.code}. ${entry.description}`,
+        ),
+        "",
+      ];
+
+export function llmsTxt(entries: readonly LogEntry[] = []): string {
   const home = getPage("/");
   const covered = new Set(GROUPS.flatMap((g) => g.paths));
   const missing = PAGES.filter((p) => !covered.has(p.path));
@@ -75,6 +93,7 @@ export function llmsTxt(): string {
     }
     lines.push("");
   }
+  lines.push(...logLines(entries));
   lines.push(
     "## Machine-readable",
     "",
@@ -87,7 +106,7 @@ export function llmsTxt(): string {
   return lines.join("\n");
 }
 
-export function llmsFullTxt(): string {
+export function llmsFullTxt(entries: readonly LogEntry[] = []): string {
   const parts = [
     "# SpliceOps: full site content",
     "",
@@ -106,6 +125,23 @@ export function llmsFullTxt(): string {
       `Description: ${page.fm.description}`,
       "",
       absolutizeLinks(page.body.trim()),
+      "",
+    );
+  }
+  for (const entry of entries) {
+    parts.push(
+      "---",
+      "",
+      `URL: ${absUrl(entryPath(entry.slug))}`,
+      `Title: ${entry.title}`,
+      `Code: ${entry.code}`,
+      `Type: ${TYPE_LABELS[entry.type]}`,
+      `Stage: ${STAGE_LABELS[entry.stage]}`,
+      `Published: ${entry.published}`,
+      ...(entry.updated ? [`Updated: ${entry.updated}`] : []),
+      `Description: ${entry.description}`,
+      "",
+      absolutizeLinks(entry.body),
       "",
     );
   }
@@ -147,7 +183,7 @@ function columnsOf(table: Table) {
 
 const pageRef = (p: string) => ({ url: absUrl(p), title: getPage(p).fm.title, description: getPage(p).fm.description });
 
-export function capabilities() {
+export function capabilities(entries: readonly LogEntry[] = []) {
   const home = getPage("/");
   const steps = columnsOf(findTable("/services", "pick-the-step-that-fits"));
   const seats = columnsOf(findTable("/services/fractional", "two-seats-and-an-advisory-option"));
@@ -194,6 +230,19 @@ export function capabilities() {
       })),
     },
     pages: PAGES.map((p) => pageRef(p.path)),
+    log: {
+      url: absUrl("/log"),
+      feed: absUrl("/log/feed.xml"),
+      entries: entries.map((entry) => ({
+        code: entry.code,
+        title: entry.title,
+        type: entry.type,
+        stage: entry.stage,
+        published: entry.published,
+        description: entry.description,
+        url: absUrl(entryPath(entry.slug)),
+      })),
+    },
     contact: { book: absUrl("/book") },
     machineReadable: {
       llmsTxt: absUrl("/llms.txt"),

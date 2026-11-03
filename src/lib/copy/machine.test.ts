@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { COST_OF_DELAY_RANGES } from "@/lib/tools/cost-of-delay";
-import { capabilities, llmsTxt } from "./machine";
+import { makeEntry } from "@/lib/log/test-support";
+import { capabilities, llmsFullTxt, llmsTxt } from "./machine";
 
 describe("machine-readable site", () => {
   it("lists the free tools in llms.txt", () => {
@@ -39,5 +40,25 @@ describe("machine-readable site", () => {
     expect(tool?.shareUrl).toBe(
       "https://www.spliceops.ai/tools/ai-roi-calculator?t=50&s=176000&p=12.5&a=330&r=9600&i=100000&d=15&m=3",
     );
+  });
+
+  it("lists Splice Log entries and the feed in llms.txt", () => {
+    const text = llmsTxt([makeEntry({ slug: "supadata", title: "Supadata", code: "LG-00119" })]);
+    expect(text).toContain("## Splice Log");
+    expect(text).toContain("https://www.spliceops.ai/log/supadata");
+    expect(text).toContain("https://www.spliceops.ai/log/feed.xml");
+  });
+
+  it("gives agents each entry's code, date and body in llms-full.txt", () => {
+    const text = llmsFullTxt([makeEntry({ slug: "supadata", code: "LG-00119", body: "See [pricing](/tools)." })]);
+    expect(text).toContain("Code: LG-00119");
+    expect(text).toContain("Published: 2026-11-04");
+    expect(text).toContain("[pricing](https://www.spliceops.ai/tools)");
+  });
+
+  it("lists the log in capabilities.json", () => {
+    const log = capabilities([makeEntry({ slug: "supadata", code: "LG-00119" })]).log;
+    expect(log.feed).toBe("https://www.spliceops.ai/log/feed.xml");
+    expect(log.entries[0]).toMatchObject({ code: "LG-00119", url: "https://www.spliceops.ai/log/supadata" });
   });
 });
