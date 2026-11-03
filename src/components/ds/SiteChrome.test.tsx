@@ -82,6 +82,10 @@ describe("Site footer", () => {
     expect(out()).toContain('<a href="/privacy">Privacy</a>');
   });
 
+  it("lets visitors reopen their cookie choice from the footer", () => {
+    expect(out()).toContain("Cookie settings");
+  });
+
   it("uses the system footer with its column headings", () => {
     expect(out()).toContain('class="footer"');
     expect(out()).toContain('class="cols"');

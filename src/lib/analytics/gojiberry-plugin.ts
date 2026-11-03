@@ -1,7 +1,9 @@
 import type { AnalyticsPlugin } from "./plugins";
 
+export type GojiberryVisitorsApi = { readonly init: () => void };
+
 export type GojiberryWindow = {
-  readonly GojiberryVisitors?: { readonly init: () => void };
+  readonly GojiberryVisitors?: GojiberryVisitorsApi;
 };
 
 export const gojiberryPlugin = (win: GojiberryWindow): AnalyticsPlugin => ({

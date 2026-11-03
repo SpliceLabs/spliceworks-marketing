@@ -1074,3 +1074,13 @@ body:has(.lg-page) {
     bottom: calc(var(--space-80) + var(--space-8));
   }
 }
+.consent-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
