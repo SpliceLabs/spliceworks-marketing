@@ -44,6 +44,19 @@ describe("LogCard", () => {
     expect(out).toContain("lg-mk");
   });
 
+  it("plays a muted looping video over the still when the hero has one", () => {
+    const withVideo = renderToStaticMarkup(
+      <LogCard
+        entry={{ ...entry, hero: { src: "/log/jev/hero.jpg", alt: "A product image", video: "/log/jev/hero.mp4" } }}
+      />,
+    );
+    expect(withVideo).toContain('src="/log/jev/hero.jpg"');
+    expect(withVideo).toContain('alt="A product image"');
+    expect(withVideo).toMatch(/<video[^>]*src="\/log\/jev\/hero\.mp4"/);
+    expect(withVideo).toMatch(/<video[^>]*poster="\/log\/jev\/hero\.jpg"/);
+    expect(withVideo).toMatch(/<video[^>]*muted=""[^>]*loop=""[^>]*aria-hidden="true"/);
+  });
+
   it("uses the hero image with its alt text when there is one", () => {
     const withHero = renderToStaticMarkup(
       <LogCard entry={{ ...entry, hero: { src: "/log/supadata/hero.png", alt: "A transcript on screen" } }} />,
