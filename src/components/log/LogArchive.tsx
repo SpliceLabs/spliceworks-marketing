@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import type { LogEntry } from "@/lib/log/entries";
-import { LogCard } from "./LogCard";
+import { toCardEntry } from "@/lib/log/card-entry";
+import { LogFeed } from "./LogFeed";
 
 export const LogArchive = ({
   title,
@@ -22,15 +23,13 @@ export const LogArchive = ({
       <p className="lg-lead">{lead}</p>
     </section>
     <section className="wrap sec" style={{ paddingTop: 0 }}>
-      {filter}
       {entries.length === 0 ? (
-        <p>Nothing here yet. New entries land in the log first.</p>
+        <>
+          {filter}
+          <p>Nothing here yet. New entries land in the log first.</p>
+        </>
       ) : (
-        <div className="lg-grid">
-          {entries.map((entry) => (
-            <LogCard key={entry.slug} entry={entry} />
-          ))}
-        </div>
+        <LogFeed entries={entries.map(toCardEntry)} filter={filter} />
       )}
     </section>
   </>
