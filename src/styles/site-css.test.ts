@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 import { weaveTiming } from "@/lib/home/weave-timing";
 
 const site = fs.readFileSync(path.join(__dirname, "site.css"), "utf8");
+const bundle = fs.readFileSync(path.join(__dirname, "spliceops/bundle.css"), "utf8");
 const globals = fs.readFileSync(path.join(__dirname, "../app/globals.css"), "utf8");
 
 describe("site stylesheet", () => {
@@ -68,26 +69,26 @@ describe("site stylesheet", () => {
     expect(site).toMatch(/prefers-reduced-motion: reduce\) \{\s*\.pt,\s*\.pt-retry/);
   });
 
-  it("sets spec sheet tables and subheads in mono like the reference", () => {
-    expect(site).toMatch(/\.lf2-sec-b \.lg-table\s*\{[^}]*var\(--mono\)/);
-    expect(site).toMatch(/\.lf2-sec-b h3\s*\{[^}]*text-transform:\s*uppercase/);
+  it("the system sets spec sheet tables and subheads in mono like the reference", () => {
+    expect(bundle).toMatch(/\.lf2-sec-b \.lg-table\s*\{[^}]*var\(--mono\)/);
+    expect(bundle).toMatch(/\.lf2-sec-b h3\s*\{[^}]*text-transform:\s*uppercase/);
   });
 
-  it("lays the type chips and the search and sort controls on one row", () => {
-    expect(site).toMatch(/\.lg-tools\s*\{[^}]*justify-content:\s*space-between/);
+  it("the system lays the type chips and the search and sort controls on one row", () => {
+    expect(bundle).toMatch(/\.lg-tools\s*\{[^}]*justify-content:\s*space-between/);
   });
 
-  it("sets card titles in mono capitals like a printed label", () => {
-    expect(site).toMatch(/\.lg-card \.title\s*\{[^}]*var\(--mono\)[^}]*text-transform:\s*uppercase/);
+  it("the system sets card titles in mono capitals like a printed label", () => {
+    expect(bundle).toMatch(/\.lg-card \.title\s*\{[^}]*var\(--mono\)[^}]*text-transform:\s*uppercase/);
   });
 
-  it("keeps the fact pills flush inside the facts row", () => {
-    expect(site).toMatch(/\.lg-facts \.lf2-facts\s*\{[^}]*margin:\s*0/);
+  it("the system keeps the fact pills flush inside the facts row", () => {
+    expect(bundle).toMatch(/\.lg-facts \.lf2-facts\s*\{[^}]*margin:\s*0/);
   });
 
-  it("turns the background glow up on Log pages in both themes and leaves the motion rule to the system", () => {
-    expect(site).toMatch(/body:has\(\.lg-page\)\s*\{[^}]*--opacity-glow:\s*0?\.\d+/);
-    expect(site).toMatch(/\[data-theme="ink"\] body:has\(\.lg-page\)\s*\{[^}]*--opacity-glow:\s*0?\.\d+/);
-    expect(site).not.toMatch(/lg-page[^{]*\.blob\s*\{[^}]*animation/);
+  it("the system turns the background glow up on Log pages in both themes and leaves the motion rule to the system", () => {
+    expect(bundle).toMatch(/body:has\(\.lg-page\)\s*\{[^}]*--opacity-glow:\s*0?\.\d+/);
+    expect(bundle).toMatch(/\[data-theme="ink"\] body:has\(\.lg-page\)\s*\{[^}]*--opacity-glow:\s*0?\.\d+/);
+    expect(bundle).not.toMatch(/lg-page[^{]*\.blob\s*\{[^}]*animation/);
   });
 });
