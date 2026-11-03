@@ -6,7 +6,7 @@ reader: A visitor, buyer or reviewer checking what this site does with their dat
 job: Understand what we collect and how to object or opt out
 status: provisional
 sources: [Privacy notice first draft, Gojiberry privacy policy]
-open: [Counsel review, Controller legal entity and postal address, Consent banner for EU, EEA and UK visitors, Booking form section once /book sends data]
+open: [Counsel review, Controller legal entity and postal address, Consent banner for EU, EEA and UK visitors, Booking data retention period and where booking emails are stored]
 ---
 
 # Privacy notice
@@ -17,7 +17,9 @@ This notice covers www.spliceops.ai. SpliceOps is the consulting arm of Splice L
 
 ## What we collect
 
-**What you send us.** If you email us, we receive your email address and what you write. This site has no forms that send data to us.
+**When you book.** If you request a working session on [/book](/book), we receive what you enter: your name, work email and company, your website if you add it, your role, and your answers about your team, who asked for AI, where you are today and the workflow costing you most. You may also tell us anything else you want us to know, so please don't include anything you wouldn't want us to hold. We send the answers to our inbox by email.
+
+**When you email us.** We receive your email address and what you write.
 
 **What your browser sends.** Our host, Vercel, receives your IP address, browser type and the pages you request, as any host does.
 
@@ -37,16 +39,18 @@ We don't yet ask for consent before this script loads. We are adding a consent c
 
 ## Why we use your data
 
-- To reply when you email us.
+- To reply to your booking request or email, and to prepare for and agree a working session.
 - To keep the site working and secure.
 - To remember your theme and mode.
 - To identify companies that visit and follow up with business outreach.
 
-Where the GDPR applies, our basis for the email, security and outreach uses is legitimate interests. Remembering your theme and mode is needed for a feature you chose.
+Where the GDPR applies, our basis for replying to you and preparing a session is that you asked us to take steps before a contract. For security and outreach it is legitimate interests. Remembering your theme and mode is needed for a feature you chose.
 
 ## Who receives it
 
-- Vercel, which hosts the site.
+- Vercel, which hosts the site and runs the booking form.
+- Resend, the email service that delivers your booking request to us.
+- The email provider and any tools where we read and store it.
 - Gojiberry, and the providers it uses, for visitor identification.
 - Advisers, and authorities when the law requires it.
 
@@ -54,7 +58,7 @@ Some providers process data outside the UK and EEA, including in the United Stat
 
 ## How long we keep it
 
-Only as long as we need it for the reasons above, then we delete or anonymise it. Gojiberry sets its own retention. If you opt out, we keep your email address or company name on a list so we don't contact you again.
+Booking requests and emails: as long as we need them to reply to you and for any work that follows, then we delete or anonymise them. Other data: only as long as we need it for the reasons above. Gojiberry sets its own retention. If you opt out, we keep your email address or company name on a list so we don't contact you again.
 
 ## Your rights
 
