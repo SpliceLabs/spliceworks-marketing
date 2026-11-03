@@ -78,6 +78,10 @@ describe("Site footer", () => {
     expect(out()).toContain("hello@splicelabs.xyz");
   });
 
+  it("links the privacy notice", () => {
+    expect(out()).toContain('<a href="/privacy">Privacy</a>');
+  });
+
   it("uses the system footer with its column headings", () => {
     expect(out()).toContain('class="footer"');
     expect(out()).toContain('class="cols"');
