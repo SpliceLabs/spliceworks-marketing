@@ -43,6 +43,12 @@ describe("Privacy notice", () => {
     expect(body).toContain("Residents of some US states may have additional rights under applicable law.");
     expect(body).not.toContain("Global Privacy Control");
     expect(body).toContain("up to 24 months after our last substantive contact");
+    expect(body).toContain(
+      "We retain visitor-identification and business-contact data only for as long as reasonably necessary for relevant business outreach, subject to applicable legal requirements. If you opt out of our marketing, we maintain suppression records to prevent further contact. You can contact us to request access, deletion or other applicable privacy rights, including requests involving our service providers.",
+    );
+    expect(body).not.toContain("Gojiberry sets its own retention");
+    expect(body).toContain("we will stop contacting you across our systems, keep you on our suppression list");
+    expect(body).toContain("https://gojiberry.ai/optout");
     expect(body).toContain("not meant for anyone under 18");
   });
 

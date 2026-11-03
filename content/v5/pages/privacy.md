@@ -56,7 +56,7 @@ Some providers process data outside the UK and EEA, including in the United Stat
 
 ## How long we keep it
 
-Booking requests and emails: up to 24 months after our last substantive contact, or longer where we need them for an engagement or a legal or accounting duty, then we delete or anonymise them. Other data: only as long as we need it for the reasons above. Gojiberry sets its own retention. If you opt out, we keep your email address or company name on a list so we don't contact you again.
+Booking requests and emails: up to 24 months after our last substantive contact, or longer where we need them for an engagement or a legal or accounting duty, then we delete or anonymise them. We retain visitor-identification and business-contact data only for as long as reasonably necessary for relevant business outreach, subject to applicable legal requirements. If you opt out of our marketing, we maintain suppression records to prevent further contact. You can contact us to request access, deletion or other applicable privacy rights, including requests involving our service providers.
 
 ## Your rights
 
@@ -67,7 +67,7 @@ Email {{contact_email}}. We reply within the time the law requires. We may ask y
 ## Opt out of visitor identification
 
 - Use Gojiberry's privacy choices: https://gojiberry.ai/optout.
-- Email {{contact_email}} and we will ask Gojiberry to remove you and stop contacting you.
+- Email {{contact_email}} and we will stop contacting you across our systems, keep you on our suppression list, and ask Gojiberry to remove you.
 - Block the script in your browser. Most ad and tracker blockers do. The site works the same without it.
 
 ## Children
