@@ -24,4 +24,15 @@ describe("consent store", () => {
     expect(storage.getItem("sw-consent")).toBe("denied");
     expect(createConsentStore({ storage, gpc: false }).getSnapshot()).toEqual({ consent: "denied", open: false });
   });
+
+  it("reopens on request, and starts denied and closed for a GPC visitor", () => {
+    const store = createConsentStore({ storage: memoryStorage({ "sw-consent": "granted" }), gpc: false });
+    expect(store.getSnapshot()).toEqual({ consent: "granted", open: false });
+    store.reopen();
+    expect(store.getSnapshot()).toEqual({ consent: "granted", open: true });
+    expect(createConsentStore({ storage: memoryStorage(), gpc: true }).getSnapshot()).toEqual({
+      consent: "denied",
+      open: false,
+    });
+  });
 });

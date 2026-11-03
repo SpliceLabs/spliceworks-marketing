@@ -32,5 +32,6 @@ export const createConsentStore = ({ storage, gpc }: { storage: ConsentStorage; 
     },
     accept: () => choose("granted"),
     decline: () => choose("denied"),
+    reopen: () => update({ ...snapshot, open: true }),
   };
 };
