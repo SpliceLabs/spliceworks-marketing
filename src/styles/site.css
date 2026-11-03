@@ -863,6 +863,10 @@
   position: relative;
   z-index: 1;
 }
+.glowcard a:not(.btn) {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
 @media (max-width: 900px) {
   .g2.rev > :first-child {
     order: 0;

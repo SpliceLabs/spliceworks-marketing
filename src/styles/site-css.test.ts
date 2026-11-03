@@ -11,6 +11,10 @@ describe("site stylesheet", () => {
     expect(globals).toMatch(/html\s*\{[^}]*scroll-padding-top:\s*73px/);
   });
 
+  it("underlines links inside the closing card so they are not told apart by colour alone", () => {
+    expect(site).toMatch(/\.glowcard a:not\(\.btn\)\s*\{[^}]*text-decoration:\s*underline/);
+  });
+
   it("defines the keyframes the diagrams animate with", () => {
     ["ec-run", "ec-tick", "ec-plw", "ec-pl5", "ec-aw0", "ec-au0"].forEach((name) =>
       expect(site).toContain(`@keyframes ${name}`),
