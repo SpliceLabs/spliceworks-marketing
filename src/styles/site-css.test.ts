@@ -42,8 +42,8 @@ describe("site stylesheet", () => {
     ["btn-primary", "btn-secondary", "btn-quiet", "btn-human"].forEach((c) => expect(site).toContain(`.${c} {`));
   });
 
-  it("is imported last: system tokens, Ink, system bundle, then the site layer", () => {
-    const order = ["spliceops/tokens.css", "ink.css", "spliceops/bundle.css", "site.css"].map((n) =>
+  it("is imported last: system tokens (Ink included), system bundle, then the site layer", () => {
+    const order = ["spliceops/tokens.css", "spliceops/bundle.css", "site.css"].map((n) =>
       globals.indexOf(`@import "../styles/${n}"`),
     );
     expect(order.every((i) => i > -1)).toBe(true);
