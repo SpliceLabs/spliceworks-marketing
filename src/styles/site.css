@@ -899,15 +899,6 @@
   border-color: var(--ink);
   color: var(--color-text-inverse);
 }
-.lg-card .media img,
-.lg-feature .media img,
-.lg-hero img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 .lg-hero .lg-hero-media {
   position: absolute;
   inset: 0;
