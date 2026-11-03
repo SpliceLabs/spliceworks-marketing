@@ -2,7 +2,7 @@
 
 import { useState, type ReactNode } from "react";
 import type { CardEntry } from "@/lib/log/card-entry";
-import { browse, countLabel, sortStatus } from "@/lib/log/browse";
+import { browse, countLabel, SORT_KEYS, SORT_LABELS, sortStatus, type SortKey } from "@/lib/log/browse";
 import { LogCard } from "./LogCard";
 
 export const LogFeed = ({
@@ -13,7 +13,8 @@ export const LogFeed = ({
   readonly filter: ReactNode;
 }) => {
   const [query, setQuery] = useState("");
-  const shown = browse(entries, { query, sort: "newest" });
+  const [sort, setSort] = useState<SortKey>("newest");
+  const shown = browse(entries, { query, sort });
   return (
     <>
       {filter}
@@ -26,10 +27,24 @@ export const LogFeed = ({
           value={query}
           onChange={(event) => setQuery(event.target.value)}
         />
+        <label className="lf2-sort">
+          Sort
+          <select
+            className="lf2-field"
+            value={sort}
+            onChange={(event) => setSort(SORT_KEYS.find((key) => key === event.target.value) ?? "newest")}
+          >
+            {SORT_KEYS.map((key) => (
+              <option key={key} value={key}>
+                {SORT_LABELS[key]}
+              </option>
+            ))}
+          </select>
+        </label>
       </div>
       <p className="lf2-status" aria-live="polite">
         <span>{countLabel(shown.length)}</span>
-        <span>{sortStatus("newest")}</span>
+        <span>{sortStatus(sort)}</span>
       </p>
       {shown.length === 0 && <p className="lf2-empty">Nothing matches that search.</p>}
       <div className="lg-grid">

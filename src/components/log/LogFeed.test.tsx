@@ -44,4 +44,15 @@ describe("LogFeed", () => {
     expect(screen.getByText("Showing 0 entries")).toBeTruthy();
     expect(screen.getByText("Nothing matches that search.")).toBeTruthy();
   });
+
+  it("sorts by the select and says how it is sorted", () => {
+    render(<LogFeed entries={entries} filter={null} />);
+    const sort = screen.getByRole("combobox", { name: "Sort" });
+    fireEvent.change(sort, { target: { value: "oldest" } });
+    expect(titles()).toEqual(["Gamma", "Beta tool", "Alpha check"]);
+    expect(screen.getByText("Sorted oldest first")).toBeTruthy();
+    fireEvent.change(sort, { target: { value: "az" } });
+    expect(titles()).toEqual(["Alpha check", "Beta tool", "Gamma"]);
+    expect(screen.getByText("Sorted A to Z")).toBeTruthy();
+  });
 });
