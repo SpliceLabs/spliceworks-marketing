@@ -19,9 +19,9 @@ describe("the Log content in the repo", () => {
     });
   });
 
-  it("gives Jev and Supadata a looping hero whose files are in public", () => {
+  it("gives Jev, Supadata and the launches a looping hero whose files are in public", () => {
     const heroes = Object.fromEntries(loadEntries(dir).map((entry) => [entry.slug, entry.hero]));
-    const slugs = ["jev", "jev-image-checks", "supadata"];
+    const slugs = ["jev", "jev-image-checks", "supadata", "ai-check-up", "ai-cost-of-delay", "ai-roi-calculator"];
     slugs.forEach((slug) => expect(heroes[slug]?.video).toBeTruthy());
     slugs
       .flatMap((slug) => [heroes[slug]?.src, heroes[slug]?.video])

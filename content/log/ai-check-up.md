@@ -6,6 +6,10 @@ description: "Sixteen questions on where your company is on the path from AI-abs
 lede_em: basics
 published: 2026-11-03
 status: published
+hero:
+  src: /log/E10-launch-poster.jpg
+  video: /log/E10-launch.mp4
+  alt: A dark sphere glowing pink, orange and yellow on paper
 stage: all
 disclosure: "Splice built and runs this tool."
 cta:
