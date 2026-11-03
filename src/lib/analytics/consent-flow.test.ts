@@ -32,4 +32,17 @@ describe("consent flow", () => {
     declined.flow.start();
     expect(declined.started).toEqual([]);
   });
+
+  it("reloads when Decline withdraws a running Gojiberry, and does not when it never started", () => {
+    const withdrawn = setup({ "sw-consent": "granted" });
+    withdrawn.flow.start();
+    withdrawn.flow.decline();
+    expect(withdrawn.store.getSnapshot().consent).toBe("denied");
+    expect(withdrawn.reloads).toEqual(["reload"]);
+
+    const neverStarted = setup();
+    neverStarted.flow.decline();
+    expect(neverStarted.store.getSnapshot().consent).toBe("denied");
+    expect(neverStarted.reloads).toEqual([]);
+  });
 });

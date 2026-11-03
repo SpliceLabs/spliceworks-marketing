@@ -9,12 +9,17 @@ type ConsentFlowDeps = {
   readonly reload: () => void;
 };
 
-export const createConsentFlow = ({ store, plugins }: ConsentFlowDeps) => ({
+export const createConsentFlow = ({ store, plugins, reload }: ConsentFlowDeps) => ({
   start: () => {
     if (store.getSnapshot().consent === "granted") plugins.enable(GOJIBERRY);
   },
   accept: () => {
     store.accept();
     plugins.enable(GOJIBERRY);
+  },
+  decline: () => {
+    const wasRunning = plugins.isEnabled(GOJIBERRY);
+    store.decline();
+    if (wasRunning) reload();
   },
 });
