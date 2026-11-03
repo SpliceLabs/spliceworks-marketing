@@ -998,3 +998,19 @@
     overflow-x: auto;
   }
 }
+
+/* Splice Log: filter chips and search and sort on one row */
+.lg-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 8px 0 26px;
+}
+.lg-tools .lg-filter {
+  margin: 0;
+}
+.lf2-status {
+  margin-top: 0;
+}

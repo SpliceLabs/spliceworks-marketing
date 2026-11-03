@@ -72,4 +72,8 @@ describe("site stylesheet", () => {
     expect(site).toMatch(/\.lf2-sec-b \.lg-table\s*\{[^}]*var\(--mono\)/);
     expect(site).toMatch(/\.lf2-sec-b h3\s*\{[^}]*text-transform:\s*uppercase/);
   });
+
+  it("lays the type chips and the search and sort controls on one row", () => {
+    expect(site).toMatch(/\.lg-tools\s*\{[^}]*justify-content:\s*space-between/);
+  });
 });

@@ -17,30 +17,32 @@ export const LogFeed = ({
   const shown = browse(entries, { query, sort });
   return (
     <>
-      {filter}
-      <div className="lf2-tright">
-        <input
-          type="search"
-          className="lf2-field lf2-search"
-          aria-label="Search entries"
-          placeholder="Search entries"
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-        />
-        <label className="lf2-sort">
-          Sort
-          <select
-            className="lf2-field"
-            value={sort}
-            onChange={(event) => setSort(SORT_KEYS.find((key) => key === event.target.value) ?? "newest")}
-          >
-            {SORT_KEYS.map((key) => (
-              <option key={key} value={key}>
-                {SORT_LABELS[key]}
-              </option>
-            ))}
-          </select>
-        </label>
+      <div className="lg-tools">
+        {filter}
+        <div className="lf2-tright">
+          <input
+            type="search"
+            className="lf2-field lf2-search"
+            aria-label="Search entries"
+            placeholder="Search entries"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+          />
+          <label className="lf2-sort">
+            Sort
+            <select
+              className="lf2-field"
+              value={sort}
+              onChange={(event) => setSort(SORT_KEYS.find((key) => key === event.target.value) ?? "newest")}
+            >
+              {SORT_KEYS.map((key) => (
+                <option key={key} value={key}>
+                  {SORT_LABELS[key]}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
       </div>
       <p className="lf2-status" aria-live="polite">
         <span>{countLabel(shown.length)}</span>
