@@ -6,7 +6,7 @@ reader: A visitor, buyer or reviewer checking what this site does with their dat
 job: Understand what we collect and how to object or opt out
 status: provisional
 sources: [Privacy notice first draft, Gojiberry privacy policy]
-open: [Counsel review, Controller legal entity and postal address, Consent banner for EU, EEA and UK visitors, Booking data retention period and where booking emails are stored]
+open: [Counsel review, Controller legal entity and postal address, Consent banner for EU, EEA and UK visitors, Booking data retention period]
 ---
 
 # Privacy notice
@@ -49,12 +49,12 @@ Where the GDPR applies, our basis for replying to you and preparing a session is
 ## Who receives it
 
 - Vercel, which hosts the site and runs the booking form.
-- Resend, the email service that delivers your booking request to us.
-- The email provider and any tools where we read and store it.
+- Resend, the email service that delivers your booking request to us. It acts on our behalf.
+- Google Workspace, where we receive and store our email.
 - Gojiberry, and the providers it uses, for visitor identification.
 - Advisers, and authorities when the law requires it.
 
-Some providers process data outside the UK and EEA, including in the United States. Ask us how a specific transfer is protected.
+Some providers process data outside the UK and EEA, including in the United States. Resend processes mainly in the United States. It says it uses Standard Contractual Clauses (with the UK addendum) and is certified under the EU-US Data Privacy Framework and its UK Extension (https://resend.com/legal/dpa). Ask us how any other transfer is protected.
 
 ## How long we keep it
 

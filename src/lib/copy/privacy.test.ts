@@ -17,4 +17,11 @@ describe("Privacy notice", () => {
     expect(body).toContain("Resend");
     expect(body).not.toContain("no forms");
   });
+
+  it("names Google Workspace and says how Resend's US transfers are protected", () => {
+    const { body } = getPage("/privacy");
+    expect(body).toContain("Google Workspace");
+    expect(body).toContain("Data Privacy Framework");
+    expect(body).toContain("https://resend.com/legal/dpa");
+  });
 });
