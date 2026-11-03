@@ -24,4 +24,12 @@ describe("Privacy notice", () => {
     expect(body).toContain("Data Privacy Framework");
     expect(body).toContain("https://resend.com/legal/dpa");
   });
+
+  it("says calculator inputs travel with the page address when a link is opened", () => {
+    const { body } = getPage("/privacy");
+    expect(body).not.toContain("We don't send them to a server");
+    expect(body).toContain(
+      "When someone opens a shared link, the address, including those inputs, reaches our host and Gojiberry",
+    );
+  });
 });

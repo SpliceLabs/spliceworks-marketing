@@ -27,7 +27,7 @@ This notice covers www.spliceops.ai. SpliceOps is the consulting arm of Splice L
 
 **Stored on your device.** We save your theme and reading mode in your browser's local storage so the site remembers them. It never reaches our servers.
 
-**Calculators.** The free tools run in your browser. Your inputs go into the page address so you can share a link. We don't send them to a server. If you share the link, the inputs travel with it.
+**Calculators.** The free tools run in your browser. Your inputs go into the page address so you can share a link. When someone opens a shared link, the address, including those inputs, reaches our host and Gojiberry like any page address. Don't put anything confidential into the calculators if you plan to share the link.
 
 ## Gojiberry
 
