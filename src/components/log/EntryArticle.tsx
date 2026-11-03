@@ -6,11 +6,14 @@ import { entryPath } from "@/lib/log/json-ld";
 import { absoluteUrl } from "@/lib/site";
 import { STAGE_LABELS, TYPE_LABELS } from "@/lib/log/types";
 import { EntryBody } from "./EntryBody";
+import { splitSections } from "@/lib/log/sections";
 import { EntryMedia } from "./EntryMedia";
+import { LogBlocks } from "./LogBlocks";
 import { LogCard } from "./LogCard";
 import { NextStepCard } from "./NextStepCard";
 import { ShareBar } from "./ShareBar";
 import { SourcesList } from "./SourcesList";
+import { SpecSheet } from "./SpecSheet";
 
 const Date_ = ({ iso }: { iso: string }) => <time dateTime={iso}>{formatLogDate(iso)}</time>;
 
@@ -21,6 +24,22 @@ const facts = (entry: LogEntry): readonly string[] => [
   ...(entry.updated ? [`Updated ${formatLogDate(entry.updated)}`] : []),
   `${entry.readingMinutes} min read`,
 ];
+
+const ToolContent = ({ entry }: { entry: LogEntry }) => {
+  const { intro, sections } = splitSections(entry.body);
+  return (
+    <>
+      {intro.length > 0 && (
+        <div className="lg-body nosb">
+          <div className="lg-art">
+            <LogBlocks blocks={intro} />
+          </div>
+        </div>
+      )}
+      <SpecSheet entry={entry} sections={sections} />
+    </>
+  );
+};
 
 export const EntryArticle = ({ entry, related }: { entry: LogEntry; related: readonly LogEntry[] }) => {
   const path = entryPath(entry.slug);
@@ -52,7 +71,7 @@ export const EntryArticle = ({ entry, related }: { entry: LogEntry; related: rea
         </div>
       </header>
       <div className="wrap">
-        <EntryBody body={entry.body} />
+        {entry.type === "tool" ? <ToolContent entry={entry} /> : <EntryBody body={entry.body} />}
         {entry.sources?.length ? (
           <div className="lg-body nosb">
             <div className="lg-art">

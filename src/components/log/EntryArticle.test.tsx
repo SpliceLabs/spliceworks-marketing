@@ -57,4 +57,17 @@ describe("EntryArticle", () => {
     expect(withCta).toContain("Open the tool");
     expect(withCta).toContain('href="/tools/x"');
   });
+
+  it("renders a tool entry as a spec sheet, not an article with a sidebar", () => {
+    expect(out).toContain('id="spec"');
+    expect(out).toContain('class="spec-bar"');
+    expect(out).not.toContain("lg-toc");
+  });
+
+  it("keeps every other type as an article with its contents sidebar", () => {
+    const guide = makeEntry({ body: "## One\n\nText.\n\n## Two\n\nText.\n\n## Three\n\nText." });
+    const article = renderToStaticMarkup(<EntryArticle entry={guide} related={[]} />);
+    expect(article).toContain("lg-toc");
+    expect(article).not.toContain('id="spec"');
+  });
 });
