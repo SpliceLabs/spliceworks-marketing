@@ -25,11 +25,10 @@ describe("Privacy notice", () => {
     expect(body).toContain("https://resend.com/legal/dpa");
   });
 
-  it("says calculator inputs travel with the page address when a link is opened", () => {
+  it("warns that calculator inputs in the page URL may be visible to service providers and anyone given the link", () => {
     const { body } = getPage("/privacy");
-    expect(body).not.toContain("We don't send them to a server");
     expect(body).toContain(
-      "When someone opens a shared link, the address, including those inputs, reaches our host and Gojiberry",
+      "Those inputs may be visible to our hosting and website service providers or to anyone with whom you share the link. Do not enter confidential or sensitive personal information.",
     );
   });
 
