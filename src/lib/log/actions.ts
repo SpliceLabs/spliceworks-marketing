@@ -19,5 +19,11 @@ const toolActions = (entry: LogEntry): readonly EntryAction[] => {
   ];
 };
 
-export const entryActions = (entry: LogEntry): readonly EntryAction[] =>
-  entry.type === "tool" ? toolActions(entry) : [];
+const launchActions = (entry: LogEntry): readonly EntryAction[] =>
+  entry.cta ? [{ label: entry.cta.label, href: entry.cta.href, style: "primary", down: false }] : [];
+
+export const entryActions = (entry: LogEntry): readonly EntryAction[] => {
+  if (entry.type === "tool") return toolActions(entry);
+  if (entry.type === "launch") return launchActions(entry);
+  return [];
+};

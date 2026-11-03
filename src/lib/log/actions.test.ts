@@ -16,4 +16,17 @@ describe("entryActions", () => {
   it("leaves out Install when a tool has no install section", () => {
     expect(entryActions(tool("## Overview\n\nA.")).map((action) => action.label)).toEqual(["Read the full spec"]);
   });
+
+  it("gives a launch one button that opens its tool, and other types none", () => {
+    const launch = makeEntry({
+      type: "launch",
+      disclosure: "Splice built this.",
+      cta: { label: "Open the check-up", href: "/tools/check-up" },
+    });
+    expect(entryActions(launch)).toEqual([
+      { label: "Open the check-up", href: "/tools/check-up", style: "primary", down: false },
+    ]);
+    expect(entryActions(makeEntry({ type: "launch", disclosure: "x" }))).toEqual([]);
+    expect(entryActions(makeEntry({ type: "guide" }))).toEqual([]);
+  });
 });
