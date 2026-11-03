@@ -6,6 +6,10 @@ description: "The value you don't get for each month you wait on AI, plus a line
 lede_em: each month you wait
 published: 2026-11-03
 status: published
+hero:
+  src: /log/E10-launch-poster.jpg
+  video: /log/E10-launch.mp4
+  alt: A dark sphere glowing pink, orange and yellow on paper
 stage: all
 disclosure: "Splice built and runs this tool."
 cta:

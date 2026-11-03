@@ -6,6 +6,10 @@ description: "Whether rolling AI out to your team pays for itself in year one: c
 lede_em: pays for itself
 published: 2026-11-03
 status: published
+hero:
+  src: /log/E10-launch-poster.jpg
+  video: /log/E10-launch.mp4
+  alt: A dark sphere glowing pink, orange and yellow on paper
 stage: all
 disclosure: "Splice built and runs this tool."
 cta:
