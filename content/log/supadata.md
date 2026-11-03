@@ -25,6 +25,10 @@ sources:
 related:
   - jev
   - jev-image-checks
+hero:
+  src: /log/E21-supadata-poster.jpg
+  video: /log/E21-supadata.mp4
+  alt: "A dark ribbon drifting across paper, edged with orange light"
 ---
 
 ## Overview
