@@ -4,8 +4,10 @@ import type { LogEntry } from "@/lib/log/entries";
 import { pinnedEntry } from "@/lib/log/views";
 import { FollowStrip } from "./FollowStrip";
 import { HowWeLog } from "./HowWeLog";
+import { toCardEntry } from "@/lib/log/card-entry";
 import { LogCard } from "./LogCard";
 import { LogFeature } from "./LogFeature";
+import { LogFeed } from "./LogFeed";
 import { NextStepCard } from "./NextStepCard";
 import { StagePicker } from "./StagePicker";
 import { TypeFilter } from "./TypeFilter";
@@ -32,7 +34,9 @@ export const LogHome = ({ entries }: { entries: readonly LogEntry[] }) => {
         <p className="kicker kd" style={{ margin: "0 0 20px" }}>
           Splice Log
         </p>
-        <h1 className="display">What we tested, built and think about AI at work</h1>
+        <h1 className="display">
+          What we <span className="serif-i">tested, built and think</span> about AI at work
+        </h1>
         <p className="lg-lead">
           A dated record you can check. Every entry has a code, a date, its sources, and a note on who we are tied to.
         </p>
@@ -46,12 +50,7 @@ export const LogHome = ({ entries }: { entries: readonly LogEntry[] }) => {
             <LogFeature entry={pinned} />
           </div>
         )}
-        <TypeFilter entries={entries} active="all" />
-        <div className="lg-grid">
-          {feed.map((entry) => (
-            <LogCard key={entry.slug} entry={entry} />
-          ))}
-        </div>
+        <LogFeed entries={feed.map(toCardEntry)} filter={<TypeFilter entries={entries} active="all" />} />
       </Section>
       {tools.length > 0 && (
         <Section n="03" label="Tested tools" title="Tested tools">

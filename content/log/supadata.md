@@ -3,6 +3,7 @@ type: tool
 code: LG-00119
 title: Supadata
 description: Turns what is said in a public video into clean, timestamped text with one API call.
+lede_em: timestamped
 published: 2026-11-01
 status: published
 stage: enabled

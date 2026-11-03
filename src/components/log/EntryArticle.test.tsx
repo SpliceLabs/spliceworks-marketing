@@ -31,10 +31,13 @@ describe("EntryArticle", () => {
     expect(out).toContain("One sentence.");
   });
 
-  it("shows stage, tool status and checked date as chips", () => {
-    expect(out).toContain("AI-enabled");
-    expect(out).toContain("Status: testing");
-    expect(out).toContain("Checked 1 Nov 2026");
+  it("shows stage, type, logged date, status and checked date as dot-and-label pills", () => {
+    expect(out).toContain('class="lf2-facts"');
+    ["<dt>Stage</dt><dd>AI-enabled</dd>", "<dt>Type</dt><dd>Tool</dd>", "<dt>Logged</dt><dd>4 Nov 2026</dd>"].forEach(
+      (pill) => expect(out).toContain(pill),
+    );
+    expect(out).toContain("<dt>Status</dt><dd>testing</dd>");
+    expect(out).toContain("<dt>Checked</dt><dd>1 Nov 2026</dd>");
   });
 
   it("lists sources with their host, and shows the disclosure", () => {
@@ -56,5 +59,36 @@ describe("EntryArticle", () => {
     );
     expect(withCta).toContain("Open the tool");
     expect(withCta).toContain('href="/tools/x"');
+  });
+
+  it("renders a tool entry as a spec sheet, not an article with a sidebar", () => {
+    expect(out).toContain('id="spec"');
+    expect(out).toContain('class="spec-bar"');
+    expect(out).not.toContain("lg-toc");
+  });
+
+  it("keeps every other type as an article with its contents sidebar", () => {
+    const guide = makeEntry({ body: "## One\n\nText.\n\n## Two\n\nText.\n\n## Three\n\nText." });
+    const article = renderToStaticMarkup(<EntryArticle entry={guide} related={[]} />);
+    expect(article).toContain("lg-toc");
+    expect(article).not.toContain('id="spec"');
+  });
+
+  it("shows the action buttons under the facts: Install and Read the full spec on a tool, none on a guide", () => {
+    const withInstall = renderToStaticMarkup(
+      <EntryArticle entry={{ ...entry, body: "## Overview\n\nA.\n\n## Install and connect\n\nB." }} related={[]} />,
+    );
+    expect(withInstall).toMatch(/<a class="btn" href="#install-and-connect">Install and connect/);
+    expect(withInstall).toMatch(/<a class="btn ghost" href="#spec">Read the full spec<\/a>/);
+    expect(renderToStaticMarkup(<EntryArticle entry={makeEntry()} related={[]} />)).not.toContain("lf2-ctas");
+  });
+
+  it("puts the lede beside the h1 with its italic phrase in serif", () => {
+    const lede = renderToStaticMarkup(
+      <EntryArticle entry={{ ...entry, description: "A fast model.", lede_em: "fast" }} related={[]} />,
+    );
+    expect(lede).toMatch(
+      /class="lf2-title"><h1[^>]*>Supadata<\/h1><p class="lf2-dek">A <span class="serif-i">fast<\/span> model\.<\/p>/,
+    );
   });
 });

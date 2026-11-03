@@ -23,6 +23,12 @@ describe("LogCard", () => {
     expect(out).toContain('class="lg-card"');
   });
 
+  it("sets the title and its code together as a printed label", () => {
+    expect(out).toContain(
+      '<span class="title"><span class="name">Supadata</span> <span class="code">LG-00001</span></span>',
+    );
+  });
+
   it("shows type, code, stage, date, read time, title and the one-line summary", () => {
     expect(out).toContain("Tool");
     expect(out).toContain("LG-00001");

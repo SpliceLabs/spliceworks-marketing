@@ -2,25 +2,47 @@ import Link from "next/link";
 import { AskBox } from "@/components/copy/AskBox";
 import type { LogEntry } from "@/lib/log/entries";
 import { formatLogDate } from "@/lib/log/format-date";
+import { emphasize } from "@/lib/log/emphasis";
 import { entryPath } from "@/lib/log/json-ld";
 import { absoluteUrl } from "@/lib/site";
 import { STAGE_LABELS, TYPE_LABELS } from "@/lib/log/types";
 import { EntryBody } from "./EntryBody";
+import { splitSections } from "@/lib/log/sections";
+import { EntryActions } from "./EntryActions";
 import { EntryMedia } from "./EntryMedia";
+import { LogBlocks } from "./LogBlocks";
 import { LogCard } from "./LogCard";
 import { NextStepCard } from "./NextStepCard";
 import { ShareBar } from "./ShareBar";
 import { SourcesList } from "./SourcesList";
+import { SpecSheet } from "./SpecSheet";
 
 const Date_ = ({ iso }: { iso: string }) => <time dateTime={iso}>{formatLogDate(iso)}</time>;
 
-const facts = (entry: LogEntry): readonly string[] => [
-  STAGE_LABELS[entry.stage],
-  ...(entry.tool_status ? [`Status: ${entry.tool_status}`] : []),
-  ...(entry.checked ? [`Checked ${formatLogDate(entry.checked)}`] : []),
-  ...(entry.updated ? [`Updated ${formatLogDate(entry.updated)}`] : []),
-  `${entry.readingMinutes} min read`,
+const facts = (entry: LogEntry): readonly (readonly [string, string])[] => [
+  ["Stage", STAGE_LABELS[entry.stage]],
+  ["Type", TYPE_LABELS[entry.type]],
+  ["Logged", formatLogDate(entry.published)],
+  ...(entry.tool_status ? [["Status", entry.tool_status] as const] : []),
+  ...(entry.checked ? [["Checked", formatLogDate(entry.checked)] as const] : []),
+  ...(entry.updated ? [["Updated", formatLogDate(entry.updated)] as const] : []),
 ];
+
+const ToolContent = ({ entry }: { entry: LogEntry }) => {
+  const { intro, sections } = splitSections(entry.body);
+  return (
+    <>
+      {intro.length > 0 && (
+        <div className="lg-body nosb">
+          <div className="lg-art">
+            <LogBlocks blocks={intro} />
+          </div>
+        </div>
+      )}
+      <SpecSheet entry={entry} sections={sections} />
+    </>
+  );
+};
 
 export const EntryArticle = ({ entry, related }: { entry: LogEntry; related: readonly LogEntry[] }) => {
   const path = entryPath(entry.slug);
@@ -37,22 +59,38 @@ export const EntryArticle = ({ entry, related }: { entry: LogEntry; related: rea
           </span>
           <span>{entry.readingMinutes} min read</span>
         </div>
-        <h1 className="lg-title">{entry.title}</h1>
-        <p className="lg-lead">{entry.description}</p>
+        <div className="lf2-title">
+          <h1>{entry.title}</h1>
+          <p className="lf2-dek">
+            {emphasize(entry.description, entry.lede_em).map((part) =>
+              part.em ? (
+                <span key={part.text} className="serif-i">
+                  {part.text}
+                </span>
+              ) : (
+                part.text
+              ),
+            )}
+          </p>
+        </div>
         <div className="lg-hero">
           <EntryMedia entry={entry} className="lg-hero-media" />
         </div>
         <div className="lg-facts">
-          <ul>
-            {facts(entry).map((fact) => (
-              <li key={fact}>{fact}</li>
+          <dl className="lf2-facts">
+            {facts(entry).map(([label, value]) => (
+              <div key={label}>
+                <dt>{label}</dt>
+                <dd>{value}</dd>
+              </div>
             ))}
-          </ul>
+          </dl>
           <ShareBar url={url} title={entry.title} small />
         </div>
+        <EntryActions entry={entry} />
       </header>
       <div className="wrap">
-        <EntryBody body={entry.body} />
+        {entry.type === "tool" ? <ToolContent entry={entry} /> : <EntryBody body={entry.body} />}
         {entry.sources?.length ? (
           <div className="lg-body nosb">
             <div className="lg-art">

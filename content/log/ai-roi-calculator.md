@@ -3,6 +3,7 @@ type: launch
 code: LG-00121
 title: AI ROI
 description: "Whether rolling AI out to your team pays for itself in year one: cost, value of time saved, ROI and payback."
+lede_em: pays for itself
 published: 2026-11-03
 status: published
 stage: all

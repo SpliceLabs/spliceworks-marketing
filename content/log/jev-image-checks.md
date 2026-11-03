@@ -3,6 +3,7 @@ type: tool
 code: LG-00123
 title: Jev for image checks
 description: A cheap yes/no model, tested as a first-pass checker on AI-generated product images.
+lede_em: cheap
 published: 2026-11-03
 status: published
 stage: native
