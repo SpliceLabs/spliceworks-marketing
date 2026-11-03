@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "pnpm log:codes",
     "dev": "next dev",
     "build": "node scripts/check-tbd.mjs --build && next build",
     "start": "next start",
@@ -12,7 +13,8 @@
     "check:tbd": "node scripts/check-tbd.mjs",
     "type-check": "tsc --noEmit",
     "test": "vitest run",
-    "prepare": "simple-git-hooks"
+    "prepare": "simple-git-hooks",
+    "log:codes": "tsx scripts/log-codes.ts"
   },
   "dependencies": {
     "next": "16.3.4",
@@ -41,6 +43,6 @@
   },
   "packageManager": "pnpm@10.30.3",
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint && pnpm format:check && pnpm type-check && pnpm test"
+    "pre-commit": "pnpm log:codes --stage && pnpm lint && pnpm format:check && pnpm type-check && pnpm test"
   }
 }

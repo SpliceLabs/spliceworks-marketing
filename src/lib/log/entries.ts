@@ -73,4 +73,4 @@ export const loadEntries = (dir: string, options: LoadOptions = {}): readonly Lo
   return sortNewestFirst(entries);
 };
 
-export const LOG_DIR = (): string => process.env.LOG_CONTENT_DIR ?? path.join(process.cwd(), "content", "log");
+export const logDir = (): string => process.env.LOG_CONTENT_DIR ?? path.join(process.cwd(), "content", "log");
