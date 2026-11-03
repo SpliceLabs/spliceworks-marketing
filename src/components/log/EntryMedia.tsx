@@ -1,6 +1,5 @@
 import type { CardEntry } from "@/lib/log/card-entry";
 import { TYPE_LABELS } from "@/lib/log/types";
-import { LogMark } from "./LogMark";
 
 export const EntryMedia = ({ entry, className = "" }: { entry: CardEntry; className?: string }) => (
   <span className={`media lg-w-${entry.type} ${className}`.trim()}>
@@ -13,7 +12,7 @@ export const EntryMedia = ({ entry, className = "" }: { entry: CardEntry; classN
         ) : null}
       </>
     ) : (
-      <LogMark type={entry.type} />
+      <i className="lg-disc" aria-hidden="true" />
     )}
     <span className="lg-tag">
       {TYPE_LABELS[entry.type]} · {entry.code}

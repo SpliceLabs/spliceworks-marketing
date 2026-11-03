@@ -39,9 +39,10 @@ describe("LogCard", () => {
     expect(out).toContain("Transcripts from any video.");
   });
 
-  it("uses the type wash and a generated mark when there is no hero", () => {
+  it("uses the type wash and the disc when there is no hero", () => {
     expect(out).toContain("lg-w-tool");
-    expect(out).toContain("lg-mk");
+    expect(out).toContain("lg-disc");
+    expect(out).not.toContain("lg-mk");
   });
 
   it("plays a muted looping video over the still when the hero has one", () => {
