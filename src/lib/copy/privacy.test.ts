@@ -51,4 +51,9 @@ describe("Privacy notice", () => {
     const { body } = getPage("/privacy");
     expect(body).toContain("Splice Labs Group, Inc., 19120 Sweet Clover Ln, Tampa, FL 33647");
   });
+
+  it("does not memorialise the missing consent banner", () => {
+    const { body } = getPage("/privacy");
+    expect(body).not.toContain("We don't yet ask for consent");
+  });
 });

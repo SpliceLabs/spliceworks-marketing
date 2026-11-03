@@ -6,7 +6,7 @@ reader: A visitor, buyer or reviewer checking what this site does with their dat
 job: Understand what we collect and how to object or opt out
 status: provisional
 sources: [Privacy notice first draft, Gojiberry privacy policy]
-open: [Counsel review, Consent banner for EU, EEA and UK visitors, Booking data retention period]
+open: [Counsel review, Consent banner and country restriction for Gojiberry (EU, EEA and UK visitors), Booking data retention period]
 ---
 
 # Privacy notice
@@ -34,8 +34,6 @@ This notice covers www.spliceops.ai. SpliceOps is the consulting arm of Splice L
 Gojiberry identifies visitors to a website. We use it to see which companies visit this site. We may then look for relevant business contacts at that company, who may not be the person who visited, and contact them with relevant business outreach.
 
 According to Gojiberry's own policy, it collects your IP address, the pages you visit, where you came from and how long you stay. Its visitor identification runs on Snitcher, and results are shown at company level. It may set cookies or other identifiers in your browser. Read its policy at https://gojiberry.ai/privacy-policy. Gojiberry is operated by Superfruits SAS, Paris, France.
-
-We don't yet ask for consent before this script loads. We are adding a consent choice for visitors in the EU, EEA and UK. Until then, you can opt out as described below.
 
 ## Why we use your data
 
