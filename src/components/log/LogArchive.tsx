@@ -19,7 +19,9 @@ export const LogArchive = ({
       <p className="kicker kd" style={{ margin: "0 0 20px" }}>
         Splice Log
       </p>
-      <h1 className="display">{title}</h1>
+      <h1 className="display">
+        {title} <span className="serif-i">in the log</span>
+      </h1>
       <p className="lg-lead">{lead}</p>
     </section>
     <section className="wrap sec" style={{ paddingTop: 0 }}>

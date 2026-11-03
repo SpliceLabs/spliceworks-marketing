@@ -34,7 +34,9 @@ export const LogHome = ({ entries }: { entries: readonly LogEntry[] }) => {
         <p className="kicker kd" style={{ margin: "0 0 20px" }}>
           Splice Log
         </p>
-        <h1 className="display">What we tested, built and think about AI at work</h1>
+        <h1 className="display">
+          What we <span className="serif-i">tested, built and think</span> about AI at work
+        </h1>
         <p className="lg-lead">
           A dated record you can check. Every entry has a code, a date, its sources, and a note on who we are tied to.
         </p>

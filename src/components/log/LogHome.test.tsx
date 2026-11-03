@@ -17,6 +17,12 @@ describe("LogHome", () => {
     ["Start where you are", "Latest", "Tested tools", "How we log"].forEach((label) => expect(out).toContain(label));
   });
 
+  it("mixes bold and serif italic in the h1", () => {
+    expect(out).toMatch(
+      /<h1[^>]*>What we <span class="serif-i">tested, built and think<\/span> about AI at work<\/h1>/,
+    );
+  });
+
   it("features the pinned entry once, not again in the feed", () => {
     expect(out).toContain("lg-feature");
     expect(out.match(/href="\/log\/pinned-one"/g)).toHaveLength(1 + 1);

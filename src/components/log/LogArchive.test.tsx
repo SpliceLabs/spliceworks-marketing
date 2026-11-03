@@ -19,4 +19,9 @@ describe("LogArchive", () => {
     expect(out).toContain("Nothing here yet.");
     expect(out).not.toContain('type="search"');
   });
+
+  it("sets the archive title bold with an italic tail", () => {
+    const out = renderToStaticMarkup(<LogArchive {...props} entries={[]} />);
+    expect(out).toMatch(/<h1[^>]*>Tools <span class="serif-i">in the log<\/span><\/h1>/);
+  });
 });
