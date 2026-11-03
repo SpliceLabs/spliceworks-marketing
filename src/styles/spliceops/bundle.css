@@ -599,7 +599,9 @@ h1,h2,h3{text-wrap:balance;margin:0}
 .lf2-field{min-height:var(--size-control-sm);border:var(--border-width-hairline) solid var(--line-2);border-radius:var(--radius-10);background:var(--color-surface-raised);padding:0 var(--space-12);font:var(--font-weight-regular) var(--font-size-14) var(--sans);color:var(--ink)}
 .lf2-search{width:220px;max-width:100%}
 .lf2-sort{display:flex;gap:var(--space-8);align-items:center;font:var(--font-weight-regular) var(--font-size-12)/var(--font-line-height-100) var(--mono);text-transform:uppercase;letter-spacing:var(--font-letter-spacing-p040);color:var(--muted)}
-.lf2-sort select{cursor:pointer;padding-right:var(--space-8)}
+.field select,.os select,.lf2-sort select{appearance:none;-webkit-appearance:none;padding-right:var(--space-32);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none' stroke='%2316161A' stroke-width='1.5'%3E%3Cpath d='M1 1l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right var(--space-12) center;background-size:10px 6px}
+[data-theme="ink"] :is(.field,.os,.lf2-sort) select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none' stroke='%23f4f2ee' stroke-width='1.5'%3E%3Cpath d='M1 1l4 4 4-4'/%3E%3C/svg%3E")}
+.lf2-sort select{cursor:pointer}
 .lf2-status{display:flex;justify-content:space-between;gap:var(--space-12);margin:var(--space-20) 0 var(--space-16);font:var(--font-weight-regular) var(--font-size-11)/var(--font-line-height-130) var(--mono);letter-spacing:var(--font-letter-spacing-p060);text-transform:uppercase;color:var(--soft)}
 .lf2 .ticket .meta{color:var(--color-text-soft-on-card)}
 .lf2-empty{margin:var(--space-8) 0 0;font:var(--font-weight-regular) var(--font-size-13)/var(--font-line-height-150) var(--mono);text-transform:uppercase;color:var(--muted)}
