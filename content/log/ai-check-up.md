@@ -1,13 +1,12 @@
 ---
-type: tool
+type: launch
 code: LG-00122
 title: AI check-up
 description: "Sixteen questions on where your company is on the path from AI-absent to AI-native, and whether the basics are in place to support it."
 published: 2026-11-03
 status: published
 stage: all
-tool_status: live
-checked: 2026-11-03
+disclosure: "Splice built and runs this tool."
 cta:
   label: Take the check-up
   href: /tools/ai-check-up

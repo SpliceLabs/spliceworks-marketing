@@ -6,6 +6,7 @@ const SHAPES: Readonly<Record<EntryType, string>> = {
   research: "M30 20 V60 A20 20 0 0 0 70 60 V20 M30 40 H70",
   analysis: "M20 75 L40 45 L58 58 L80 22",
   perspective: "M50 20 A30 30 0 1 0 50 80 A30 30 0 1 0 50 20 M50 35 V65 M35 50 H65",
+  launch: "M50 18 L68 48 H58 V74 H42 V48 H32 Z M36 82 H64",
   guide: "M25 20 H75 V80 H25 Z M38 38 H62 M38 52 H62 M38 66 H54",
 };
 

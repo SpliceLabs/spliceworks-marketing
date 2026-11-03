@@ -43,6 +43,21 @@ describe("Log frontmatter", () => {
     expect(errorsFor(base({ tool_status: "testing" })).join()).toMatch(/tool_status/);
   });
 
+  it("accepts a launch entry with a disclosure and no sources or checked date", () => {
+    const launch = base({ type: "launch", sources: undefined, disclosure: "Splice built this tool." });
+    expect(errorsFor(launch)).toEqual([]);
+  });
+
+  it("requires a disclosure on launch entries because the product is ours", () => {
+    expect(errorsFor(base({ type: "launch", sources: undefined })).join()).toMatch(/disclosure/);
+    expect(errorsFor(base({ type: "launch", sources: undefined, disclosure: " " })).join()).toMatch(/disclosure/);
+  });
+
+  it("does not allow a tool status on launch entries", () => {
+    const launch = base({ type: "launch", sources: undefined, disclosure: "Splice built this.", tool_status: "live" });
+    expect(errorsFor(launch).join()).toMatch(/tool_status/);
+  });
+
   it("requires alt text whenever a hero image is set", () => {
     expect(errorsFor(base({ hero: { src: "/log/x/hero.png" } })).join()).toMatch(/hero/);
     expect(errorsFor(base({ hero: { src: "/log/x/hero.png", alt: "" } })).join()).toMatch(/hero/);

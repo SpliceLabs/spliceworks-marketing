@@ -1,13 +1,12 @@
 ---
-type: tool
+type: launch
 code: LG-00120
 title: AI cost of delay
 description: "The value you don't get for each month you wait on AI, plus a line you can paste into your next board deck."
 published: 2026-11-03
 status: published
 stage: all
-tool_status: live
-checked: 2026-11-03
+disclosure: "Splice built and runs this tool."
 cta:
   label: Open the tool
   href: /tools/ai-cost-of-delay

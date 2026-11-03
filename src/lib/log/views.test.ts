@@ -33,8 +33,13 @@ describe("stagePicks", () => {
 
 describe("typeCounts", () => {
   it("counts live entries by type, with a total", () => {
-    const entries = [e("a", { type: "tool" }), e("b", { type: "tool" }), e("c", { type: "guide" })];
-    expect(typeCounts(entries)).toMatchObject({ all: 3, tool: 2, guide: 1, case: 0 });
+    const entries = [
+      e("a", { type: "tool" }),
+      e("b", { type: "tool" }),
+      e("c", { type: "guide" }),
+      e("d", { type: "launch" }),
+    ];
+    expect(typeCounts(entries)).toMatchObject({ all: 4, tool: 2, guide: 1, launch: 1, case: 0 });
   });
 });
 
