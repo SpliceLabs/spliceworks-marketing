@@ -1,4 +1,5 @@
 import type { LogEntry } from "./entries";
+import { entryPath } from "./json-ld";
 import { splitSections } from "./sections";
 
 export type EntryAction = {
@@ -35,12 +36,12 @@ export const entryActions = (entry: LogEntry, writeUpHref?: string): readonly En
     : []),
 ];
 
-const EXAMPLES_HEADING = "Examples of the output";
+export const EXAMPLES_HEADING = "Examples of the output";
 
 export const writeUpActions = (writeUp: LogEntry): readonly EntryAction[] => {
   const examples = splitSections(writeUp.body).sections.find((section) => section.heading === EXAMPLES_HEADING);
   return [
-    { label: "Back to the entry", href: `/log/${writeUp.parent}`, style: "primary", down: false },
+    { label: "Back to the entry", href: entryPath(writeUp.parent ?? ""), style: "primary", down: false },
     ...(examples
       ? [{ label: "See the examples", href: `#${examples.slug}`, style: "ghost" as const, down: true }]
       : []),

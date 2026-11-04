@@ -106,9 +106,9 @@ describe("EntryArticle with a write-up", () => {
 
   it("offers the write-up from the parent entry", () => {
     const parent = renderToStaticMarkup(
-      <EntryArticle entry={entry} related={[]} writeUpHref="/log/supadata/write-up" />,
+      <EntryArticle entry={entry} related={[]} writeUpHref="/log/supadata-write-up" />,
     );
-    expect(parent).toContain('href="/log/supadata/write-up"');
+    expect(parent).toContain('href="/log/supadata-write-up"');
     expect(parent).toContain("Read the full write-up");
   });
 

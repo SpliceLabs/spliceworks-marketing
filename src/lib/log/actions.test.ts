@@ -34,8 +34,8 @@ describe("entryActions", () => {
 describe("write-up buttons", () => {
   it("adds Read the full write-up to a parent that has one", () => {
     const entry = makeEntry({ type: "guide" });
-    expect(entryActions(entry, "/log/a-guide/write-up")).toEqual([
-      { label: "Read the full write-up", href: "/log/a-guide/write-up", style: "ghost", down: false },
+    expect(entryActions(entry, "/log/a-guide-write-up")).toEqual([
+      { label: "Read the full write-up", href: "/log/a-guide-write-up", style: "ghost", down: false },
     ]);
   });
 

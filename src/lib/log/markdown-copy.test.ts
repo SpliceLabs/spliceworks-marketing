@@ -53,6 +53,15 @@ describe("entryMarkdown", () => {
   });
 });
 
+describe("entryMarkdown scroll marker with a caption that has parentheses", () => {
+  it("still drops {scroll}", () => {
+    const tall = makeEntry({ slug: "tall", body: '![Email](/log/tall/e.png "E1 (draft)"){scroll}' });
+    const md = entryMarkdown(tall);
+    expect(md).not.toContain("{scroll}");
+    expect(md).toContain('![Email](https://www.spliceops.ai/log/tall/e.png "E1 (draft)")');
+  });
+});
+
 describe("entryFacts", () => {
   it("lists the facts in a fixed order, URL first", () => {
     expect(entryFacts(entry).map(([key]) => key)).toEqual(["URL", "Code", "Type", "Stage", "Published", "Description"]);
