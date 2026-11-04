@@ -1,27 +1,68 @@
 import { describe, expect, it } from "vitest";
-import { SPLICE_LOG } from "./splice-log";
+import type { LogEntry } from "@/lib/log/entries";
+import { latestTickets, toTicket } from "./splice-log";
 
-describe("splice log", () => {
-  it("lists the three free tools the home page shows", () => {
-    expect(SPLICE_LOG).toHaveLength(3);
+const entryFactory = (overrides: Partial<LogEntry> = {}): LogEntry => ({
+  type: "tool",
+  title: "Cost of delay",
+  description: "The value you don’t get for each month you wait on AI.",
+  published: "2026-11-04",
+  status: "published",
+  stage: "native",
+  code: "LG-00120",
+  slug: "ai-cost-of-delay",
+  body: "body",
+  readingMinutes: 3,
+  ...overrides,
+});
+
+describe("toTicket", () => {
+  it("links the ticket to its log entry and carries its code, title and description", () => {
+    const ticket = toTicket(entryFactory());
+    expect(ticket).toMatchObject({
+      name: "Cost of delay",
+      code: "LG-00120",
+      summary: "The value you don’t get for each month you wait on AI.",
+      href: "/log/ai-cost-of-delay",
+    });
   });
 
-  it("gives every entry a unique code", () => {
-    const codes = SPLICE_LOG.map((e) => e.code);
-    expect(new Set(codes).size).toBe(codes.length);
+  it("labels the ticket with the entry type and its publish date", () => {
+    const ticket = toTicket(entryFactory({ type: "research", published: "2026-11-04" }));
+    expect(ticket.kind).toBe("Research");
+    expect(ticket.status).toBe("4 Nov 2026");
   });
 
-  it("links free tools to real tool routes", () => {
-    const hrefs = SPLICE_LOG.filter((e) => e.badge === "FREE TOOL").map((e) => e.href);
-    expect(hrefs).toEqual(["/tools/ai-cost-of-delay", "/tools/ai-roi-calculator", "/tools/ai-check-up"]);
+  it("uses the entry hero as the poster when it has one", () => {
+    const hero = { src: "/log/deepseek.jpg", alt: "alt" };
+    expect(toTicket(entryFactory({ hero })).poster).toBe("/log/deepseek.jpg");
+    expect(toTicket(entryFactory()).poster).toBeUndefined();
   });
 
-  it("keeps every link on-site", () => {
-    expect(SPLICE_LOG.every((e) => e.href.startsWith("/") || e.href.startsWith("#"))).toBe(true);
+  it("places the ticket on the track by the stage it speaks to", () => {
+    const tracks = (["absent", "enabled", "native", "all"] as const).map(
+      (stage) => toTicket(entryFactory({ stage })).track,
+    );
+    expect(tracks.every((t) => t >= 0 && t <= 100)).toBe(true);
+  });
+});
+
+describe("latestTickets", () => {
+  it("returns the newest entries first, capped at the requested count", () => {
+    const entries = [
+      entryFactory({ slug: "old", code: "LG-00001", published: "2026-01-01" }),
+      entryFactory({ slug: "newest", code: "LG-00003", published: "2026-11-04" }),
+      entryFactory({ slug: "mid", code: "LG-00002", published: "2026-06-01" }),
+    ];
+    expect(latestTickets(entries, 2).map((t) => t.href)).toEqual(["/log/newest", "/log/mid"]);
   });
 
-  it("places every entry on the ticket track and serves posters from /log", () => {
-    expect(SPLICE_LOG.every((e) => e.track >= 0 && e.track <= 100)).toBe(true);
-    SPLICE_LOG.filter((e) => e.poster).forEach((e) => expect(e.poster).toMatch(/^\/log\/.+\.jpg$/));
+  it("does not mutate the entries it is given", () => {
+    const entries = [
+      entryFactory({ slug: "a", published: "2026-01-01" }),
+      entryFactory({ slug: "b", published: "2026-02-01" }),
+    ];
+    latestTickets(entries, 3);
+    expect(entries.map((e) => e.slug)).toEqual(["a", "b"]);
   });
 });
