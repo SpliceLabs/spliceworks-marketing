@@ -1,5 +1,5 @@
 import { formatLogDate } from "@/lib/log/format-date";
-import type { LogEntry } from "@/lib/log/entries";
+import { sortNewestFirst, type LogEntry } from "@/lib/log/entries";
 import { entryTypeLabel } from "@/lib/log/types";
 
 export type LogTicket = {
@@ -32,7 +32,4 @@ export const toTicket = (entry: LogEntry): LogTicket => ({
 });
 
 export const latestTickets = (entries: readonly LogEntry[], count: number): readonly LogTicket[] =>
-  entries
-    .toSorted((a, b) => b.published.localeCompare(a.published) || a.slug.localeCompare(b.slug))
-    .slice(0, count)
-    .map(toTicket);
+  sortNewestFirst(entries).slice(0, count).map(toTicket);

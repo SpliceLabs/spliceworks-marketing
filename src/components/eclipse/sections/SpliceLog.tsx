@@ -60,7 +60,7 @@ export const SpliceLog = () => (
     <TicketStrip
       head={
         <div>
-          <span className="kicker">[Splice Log] The latest from the Log: what we’ve tested and what we’ve built</span>
+          <span className="kicker">[Splice Log] What we’ve tested and what we’ve built</span>
           <h2 className="h2" style={{ marginTop: "var(--space-12)" }}>
             New AI, <Ital>tested and integrated daily, for you.</Ital>
           </h2>
@@ -68,7 +68,7 @@ export const SpliceLog = () => (
       }
     >
       {latestTickets(getLog(), HOME_TICKET_COUNT).map((entry) => (
-        <Ticket key={entry.code} entry={entry} />
+        <Ticket key={entry.href} entry={entry} />
       ))}
     </TicketStrip>
   </section>

@@ -43,7 +43,7 @@ describe("toTicket", () => {
     const tracks = (["absent", "enabled", "native", "all"] as const).map(
       (stage) => toTicket(entryFactory({ stage })).track,
     );
-    expect(tracks.every((t) => t >= 0 && t <= 100)).toBe(true);
+    expect(tracks).toEqual([0, 34, 67, 100]);
   });
 });
 
@@ -55,6 +55,14 @@ describe("latestTickets", () => {
       entryFactory({ slug: "mid", code: "LG-00002", published: "2026-06-01" }),
     ];
     expect(latestTickets(entries, 2).map((t) => t.href)).toEqual(["/log/newest", "/log/mid"]);
+  });
+
+  it("orders entries published on the same day by slug", () => {
+    const entries = [
+      entryFactory({ slug: "zeta", published: "2026-11-04" }),
+      entryFactory({ slug: "alpha", published: "2026-11-04" }),
+    ];
+    expect(latestTickets(entries, 2).map((t) => t.href)).toEqual(["/log/alpha", "/log/zeta"]);
   });
 
   it("does not mutate the entries it is given", () => {
