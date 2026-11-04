@@ -9,4 +9,8 @@ describe("web app manifest", () => {
     expect(icons.map((i) => i.src)).toEqual(["/icons/icon-192.png", "/icons/icon-512.png"]);
     icons.forEach((i) => expect(fs.existsSync(path.join(process.cwd(), "public", i.src))).toBe(true));
   });
+
+  it("uses the brand ink, the same dark as the app icon, for its background and theme", () => {
+    expect(manifest()).toMatchObject({ background_color: "#16161A", theme_color: "#16161A" });
+  });
 });
