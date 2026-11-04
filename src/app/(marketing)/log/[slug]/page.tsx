@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { EntryArticle } from "@/components/log/EntryArticle";
-import { getEntry, getLog } from "@/lib/log/get-log";
-import { articleJsonLd } from "@/lib/log/json-ld";
+import { getEntry, getLog, getWriteUp } from "@/lib/log/get-log";
+import { articleJsonLd, entryPath } from "@/lib/log/json-ld";
 import { entryMetadata } from "@/lib/log/metadata";
 import { relatedEntries } from "@/lib/log/views";
 
@@ -26,7 +26,11 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <JsonLd data={articleJsonLd(entry)} />
-      <EntryArticle entry={entry} related={relatedEntries(entry, getLog(), RELATED_COUNT)} />
+      <EntryArticle
+        entry={entry}
+        related={relatedEntries(entry, getLog(), RELATED_COUNT)}
+        writeUpHref={getWriteUp(entry.slug) ? `${entryPath(entry.slug)}/write-up` : undefined}
+      />
     </>
   );
 }

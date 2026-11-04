@@ -3,7 +3,11 @@ import type { LogEntry } from "./entries";
 
 export const entryPath = (slug: string): string => `/log/${slug}`;
 
-export const entryImagePath = (entry: LogEntry): string => entry.hero?.src ?? `${entryPath(entry.slug)}/og.png`;
+export const pagePath = (entry: LogEntry): string =>
+  entry.parent ? `${entryPath(entry.parent)}/write-up` : entryPath(entry.slug);
+
+export const entryImagePath = (entry: LogEntry): string =>
+  entry.hero?.src ?? `${entryPath(entry.parent ?? entry.slug)}/og.png`;
 
 export const articleJsonLd = (entry: LogEntry) => ({
   "@context": "https://schema.org",
@@ -12,7 +16,7 @@ export const articleJsonLd = (entry: LogEntry) => ({
   description: entry.description,
   datePublished: entry.published,
   dateModified: entry.updated ?? entry.published,
-  mainEntityOfPage: absoluteUrl(entryPath(entry.slug)),
+  mainEntityOfPage: absoluteUrl(pagePath(entry)),
   image: absoluteUrl(entryImagePath(entry)),
   author: entry.author ? { "@type": "Person", name: entry.author } : { "@id": ORGANIZATION_ID },
   publisher: { "@id": ORGANIZATION_ID },

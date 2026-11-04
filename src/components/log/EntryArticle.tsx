@@ -3,7 +3,8 @@ import { AskBox } from "@/components/copy/AskBox";
 import type { LogEntry } from "@/lib/log/entries";
 import { formatLogDate } from "@/lib/log/format-date";
 import { emphasize } from "@/lib/log/emphasis";
-import { entryPath } from "@/lib/log/json-ld";
+import { entryActions, writeUpActions } from "@/lib/log/actions";
+import { pagePath } from "@/lib/log/json-ld";
 import { absoluteUrl } from "@/lib/site";
 import { STAGE_LABELS, TYPE_LABELS } from "@/lib/log/types";
 import { EntryBody } from "./EntryBody";
@@ -44,8 +45,11 @@ const ToolContent = ({ entry }: { entry: LogEntry }) => {
   );
 };
 
-export const EntryArticle = ({ entry, related }: { entry: LogEntry; related: readonly LogEntry[] }) => {
-  const path = entryPath(entry.slug);
+type ArticleProps = { entry: LogEntry; related: readonly LogEntry[]; writeUpHref?: string };
+
+export const EntryArticle = ({ entry, related, writeUpHref }: ArticleProps) => {
+  const path = pagePath(entry);
+  const actions = entry.parent ? writeUpActions(entry) : entryActions(entry, writeUpHref);
   const url = absoluteUrl(path);
   return (
     <article>
@@ -54,7 +58,11 @@ export const EntryArticle = ({ entry, related }: { entry: LogEntry; related: rea
           <span className="k">
             <Link href="/log">Splice Log</Link>
             <b>{entry.code}</b>
-            <Link href={`/log/type/${entry.type}`}>{TYPE_LABELS[entry.type]}</Link>
+            {entry.parent ? (
+              <span>Write-up</span>
+            ) : (
+              <Link href={`/log/type/${entry.type}`}>{TYPE_LABELS[entry.type]}</Link>
+            )}
             <Date_ iso={entry.published} />
           </span>
           <span>{entry.readingMinutes} min read</span>
@@ -87,7 +95,7 @@ export const EntryArticle = ({ entry, related }: { entry: LogEntry; related: rea
           </dl>
           <ShareBar url={url} title={entry.title} small />
         </div>
-        <EntryActions entry={entry} />
+        <EntryActions actions={actions} />
       </header>
       <div className="wrap">
         {entry.type === "tool" ? <ToolContent entry={entry} /> : <EntryBody body={entry.body} />}

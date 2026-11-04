@@ -92,3 +92,32 @@ describe("EntryArticle", () => {
     );
   });
 });
+
+describe("EntryArticle with a write-up", () => {
+  const writeUp = makeEntry({
+    type: "research",
+    checked: "2026-11-04",
+    slug: "supadata-write-up",
+    parent: "supadata",
+    code: "LG-00123",
+    title: "Supadata, the write-up",
+    body: "## Limits\n\nText.",
+  });
+
+  it("offers the write-up from the parent entry", () => {
+    const parent = renderToStaticMarkup(
+      <EntryArticle entry={entry} related={[]} writeUpHref="/log/supadata/write-up" />,
+    );
+    expect(parent).toContain('href="/log/supadata/write-up"');
+    expect(parent).toContain("Read the full write-up");
+  });
+
+  it("labels the write-up in the kicker, links back to the entry and shows the parent's code", () => {
+    const page = renderToStaticMarkup(<EntryArticle entry={writeUp} related={[]} />);
+    expect(page).toContain("Write-up");
+    expect(page).toContain("LG-00123");
+    expect(page).toContain('href="/log/supadata"');
+    expect(page).toContain("Back to the entry");
+    expect(page).not.toContain('href="/log/type/research"');
+  });
+});
