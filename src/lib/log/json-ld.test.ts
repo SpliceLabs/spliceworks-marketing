@@ -31,4 +31,10 @@ describe("articleJsonLd", () => {
     const data = articleJsonLd(makeEntry({ description: "A fast model.", lede_em: "fast" }));
     expect(data.description).toBe("A fast model.");
   });
+
+  it("gives a write-up its own address as the main entity", () => {
+    const data = articleJsonLd(makeEntry({ slug: "a-tool-write-up", parent: "a-tool" }));
+    expect(data.mainEntityOfPage).toBe("https://www.spliceops.ai/log/a-tool-write-up");
+    expect(data.image).toBe("https://www.spliceops.ai/log/a-tool-write-up/og.png");
+  });
 });

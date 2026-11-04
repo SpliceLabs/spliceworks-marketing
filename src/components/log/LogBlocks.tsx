@@ -87,17 +87,59 @@ const BlockView = ({ block }: { block: Block }): ReactNode => {
           <code>{block.text}</code>
         </pre>
       );
+    case "image":
+      return <ImageView block={block} />;
     case "cta":
     case "hr":
       return null;
   }
 };
 
+type ImageBlock = Extract<Block, { t: "image" }>;
+
+const ImageView = ({ block }: { block: ImageBlock }) => (
+  <figure className={block.scroll ? "lg-figure lg-figure-scroll" : "lg-figure"}>
+    {block.scroll ? (
+      <div className="lg-frame" tabIndex={0}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={block.src} alt={block.alt} loading="lazy" />
+      </div>
+    ) : (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img src={block.src} alt={block.alt} loading="lazy" />
+    )}
+    <figcaption>
+      <span>{block.caption}</span>
+      <a href={block.src}>Open full size</a>
+    </figcaption>
+  </figure>
+);
+
+const isScrollImage = (block: Block): block is ImageBlock => block.t === "image" && block.scroll;
+
+type Segment = { readonly row: boolean; readonly blocks: readonly Block[] };
+
+const segments = (blocks: readonly Block[]): readonly Segment[] =>
+  blocks.reduce<readonly Segment[]>((acc, block) => {
+    const last = acc[acc.length - 1];
+    const scroll = isScrollImage(block);
+    if (scroll && last?.row) return [...acc.slice(0, -1), { row: true, blocks: [...last.blocks, block] }];
+    return [...acc, { row: scroll, blocks: [block] }];
+  }, []);
+
 export const LogBlocks = ({ blocks }: { blocks: readonly Block[] }) => (
   <>
-    {blocks.map((block, index) => (
-      <BlockView key={index} block={block} />
-    ))}
+    {segments(blocks).map((segment, index) =>
+      segment.row ? (
+        <div key={index} className="lg-figure-row">
+          {segment.blocks.map((block, at) => (
+            <BlockView key={at} block={block} />
+          ))}
+        </div>
+      ) : (
+        <BlockView key={index} block={segment.blocks[0]} />
+      ),
+    )}
   </>
 );
 

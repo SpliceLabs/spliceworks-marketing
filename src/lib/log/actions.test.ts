@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { entryActions } from "./actions";
+import { entryActions, writeUpActions } from "./actions";
 import { makeEntry } from "./test-support";
 
 const tool = (body: string) => makeEntry({ type: "tool", checked: "2026-11-01", body });
@@ -28,5 +28,25 @@ describe("entryActions", () => {
     ]);
     expect(entryActions(makeEntry({ type: "launch", disclosure: "x" }))).toEqual([]);
     expect(entryActions(makeEntry({ type: "guide" }))).toEqual([]);
+  });
+});
+
+describe("write-up buttons", () => {
+  it("adds Read the full write-up to a parent that has one", () => {
+    const entry = makeEntry({ type: "guide" });
+    expect(entryActions(entry, "/log/a-guide-write-up")).toEqual([
+      { label: "Read the full write-up", href: "/log/a-guide-write-up", style: "ghost", down: false },
+    ]);
+  });
+
+  it("gives a write-up a way back to its entry, and a jump to its examples when it has them", () => {
+    const writeUp = makeEntry({ slug: "a-guide-write-up", parent: "a-guide", body: "## Examples of the output\n\nA." });
+    expect(writeUpActions(writeUp)).toEqual([
+      { label: "Back to the entry", href: "/log/a-guide", style: "primary", down: false },
+      { label: "See the examples", href: "#examples-of-the-output", style: "ghost", down: true },
+    ]);
+    expect(writeUpActions({ ...writeUp, body: "## Limits\n\nA." }).map((action) => action.label)).toEqual([
+      "Back to the entry",
+    ]);
   });
 });

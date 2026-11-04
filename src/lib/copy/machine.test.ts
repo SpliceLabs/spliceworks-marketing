@@ -61,4 +61,32 @@ describe("machine-readable site", () => {
     expect(log.feed).toBe("https://www.spliceops.ai/log/feed.xml");
     expect(log.entries[0]).toMatchObject({ code: "LG-00119", url: "https://www.spliceops.ai/log/supadata" });
   });
+
+  describe("write-ups", () => {
+    const tool = makeEntry({ slug: "a-tool", title: "A tool", code: "LG-00007", type: "tool", checked: "2026-11-04" });
+    const writeUp = makeEntry({
+      slug: "a-tool-write-up",
+      parent: "a-tool",
+      title: "A tool, the write-up",
+      code: "LG-00007",
+      type: "research",
+      checked: "2026-11-04",
+      body: "Long form with ![Mockup](/log/a-tool/one.png){scroll}.",
+    });
+
+    it("lists a write-up in llms.txt as a write-up, with its parent's code", () => {
+      expect(llmsTxt([tool, writeUp])).toContain(
+        "- [A tool, the write-up](https://www.spliceops.ai/log/a-tool-write-up): Write-up, LG-00007.",
+      );
+    });
+
+    it("gives agents the write-up's full text and its parent's address in llms-full.txt", () => {
+      const full = llmsFullTxt([tool, writeUp]);
+      expect(full).toContain("URL: https://www.spliceops.ai/log/a-tool-write-up");
+      expect(full).toContain("Type: Write-up");
+      expect(full).toContain("Parent: https://www.spliceops.ai/log/a-tool");
+      expect(full).toContain("![Mockup](https://www.spliceops.ai/log/a-tool/one.png).");
+      expect(full).not.toContain("{scroll}");
+    });
+  });
 });

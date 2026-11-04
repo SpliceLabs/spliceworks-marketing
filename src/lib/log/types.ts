@@ -10,6 +10,9 @@ export const TYPE_LABELS: Readonly<Record<EntryType, string>> = {
   launch: "Launch",
 };
 
+export const entryTypeLabel = (entry: { readonly type: EntryType; readonly parent?: string }): string =>
+  entry.parent ? "Write-up" : TYPE_LABELS[entry.type];
+
 export const TYPE_PLURALS: Readonly<Record<EntryType, string>> = {
   tool: "Tools",
   case: "Cases",

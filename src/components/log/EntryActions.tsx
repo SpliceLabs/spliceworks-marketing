@@ -1,6 +1,5 @@
 import Link from "next/link";
-import type { LogEntry } from "@/lib/log/entries";
-import { entryActions } from "@/lib/log/actions";
+import type { EntryAction } from "@/lib/log/actions";
 
 const ArrowDown = () => (
   <svg
@@ -16,8 +15,7 @@ const ArrowDown = () => (
   </svg>
 );
 
-export const EntryActions = ({ entry }: { entry: LogEntry }) => {
-  const actions = entryActions(entry);
+export const EntryActions = ({ actions }: { actions: readonly EntryAction[] }) => {
   if (actions.length === 0) return null;
   return (
     <div className="lf2-ctas">

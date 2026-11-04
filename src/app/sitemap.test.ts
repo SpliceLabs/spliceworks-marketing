@@ -22,4 +22,13 @@ describe("sitemap", () => {
   it("stamps every entry with a last-modified date", () => {
     expect(sitemap([]).every((e) => e.lastModified instanceof Date)).toBe(true);
   });
+
+  it("lists a write-up at its own flat address, not under its parent", () => {
+    const urls = sitemap([
+      makeEntry({ slug: "supadata" }),
+      makeEntry({ slug: "supadata-write-up", parent: "supadata" }),
+    ]).map((e) => e.url);
+    expect(urls).toContain("https://www.spliceops.ai/log/supadata-write-up");
+    expect(urls).not.toContain("https://www.spliceops.ai/log/supadata/write-up");
+  });
 });

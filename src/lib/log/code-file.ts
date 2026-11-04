@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { assignCodes } from "./code";
-import { loadEntries } from "./entries";
+import { isWriteUp, loadEntries } from "./entries";
 
 export const withCode = (source: string, code: string): string => {
   const lines = source.split("\n");
@@ -21,7 +21,7 @@ export const withCode = (source: string, code: string): string => {
 };
 
 export const writeMissingCodes = (dir: string): readonly string[] =>
-  assignCodes(loadEntries(dir, { requireCodes: false })).map(({ slug, code }) => {
+  assignCodes(loadEntries(dir, { requireCodes: false }).filter((entry) => !isWriteUp(entry))).map(({ slug, code }) => {
     const file = path.join(dir, `${slug}.md`);
     const temporary = `${file}.tmp`;
     fs.writeFileSync(temporary, withCode(fs.readFileSync(file, "utf8"), code));

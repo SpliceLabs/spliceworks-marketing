@@ -67,3 +67,14 @@ describe("writeMissingCodes", () => {
     expect(fs.readdirSync(dir)).toEqual(["a.md"]);
   });
 });
+
+describe("writeMissingCodes with write-ups", () => {
+  it("gives codes to top-level entries and leaves a write-up without one", () => {
+    const dir = folder({
+      "a-tool.md": source(),
+      "a-tool-write-up.md": source({ type: "research", checked: "2026-11-04", parent: "a-tool" }),
+    });
+    expect(writeMissingCodes(dir)).toEqual(["a-tool.md"]);
+    expect(fs.readFileSync(path.join(dir, "a-tool-write-up.md"), "utf8")).not.toMatch(/^code:/m);
+  });
+});

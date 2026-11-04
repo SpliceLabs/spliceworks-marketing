@@ -15,6 +15,27 @@ const RESERVED_SLUGS = ["type", "stage", "feed"];
 const SLUG_PATTERN = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const FRONTMATTER_BLOCK = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/;
 
+export const isWriteUp = (entry: LogEntry): boolean => Boolean(entry.parent);
+
+export const topLevelEntries = (entries: readonly LogEntry[]): readonly LogEntry[] =>
+  entries.filter((entry) => !isWriteUp(entry));
+
+export const writeUpOf = (slug: string, entries: readonly LogEntry[]): LogEntry | undefined => {
+  const parent = topLevelEntries(entries).find((entry) => entry.slug === slug);
+  const child = entries.find((entry) => entry.parent === slug);
+  return parent && child ? { ...child, code: parent.code } : undefined;
+};
+
+export const allPages = (entries: readonly LogEntry[]): readonly LogEntry[] =>
+  entries.flatMap((entry) => {
+    if (!isWriteUp(entry)) return [entry];
+    const parent = topLevelEntries(entries).find(({ slug }) => slug === entry.parent);
+    return parent ? [{ ...entry, code: parent.code }] : [];
+  });
+
+export const livePages = (entries: readonly LogEntry[], today: string): readonly LogEntry[] =>
+  allPages(liveEntries(entries, today));
+
 export const todayUtc = (now: Date = new Date()): string => now.toISOString().slice(0, 10);
 
 const fail = (slug: string, problems: readonly string[]): never => {
@@ -45,7 +66,7 @@ export const liveEntries = (entries: readonly LogEntry[], today: string): readon
 type LoadOptions = { readonly requireCodes?: boolean };
 
 const verifyCodes = (entries: readonly LogEntry[]): void => {
-  const { missing, malformed, duplicates } = codeProblems(entries);
+  const { missing, malformed, duplicates } = codeProblems(entries.filter((entry) => !isWriteUp(entry)));
   const problems = [
     ...missing.map((slug) => `missing code in ${slug} (run pnpm log:codes)`),
     ...malformed.map((slug) => `malformed code in ${slug}`),
@@ -62,6 +83,23 @@ const verifyRelated = (entries: readonly LogEntry[]): void => {
   if (unknown.length) throw new Error(`Log related entries that do not exist: ${unknown.join("; ")}`);
 };
 
+const verifyParents = (entries: readonly LogEntry[]): void => {
+  const bySlug = new Map(entries.map((entry) => [entry.slug, entry]));
+  const writeUps = entries.filter(isWriteUp);
+  const problems = [
+    ...writeUps.flatMap(({ slug, parent = "" }) => {
+      const target = bySlug.get(parent);
+      if (!target) return [`${slug} names a parent that does not exist: ${parent}`];
+      return isWriteUp(target) ? [`${slug} hangs off ${parent}, which is itself a write-up`] : [];
+    }),
+    ...[...new Set(writeUps.map((entry) => entry.parent))].flatMap((parent) => {
+      const slugs = writeUps.filter((entry) => entry.parent === parent).map((entry) => entry.slug);
+      return slugs.length > 1 ? [`${parent} has more than one write-up: ${slugs.join(" and ")}`] : [];
+    }),
+  ];
+  if (problems.length) throw new Error(`Log write-ups: ${problems.join("; ")}`);
+};
+
 export const loadEntries = (dir: string, options: LoadOptions = {}): readonly LogEntry[] => {
   const { requireCodes = true } = options;
   const entries = fs
@@ -70,6 +108,7 @@ export const loadEntries = (dir: string, options: LoadOptions = {}): readonly Lo
     .map((file) => parseEntry(file.slice(0, -3), fs.readFileSync(path.join(dir, file), "utf8")));
   if (requireCodes) verifyCodes(entries);
   verifyRelated(entries);
+  verifyParents(entries);
   return sortNewestFirst(entries);
 };
 

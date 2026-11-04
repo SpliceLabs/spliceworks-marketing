@@ -7,6 +7,7 @@ import { inlineText, type Block, type Inline } from "./markdown";
 import { absoluteUrl as absUrl, SITE_URL } from "@/lib/site";
 import { PAGES, getPage } from "./pages";
 import { getFaq } from "./faq";
+import { absolutizeLinks, machineBody } from "./absolutize";
 import {
   CONSERVATIVE_SHARE,
   COST_OF_DELAY_DEFAULTS,
@@ -17,17 +18,15 @@ import {
 import { AI_ROI, aiRoi } from "@/lib/tools/ai-roi";
 import type { LogEntry } from "@/lib/log/entries";
 import { entryPath } from "@/lib/log/json-ld";
-import { STAGE_LABELS, TYPE_LABELS } from "@/lib/log/types";
+import { entryFacts } from "@/lib/log/markdown-copy";
+import { entryTypeLabel } from "@/lib/log/types";
 
 /** SEO title without the " | SpliceOps" suffix, for link text. */
 export function shortTitle(urlPath: string): string {
   return getPage(urlPath).fm.title.replace(/\s*\|\s*SpliceOps$/, "");
 }
 
-/** Markdown with site-relative links made absolute, for agents reading it off-site. */
-export function absolutizeLinks(md: string): string {
-  return md.replace(/\]\(\//g, `](${SITE_URL}/`).replace(/→ \/([a-z0-9/-]*)/g, (_, p) => `→ ${SITE_URL}/${p}`);
-}
+export { absolutizeLinks };
 
 const GROUPS: { title: string; paths: string[] }[] = [
   { title: "Start here", paths: ["/", "/how-it-works", "/book"] },
@@ -64,7 +63,7 @@ const logLines = (entries: readonly LogEntry[]): string[] =>
         `- [RSS feed](${absUrl("/log/feed.xml")})`,
         ...entries.map(
           (entry) =>
-            `- [${entry.title}](${absUrl(entryPath(entry.slug))}): ${TYPE_LABELS[entry.type]}, ${entry.code}. ${entry.description}`,
+            `- [${entry.title}](${absUrl(entryPath(entry.slug))}): ${entryTypeLabel(entry)}, ${entry.code}. ${entry.description}`,
         ),
         "",
       ];
@@ -129,19 +128,15 @@ export function llmsFullTxt(entries: readonly LogEntry[] = []): string {
     );
   }
   for (const entry of entries) {
+    const [url, ...facts] = entryFacts(entry);
     parts.push(
       "---",
       "",
-      `URL: ${absUrl(entryPath(entry.slug))}`,
+      `${url[0]}: ${url[1]}`,
       `Title: ${entry.title}`,
-      `Code: ${entry.code}`,
-      `Type: ${TYPE_LABELS[entry.type]}`,
-      `Stage: ${STAGE_LABELS[entry.stage]}`,
-      `Published: ${entry.published}`,
-      ...(entry.updated ? [`Updated: ${entry.updated}`] : []),
-      `Description: ${entry.description}`,
+      ...facts.map(([key, value]) => `${key}: ${value}`),
       "",
-      absolutizeLinks(entry.body),
+      machineBody(entry.body),
       "",
     );
   }

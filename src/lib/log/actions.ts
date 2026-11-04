@@ -1,4 +1,5 @@
 import type { LogEntry } from "./entries";
+import { entryPath } from "./json-ld";
 import { splitSections } from "./sections";
 
 export type EntryAction = {
@@ -22,8 +23,27 @@ const toolActions = (entry: LogEntry): readonly EntryAction[] => {
 const launchActions = (entry: LogEntry): readonly EntryAction[] =>
   entry.cta ? [{ label: entry.cta.label, href: entry.cta.href, style: "primary", down: false }] : [];
 
-export const entryActions = (entry: LogEntry): readonly EntryAction[] => {
+const typeActions = (entry: LogEntry): readonly EntryAction[] => {
   if (entry.type === "tool") return toolActions(entry);
   if (entry.type === "launch") return launchActions(entry);
   return [];
+};
+
+export const entryActions = (entry: LogEntry, writeUpHref?: string): readonly EntryAction[] => [
+  ...typeActions(entry),
+  ...(writeUpHref
+    ? [{ label: "Read the full write-up", href: writeUpHref, style: "ghost" as const, down: false }]
+    : []),
+];
+
+export const EXAMPLES_HEADING = "Examples of the output";
+
+export const writeUpActions = (writeUp: LogEntry): readonly EntryAction[] => {
+  const examples = splitSections(writeUp.body).sections.find((section) => section.heading === EXAMPLES_HEADING);
+  return [
+    { label: "Back to the entry", href: entryPath(writeUp.parent ?? ""), style: "primary", down: false },
+    ...(examples
+      ? [{ label: "See the examples", href: `#${examples.slug}`, style: "ghost" as const, down: true }]
+      : []),
+  ];
 };
