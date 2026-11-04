@@ -39,7 +39,7 @@ describe("Website Terms of Use", () => {
 
   it("names the brand and the legal entity that operates the site", () => {
     expect(sectionBody("About SpliceOps")).toContain(
-      "SpliceOps is a brand owned and operated by Splice Labs Group, Inc., 19120 Sweet Clover Ln, Tampa, FL 33647.",
+      "SpliceOps is a brand owned and operated by Splice Labs Group, Inc., a Delaware corporation headquartered at 19120 Sweet Clover Ln, Tampa, FL 33647.",
     );
   });
 
@@ -64,16 +64,21 @@ describe("Website Terms of Use", () => {
     expect(sectionBody("Disclaimer")).toContain("does not constitute legal, financial");
   });
 
-  it("caps liability at the greater of $100 and what you paid for the website", () => {
+  it("caps liability at $100, since the website is free", () => {
     const body = sectionBody("Limitation of liability");
-    expect(body).toContain("$100");
-    expect(body).toContain("12 months");
+    expect(body).toContain("will not exceed $100");
+    expect(body).not.toContain("12 months");
   });
 
-  it("is governed by Florida law with Hillsborough County courts", () => {
+  it("is governed by Delaware law with courts in Hillsborough County, Florida", () => {
     const body = sectionBody("Governing law and disputes");
-    expect(body).toContain("State of Florida");
+    expect(body).toContain("State of Delaware");
     expect(body).toContain("Hillsborough County");
+    expect(body).not.toContain("State of Florida");
+  });
+
+  it("names the company as a Delaware corporation in the contact block", () => {
+    expect(sectionBody("Contact")).toContain("Splice Labs Group, Inc., a Delaware corporation");
   });
 
   it("links the privacy policy and keeps the open items for counsel", () => {

@@ -9,7 +9,7 @@ effective: 4 November 2026
 company: Splice Labs Group, Inc.
 location: Florida, United States
 sources: [Codos, Flowscope and Agentic Dream terms as plain-language models]
-open: [Counsel review, Governing law and venue, Liability cap amount, Indemnification scope, Splice Labs Group state of incorporation for the contact block]
+open: [Counsel review, Governing law and venue, Indemnification scope]
 ---
 
 # Website Terms of Use
@@ -18,7 +18,7 @@ These Website Terms of Use (“Terms”) govern your access to and use of the Sp
 
 ## About SpliceOps
 
-SpliceOps is a brand owned and operated by Splice Labs Group, Inc., 19120 Sweet Clover Ln, Tampa, FL 33647. In these Terms, “we,” “us,” and “our” mean Splice Labs Group, Inc.
+SpliceOps is a brand owned and operated by Splice Labs Group, Inc., a Delaware corporation headquartered at 19120 Sweet Clover Ln, Tampa, FL 33647. In these Terms, “we,” “us,” and “our” mean Splice Labs Group, Inc.
 
 ## Website only
 
@@ -91,10 +91,7 @@ Website content does not constitute legal, financial, employment, tax, or other 
 
 To the fullest extent permitted by law, we and our officers, directors, employees, contractors, and affiliates will not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, or for lost profits, revenue, data, goodwill, or business opportunities arising from or relating to the website.
 
-Our total liability arising from or relating to the website will not exceed the greater of:
-
-- $100; or
-- the amount you paid directly to us specifically for use of the public website during the 12 months preceding the event giving rise to the claim.
+Our total liability arising from or relating to the website will not exceed $100.
 
 These limitations do not apply where prohibited by law or to liability governed by a separate written agreement.
 
@@ -110,7 +107,7 @@ We may also update these Terms. The updated Terms become effective when posted, 
 
 ## Governing law and disputes
 
-These Terms are governed by the laws of the State of Florida, without regard to conflict-of-law principles.
+These Terms are governed by the laws of the State of Delaware, without regard to conflict-of-law principles.
 
 Any dispute relating to these Terms or the website will be brought exclusively in the state courts located in Hillsborough County, Florida, or the federal courts for the Middle District of Florida, and each party consents to their jurisdiction and venue.
 
@@ -126,4 +123,4 @@ These Terms, together with our [Privacy Policy](/privacy), are the entire agreem
 
 ## Contact
 
-Questions about these Terms may be sent to {{contact_email}}, or by post to Splice Labs Group, Inc., 19120 Sweet Clover Ln, Tampa, FL 33647.
+Questions about these Terms may be sent to {{contact_email}}, or by post to Splice Labs Group, Inc., a Delaware corporation, 19120 Sweet Clover Ln, Tampa, FL 33647.
