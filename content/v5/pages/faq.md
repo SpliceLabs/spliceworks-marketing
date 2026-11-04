@@ -100,6 +100,32 @@ Yes. No vendor lock-in: bring your own agents or use ours, and swap them wheneve
 
 The ability to run it yourself. Your team knows how to manage what we installed and can keep improving it without us.
 
+## Fractional leadership
+
+### What is the difference between the seat and an AI consultant?
+
+A consultant delivers recommendations and leaves. The seat sits on your leadership team and answers for outcomes you agree in writing each quarter, including the ones that need your people to change how they work.
+
+### Does the seat replace our CIO or CTO?
+
+No. Your CIO or CTO keeps the systems. The seat owns the AI mandate beside them: the plan, the spend, who decides what and the first results.
+
+### How much time do we get?
+
+We agree it with you in the mandate, not as a package. The seat is heaviest at the start and lightens as your own people take over. Advisory is different: a standing call, weekly or twice a week, with answers between calls.
+
+### Can we start with advisory?
+
+Yes. Advisory is a standing call, weekly or twice a week, with answers between calls. It can turn into a seat when you're ready.
+
+### How does a fractional seat end?
+
+The end is written into the plan from the first quarter. At each quarterly review you renew, expand into an engagement, or hand over: to a permanent hire we help you define, to an executive you already have, or to advisory.
+
+### When should we hire a full-time AI executive instead?
+
+When AI is your product and decisions on it come every day, or when the role has to hold headcount and a budget of its own. If that's you, we'll say so, and we can write the mandate for the hire.
+
 ## The cost of waiting on AI
 
 ### What is the cost of delay for AI?

@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { getFaq, pageFaqIds } from "./faq";
 import { capabilities } from "./machine";
 import { getPage } from "./pages";
 
@@ -48,5 +49,21 @@ describe("Fractional leadership overview", () => {
 
   it("uses no em or en dashes", () => {
     expect(raw).not.toMatch(/[–—]/);
+  });
+
+  it("answers the questions buyers ask about the seat in a Fractional leadership FAQ category", () => {
+    const category = getFaq().categories.find((c) => c.id === "fractional-leadership");
+    expect(category?.entries.map((e) => e.question)).toEqual([
+      "What is the difference between the seat and an AI consultant?",
+      "Does the seat replace our CIO or CTO?",
+      "How much time do we get?",
+      "Can we start with advisory?",
+      "How does a fractional seat end?",
+      "When should we hire a full-time AI executive instead?",
+    ]);
+  });
+
+  it("repeats those answers on the page, word for word", () => {
+    expect(pageFaqIds(PATH)).toHaveLength(9);
   });
 });
