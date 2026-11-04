@@ -102,12 +102,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: `
               (function() {
                 try {
-                  var theme = localStorage.getItem('sw-theme');
+                  var theme = localStorage.getItem('so-theme');
                   if (!theme) {
                     theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'ink' : 'paper';
                   }
                   document.documentElement.setAttribute('data-theme', theme);
-                  var mode = localStorage.getItem('sw-mode') || 'human';
+                  var mode = localStorage.getItem('so-mode') || 'human';
                   document.documentElement.setAttribute('data-mode', mode);
                 } catch (e) {}
               })();

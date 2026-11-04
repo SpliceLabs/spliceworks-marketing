@@ -14,7 +14,7 @@ interface ModeContextValue {
 
 const ModeContext = createContext<ModeContextValue | undefined>(undefined);
 
-const STORAGE_KEY = "sw-mode";
+const STORAGE_KEY = "so-mode";
 
 // External store for mode
 let currentMode: Mode = "human";

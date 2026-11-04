@@ -1,6 +1,6 @@
 export type Consent = "unset" | "granted" | "denied";
 
-export const CONSENT_KEY = "sw-consent";
+export const CONSENT_KEY = "so-consent";
 
 const isChoice = (value: string | null): value is "granted" | "denied" => value === "granted" || value === "denied";
 

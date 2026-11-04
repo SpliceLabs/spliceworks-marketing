@@ -78,12 +78,16 @@ describe("Site footer", () => {
     expect(out()).toContain("hello@spliceops.ai");
   });
 
-  it("links the terms", () => {
-    expect(out()).toContain('<a href="/terms">Terms</a>');
+  it("groups the legal pages under a Legal heading, in order", () => {
+    expect(out()).toContain(
+      '<h2 class="fh">Legal</h2><ul><li><a href="/privacy">Privacy</a></li><li><a href="/terms">Terms</a></li><li><a href="/cookies">Cookie Policy</a></li></ul>',
+    );
   });
 
-  it("links the privacy notice", () => {
-    expect(out()).toContain('<a href="/privacy">Privacy</a>');
+  it("keeps the legal pages out of the Company column", () => {
+    const company = out().split('<h2 class="fh">Company</h2>')[1].split("</ul>")[0];
+    expect(company).not.toContain("/privacy");
+    expect(company).not.toContain("/terms");
   });
 
   it("lets visitors reopen their cookie choice from the footer", () => {
