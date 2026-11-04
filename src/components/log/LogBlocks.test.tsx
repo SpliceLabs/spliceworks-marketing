@@ -75,3 +75,20 @@ describe("EntryBody", () => {
     expect(out).toContain("curl &lt;url&gt; &amp;&amp; echo ok");
   });
 });
+
+describe("images", () => {
+  const html = renderToStaticMarkup(
+    <EntryBody body={'## Examples\n\n![An email mockup](/log/a/one.png "E1 · Candy video")'} />,
+  );
+
+  it("shows the image with its alt text and caption", () => {
+    expect(html).toMatch(
+      /<img[^>]*src="\/log\/a\/one\.png"[^>]*alt="An email mockup"|<img[^>]*alt="An email mockup"[^>]*src="\/log\/a\/one\.png"/,
+    );
+    expect(html).toContain("E1 · Candy video");
+  });
+
+  it("links to the full-size image", () => {
+    expect(html).toMatch(/<a[^>]*href="\/log\/a\/one\.png"[^>]*>Open full size<\/a>/);
+  });
+});

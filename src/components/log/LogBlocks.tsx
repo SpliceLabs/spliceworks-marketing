@@ -87,6 +87,17 @@ const BlockView = ({ block }: { block: Block }): ReactNode => {
           <code>{block.text}</code>
         </pre>
       );
+    case "image":
+      return (
+        <figure className="lg-figure">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={block.src} alt={block.alt} loading="lazy" />
+          <figcaption>
+            <span>{block.caption}</span>
+            <a href={block.src}>Open full size</a>
+          </figcaption>
+        </figure>
+      );
     case "cta":
     case "hr":
       return null;

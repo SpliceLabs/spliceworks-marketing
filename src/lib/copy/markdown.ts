@@ -32,6 +32,7 @@ export type Block =
   | { t: "list"; ordered: boolean; items: ListItem[]; raw: string }
   | { t: "table"; head: Inline[][]; rows: Inline[][][]; raw: string }
   | { t: "hr"; raw: string }
+  | { t: "image"; alt: string; src: string; caption: string; raw: string }
   /** A fenced code block, kept verbatim. */
   | { t: "code"; lang: string; text: string; raw: string }
   /** `**Book a working session** → /book` (or `(submits the form)`), plus the lines under it. */
@@ -210,13 +211,20 @@ function paraOrCta(lines: string[]): Block {
   return { t: "para", lines: lines.map(parseInline), raw };
 }
 
+const IMAGE_RE = /^!\[([^\]]*)\]\((\S+?)(?:\s+"([^"]*)")?\)$/;
+
 export function parseBlocks(body: string): Block[] {
   const lines = body.replace(/\r\n/g, "\n").split("\n");
   const blocks: Block[] = [];
   let i = 0;
   const isBlank = (l: string) => l.trim() === "";
   const startsBlock = (l: string) =>
-    FENCE_RE.test(l.trim()) || HEADING_RE.test(l) || HR_RE.test(l) || l.trim().startsWith("|") || LIST_RE.test(l);
+    FENCE_RE.test(l.trim()) ||
+    IMAGE_RE.test(l.trim()) ||
+    HEADING_RE.test(l) ||
+    HR_RE.test(l) ||
+    l.trim().startsWith("|") ||
+    LIST_RE.test(l);
 
   while (i < lines.length) {
     const line = lines[i];
@@ -231,6 +239,9 @@ export function parseBlocks(body: string): Block[] {
       while (i < lines.length && !FENCE_RE.test(lines[i].trim())) code.push(lines[i++]);
       i++;
       blocks.push({ t: "code", lang: m[1], text: code.join("\n"), raw: code.join("\n") });
+    } else if ((m = IMAGE_RE.exec(line.trim()))) {
+      blocks.push({ t: "image", alt: m[1], src: m[2], caption: m[3] ?? "", raw: line.trim() });
+      i++;
     } else if ((m = HEADING_RE.exec(line))) {
       blocks.push({ t: "heading", level: m[1].length, c: parseInline(m[2].trim()), raw: m[2].trim() });
       i++;
