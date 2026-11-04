@@ -18,7 +18,7 @@ SpliceOps (“we,” “us,” or “our”) respects your privacy. This policy 
 
 ## Who we are
 
-SpliceOps is a brand owned and operated by Splice Labs Group, Inc., 19120 Sweet Clover Ln, Tampa, FL 33647, which is responsible for your data on this site. Questions or requests: {{contact_email}}.
+SpliceOps is a brand owned and operated by Splice Labs Group, Inc., a Delaware corporation headquartered at 19120 Sweet Clover Ln, Tampa, FL 33647, which is responsible for your data on this site. Questions or requests: {{contact_email}}.
 
 ## Information we collect
 

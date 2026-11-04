@@ -3,7 +3,7 @@ import { InlineLines, InlineNodes } from "./Inline";
 import { getPage } from "@/lib/copy/pages";
 import type { Block } from "@/lib/copy/markdown";
 
-const LEGAL_PATHS = ["/privacy"] as const;
+const LEGAL_PATHS = ["/privacy", "/terms"] as const;
 
 const pad = (n: number) => String(n).padStart(2, "0");
 

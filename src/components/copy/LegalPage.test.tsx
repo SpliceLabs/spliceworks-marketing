@@ -38,4 +38,11 @@ describe("LegalPage", () => {
   it("fills in the contact email", () => {
     expect(render()).toContain("hello@spliceops.ai");
   });
+
+  it("numbers the Terms as the second legal page", () => {
+    const html = renderToStaticMarkup(<LegalPage path="/terms" />);
+    expect(html).toContain("Legal / 02</p>");
+    expect(html).toContain('<h1 class="display">Website Terms of Use</h1>');
+    expect(html).toContain('<a href="#website-only"><b>02</b><span>Website only</span></a>');
+  });
 });

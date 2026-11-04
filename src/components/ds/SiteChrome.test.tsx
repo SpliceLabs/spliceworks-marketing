@@ -78,6 +78,10 @@ describe("Site footer", () => {
     expect(out()).toContain("hello@spliceops.ai");
   });
 
+  it("links the terms", () => {
+    expect(out()).toContain('<a href="/terms">Terms</a>');
+  });
+
   it("links the privacy notice", () => {
     expect(out()).toContain('<a href="/privacy">Privacy</a>');
   });

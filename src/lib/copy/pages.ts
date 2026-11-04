@@ -46,6 +46,7 @@ export const PAGES: PageEntry[] = [
   { path: "/book", file: "book.md" },
   { path: "/faq", file: "faq.md" },
   { path: "/privacy", file: "privacy.md" },
+  { path: "/terms", file: "terms.md" },
   { path: "/station", file: "station.md" },
   { path: "/tools", file: "tools/index.md" },
   { path: "/tools/ai-cost-of-delay", file: "tools/ai-cost-of-delay.md", group: TOOLS },

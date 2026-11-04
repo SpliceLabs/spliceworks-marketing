@@ -51,6 +51,7 @@ const COLUMNS: readonly Column[] = [
       ["Splice Log", "/log"],
       ["FAQ", "/faq"],
       ["Privacy", "/privacy"],
+      ["Terms", "/terms"],
     ],
   },
   {
