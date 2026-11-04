@@ -50,6 +50,6 @@ describe("LegalPage", () => {
     const html = renderToStaticMarkup(<LegalPage path="/cookies" />);
     expect(html).toContain("Legal / 03</p>");
     expect(html).toContain('<h1 class="display">Cookie Policy</h1>');
-    expect(html).toContain("<code>sw-theme</code>");
+    expect(html).toContain("<code>so-theme</code>");
   });
 });

@@ -12,7 +12,7 @@ interface ThemeContextValue {
 
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
-const STORAGE_KEY = "sw-theme";
+const STORAGE_KEY = "so-theme";
 
 // External store for theme
 let currentTheme: Theme = "paper";

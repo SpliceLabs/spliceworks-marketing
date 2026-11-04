@@ -26,9 +26,9 @@ We use a small amount of local storage to make the site work the way you left it
 
 | Name | What it does | How long |
 |---|---|---|
-| `sw-theme` | Remembers your Paper or Ink theme | Until you clear your browser data |
-| `sw-mode` | Remembers your reading mode | Until you clear your browser data |
-| `sw-consent` | Remembers your Accept or Decline choice | Until you clear your browser data |
+| `so-theme` | Remembers your Paper or Ink theme | Until you clear your browser data |
+| `so-mode` | Remembers your reading mode | Until you clear your browser data |
+| `so-consent` | Remembers your Accept or Decline choice | Until you clear your browser data |
 
 ## Visitor identification
 

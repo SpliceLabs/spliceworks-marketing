@@ -38,7 +38,7 @@ describe("Cookie Policy", () => {
       .find((s) => s.titleText === "What we use")
       ?.blocks.flatMap((b) => (b.t === "table" ? b.rows : []))
       .map((row) => row.map((cell) => cell.map((i) => (i.t === "code" ? i.v : "")).join("")).join(""));
-    expect(rows).toEqual(["sw-theme", "sw-mode", "sw-consent"]);
+    expect(rows).toEqual(["so-theme", "so-mode", "so-consent"]);
     expect(sectionBody("What we use")).toContain("never reach our servers");
   });
 
