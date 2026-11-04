@@ -19,6 +19,7 @@ export interface PageEntry {
 }
 
 const SERVICES = { label: "Services", href: "/services" };
+const FRACTIONAL = { label: "Fractional leadership", href: "/services/fractional" };
 const FOR = { label: "Who it's for", href: "/for" };
 const INDUSTRIES = { label: "Industries", href: "/industries" };
 const TOOLS = { label: "Free tools", href: "/tools" };
@@ -30,6 +31,8 @@ export const PAGES: PageEntry[] = [
   { path: "/services/ai-enabled", file: "services/ai-enabled.md", group: SERVICES },
   { path: "/services/ai-native", file: "services/ai-native.md", group: SERVICES },
   { path: "/services/fractional", file: "services/fractional.md", group: SERVICES },
+  { path: "/services/fractional/chief-ai-officer", file: "services/fractional/chief-ai-officer.md", group: FRACTIONAL },
+  { path: "/services/fractional/cpto-cto", file: "services/fractional/cpto-cto.md", group: FRACTIONAL },
   { path: "/for", file: "for/index.md" },
   { path: "/for/ceos-and-boards", file: "for/ceos-and-boards.md", group: FOR },
   { path: "/for/technology-leaders", file: "for/technology-leaders.md", group: FOR },

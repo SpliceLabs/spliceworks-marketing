@@ -31,7 +31,17 @@ export function absolutizeLinks(md: string): string {
 
 const GROUPS: { title: string; paths: string[] }[] = [
   { title: "Start here", paths: ["/", "/how-it-works", "/book"] },
-  { title: "Services", paths: ["/services", "/services/ai-enabled", "/services/ai-native", "/services/fractional"] },
+  {
+    title: "Services",
+    paths: [
+      "/services",
+      "/services/ai-enabled",
+      "/services/ai-native",
+      "/services/fractional",
+      "/services/fractional/chief-ai-officer",
+      "/services/fractional/cpto-cto",
+    ],
+  },
   {
     title: "Who it's for",
     paths: [
