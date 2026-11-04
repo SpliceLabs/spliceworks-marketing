@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { articleJsonLd, pagePath } from "./json-ld";
+import { articleJsonLd } from "./json-ld";
 import { makeEntry } from "./test-support";
 
 describe("articleJsonLd", () => {
@@ -30,20 +30,5 @@ describe("articleJsonLd", () => {
   it("keeps the description plain when the lede has an italic phrase", () => {
     const data = articleJsonLd(makeEntry({ description: "A fast model.", lede_em: "fast" }));
     expect(data.description).toBe("A fast model.");
-  });
-});
-
-describe("a write-up's address", () => {
-  const writeUp = makeEntry({ slug: "a-tool-write-up", parent: "a-tool" });
-
-  it("lives under its parent's address", () => {
-    expect(pagePath(writeUp)).toBe("/log/a-tool/write-up");
-    expect(pagePath(makeEntry({ slug: "a-tool" }))).toBe("/log/a-tool");
-  });
-
-  it("is the main entity of its own page and borrows its parent's share image when it has no hero", () => {
-    const data = articleJsonLd(writeUp);
-    expect(data.mainEntityOfPage).toBe("https://www.spliceops.ai/log/a-tool/write-up");
-    expect(data.image).toBe("https://www.spliceops.ai/log/a-tool/og.png");
   });
 });

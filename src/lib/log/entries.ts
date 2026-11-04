@@ -26,6 +26,13 @@ export const writeUpOf = (slug: string, entries: readonly LogEntry[]): LogEntry 
   return parent && child ? { ...child, code: parent.code } : undefined;
 };
 
+export const allPages = (entries: readonly LogEntry[]): readonly LogEntry[] =>
+  entries.flatMap((entry) => {
+    if (!isWriteUp(entry)) return [entry];
+    const parent = topLevelEntries(entries).find(({ slug }) => slug === entry.parent);
+    return parent ? [{ ...entry, code: parent.code }] : [];
+  });
+
 export const todayUtc = (now: Date = new Date()): string => now.toISOString().slice(0, 10);
 
 const fail = (slug: string, problems: readonly string[]): never => {

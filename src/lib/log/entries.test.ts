@@ -13,6 +13,7 @@ import {
   todayUtc,
   topLevelEntries,
   writeUpOf,
+  allPages,
 } from "./entries";
 import { makeEntry } from "./test-support";
 
@@ -197,5 +198,21 @@ describe("topLevelEntries and writeUpOf", () => {
 
   it("finds nothing when the parent itself is not live", () => {
     expect(writeUpOf("a-tool", [child])).toBeUndefined();
+  });
+});
+
+describe("allPages", () => {
+  const tool = makeEntry({ slug: "a-tool", code: "LG-00007" });
+  const child = makeEntry({ slug: "a-tool-write-up", code: undefined, parent: "a-tool" });
+
+  it("lists every entry and gives each write-up its parent's code", () => {
+    expect(allPages([tool, child]).map((e) => [e.slug, e.code])).toEqual([
+      ["a-tool", "LG-00007"],
+      ["a-tool-write-up", "LG-00007"],
+    ]);
+  });
+
+  it("drops a write-up whose parent is not live", () => {
+    expect(allPages([child]).map((e) => e.slug)).toEqual([]);
   });
 });

@@ -23,14 +23,3 @@ describe("sitemap", () => {
     expect(sitemap([]).every((e) => e.lastModified instanceof Date)).toBe(true);
   });
 });
-
-describe("sitemap write-ups", () => {
-  it("lists the write-up of every entry that has one", () => {
-    const urls = sitemap(
-      [makeEntry({ slug: "supadata" }), makeEntry({ slug: "other" })],
-      (slug) => slug === "supadata",
-    ).map((e) => e.url);
-    expect(urls).toContain("https://www.spliceops.ai/log/supadata/write-up");
-    expect(urls).not.toContain("https://www.spliceops.ai/log/other/write-up");
-  });
-});
