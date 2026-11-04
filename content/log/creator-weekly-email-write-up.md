@@ -137,13 +137,13 @@ Concept mockups built from the reviewed sample issue, in the brand's own look, o
 
 ### Emails
 
-![Email mockup: FatGlob issue on which Halloween candy is kinder to teeth, with a studio photo, the video thumbnail, quotes and three cited habits](/log/creator-weekly-email/email-e1-halloween.png "E1 · Halloween candy video")
+![Email mockup: FatGlob issue on which Halloween candy is kinder to teeth, with a studio photo, the video thumbnail, quotes and three cited habits](/log/creator-weekly-email/email-e1-halloween.png "E1 · Halloween candy video"){scroll}
 
-![Email mockup: FatGlob issue on why sticky sugar is the real problem, with the video thumbnail and cited habits](/log/creator-weekly-email/email-e2-simpsons.png "E2 · Simpsons foods video")
+![Email mockup: FatGlob issue on why sticky sugar is the real problem, with the video thumbnail and cited habits](/log/creator-weekly-email/email-e2-simpsons.png "E2 · Simpsons foods video"){scroll}
 
-![Email mockup: FatGlob issue on changing your toothbrush, with the video thumbnail and cited habits](/log/creator-weekly-email/email-e3-tiktok-shop.png "E3 · TikTok Shop snacks video")
+![Email mockup: FatGlob issue on changing your toothbrush, with the video thumbnail and cited habits](/log/creator-weekly-email/email-e3-tiktok-shop.png "E3 · TikTok Shop snacks video"){scroll}
 
-![Email mockup: FatGlob welcome email explaining what the every-other-Thursday note contains](/log/creator-weekly-email/email-e0-welcome.png "E0 · Welcome email")
+![Email mockup: FatGlob welcome email explaining what the every-other-Thursday note contains](/log/creator-weekly-email/email-e0-welcome.png "E0 · Welcome email"){scroll}
 
 ### Instagram posts · 3:4
 
