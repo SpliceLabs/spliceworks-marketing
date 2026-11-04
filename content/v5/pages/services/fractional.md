@@ -5,9 +5,10 @@ description: A fractional Chief AI Officer, CPTO or CTO on your leadership team,
 reader: A CEO, board or founder who needs AI leadership before or beside an engagement, and has no one in the seat
 job: See which seat fits and what it answers for each quarter, then book a working session to start
 primary_cta: Book a working session → /book
+check_cards: outcomes-the-seat-can-own
 status: provisional
 sources: [Fractional leadership seats and advisory, Fractional seat: success plan and outcome menu, Open items tracker #22 and #23, Core messages]
-open: [Seat shape and outcome menu (#22), advisory tier and its response time (#23), how the seat's initial assessment relates to the working session (#22, #3), "Why a fractional seat instead of a full-time hire?" answer (#22), session price (#3)]
+open: [Decision-rights defaults in the table, time shape ("heaviest at the start") and how a seat ends (#22), seat pages and Log links, Seat shape and outcome menu (#22), advisory standing call and its response time (#23), how the seat's initial assessment relates to the working session (#22, #3), "Why a fractional seat instead of a full-time hire?" answer (#22), session price (#3)]
 ---
 
 # An AI executive on your leadership team, without a full-time hire
@@ -17,25 +18,39 @@ Someone has to own the AI mandate: the plan, the spend, who is accountable for w
 **Book a working session** → /book
 A paid day, credited in full if you go on to work with us.
 
+## Where AI stalls without an owner
+
+- Several teams buy AI tools, and nobody holds the whole list or the bill.
+- Pilots run, then stop before production, and nobody is asked why.
+- Your board or investors ask about AI, and the answer depends on who you ask.
+- Risk and data questions turn up after the money is spent.
+
+Without one named person, these calls get made by whoever acts first. The seat is that person, with a mandate and outcomes written down.
+
 ## Two seats, and an advisory option
 
-| | Fractional Chief AI Officer | Fractional CPTO or CTO | Advisory |
+| | [Fractional Chief AI Officer](/services/fractional/chief-ai-officer) | [Fractional CPTO or CTO](/services/fractional/cpto-cto) | Advisory |
 | --- | --- | --- | --- |
-| Owns | Making your company AI-native | Making your product AI-native | No seat: a second view on your AI decisions |
+| Owns | Making your company AI-native: the plan your CEO or board approves, what you spend on AI and what it returns, who is accountable for each decision, and the first critical workflow run by agents | Making your product AI-native: the roadmap, a product surface agents can use, and the first AI-native feature in production | No seat. A second view on your AI decisions, from build, buy or partner to vendors, architecture, AI spend and board and investor readiness |
 | Answers for | Outcomes agreed each quarter | Outcomes agreed each quarter | Decisions you bring to it |
-| Usually | Alongside [an engagement](/services) | When AI-native products pull the roadmap | When you want a second view before committing to a seat |
+| Usually | Alongside [an engagement](/services) | When AI-native products pull the roadmap | When you want a second view before committing to a seat. A standing call, weekly or twice a week, with answers between calls |
 
-### Fractional Chief AI Officer
+## What the seat owns, and what stays with you
 
-Owns making your company AI-native: the plan your CEO or board approves, what you spend on AI and what it returns, who is accountable for each decision, and the first critical workflow run by agents.
+We start from this split and set it down in your mandate.
 
-### Fractional CPTO or CTO
+| Area | The seat | You |
+| --- | --- | --- |
+| AI direction | Proposes the plan, and what to stop | Your CEO or board approves it |
+| AI spend | Writes the spend policy, finds the waste, shows what it returns | You set the budget and sign the contracts |
+| Tools and vendors | Keeps the inventory and recommends build, buy or partner | You decide and sign |
+| Accountability | Draws the map of who decides what, and what agents may approve | Your leaders hold the decisions on it |
+| First results | Starts the first critical workflow and runs it with agents | Your teams stay in their roles |
+| Board and investors | Prepares the AI view and joins the conversation | You own the relationship |
 
-Owns making your product AI-native. That means the roadmap, a product surface agents can use, and the first AI-native feature in production.
+## How the time works
 
-### Advisory
-
-Scheduled strategy sessions each month, with answers between them. It suits teams that want a second view on AI decisions: build, buy or partner, vendors and architecture, AI spend, and board and investor readiness. Advisory can turn into a seat when you're ready.
+Part-time, and agreed with you in the mandate rather than sold as a package. The seat is heaviest at the start and lightens as your own people take over. Advisory runs differently: a standing call, weekly or twice a week.
 
 ## Outcomes in writing, reviewed quarterly
 
@@ -50,19 +65,22 @@ At the start, we agree a one-page success plan with you, and the seat answers fo
 
 We start from this list and pick what fits your company.
 
-**Fractional Chief AI Officer**
+### Fractional Chief AI Officer
+
 - An AI plan and mandate approved by your CEO or board
 - An inventory of your AI tools and contracts, with the waste cut
 - An AI spend policy
 - The accountability map in force: who decides what, and what agents may approve
 - The first critical workflow started and run by agents
 
-**Fractional CPTO or CTO**
+### Fractional CPTO or CTO
+
 - An AI-native product roadmap
 - An agent-ready product surface live
 - The first AI-native feature in production, against an adoption target
 
-**Either seat**
+### Either seat
+
 - A written mandate for the permanent role, if you want one
 
 ## A seat that answers for the AI bill
@@ -70,6 +88,18 @@ We start from this list and pick what fits your company.
 The seat owns the spend policy and the accountability map, so it can design for value that grows faster than your AI bill. It also keeps an accountable person behind every decision that matters.
 
 If you already lead technology and want an AI executive beside you, see [our page for technology leaders](/for/technology-leaders). If you're the founder and the whole team, see [our page for founders](/for/founders).
+
+## How it ends
+
+The end is written into the plan from the first quarter. At each quarterly review you renew, expand into an engagement, or hand over: to a permanent hire we help you define, to an executive you already have, or to advisory on a standing call. The mandate, the spend policy and the accountability map are written for your company, so they stay with you.
+
+## When you need a full-time hire instead
+
+- AI is your product, and decisions on it come every day.
+- The role has to hold headcount and a budget of its own.
+- You already have a strategy and a team that need daily leadership.
+
+If that's you, we'll say so, and we can write the mandate for the hire.
 
 ## Questions about the seat
 
@@ -84,6 +114,30 @@ Talk to us. We scope the work with you during the working session, which is cred
 ### Are we too small for this?
 
 No. We work with solo founders as well as large teams.
+
+### What is the difference between the seat and an AI consultant?
+
+A consultant delivers recommendations and leaves. The seat sits on your leadership team and answers for outcomes you agree in writing each quarter, including the ones that need your people to change how they work.
+
+### Does the seat replace our COO, CIO or CTO?
+
+No. Your COO keeps operations, and your CIO or CTO keeps the systems. The seat owns the AI mandate beside them: the plan, the spend, who decides what and the first results.
+
+### How much time do we get?
+
+We agree it with you in the mandate, not as a package. The seat is heaviest at the start and lightens as your own people take over. Advisory is different: a standing call, weekly or twice a week, with answers between calls.
+
+### Can we start with advisory?
+
+Yes. Advisory is a standing call, weekly or twice a week, with answers between calls. It can turn into a seat when you're ready.
+
+### How does a fractional seat end?
+
+The end is written into the plan from the first quarter. At each quarterly review you renew, expand into an engagement, or hand over: to a permanent hire we help you define, to an executive you already have, or to advisory.
+
+### When should we hire a full-time AI executive instead?
+
+When AI is your product and decisions on it come every day, or when the role has to hold headcount and a budget of its own. If that's you, we'll say so, and we can write the mandate for the hire.
 
 ## Find out which seat fits
 
