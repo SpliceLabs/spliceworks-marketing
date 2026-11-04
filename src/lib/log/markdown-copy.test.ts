@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { entryMarkdown } from "./markdown-copy";
+import { entryFacts, entryMarkdown } from "./markdown-copy";
 import { makeEntry } from "./test-support";
 
 const entry = makeEntry({
@@ -50,5 +50,30 @@ describe("entryMarkdown", () => {
     const tall = makeEntry({ slug: "tall", body: '![Email](/log/tall/e.png "E1"){scroll}\n\nAfter.' });
     expect(entryMarkdown(tall)).toContain('![Email](https://www.spliceops.ai/log/tall/e.png "E1")\n');
     expect(entryMarkdown(tall)).not.toContain("{scroll}");
+  });
+});
+
+describe("entryFacts", () => {
+  it("lists the facts in a fixed order, URL first", () => {
+    expect(entryFacts(entry).map(([key]) => key)).toEqual(["URL", "Code", "Type", "Stage", "Published", "Description"]);
+  });
+
+  it("adds Updated before the description, and Parent after it for a write-up", () => {
+    const writeUp = makeEntry({ slug: "w", parent: "a-tool", updated: "2026-11-06", code: "LG-00007" });
+    expect(entryFacts(writeUp).map(([key]) => key)).toEqual([
+      "URL",
+      "Code",
+      "Type",
+      "Stage",
+      "Published",
+      "Updated",
+      "Parent",
+      "Description",
+    ]);
+  });
+
+  it("leaves the Code line out rather than printing it empty when an entry has no code", () => {
+    const keys = entryFacts(makeEntry({ slug: "w", code: undefined })).map(([key]) => key);
+    expect(keys).not.toContain("Code");
   });
 });

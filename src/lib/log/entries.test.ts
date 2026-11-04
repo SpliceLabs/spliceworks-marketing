@@ -14,6 +14,7 @@ import {
   topLevelEntries,
   writeUpOf,
   allPages,
+  livePages,
 } from "./entries";
 import { makeEntry } from "./test-support";
 
@@ -214,5 +215,45 @@ describe("allPages", () => {
 
   it("drops a write-up whose parent is not live", () => {
     expect(allPages([child]).map((e) => e.slug)).toEqual([]);
+  });
+});
+
+describe("livePages", () => {
+  const dir = (parent: Record<string, unknown>, writeUp: Record<string, unknown>) =>
+    folder({
+      "a-tool.md": source({ code: "LG-00001", ...parent }),
+      "a-tool-write-up.md": source({
+        type: "research",
+        checked: "2026-11-04",
+        code: undefined,
+        parent: "a-tool",
+        ...writeUp,
+      }),
+    });
+  const slugs = (d: string, today: string) =>
+    livePages(loadEntries(d), today)
+      .map((e) => e.slug)
+      .toSorted();
+
+  it("shows the entry and its write-up, with the parent's code, once both are live", () => {
+    const pages = livePages(loadEntries(dir({}, {})), "2026-11-04");
+    expect(pages.map((e) => [e.slug, e.code])).toEqual([
+      ["a-tool", "LG-00001"],
+      ["a-tool-write-up", "LG-00001"],
+    ]);
+  });
+
+  it("keeps a future-dated write-up hidden until its date arrives", () => {
+    expect(slugs(dir({}, { published: "2026-12-01" }), "2026-11-04")).toEqual(["a-tool"]);
+    expect(slugs(dir({}, { published: "2026-12-01" }), "2026-12-01")).toEqual(["a-tool", "a-tool-write-up"]);
+  });
+
+  it("keeps a draft write-up hidden", () => {
+    expect(slugs(dir({}, { status: "draft" }), "2027-01-01")).toEqual(["a-tool"]);
+  });
+
+  it("hides a live write-up while its parent is a draft or future-dated", () => {
+    expect(slugs(dir({ status: "draft" }, {}), "2027-01-01")).toEqual([]);
+    expect(slugs(dir({ published: "2026-12-01" }, {}), "2026-11-04")).toEqual([]);
   });
 });

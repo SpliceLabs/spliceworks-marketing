@@ -33,6 +33,9 @@ export const allPages = (entries: readonly LogEntry[]): readonly LogEntry[] =>
     return parent ? [{ ...entry, code: parent.code }] : [];
   });
 
+export const livePages = (entries: readonly LogEntry[], today: string): readonly LogEntry[] =>
+  allPages(liveEntries(entries, today));
+
 export const todayUtc = (now: Date = new Date()): string => now.toISOString().slice(0, 10);
 
 const fail = (slug: string, problems: readonly string[]): never => {

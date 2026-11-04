@@ -6,7 +6,7 @@ import { STAGE_LABELS, entryTypeLabel } from "./types";
 
 export const entryFacts = (entry: LogEntry): readonly (readonly [string, string])[] => [
   ["URL", absoluteUrl(entryPath(entry.slug))],
-  ["Code", entry.code ?? ""],
+  ...(entry.code ? [["Code", entry.code] as const] : []),
   ["Type", entryTypeLabel(entry)],
   ["Stage", STAGE_LABELS[entry.stage]],
   ["Published", entry.published],

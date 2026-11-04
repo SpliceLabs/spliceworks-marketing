@@ -1,7 +1,7 @@
 import { cache } from "react";
 import {
-  allPages,
   liveEntries,
+  livePages,
   loadEntries,
   logDir,
   todayUtc,
@@ -18,6 +18,6 @@ export const getEntry = (slug: string): LogEntry | undefined => getLog().find((e
 
 export const getWriteUp = (slug: string): LogEntry | undefined => writeUpOf(slug, getAllLive());
 
-export const getLogPages = cache((): readonly LogEntry[] => allPages(getAllLive()));
+export const getLogPages = cache((): readonly LogEntry[] => livePages(loadEntries(logDir()), todayUtc()));
 
 export const getPage = (slug: string): LogEntry | undefined => getLogPages().find((entry) => entry.slug === slug);
