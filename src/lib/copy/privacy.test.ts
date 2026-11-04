@@ -37,7 +37,7 @@ describe("Privacy Policy", () => {
 
   it("names the brand, the legal entity and its postal address as responsible for the data", () => {
     expect(sectionBody("Who we are")).toContain(
-      "SpliceOps is a brand owned and operated by Splice Labs Group, Inc., 19120 Sweet Clover Ln, Tampa, FL 33647, which is responsible for your data on this site.",
+      "SpliceOps is a brand owned and operated by Splice Labs Group, Inc., a Delaware corporation headquartered at 19120 Sweet Clover Ln, Tampa, FL 33647, which is responsible for your data on this site.",
     );
   });
 
