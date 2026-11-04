@@ -1,0 +1,52 @@
+import fs from "node:fs";
+import path from "node:path";
+import { describe, expect, it } from "vitest";
+import { capabilities } from "./machine";
+import { getPage } from "./pages";
+
+const PATH = "/services/fractional";
+const raw = fs.readFileSync(path.join(process.cwd(), "content/v5/pages/services/fractional.md"), "utf8");
+const slugs = () => getPage(PATH).sections.map((s) => s.slug);
+
+describe("Fractional leadership overview", () => {
+  it("explains the problem and the role before it sells the seats", () => {
+    expect(slugs().slice(0, 3)).toEqual([
+      "where-ai-stalls-without-an-owner",
+      "two-seats-and-an-advisory-option",
+      "what-the-seat-owns-and-what-stays-with-you",
+    ]);
+  });
+
+  it("closes with how the seat ends and when to hire full-time instead", () => {
+    const all = slugs();
+    expect(all).toContain("how-the-time-works");
+    expect(all).toContain("how-it-ends");
+    expect(all).toContain("when-you-need-a-full-time-hire-instead");
+  });
+
+  it("keeps the seats table that capabilities.json reads", () => {
+    const service = capabilities().services.find((s) => s.id === "fractional");
+    const seats = service && "seats" in service ? (service.seats ?? []) : [];
+    expect(seats.map((s) => s.name)).toEqual(["Fractional Chief AI Officer", "Fractional CPTO or CTO", "Advisory"]);
+  });
+
+  it("maps decision rights between the seat and the client", () => {
+    const section = getPage(PATH).sections.find((s) => s.slug === "what-the-seat-owns-and-what-stays-with-you");
+    const table = section?.blocks.find((b) => b.t === "table");
+    expect(table && table.t === "table" ? table.head.length : 0).toBe(3);
+    expect(table && table.t === "table" ? table.rows.length : 0).toBeGreaterThanOrEqual(5);
+  });
+
+  it("describes advisory as a standing weekly or twice-weekly call", () => {
+    expect(raw).toContain("weekly or twice a week");
+  });
+
+  it("publishes no price and no time bands", () => {
+    expect(raw).not.toMatch(/\$\s?\d/);
+    expect(raw).not.toMatch(/\b(days?|hours?) (a|per) (week|month)\b/i);
+  });
+
+  it("uses no em or en dashes", () => {
+    expect(raw).not.toMatch(/[–—]/);
+  });
+});
