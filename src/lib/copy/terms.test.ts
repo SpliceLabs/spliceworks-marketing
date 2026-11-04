@@ -70,11 +70,11 @@ describe("Website Terms of Use", () => {
     expect(body).not.toContain("12 months");
   });
 
-  it("is governed by Delaware law with courts in Hillsborough County, Florida", () => {
+  it("is governed by Delaware law with the Delaware courts, and mentions no Florida court", () => {
     const body = sectionBody("Governing law and disputes");
     expect(body).toContain("State of Delaware");
-    expect(body).toContain("Hillsborough County");
-    expect(body).not.toContain("State of Florida");
+    expect(body).toContain("state and federal courts located in Delaware");
+    expect(body).not.toContain("Florida");
   });
 
   it("names the company as a Delaware corporation in the contact block", () => {

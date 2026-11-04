@@ -109,7 +109,7 @@ We may also update these Terms. The updated Terms become effective when posted, 
 
 These Terms are governed by the laws of the State of Delaware, without regard to conflict-of-law principles.
 
-Any dispute relating to these Terms or the website will be brought exclusively in the state courts located in Hillsborough County, Florida, or the federal courts for the Middle District of Florida, and each party consents to their jurisdiction and venue.
+The state and federal courts located in Delaware have exclusive jurisdiction over any dispute arising out of or relating to these Terms or the website, and you consent to the personal jurisdiction of those courts.
 
 ## General terms
 
