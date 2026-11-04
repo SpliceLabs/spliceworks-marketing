@@ -4,7 +4,7 @@ import type { LogEntry } from "@/lib/log/entries";
 import { formatLogDate } from "@/lib/log/format-date";
 import { emphasize } from "@/lib/log/emphasis";
 import { entryActions, writeUpActions } from "@/lib/log/actions";
-import { pagePath } from "@/lib/log/json-ld";
+import { entryPath } from "@/lib/log/json-ld";
 import { absoluteUrl } from "@/lib/site";
 import { STAGE_LABELS, TYPE_LABELS } from "@/lib/log/types";
 import { EntryBody } from "./EntryBody";
@@ -48,7 +48,7 @@ const ToolContent = ({ entry }: { entry: LogEntry }) => {
 type ArticleProps = { entry: LogEntry; related: readonly LogEntry[]; writeUpHref?: string };
 
 export const EntryArticle = ({ entry, related, writeUpHref }: ArticleProps) => {
-  const path = pagePath(entry);
+  const path = entryPath(entry.slug);
   const actions = entry.parent ? writeUpActions(entry) : entryActions(entry, writeUpHref);
   const url = absoluteUrl(path);
   return (

@@ -1,11 +1,11 @@
-import { getLog } from "@/lib/log/get-log";
+import { getLogPages } from "@/lib/log/get-log";
 import { llmsTxt } from "@/lib/copy/machine";
 
 // Built from the v5 copy at build time.
 export const dynamic = "force-static";
 
 export function GET() {
-  return new Response(llmsTxt(getLog()), {
+  return new Response(llmsTxt(getLogPages()), {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
       "Cache-Control": "public, max-age=86400",

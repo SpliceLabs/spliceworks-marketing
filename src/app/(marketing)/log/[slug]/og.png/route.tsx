@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { getEntry, getLog } from "@/lib/log/get-log";
+import { getLogPages, getPage } from "@/lib/log/get-log";
 import { TYPE_LABELS } from "@/lib/log/types";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -23,10 +23,10 @@ const WASH: Readonly<Record<string, string>> = {
 
 export const dynamicParams = false;
 
-export const generateStaticParams = () => getLog().map(({ slug }) => ({ slug }));
+export const generateStaticParams = () => getLogPages().map(({ slug }) => ({ slug }));
 
 export async function GET(_request: Request, { params }: Props) {
-  const entry = getEntry((await params).slug);
+  const entry = getPage((await params).slug);
   if (!entry) return new Response("Not found", { status: 404 });
   return new ImageResponse(
     <div

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { OG_IMAGE, absoluteUrl } from "@/lib/site";
 import type { LogEntry } from "./entries";
-import { entryImagePath, pagePath } from "./json-ld";
+import { entryImagePath, entryPath } from "./json-ld";
 
 export const logMetadata = ({
   title,
@@ -38,11 +38,11 @@ export const entryMetadata = (entry: LogEntry): Metadata => {
   return {
     title: { absolute: title },
     description: entry.description,
-    alternates: { canonical: pagePath(entry) },
+    alternates: { canonical: entryPath(entry.slug) },
     openGraph: {
       title,
       description: entry.description,
-      url: absoluteUrl(pagePath(entry)),
+      url: absoluteUrl(entryPath(entry.slug)),
       siteName: "SpliceOps",
       locale: "en_US",
       type: "article",
