@@ -45,4 +45,11 @@ describe("LegalPage", () => {
     expect(html).toContain('<h1 class="display">Website Terms of Use</h1>');
     expect(html).toContain('<a href="#website-only"><b>02</b><span>Website only</span></a>');
   });
+
+  it("numbers the Cookie Policy as the third legal page", () => {
+    const html = renderToStaticMarkup(<LegalPage path="/cookies" />);
+    expect(html).toContain("Legal / 03</p>");
+    expect(html).toContain('<h1 class="display">Cookie Policy</h1>');
+    expect(html).toContain("<code>sw-theme</code>");
+  });
 });

@@ -50,8 +50,14 @@ const COLUMNS: readonly Column[] = [
       ["Station", "/station"],
       ["Splice Log", "/log"],
       ["FAQ", "/faq"],
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
       ["Privacy", "/privacy"],
       ["Terms", "/terms"],
+      ["Cookie Policy", "/cookies"],
     ],
   },
   {
