@@ -111,10 +111,18 @@ describe("scrolling images", () => {
     expect(html).toMatch(/<a[^>]*href="\/log\/a\/one\.png"[^>]*>Open full size<\/a>/);
   });
 
+  it("names each scrolling frame so a keyboard user knows what it holds", () => {
+    expect(html).toMatch(/<div class="lg-frame"[^>]*role="region"[^>]*aria-label="One"/);
+    expect(html).toMatch(/<div class="lg-frame"[^>]*role="region"[^>]*aria-label="Two"/);
+  });
+
   it("lines consecutive scrolling images up in one row, and leaves ordinary images out of it", () => {
     expect(html.match(/class="lg-figure-row"/g)).toHaveLength(1);
     const row = html.slice(html.indexOf('class="lg-figure-row"'));
     expect(row.indexOf("two.png")).toBeLessThan(row.indexOf("</figure></div>"));
     expect(row.indexOf("</figure></div>")).toBeLessThan(row.indexOf("plain.png"));
+    const inRow = row.slice(0, row.indexOf("</figure></div>"));
+    expect(inRow.match(/<figure/g)).toHaveLength(2);
+    expect(inRow).not.toContain("plain.png");
   });
 });

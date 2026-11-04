@@ -12,8 +12,5 @@ const logPaths = (entries: readonly LogEntry[]): readonly string[] => [
 
 export default function sitemap(entries: readonly LogEntry[] = getLogPages()): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  return [...PAGES.map((p) => p.path), ...logPaths(entries)].map((path) => ({
-    url: absoluteUrl(path),
-    lastModified,
-  }));
+  return [...PAGES.map((p) => p.path), ...logPaths(entries)].map((path) => ({ url: absoluteUrl(path), lastModified }));
 }

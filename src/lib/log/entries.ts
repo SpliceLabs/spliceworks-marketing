@@ -92,6 +92,19 @@ const verifyParents = (entries: readonly LogEntry[]): void => {
       if (!target) return [`${slug} names a parent that does not exist: ${parent}`];
       return isWriteUp(target) ? [`${slug} hangs off ${parent}, which is itself a write-up`] : [];
     }),
+    ...writeUps.flatMap((writeUp) => {
+      const parent = bySlug.get(writeUp.parent ?? "");
+      if (!parent || isWriteUp(parent)) return [];
+      const unpublished =
+        writeUp.status === "published" && parent.status !== "published"
+          ? [`${writeUp.slug} is published but its parent ${parent.slug} is not published`]
+          : [];
+      const early =
+        writeUp.published < parent.published
+          ? [`${writeUp.slug} is dated ${writeUp.published}, before its parent ${parent.slug} (${parent.published})`]
+          : [];
+      return [...unpublished, ...early];
+    }),
     ...[...new Set(writeUps.map((entry) => entry.parent))].flatMap((parent) => {
       const slugs = writeUps.filter((entry) => entry.parent === parent).map((entry) => entry.slug);
       return slugs.length > 1 ? [`${parent} has more than one write-up: ${slugs.join(" and ")}`] : [];

@@ -100,7 +100,7 @@ type ImageBlock = Extract<Block, { t: "image" }>;
 const ImageView = ({ block }: { block: ImageBlock }) => (
   <figure className={block.scroll ? "lg-figure lg-figure-scroll" : "lg-figure"}>
     {block.scroll ? (
-      <div className="lg-frame" tabIndex={0}>
+      <div className="lg-frame" tabIndex={0} role="region" aria-label={block.alt}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={block.src} alt={block.alt} loading="lazy" />
       </div>

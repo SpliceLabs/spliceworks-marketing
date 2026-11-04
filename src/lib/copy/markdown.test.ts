@@ -39,3 +39,18 @@ describe("parseBlocks scrolling images", () => {
     expect(blocks[1]).toMatchObject({ t: "image", src: "/y.png", scroll: false });
   });
 });
+
+describe("parseBlocks lines that only look like images", () => {
+  const types = (line: string) => parseBlocks(line).map((block) => block.t);
+
+  it.each([
+    ["an image inside a sentence", "See ![alt](/a.png) here"],
+    ["a link rather than an image", "[alt](/a.png)"],
+    ["an image with no source", "![alt]()"],
+    ["a source with a space in it", "![alt](/a b.png)"],
+    ["an unterminated caption", '![alt](/a.png "caption)'],
+    ["an unknown suffix", "![alt](/a.png){zoom}"],
+  ])("keeps %s as a paragraph", (_name, line) => {
+    expect(types(line)).toEqual(["para"]);
+  });
+});
