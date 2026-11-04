@@ -179,6 +179,32 @@ describe("write-ups", () => {
     });
     expect(() => loadEntries(dir)).toThrow(/a-tool[\s\S]*first[\s\S]*second/);
   });
+
+  it("fails when a published write-up hangs off a parent that is not published", () => {
+    const dir = folder({
+      "a-tool.md": source({ code: "LG-00001", status: "draft" }),
+      "a-tool-write-up.md": writeUp(),
+    });
+    expect(() => loadEntries(dir)).toThrow(/a-tool-write-up[\s\S]*a-tool[\s\S]*not published/);
+  });
+
+  it("fails when a write-up is dated before its parent", () => {
+    const dir = folder({
+      "a-tool.md": source({ code: "LG-00001", published: "2026-11-04" }),
+      "a-tool-write-up.md": writeUp({ published: "2026-11-01" }),
+    });
+    expect(() => loadEntries(dir)).toThrow(/a-tool-write-up[\s\S]*before[\s\S]*a-tool/);
+  });
+
+  it("allows a draft write-up under a draft parent, and a write-up dated the same day as its parent", () => {
+    const drafts = folder({
+      "a-tool.md": source({ code: "LG-00001", status: "draft" }),
+      "a-tool-write-up.md": writeUp({ status: "draft" }),
+    });
+    const sameDay = folder({ "a-tool.md": source({ code: "LG-00001" }), "a-tool-write-up.md": writeUp() });
+    expect(loadEntries(drafts)).toHaveLength(2);
+    expect(loadEntries(sameDay)).toHaveLength(2);
+  });
 });
 
 describe("topLevelEntries and writeUpOf", () => {
@@ -252,8 +278,7 @@ describe("livePages", () => {
     expect(slugs(dir({}, { status: "draft" }), "2027-01-01")).toEqual(["a-tool"]);
   });
 
-  it("hides a live write-up while its parent is a draft or future-dated", () => {
-    expect(slugs(dir({ status: "draft" }, {}), "2027-01-01")).toEqual([]);
-    expect(slugs(dir({ published: "2026-12-01" }, {}), "2026-11-04")).toEqual([]);
+  it("hides a write-up while its future-dated parent is not yet live", () => {
+    expect(slugs(dir({ published: "2026-12-01" }, { published: "2026-12-01" }), "2026-11-04")).toEqual([]);
   });
 });
