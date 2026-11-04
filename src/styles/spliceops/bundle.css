@@ -1108,3 +1108,20 @@ body:has(.lg-page){--opacity-glow:.28}
 [data-theme="ink"] .lg-card .media:not(.lg-w-hero) .lg-mk,[data-theme="ink"] .lg-feature .media:not(.lg-w-hero) .lg-mk,[data-theme="ink"] .lg-hero:not(.lg-w-hero) .lg-mk,[data-theme="ink"] .lg-og:not(.lg-w-hero) .lg-mk{color:rgba(244,242,238,.92)}
 [data-theme="ink"] .lg-og:not(.lg-w-hero){color:#f4f2ee}
 /* ================= end Splice Log ================= */
+/* ================= LegalDoc ================= */
+.lgl-head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:var(--space-64);align-items:end;padding-block:var(--space-64) var(--space-24)}
+.lgl-head .display{margin:var(--space-20) 0 0;font-size:var(--font-size-fluid-display-page)}
+.lgl-head .lede{margin:0 0 var(--space-24);max-width:46ch;font:var(--font-weight-regular) var(--font-size-16)/1.55 var(--sans);color:var(--muted)}
+.lgl-meta{margin:0;border-top:var(--border-width-hairline) solid var(--line-2)}
+.lgl-meta div{display:grid;grid-template-columns:110px 1fr;padding:var(--space-10) 0;border-bottom:var(--border-width-hairline) solid var(--line-2);font:var(--font-weight-regular) var(--font-size-14)/1.4 var(--sans)}
+.lgl-meta dt{font:var(--font-weight-regular) var(--font-size-12)/1.6 var(--mono);letter-spacing:var(--font-letter-spacing-p060);text-transform:uppercase;color:var(--muted)}
+.lgl-meta dd{margin:0}
+.lg-body.legal{border-top:var(--border-width-hairline) solid var(--line-2);padding-block:var(--space-40) var(--space-96)}
+.lg-body.legal .lg-art p,.lg-body.legal .lg-art ul.dots li{font-size:var(--font-size-16);line-height:1.6}
+.lg-body.legal .lg-art ul.dots li{padding-bottom:var(--space-8)}
+.lg-body.legal .lg-art h2{font-size:clamp(24px,2.4vw,28px)}
+.lg-body.legal .lg-art .esec-n{margin-top:var(--space-48)}
+.lgl-table{border-collapse:collapse;width:100%;font:var(--font-weight-regular) var(--font-size-14)/1.4 var(--sans)}
+.lgl-table th,.lgl-table td{text-align:left;padding:var(--space-8) var(--space-12) var(--space-8) 0;border-bottom:var(--border-width-hairline) solid var(--line-2)}
+@media (max-width:860px){.lgl-head{grid-template-columns:1fr;gap:var(--space-32);padding-block:var(--space-32) var(--space-16)}}
+/* ================= end LegalDoc ================= */
