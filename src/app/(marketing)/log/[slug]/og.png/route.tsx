@@ -47,7 +47,11 @@ export async function GET(_request: Request, { params }: Props) {
       <div style={{ display: "flex", maxWidth: 820, fontSize: 76, fontWeight: 700, lineHeight: 1.04 }}>
         {entry.title}
       </div>
-      <div style={{ display: "flex", fontSize: 38, fontWeight: 700 }}>SpliceOps</div>
+      <div style={{ display: "flex", fontSize: 44, letterSpacing: -1 }}>
+        <span style={{ fontWeight: 700 }}>Splice</span>
+        <span style={{ fontWeight: 400 }}>Ops</span>
+        <span style={{ fontWeight: 700, color: "#E8590C" }}>.</span>
+      </div>
     </div>,
     SIZE,
   );
