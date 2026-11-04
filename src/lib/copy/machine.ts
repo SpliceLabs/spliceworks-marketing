@@ -7,7 +7,7 @@ import { inlineText, type Block, type Inline } from "./markdown";
 import { absoluteUrl as absUrl, SITE_URL } from "@/lib/site";
 import { PAGES, getPage } from "./pages";
 import { getFaq } from "./faq";
-import { absolutizeLinks } from "./absolutize";
+import { absolutizeLinks, machineBody } from "./absolutize";
 import {
   CONSERVATIVE_SHARE,
   COST_OF_DELAY_DEFAULTS,
@@ -136,7 +136,7 @@ export function llmsFullTxt(entries: readonly LogEntry[] = []): string {
       `Title: ${entry.title}`,
       ...facts.map(([key, value]) => `${key}: ${value}`),
       "",
-      absolutizeLinks(entry.body),
+      machineBody(entry.body),
       "",
     );
   }

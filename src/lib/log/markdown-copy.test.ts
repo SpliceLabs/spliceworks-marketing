@@ -45,4 +45,10 @@ describe("entryMarkdown", () => {
     expect(entryMarkdown(writeUp)).toContain("Parent: https://www.spliceops.ai/log/a-tool");
     expect(entryMarkdown(writeUp)).toContain("Type: Write-up");
   });
+
+  it("drops the {scroll} display marker from images, since it means nothing to a reader of plain text", () => {
+    const tall = makeEntry({ slug: "tall", body: '![Email](/log/tall/e.png "E1"){scroll}\n\nAfter.' });
+    expect(entryMarkdown(tall)).toContain('![Email](https://www.spliceops.ai/log/tall/e.png "E1")\n');
+    expect(entryMarkdown(tall)).not.toContain("{scroll}");
+  });
 });

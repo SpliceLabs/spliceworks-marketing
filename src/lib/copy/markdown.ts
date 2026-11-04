@@ -32,7 +32,7 @@ export type Block =
   | { t: "list"; ordered: boolean; items: ListItem[]; raw: string }
   | { t: "table"; head: Inline[][]; rows: Inline[][][]; raw: string }
   | { t: "hr"; raw: string }
-  | { t: "image"; alt: string; src: string; caption: string; raw: string }
+  | { t: "image"; alt: string; src: string; caption: string; scroll: boolean; raw: string }
   /** A fenced code block, kept verbatim. */
   | { t: "code"; lang: string; text: string; raw: string }
   /** `**Book a working session** → /book` (or `(submits the form)`), plus the lines under it. */
@@ -211,7 +211,7 @@ function paraOrCta(lines: string[]): Block {
   return { t: "para", lines: lines.map(parseInline), raw };
 }
 
-const IMAGE_RE = /^!\[([^\]]*)\]\((\S+?)(?:\s+"([^"]*)")?\)$/;
+const IMAGE_RE = /^!\[([^\]]*)\]\((\S+?)(?:\s+"([^"]*)")?\)(\{scroll\})?$/;
 
 export function parseBlocks(body: string): Block[] {
   const lines = body.replace(/\r\n/g, "\n").split("\n");
@@ -240,7 +240,14 @@ export function parseBlocks(body: string): Block[] {
       i++;
       blocks.push({ t: "code", lang: m[1], text: code.join("\n"), raw: code.join("\n") });
     } else if ((m = IMAGE_RE.exec(line.trim()))) {
-      blocks.push({ t: "image", alt: m[1], src: m[2], caption: m[3] ?? "", raw: line.trim() });
+      blocks.push({
+        t: "image",
+        alt: m[1],
+        src: m[2],
+        caption: m[3] ?? "",
+        scroll: m[4] === "{scroll}",
+        raw: line.trim(),
+      });
       i++;
     } else if ((m = HEADING_RE.exec(line))) {
       blocks.push({ t: "heading", level: m[1].length, c: parseInline(m[2].trim()), raw: m[2].trim() });

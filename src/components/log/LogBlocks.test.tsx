@@ -92,3 +92,29 @@ describe("images", () => {
     expect(html).toMatch(/<a[^>]*href="\/log\/a\/one\.png"[^>]*>Open full size<\/a>/);
   });
 });
+
+describe("scrolling images", () => {
+  const body = [
+    "## Emails",
+    "",
+    '![One](/log/a/one.png "E1"){scroll}',
+    "",
+    '![Two](/log/a/two.png "E2"){scroll}',
+    "",
+    '![Plain](/log/a/plain.png "Post")',
+  ].join("\n");
+  const html = renderToStaticMarkup(<EntryBody body={body} />);
+
+  it("puts each scrolling image in its own frame and keeps the full-size link", () => {
+    expect(html.match(/class="lg-figure lg-figure-scroll"/g)).toHaveLength(2);
+    expect(html).toMatch(/<div class="lg-frame"[^>]*><img[^>]*one\.png/);
+    expect(html).toMatch(/<a[^>]*href="\/log\/a\/one\.png"[^>]*>Open full size<\/a>/);
+  });
+
+  it("lines consecutive scrolling images up in one row, and leaves ordinary images out of it", () => {
+    expect(html.match(/class="lg-figure-row"/g)).toHaveLength(1);
+    const row = html.slice(html.indexOf('class="lg-figure-row"'));
+    expect(row.indexOf("two.png")).toBeLessThan(row.indexOf("</figure></div>"));
+    expect(row.indexOf("</figure></div>")).toBeLessThan(row.indexOf("plain.png"));
+  });
+});

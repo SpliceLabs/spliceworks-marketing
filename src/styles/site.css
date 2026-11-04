@@ -1010,3 +1010,26 @@
   font: 400 12px/1.4 var(--mono);
   color: var(--muted);
 }
+.lg-figure-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+  margin: 0 0 28px;
+}
+.lg-figure-row .lg-figure {
+  margin: 0;
+}
+.lg-figure-scroll {
+  width: min(100%, 375px);
+}
+.lg-frame {
+  height: 640px;
+  overflow: auto;
+  border: 1px solid var(--ink);
+  border-radius: 18px;
+  background: #fff;
+}
+.lg-frame img {
+  border: 0;
+}

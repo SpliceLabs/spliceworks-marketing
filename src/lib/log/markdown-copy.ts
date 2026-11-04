@@ -1,4 +1,4 @@
-import { absolutizeLinks } from "@/lib/copy/absolutize";
+import { machineBody } from "@/lib/copy/absolutize";
 import { absoluteUrl } from "@/lib/site";
 import type { LogEntry } from "./entries";
 import { entryPath } from "./json-ld";
@@ -21,7 +21,7 @@ export const entryMarkdown = (entry: LogEntry): string =>
     "",
     ...entryFacts(entry).map(([key, value]) => `${key}: ${value}`),
     "",
-    absolutizeLinks(entry.body),
+    machineBody(entry.body),
     ...(entry.sources?.length
       ? ["", "## Sources", "", ...entry.sources.map((source) => `- [${source.title}](${source.url})`)]
       : []),

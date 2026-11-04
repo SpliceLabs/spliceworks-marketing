@@ -31,3 +31,11 @@ describe("parseBlocks images", () => {
     expect(blocks.map((block) => block.t)).toEqual(["para", "image"]);
   });
 });
+
+describe("parseBlocks scrolling images", () => {
+  it("marks an image written with {scroll} as one to show in a scrolling frame", () => {
+    const blocks = parseBlocks('![Tall](/x.png "Caption"){scroll}\n\n![Plain](/y.png "Other")');
+    expect(blocks[0]).toMatchObject({ t: "image", src: "/x.png", caption: "Caption", scroll: true });
+    expect(blocks[1]).toMatchObject({ t: "image", src: "/y.png", scroll: false });
+  });
+});

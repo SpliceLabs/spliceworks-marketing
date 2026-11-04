@@ -71,7 +71,7 @@ describe("machine-readable site", () => {
       code: "LG-00007",
       type: "research",
       checked: "2026-11-04",
-      body: "Long form with ![Mockup](/log/a-tool/one.png).",
+      body: "Long form with ![Mockup](/log/a-tool/one.png){scroll}.",
     });
 
     it("lists a write-up in llms.txt as a write-up, with its parent's code", () => {
@@ -85,7 +85,8 @@ describe("machine-readable site", () => {
       expect(full).toContain("URL: https://www.spliceops.ai/log/a-tool-write-up");
       expect(full).toContain("Type: Write-up");
       expect(full).toContain("Parent: https://www.spliceops.ai/log/a-tool");
-      expect(full).toContain("![Mockup](https://www.spliceops.ai/log/a-tool/one.png)");
+      expect(full).toContain("![Mockup](https://www.spliceops.ai/log/a-tool/one.png).");
+      expect(full).not.toContain("{scroll}");
     });
   });
 });
