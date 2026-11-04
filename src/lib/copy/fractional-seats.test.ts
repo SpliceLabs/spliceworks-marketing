@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 import { pageFaqIds } from "./faq";
 import { llmsTxt } from "./machine";
 import { getPage, PAGES } from "./pages";
+import { mentionsPriceOrTimeBand } from "./test-support";
 
 const SEATS = [
   {
@@ -41,8 +42,7 @@ describe.each(SEATS)("Seat page $path", ({ path: urlPath, file, h1 }) => {
   it("uses no em or en dashes, no price and no time bands", () => {
     const raw = fs.readFileSync(path.join(process.cwd(), "content/v5/pages", file), "utf8");
     expect(raw).not.toMatch(/[–—]/);
-    expect(raw).not.toMatch(/\$\s?\d/);
-    expect(raw).not.toMatch(/\b(days?|hours?) (a|per) (week|month)\b/i);
+    expect(mentionsPriceOrTimeBand(raw)).toBe(false);
   });
 });
 

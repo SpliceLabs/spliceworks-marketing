@@ -3,6 +3,8 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { getFaq, pageFaqIds } from "./faq";
 import { capabilities } from "./machine";
+import { mentionsPriceOrTimeBand } from "./test-support";
+import { inlineText, type Inline } from "./markdown";
 import { getPage } from "./pages";
 
 const PATH = "/services/fractional";
@@ -34,17 +36,33 @@ describe("Fractional leadership overview", () => {
   it("maps decision rights between the seat and the client", () => {
     const section = getPage(PATH).sections.find((s) => s.slug === "what-the-seat-owns-and-what-stays-with-you");
     const table = section?.blocks.find((b) => b.t === "table");
-    expect(table && table.t === "table" ? table.head.length : 0).toBe(3);
-    expect(table && table.t === "table" ? table.rows.length : 0).toBeGreaterThanOrEqual(5);
+    const cells = (nodes: readonly Inline[]) => inlineText([...nodes]).trim();
+    const head = table?.t === "table" ? table.head.map(cells) : [];
+    const rows = table?.t === "table" ? table.rows.map((row) => row.map(cells)) : [];
+    expect(head).toEqual(["Area", "The seat", "You"]);
+    expect(rows.map((row) => row[0])).toEqual([
+      "AI direction",
+      "AI spend",
+      "Tools and vendors",
+      "Accountability",
+      "First results",
+      "Board and investors",
+    ]);
+    rows.forEach(([, seat, you]) => {
+      expect(seat).not.toEqual("");
+      expect(you).not.toEqual("");
+      expect(seat).not.toEqual(you);
+    });
   });
 
-  it("describes advisory as a standing weekly or twice-weekly call", () => {
-    expect(raw).toContain("weekly or twice a week");
+  it("describes advisory as a standing weekly or twice-weekly call in the seats table", () => {
+    const service = capabilities().services.find((s) => s.id === "fractional");
+    const seats = service && "seats" in service ? (service.seats ?? []) : [];
+    expect(seats.find((seat) => seat.name === "Advisory")?.usually).toContain("weekly or twice a week");
   });
 
   it("publishes no price and no time bands", () => {
-    expect(raw).not.toMatch(/\$\s?\d/);
-    expect(raw).not.toMatch(/\b(days?|hours?) (a|per) (week|month)\b/i);
+    expect(mentionsPriceOrTimeBand(raw)).toBe(false);
   });
 
   it("uses no em or en dashes", () => {
