@@ -159,7 +159,7 @@ describe("write-ups", () => {
 
   it("fails when a write-up names a parent that does not exist", () => {
     const dir = folder({ "a-tool-write-up.md": writeUp({ parent: "ghost" }) });
-    expect(() => loadEntries(dir)).toThrow(/ghost/);
+    expect(() => loadEntries(dir)).toThrow(/Log write-ups: a-tool-write-up names a parent that does not exist: ghost/);
   });
 
   it("fails when a write-up hangs off another write-up", () => {
@@ -168,7 +168,7 @@ describe("write-ups", () => {
       "first.md": writeUp({ parent: "a-tool" }),
       "second.md": writeUp({ parent: "first" }),
     });
-    expect(() => loadEntries(dir)).toThrow(/second[\s\S]*first/);
+    expect(() => loadEntries(dir)).toThrow(/Log write-ups: second hangs off first, which is itself a write-up/);
   });
 
   it("fails when a parent has two write-ups", () => {
@@ -177,7 +177,7 @@ describe("write-ups", () => {
       "first.md": writeUp(),
       "second.md": writeUp(),
     });
-    expect(() => loadEntries(dir)).toThrow(/a-tool[\s\S]*first[\s\S]*second/);
+    expect(() => loadEntries(dir)).toThrow(/Log write-ups: a-tool has more than one write-up: first and second/);
   });
 
   it("fails when a published write-up hangs off a parent that is not published", () => {
