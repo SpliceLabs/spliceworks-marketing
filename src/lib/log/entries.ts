@@ -17,6 +17,15 @@ const FRONTMATTER_BLOCK = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/;
 
 export const isWriteUp = (entry: LogEntry): boolean => Boolean(entry.parent);
 
+export const topLevelEntries = (entries: readonly LogEntry[]): readonly LogEntry[] =>
+  entries.filter((entry) => !isWriteUp(entry));
+
+export const writeUpOf = (slug: string, entries: readonly LogEntry[]): LogEntry | undefined => {
+  const parent = topLevelEntries(entries).find((entry) => entry.slug === slug);
+  const child = entries.find((entry) => entry.parent === slug);
+  return parent && child ? { ...child, code: parent.code } : undefined;
+};
+
 export const todayUtc = (now: Date = new Date()): string => now.toISOString().slice(0, 10);
 
 const fail = (slug: string, problems: readonly string[]): never => {

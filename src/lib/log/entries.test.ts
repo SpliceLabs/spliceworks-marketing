@@ -3,7 +3,18 @@ import os from "node:os";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { stringify } from "yaml";
-import { isLive, isWriteUp, liveEntries, loadEntries, parseEntry, sortNewestFirst, todayUtc } from "./entries";
+import {
+  isLive,
+  isWriteUp,
+  liveEntries,
+  loadEntries,
+  parseEntry,
+  sortNewestFirst,
+  todayUtc,
+  topLevelEntries,
+  writeUpOf,
+} from "./entries";
+import { makeEntry } from "./test-support";
 
 const frontmatter = (over: Record<string, unknown> = {}) => ({
   type: "guide",
@@ -165,5 +176,26 @@ describe("write-ups", () => {
       "second.md": writeUp(),
     });
     expect(() => loadEntries(dir)).toThrow(/a-tool[\s\S]*first[\s\S]*second/);
+  });
+});
+
+describe("topLevelEntries and writeUpOf", () => {
+  const tool = makeEntry({ slug: "a-tool", code: "LG-00007", title: "A tool" });
+  const child = makeEntry({ slug: "a-tool-write-up", code: undefined, parent: "a-tool", title: "The write-up" });
+
+  it("keeps write-ups out of the top-level list", () => {
+    expect(topLevelEntries([tool, child]).map((e) => e.slug)).toEqual(["a-tool"]);
+  });
+
+  it("finds the write-up of a parent and gives it the parent's code", () => {
+    expect(writeUpOf("a-tool", [tool, child])).toMatchObject({ slug: "a-tool-write-up", code: "LG-00007" });
+  });
+
+  it("finds nothing when the parent has no write-up", () => {
+    expect(writeUpOf("a-tool", [tool])).toBeUndefined();
+  });
+
+  it("finds nothing when the parent itself is not live", () => {
+    expect(writeUpOf("a-tool", [child])).toBeUndefined();
   });
 });
