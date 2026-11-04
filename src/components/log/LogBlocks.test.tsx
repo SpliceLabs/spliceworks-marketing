@@ -88,6 +88,17 @@ describe("images", () => {
     expect(html).toContain("E1 · Candy video");
   });
 
+  it("gives an image from the public folder its real width and height so the page does not shift", () => {
+    const shown = renderToStaticMarkup(
+      <EntryBody body={'## Examples\n\n![Mockup](/log/creator-weekly-email/email-e1-halloween.png "E1")'} />,
+    );
+    expect(shown).toMatch(/<img[^>]*width="936"[^>]*height="6610"/);
+  });
+
+  it("leaves the size off an image it cannot measure", () => {
+    expect(html).not.toMatch(/<img[^>]*width=/);
+  });
+
   it("links to the full-size image", () => {
     expect(html).toMatch(/<a[^>]*href="\/log\/a\/one\.png"[^>]*>Open full size<\/a>/);
   });

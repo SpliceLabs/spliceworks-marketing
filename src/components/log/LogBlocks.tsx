@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import type { Block, Inline } from "@/lib/copy/markdown";
 import { InlineLines, InlineNodes } from "@/components/copy/Inline";
 import { Check } from "@/components/ds/parts";
+import { imageSize } from "@/lib/log/image-size";
 
 const OUR_READ = /^Our read:\s*$/;
 
@@ -97,23 +98,26 @@ const BlockView = ({ block }: { block: Block }): ReactNode => {
 
 type ImageBlock = Extract<Block, { t: "image" }>;
 
-const ImageView = ({ block }: { block: ImageBlock }) => (
-  <figure className={block.scroll ? "lg-figure lg-figure-scroll" : "lg-figure"}>
-    {block.scroll ? (
-      <div className="lg-frame" tabIndex={0} role="region" aria-label={block.alt}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={block.src} alt={block.alt} loading="lazy" />
-      </div>
-    ) : (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img src={block.src} alt={block.alt} loading="lazy" />
-    )}
-    <figcaption>
-      <span>{block.caption}</span>
-      <a href={block.src}>Open full size</a>
-    </figcaption>
-  </figure>
-);
+const ImageView = ({ block }: { block: ImageBlock }) => {
+  const size = imageSize(block.src);
+  // eslint-disable-next-line @next/next/no-img-element
+  const image = <img src={block.src} alt={block.alt} loading="lazy" width={size?.width} height={size?.height} />;
+  return (
+    <figure className={block.scroll ? "lg-figure lg-figure-scroll" : "lg-figure"}>
+      {block.scroll ? (
+        <div className="lg-frame" tabIndex={0} role="region" aria-label={block.alt}>
+          {image}
+        </div>
+      ) : (
+        image
+      )}
+      <figcaption>
+        <span>{block.caption}</span>
+        <a href={block.src}>Open full size</a>
+      </figcaption>
+    </figure>
+  );
+};
 
 const isScrollImage = (block: Block): block is ImageBlock => block.t === "image" && block.scroll;
 
