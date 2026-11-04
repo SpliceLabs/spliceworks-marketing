@@ -1,6 +1,8 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import { latestTickets } from "@/lib/home/splice-log";
+import { getLog } from "@/lib/log/get-log";
 import { EclipseHome } from "./EclipseHome";
 
 const html = () =>
@@ -43,10 +45,12 @@ describe("Eclipse home", () => {
     expect(count(out, /<svg[^>]*role="img"[^>]*aria-label="/g)).toBeGreaterThanOrEqual(3);
   });
 
-  it("renders the three free-tool log entries, without Station, Brain or Supadata", () => {
+  it("renders the three newest log entries, without Station, Brain or Supadata", () => {
     const out = html();
-    ["LG-120", "LG-121", "LG-122"].forEach((c) => expect(out).toContain(c));
-    ["ST-01", "BR-02", "LG-119"].forEach((c) => expect(out).not.toContain(c));
+    const newest = latestTickets(getLog(), 3);
+    expect(newest).toHaveLength(3);
+    newest.forEach((ticket) => expect(out).toContain(`href="${ticket.href}"`));
+    ["ST-01", "BR-02"].forEach((c) => expect(out).not.toContain(c));
     expect(out).toContain("Free tools, no email needed");
   });
 

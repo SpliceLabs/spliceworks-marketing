@@ -1,17 +1,13 @@
 import Link from "next/link";
-import { SPLICE_LOG, type LogEntry } from "@/lib/home/splice-log";
+import { latestTickets, type LogTicket } from "@/lib/home/splice-log";
+import { getLog } from "@/lib/log/get-log";
 import { Ital, Strip } from "@/components/ds/parts";
 import { TicketStrip } from "../TicketStrip";
 
-const WASH: Record<LogEntry["badge"], string> = {
-  "FREE TOOL":
-    "radial-gradient(circle at 50% 50%, #1A1718 0 14%, transparent 15%), radial-gradient(ellipse at 42% 50%, #F2A65A 0, transparent 52%), radial-gradient(ellipse at 60% 50%, #E8899A 0, transparent 52%), #EEEAE2",
-  "OUR TOOL":
-    "radial-gradient(circle at 50% 50%, #1E1E20 0 14%, transparent 15%), radial-gradient(ellipse at 42% 50%, #3E9C93 0, transparent 52%), radial-gradient(ellipse at 60% 50%, #BFE6D4 0, transparent 52%), #EEEAE2",
-  NEW: "radial-gradient(circle at 50% 50%, #1A1718 0 14%, transparent 15%), radial-gradient(ellipse at 42% 50%, #F2A65A 0, transparent 52%), radial-gradient(ellipse at 60% 50%, #E8899A 0, transparent 52%), #EEEAE2",
-};
+const WASH =
+  "radial-gradient(circle at 50% 50%, #1A1718 0 14%, transparent 15%), radial-gradient(ellipse at 42% 50%, #F2A65A 0, transparent 52%), radial-gradient(ellipse at 60% 50%, #E8899A 0, transparent 52%), #EEEAE2";
 
-const BADGE: Record<LogEntry["badge"], string> = { "FREE TOOL": "Free tool", "OUR TOOL": "Our tool", NEW: "New" };
+const HOME_TICKET_COUNT = 3;
 
 const ReadArrow = () => (
   <svg
@@ -27,14 +23,14 @@ const ReadArrow = () => (
   </svg>
 );
 
-const Ticket = ({ entry }: { entry: LogEntry }) => (
+const Ticket = ({ entry }: { entry: LogTicket }) => (
   <Link className="ticket" href={entry.href}>
     <span className="notch l" />
     <span className="notch r" />
-    <span className="media" style={{ background: WASH[entry.badge] }}>
+    <span className="media" style={{ background: WASH }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       {entry.poster ? <img src={entry.poster} alt="" /> : null}
-      <span className={entry.badge === "NEW" ? "badge new" : "badge"}>{BADGE[entry.badge]}</span>
+      <span className="badge">{entry.kind}</span>
     </span>
     <span className="name">
       {entry.name} {entry.code}
@@ -49,7 +45,7 @@ const Ticket = ({ entry }: { entry: LogEntry }) => (
     <span className="desc">{entry.summary}</span>
     <span className="foot">
       <span className="read">
-        {entry.cta}
+        Read the entry
         <ReadArrow />
       </span>
     </span>
@@ -64,15 +60,15 @@ export const SpliceLog = () => (
     <TicketStrip
       head={
         <div>
-          <span className="kicker">[Splice Log] Our own tools, and new ones we’ve tested</span>
+          <span className="kicker">[Splice Log] What we’ve tested and what we’ve built</span>
           <h2 className="h2" style={{ marginTop: "var(--space-12)" }}>
             New AI, <Ital>tested and integrated daily, for you.</Ital>
           </h2>
         </div>
       }
     >
-      {SPLICE_LOG.map((entry) => (
-        <Ticket key={entry.code} entry={entry} />
+      {latestTickets(getLog(), HOME_TICKET_COUNT).map((entry) => (
+        <Ticket key={entry.href} entry={entry} />
       ))}
     </TicketStrip>
   </section>
