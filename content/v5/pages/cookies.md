@@ -22,15 +22,13 @@ Cookies are small files a website saves in your browser. In this policy, “cook
 
 ## What we use
 
-We use a small amount of local storage to make the site work the way you left it. These items stay in your browser and never reach our servers.
+We use a small amount of local storage to make the site work the way you left it. These items stay in your browser and never reach our servers. We do not use advertising cookies.
 
 | Name | What it does | How long |
 |---|---|---|
 | `sw-theme` | Remembers your Paper or Ink theme | Until you clear your browser data |
 | `sw-mode` | Remembers your reading mode | Until you clear your browser data |
 | `sw-consent` | Remembers your Accept or Decline choice | Until you clear your browser data |
-
-We do not use advertising cookies.
 
 ## Visitor identification
 
