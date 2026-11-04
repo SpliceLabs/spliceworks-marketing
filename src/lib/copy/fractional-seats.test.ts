@@ -53,3 +53,11 @@ describe("Overview links to the seat pages", () => {
     expect(body).toContain("](/services/fractional/cpto-cto)");
   });
 });
+
+describe("Chief AI Officer seat page", () => {
+  it("sits beside the COO as well as the CIO and CTO", () => {
+    const body = getPage("/services/fractional/chief-ai-officer").body;
+    expect(body).toContain("## Beside your COO, CIO and CTO");
+    expect(body).toContain("Your COO keeps operations");
+  });
+});

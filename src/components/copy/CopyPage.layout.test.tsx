@@ -63,3 +63,30 @@ describe("copy page rhythm", () => {
     });
   });
 });
+
+const sectionHtml = (path: string, id: string) =>
+  renderToStaticMarkup(<CopyPage path={path} />).match(new RegExp(`<section id="${id}"[\\s\\S]*?</section>`))?.[0] ??
+  "";
+
+describe("fractional leadership cards", () => {
+  it("shows the two seats and advisory as one set of three cards", () => {
+    const html = sectionHtml("/services/fractional", "two-seats-and-an-advisory-option");
+    expect(html.match(/class="tcard"/g)).toHaveLength(3);
+  });
+
+  it("shows the outcomes as three check-mark cards, each titled with its seat", () => {
+    const html = sectionHtml("/services/fractional", "outcomes-the-seat-can-own");
+    const cards = html.split(/<article /).slice(1);
+    expect(cards).toHaveLength(3);
+    cards.forEach((card) => expect(card.indexOf("<h3")).toBeLessThan(card.indexOf("<svg")));
+    expect(cards.map((c) => c.match(/<h3[^>]*>(.*?)<\/h3>/)?.[1])).toEqual([
+      "Fractional Chief AI Officer",
+      "Fractional CPTO or CTO",
+      "Either seat",
+    ]);
+  });
+
+  it("leaves two-card list sections on other pages as plain cards", () => {
+    expect(sectionHtml("/work", "what-we-use-ourselves")).not.toContain("<svg");
+  });
+});

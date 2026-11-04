@@ -141,22 +141,55 @@ function CheckCard({ list, title }: { list: Extract<Block, { t: "list" }>; title
   );
 }
 
+const onlyPlainList = (blocks: Block[]) =>
+  blocks.length === 1 &&
+  blocks[0].t === "list" &&
+  !blocks[0].ordered &&
+  blocks[0].items.every((it) => it.children.length === 0)
+    ? blocks[0]
+    : undefined;
+
+const isOutcomeMenu = (subs: Subsection[]) => subs.length >= 3 && subs.every((sub) => onlyPlainList(sub.blocks));
+
+function CheckList({ list }: { list: Extract<Block, { t: "list" }> }) {
+  return (
+    <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+      {list.items.map((it, i) => (
+        <li key={i} className="crow" style={i === 0 ? { borderTop: 0, paddingTop: 0 } : undefined}>
+          <Check />
+          <span style={{ fontWeight: 500 }}>
+            <InlineNodes nodes={it.c} />
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 function SubPillars({ subs }: { subs: Subsection[] }) {
+  const checks = isOutcomeMenu(subs);
   return (
     <div className="tcards">
-      {subs.map((sub, i) => (
-        <article key={sub.slug} id={sub.slug} className="tcard">
-          <span className="tcard-n" aria-hidden="true">
-            {String(i + 1).padStart(2, "0")}
-          </span>
-          <h3 className="tcard-h">
-            <InlineNodes nodes={sub.title} />
-          </h3>
-          <div className={styles.cardBody}>
-            <Blocks blocks={sub.blocks} />
-          </div>
-        </article>
-      ))}
+      {subs.map((sub, i) => {
+        const list = checks ? onlyPlainList(sub.blocks) : undefined;
+        return (
+          <article key={sub.slug} id={sub.slug} className="tcard">
+            <span className="tcard-n" aria-hidden="true">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <h3 className="tcard-h">
+              <InlineNodes nodes={sub.title} />
+            </h3>
+            {list ? (
+              <CheckList list={list} />
+            ) : (
+              <div className={styles.cardBody}>
+                <Blocks blocks={sub.blocks} />
+              </div>
+            )}
+          </article>
+        );
+      })}
     </div>
   );
 }

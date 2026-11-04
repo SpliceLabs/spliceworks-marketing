@@ -28,23 +28,11 @@ Without one named person, these calls get made by whoever acts first. The seat i
 
 ## Two seats, and an advisory option
 
-| | Fractional Chief AI Officer | Fractional CPTO or CTO | Advisory |
+| | [Fractional Chief AI Officer](/services/fractional/chief-ai-officer) | [Fractional CPTO or CTO](/services/fractional/cpto-cto) | Advisory |
 | --- | --- | --- | --- |
-| Owns | Making your company AI-native | Making your product AI-native | No seat: a second view on your AI decisions |
+| Owns | Making your company AI-native: the plan your CEO or board approves, what you spend on AI and what it returns, who is accountable for each decision, and the first critical workflow run by agents | Making your product AI-native: the roadmap, a product surface agents can use, and the first AI-native feature in production | No seat. A second view on your AI decisions, from build, buy or partner to vendors, architecture, AI spend and board and investor readiness |
 | Answers for | Outcomes agreed each quarter | Outcomes agreed each quarter | Decisions you bring to it |
-| Usually | Alongside [an engagement](/services) | When AI-native products pull the roadmap | When you want a second view before committing to a seat |
-
-### Fractional Chief AI Officer
-
-Owns making your company AI-native: the plan your CEO or board approves, what you spend on AI and what it returns, who is accountable for each decision, and the first critical workflow run by agents. [See the Chief AI Officer seat](/services/fractional/chief-ai-officer)
-
-### Fractional CPTO or CTO
-
-Owns making your product AI-native. That means the roadmap, a product surface agents can use, and the first AI-native feature in production. [See the CPTO or CTO seat](/services/fractional/cpto-cto)
-
-### Advisory
-
-A standing call, weekly or twice a week, with answers between calls. It suits teams that want a second view on AI decisions: build, buy or partner, vendors and architecture, AI spend, and board and investor readiness. Advisory can turn into a seat when you're ready.
+| Usually | Alongside [an engagement](/services) | When AI-native products pull the roadmap | When you want a second view before committing to a seat. A standing call, weekly or twice a week, with answers between calls |
 
 ## What the seat owns, and what stays with you
 
@@ -76,19 +64,22 @@ At the start, we agree a one-page success plan with you, and the seat answers fo
 
 We start from this list and pick what fits your company.
 
-**Fractional Chief AI Officer**
+### Fractional Chief AI Officer
+
 - An AI plan and mandate approved by your CEO or board
 - An inventory of your AI tools and contracts, with the waste cut
 - An AI spend policy
 - The accountability map in force: who decides what, and what agents may approve
 - The first critical workflow started and run by agents
 
-**Fractional CPTO or CTO**
+### Fractional CPTO or CTO
+
 - An AI-native product roadmap
 - An agent-ready product surface live
 - The first AI-native feature in production, against an adoption target
 
-**Either seat**
+### Either seat
+
 - A written mandate for the permanent role, if you want one
 
 ## A seat that answers for the AI bill
@@ -127,9 +118,9 @@ No. We work with solo founders as well as large teams.
 
 A consultant delivers recommendations and leaves. The seat sits on your leadership team and answers for outcomes you agree in writing each quarter, including the ones that need your people to change how they work.
 
-### Does the seat replace our CIO or CTO?
+### Does the seat replace our COO, CIO or CTO?
 
-No. Your CIO or CTO keeps the systems. The seat owns the AI mandate beside them: the plan, the spend, who decides what and the first results.
+No. Your COO keeps operations, and your CIO or CTO keeps the systems. The seat owns the AI mandate beside them: the plan, the spend, who decides what and the first results.
 
 ### How much time do we get?
 

@@ -106,9 +106,9 @@ The ability to run it yourself. Your team knows how to manage what we installed 
 
 A consultant delivers recommendations and leaves. The seat sits on your leadership team and answers for outcomes you agree in writing each quarter, including the ones that need your people to change how they work.
 
-### Does the seat replace our CIO or CTO?
+### Does the seat replace our COO, CIO or CTO?
 
-No. Your CIO or CTO keeps the systems. The seat owns the AI mandate beside them: the plan, the spend, who decides what and the first results.
+No. Your COO keeps operations, and your CIO or CTO keeps the systems. The seat owns the AI mandate beside them: the plan, the spend, who decides what and the first results.
 
 ### How much time do we get?
 

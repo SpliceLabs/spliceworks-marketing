@@ -55,7 +55,7 @@ describe("Fractional leadership overview", () => {
     const category = getFaq().categories.find((c) => c.id === "fractional-leadership");
     expect(category?.entries.map((e) => e.question)).toEqual([
       "What is the difference between the seat and an AI consultant?",
-      "Does the seat replace our CIO or CTO?",
+      "Does the seat replace our COO, CIO or CTO?",
       "How much time do we get?",
       "Can we start with advisory?",
       "How does a fractional seat end?",

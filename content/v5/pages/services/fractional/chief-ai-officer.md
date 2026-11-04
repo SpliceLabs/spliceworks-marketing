@@ -44,9 +44,9 @@ We start from this list and pick what fits your company. The split with your own
 4. Start the first critical workflow with agents.
 5. Hold the quarterly review: renew, expand into an engagement, or hand over.
 
-## Beside your CIO and CTO
+## Beside your COO, CIO and CTO
 
-The seat doesn't replace them. They keep the systems, and the seat owns the AI mandate beside them. If you lead technology yourself, see [our page for technology leaders](/for/technology-leaders).
+Many companies reach for AI to streamline operations, and that work sits with your COO. The seat doesn't replace them. Your COO keeps operations, and the seat works beside them on where AI changes how the work runs. Your CIO and CTO keep the systems. If you lead technology yourself, see [our page for technology leaders](/for/technology-leaders).
 
 ## Questions about the seat
 
@@ -54,9 +54,9 @@ The seat doesn't replace them. They keep the systems, and the seat owns the AI m
 
 A consultant delivers recommendations and leaves. The seat sits on your leadership team and answers for outcomes you agree in writing each quarter, including the ones that need your people to change how they work.
 
-### Does the seat replace our CIO or CTO?
+### Does the seat replace our COO, CIO or CTO?
 
-No. Your CIO or CTO keeps the systems. The seat owns the AI mandate beside them: the plan, the spend, who decides what and the first results.
+No. Your COO keeps operations, and your CIO or CTO keeps the systems. The seat owns the AI mandate beside them: the plan, the spend, who decides what and the first results.
 
 ### How does a fractional seat end?
 
