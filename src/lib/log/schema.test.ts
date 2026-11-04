@@ -100,4 +100,13 @@ describe("Log frontmatter", () => {
     expect(errorsFor(base({ description: "A fast model.", lede_em: "fast" }))).toEqual([]);
     expect(errorsFor(base({ lede_em: "fast" })).join()).toMatch(/lede_em/);
   });
+
+  it("accepts a write-up that names its parent entry", () => {
+    expect(errorsFor(base({ type: "research", checked: "2026-11-04", parent: "creator-weekly-email" }))).toEqual([]);
+  });
+
+  it("refuses a write-up that carries its own code, because it shares its parent's", () => {
+    const input = base({ type: "research", checked: "2026-11-04", parent: "a-tool", code: "LG-00009" });
+    expect(errorsFor(input).join()).toMatch(/code.*parent/);
+  });
 });

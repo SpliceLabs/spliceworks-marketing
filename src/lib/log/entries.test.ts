@@ -3,7 +3,7 @@ import os from "node:os";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { stringify } from "yaml";
-import { isLive, liveEntries, loadEntries, parseEntry, sortNewestFirst, todayUtc } from "./entries";
+import { isLive, isWriteUp, liveEntries, loadEntries, parseEntry, sortNewestFirst, todayUtc } from "./entries";
 
 const frontmatter = (over: Record<string, unknown> = {}) => ({
   type: "guide",
@@ -128,5 +128,42 @@ describe("loadEntries", () => {
       "draft.md": source({ code: "LG-00003", status: "draft" }),
     });
     expect(liveEntries(loadEntries(dir), "2026-11-04").map((e) => e.slug)).toEqual(["live"]);
+  });
+});
+
+describe("write-ups", () => {
+  const writeUp = (over: Record<string, unknown> = {}) =>
+    source({ type: "research", checked: "2026-11-04", code: undefined, parent: "a-tool", ...over });
+
+  it("loads a write-up without a code and tells it apart from a top-level entry", () => {
+    const dir = folder({ "a-tool.md": source({ code: "LG-00001" }), "a-tool-write-up.md": writeUp() });
+    const entries = loadEntries(dir);
+    expect(entries.map((e) => [e.slug, isWriteUp(e)])).toEqual([
+      ["a-tool", false],
+      ["a-tool-write-up", true],
+    ]);
+  });
+
+  it("fails when a write-up names a parent that does not exist", () => {
+    const dir = folder({ "a-tool-write-up.md": writeUp({ parent: "ghost" }) });
+    expect(() => loadEntries(dir)).toThrow(/ghost/);
+  });
+
+  it("fails when a write-up hangs off another write-up", () => {
+    const dir = folder({
+      "a-tool.md": source({ code: "LG-00001" }),
+      "first.md": writeUp({ parent: "a-tool" }),
+      "second.md": writeUp({ parent: "first" }),
+    });
+    expect(() => loadEntries(dir)).toThrow(/second[\s\S]*first/);
+  });
+
+  it("fails when a parent has two write-ups", () => {
+    const dir = folder({
+      "a-tool.md": source({ code: "LG-00001" }),
+      "first.md": writeUp(),
+      "second.md": writeUp(),
+    });
+    expect(() => loadEntries(dir)).toThrow(/a-tool[\s\S]*first[\s\S]*second/);
   });
 });

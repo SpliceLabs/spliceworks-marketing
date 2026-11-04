@@ -46,6 +46,7 @@ const frontmatter = z.strictObject({
     })
     .optional(),
   related: z.array(text).optional(),
+  parent: text.optional(),
   pinned: z.boolean().optional(),
   cta: z.strictObject({ label: text, href: z.string().startsWith("/", "must start with /") }).optional(),
 });
@@ -65,6 +66,8 @@ const schema = frontmatter.superRefine((value, ctx) => {
     issue("lede_em", "must be a phrase that appears in the description");
   }
   if (value.tool_status && value.type !== "tool") issue("tool_status", "only allowed on tool entries");
+  if (value.parent && value.code)
+    issue("code", "a write-up shares the code of its parent, so it must not carry its own");
   if (value.updated && value.updated < value.published) issue("updated", "must not be before published");
 });
 
