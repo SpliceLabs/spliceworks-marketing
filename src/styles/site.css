@@ -1021,7 +1021,13 @@
   margin: 0;
 }
 .lg-figure-scroll {
-  width: min(100%, 375px);
+  width: min(100%, 340px);
+}
+.lg-figure-row .lg-figure-scroll {
+  flex: 1 1 280px;
+  max-width: 340px;
+  min-width: 0;
+  width: auto;
 }
 .lg-frame {
   height: 640px;
