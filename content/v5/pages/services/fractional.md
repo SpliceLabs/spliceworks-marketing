@@ -5,6 +5,7 @@ description: A fractional Chief AI Officer, CPTO or CTO on your leadership team,
 reader: A CEO, board or founder who needs AI leadership before or beside an engagement, and has no one in the seat
 job: See which seat fits and what it answers for each quarter, then book a working session to start
 primary_cta: Book a working session → /book
+check_cards: outcomes-the-seat-can-own
 status: provisional
 sources: [Fractional leadership seats and advisory, Fractional seat: success plan and outcome menu, Open items tracker #22 and #23, Core messages]
 open: [Decision-rights defaults in the table, time shape ("heaviest at the start") and how a seat ends (#22), seat pages and Log links, Seat shape and outcome menu (#22), advisory standing call and its response time (#23), how the seat's initial assessment relates to the working session (#22, #3), "Why a fractional seat instead of a full-time hire?" answer (#22), session price (#3)]

@@ -1,6 +1,8 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
-import { CopyPage } from "./CopyPage";
+import { parsePage } from "@/lib/copy/markdown";
+import { classifySection, planLayouts } from "@/lib/copy/section-layout";
+import { CopyPage, CopySection } from "./CopyPage";
 
 const PAGES = ["/how-it-works", "/services", "/team", "/work", "/station", "/for", "/services/ai-enabled"] as const;
 
@@ -74,7 +76,7 @@ describe("fractional leadership cards", () => {
     expect(html.match(/class="tcard"/g)).toHaveLength(3);
   });
 
-  it("shows the outcomes as three check-mark cards, each titled with its seat", () => {
+  it("shows the outcomes as three check-mark cards, each titled with its seat and ticking every outcome", () => {
     const html = sectionHtml("/services/fractional", "outcomes-the-seat-can-own");
     const cards = html.split(/<article /).slice(1);
     expect(cards).toHaveLength(3);
@@ -84,9 +86,30 @@ describe("fractional leadership cards", () => {
       "Fractional CPTO or CTO",
       "Either seat",
     ]);
+    expect(cards.map((c) => c.match(/<svg/g)?.length)).toEqual([5, 3, 1]);
+    expect(cards.map((c) => c.match(/<li/g)?.length)).toEqual([5, 3, 1]);
   });
 
   it("leaves two-card list sections on other pages as plain cards", () => {
     expect(sectionHtml("/work", "what-we-use-ourselves")).not.toContain("<svg");
+  });
+});
+
+const listCards = (heading: string) => {
+  const md = `## ${heading}\n\nIntro.\n\n### One\n\n- a\n- b\n\n### Two\n\n- c\n- d\n\n### Three\n\n- e\n- f\n`;
+  const section = parsePage(`---\nurl: /x\n---\n\n# T\n\n${md}`).sections[0];
+  const plan = planLayouts([classifySection(section)])[0];
+  return renderToStaticMarkup(
+    <CopySection frame={{ section, index: 0, total: 1, plan, label: "x" }} pageUrl="/services/fractional" />,
+  );
+};
+
+describe("check-mark cards are opt-in", () => {
+  it("keeps three list-only subsections as plain cards unless the page asks for check marks", () => {
+    expect(listCards("Our other lists")).not.toContain("<svg");
+  });
+
+  it("ticks the sections a page lists in its check_cards front matter", () => {
+    expect(listCards("Outcomes the seat can own")).toContain("<svg");
   });
 });

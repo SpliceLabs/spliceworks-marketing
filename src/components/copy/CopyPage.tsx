@@ -149,7 +149,11 @@ const onlyPlainList = (blocks: Block[]) =>
     ? blocks[0]
     : undefined;
 
-const isOutcomeMenu = (subs: Subsection[]) => subs.length >= 3 && subs.every((sub) => onlyPlainList(sub.blocks));
+const wantsChecks = (pageUrl: string, section: Section) =>
+  (getPage(pageUrl).fm.check_cards ?? "")
+    .split(",")
+    .map((slug) => slug.trim())
+    .includes(section.slug);
 
 function CheckList({ list }: { list: Extract<Block, { t: "list" }> }) {
   return (
@@ -166,8 +170,7 @@ function CheckList({ list }: { list: Extract<Block, { t: "list" }> }) {
   );
 }
 
-function SubPillars({ subs }: { subs: Subsection[] }) {
-  const checks = isOutcomeMenu(subs);
+function SubPillars({ subs, checks }: { subs: Subsection[]; checks: boolean }) {
   return (
     <div className="tcards">
       {subs.map((sub, i) => {
@@ -255,7 +258,7 @@ export function CopySection({ frame, pageUrl }: { frame: Frame; pageUrl: string 
     section.subs.length === 0 ? null : subsHaveTables ? (
       <SubStack subs={section.subs} />
     ) : (
-      <SubPillars subs={section.subs} />
+      <SubPillars subs={section.subs} checks={wantsChecks(pageUrl, section)} />
     );
 
   if (plan.kind === "split") {
