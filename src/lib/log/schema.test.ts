@@ -109,6 +109,27 @@ describe("Log frontmatter", () => {
     const input = base({ type: "research", checked: "2026-11-04", parent: "a-tool", code: "LG-00009" });
     expect(errorsFor(input).join()).toMatch(/code.*parent/);
   });
+
+  describe("site-relative paths", () => {
+    const offSite = ["//attacker.example/x.jpg", "/\\attacker.example/x.jpg"];
+    const hero = { src: "/log/x/hero.jpg", alt: "A chart" };
+
+    it.each(offSite)("rejects %s as a hero image", (src) => {
+      expect(errorsFor(base({ hero: { ...hero, src } })).join()).toMatch(/src/);
+    });
+
+    it.each(offSite)("rejects %s as a hero video", (video) => {
+      expect(errorsFor(base({ hero: { ...hero, video } })).join()).toMatch(/video/);
+    });
+
+    it.each(offSite)("rejects %s as a call to action link", (href) => {
+      expect(errorsFor(base({ cta: { label: "Go", href } })).join()).toMatch(/href/);
+    });
+
+    it("still accepts ordinary site paths, with a query or fragment", () => {
+      expect(errorsFor(base({ cta: { label: "Go", href: "/tools/ai-roi-calculator?x=1#top" } }))).toEqual([]);
+    });
+  });
 });
 
 describe("Log draft frontmatter", () => {
