@@ -6,7 +6,7 @@ reader: The champion making the AI mandate real (head of operations, CTO, CIO), 
 job: Understand the working session, the two steps and who does what, and be confident enough to book a working session
 primary_cta: Book a working session → /book
 status: draft
-sources: [The two offerings (stages, step line, step-1 milestone examples, engagement model), Core messages (working session, capability not dependency, managed by default portable by design), Proof (own methods), Objections and answers, Claims register, Rules]
+sources: [The two offerings (stages, step line, step-1 milestone examples, engagement model), Core messages (working session, capability not dependency, managed by default portable by design), Proof (own methods), Objections and answers, Claims register, Rules, Outcome sheet (founder-confirmed 2026-11-05)]
 open: ["#3 working session: price; what happens if the client doesn't go ahead; founder-sized entry path", "#3 named-deliverables list is PROVISIONAL", "#5 first workflow in production: range in weeks (no public 30-day claim)"]
 ---
 
@@ -19,11 +19,12 @@ A paid day, credited in full if you go on to work with us.
 
 ## Start with a working session
 
-It's one focused day. We look at how your work runs, then pick one real workflow together. If your team is new to AI, we start with the basics on your own work: briefing AI well, writing down the context it needs and organising work so it builds up. We tell you upfront who should be in the room.
+It's one focused day. We look at how your work runs, then pick one real workflow together. If your team is new to AI, we start with the basics on your own work: briefing AI well, writing down the context it needs and organising work so it builds up. We tell you upfront who should be in the room. The day ends with your decision on whether to go on.
 
 What you walk away with:
 
 - A working prototype on one of your workflows
+- An outcome sheet for that workflow: where it stands today, the target and how we'll measure it
 - Where you are on the path: AI-absent, AI-enabled or AI-native
 - A build, buy or partner call for each part of that workflow
 - Who is accountable for each decision
@@ -40,6 +41,7 @@ The working session tells you which step you start at.
 | **You're here if…** | You have the tools, maybe even daily users, but the work hasn't changed | Your first critical workflow runs on agents, but most work still waits to be asked |
 | **What we do** | Put a governed AI workspace in place, and build your company's shared brain: your prompts, skills and knowledge in one place, checked against your policies and used every day | Rebuild your critical workflows so the brain drives the work, with agents as coworkers that escalate to your people based on your policies |
 | **Ends with** | Your first critical workflow started and run by agents | The workflows that run your business, started and run by agents |
+| **You decide** | Whether to go on to AI-native | What to run next, and who runs it |
 
 More detail: [AI-absent → AI-enabled](/services/ai-enabled) and [AI-enabled → AI-native](/services/ai-native).
 
@@ -66,6 +68,16 @@ Your team holds authority, agents do bounded work, specialists bring judgment. D
 | **Our forward-deployed team** | Sits with your people, rebuilds the workflow inside the systems you already run, and teaches your team to run it. |
 
 ## How the engagement runs
+
+Each workflow gets an outcome sheet before anything runs. It records:
+
+- The outcome, in business terms
+- Where it stands today, and the target
+- How we measure it
+- Who is accountable, and what agents may approve
+- What is out of scope
+
+We agree the sheet in the working session. After that, the plan answers to it.
 
 You always know what the current step ends with. The plan grows as we learn how your work runs, and what the agreed workflow needs doesn't become a change order. You get something usable from the first session, and once we've seen your workflow we tell you how long it will take to reach production.
 
