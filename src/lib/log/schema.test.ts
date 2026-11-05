@@ -110,3 +110,47 @@ describe("Log frontmatter", () => {
     expect(errorsFor(input).join()).toMatch(/code.*parent/);
   });
 });
+
+describe("Log draft frontmatter", () => {
+  const draft = (over: Record<string, unknown> = {}) => ({
+    type: "analysis",
+    title: "A title",
+    status: "draft",
+    ...over,
+  });
+
+  it("accepts a draft that carries only a type, a title and the draft status", () => {
+    expect(errorsFor(draft())).toEqual([]);
+  });
+
+  it("accepts a draft with a publish date, and one without", () => {
+    expect(errorsFor(draft({ published: "2026-12-01" }))).toEqual([]);
+    expect(parseFrontmatter(draft())).toMatchObject({ ok: true, data: { status: "draft" } });
+  });
+
+  it("still requires a type and a title on a draft", () => {
+    expect(errorsFor(draft({ title: undefined })).join()).toMatch(/title/);
+    expect(errorsFor(draft({ type: undefined })).join()).toMatch(/type/);
+  });
+
+  it("still checks the shape of any field a draft does carry", () => {
+    expect(errorsFor(draft({ published: "04.11.2026" })).join()).toMatch(/published/);
+    expect(errorsFor(draft({ stage: "expert" })).join()).toMatch(/stage/);
+    expect(errorsFor(draft({ stagee: "absent" })).join()).toMatch(/stagee/);
+    expect(errorsFor(draft({ tool_status: "testing" })).join()).toMatch(/tool_status/);
+    expect(errorsFor(draft({ published: "2026-11-04", updated: "2026-11-01" })).join()).toMatch(/updated/);
+  });
+
+  it("does not ask a draft for the fields a published entry needs", () => {
+    expect(errorsFor(draft({ type: "launch" }))).toEqual([]);
+    expect(errorsFor(draft({ type: "research" }))).toEqual([]);
+  });
+
+  it("asks a published entry for its description, stage and publish date", () => {
+    const published = { type: "launch", title: "A title", status: "published", disclosure: "We built it." };
+    const errors = errorsFor(published).join();
+    expect(errors).toMatch(/description/);
+    expect(errors).toMatch(/stage/);
+    expect(errors).toMatch(/published/);
+  });
+});

@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { writeUpActions } from "./actions";
-import { isWriteUp, loadEntries, logDir } from "./entries";
+import { isPublished, isWriteUp, loadEntries, logDir } from "./entries";
 import { splitSections } from "./sections";
 
-const writeUps = loadEntries(logDir()).filter(isWriteUp);
+const writeUps = loadEntries(logDir()).filter(isPublished).filter(isWriteUp);
 
 describe("the write-ups in content/log", () => {
   it("has at least one, so these checks are not vacuous", () => {
