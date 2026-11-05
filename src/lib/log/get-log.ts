@@ -1,7 +1,7 @@
 import { cache } from "react";
 import {
+  allPages,
   liveEntries,
-  livePages,
   loadEntries,
   logDir,
   todayUtc,
@@ -9,8 +9,14 @@ import {
   writeUpOf,
   type LogEntry,
 } from "./entries";
+import { previewEntries, showDrafts } from "./preview";
 
-const getAllLive = cache((): readonly LogEntry[] => liveEntries(loadEntries(logDir()), todayUtc()));
+const visible = (): readonly LogEntry[] => {
+  const entries = loadEntries(logDir());
+  return showDrafts(process.env) ? previewEntries(entries, todayUtc()) : liveEntries(entries, todayUtc());
+};
+
+const getAllLive = cache(visible);
 
 export const getLog = cache((): readonly LogEntry[] => topLevelEntries(getAllLive()));
 
@@ -18,6 +24,6 @@ export const getEntry = (slug: string): LogEntry | undefined => getLog().find((e
 
 export const getWriteUp = (slug: string): LogEntry | undefined => writeUpOf(slug, getAllLive());
 
-export const getLogPages = cache((): readonly LogEntry[] => livePages(loadEntries(logDir()), todayUtc()));
+export const getLogPages = cache((): readonly LogEntry[] => allPages(visible()));
 
 export const getPage = (slug: string): LogEntry | undefined => getLogPages().find((entry) => entry.slug === slug);
