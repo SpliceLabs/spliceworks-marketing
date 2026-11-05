@@ -1,4 +1,4 @@
-export type CodedEntry = { readonly slug: string; readonly published: string; readonly code?: string };
+export type CodedEntry = { readonly slug: string; readonly published?: string; readonly code?: string };
 
 export type CodeAssignment = { readonly slug: string; readonly code: string };
 
@@ -22,7 +22,7 @@ export const codeNumber = (code: string): number | null => {
 };
 
 const byPublishedThenSlug = (a: CodedEntry, b: CodedEntry): number =>
-  a.published.localeCompare(b.published) || a.slug.localeCompare(b.slug);
+  (a.published ?? "").localeCompare(b.published ?? "") || a.slug.localeCompare(b.slug);
 
 export const assignCodes = (entries: readonly CodedEntry[]): readonly CodeAssignment[] => {
   const highest = entries.reduce((max, entry) => Math.max(max, (entry.code && codeNumber(entry.code)) || 0), 0);

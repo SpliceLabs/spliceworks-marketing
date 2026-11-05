@@ -282,3 +282,55 @@ describe("livePages", () => {
     expect(slugs(dir({ published: "2026-12-01" }, { published: "2026-12-01" }), "2026-11-04")).toEqual([]);
   });
 });
+
+describe("drafts without a date or the published fields", () => {
+  const draftSource = (over: Record<string, unknown> = {}) =>
+    `---\n${stringify({ type: "analysis", title: "Half written", status: "draft", ...over })}---\n\nNotes so far.\n`;
+
+  it("loads a draft that has only a type, a title and the draft status", () => {
+    const dir = folder({ "half.md": draftSource() });
+    expect(loadEntries(dir).map((e) => [e.slug, e.status, e.published])).toEqual([["half", "draft", undefined]]);
+  });
+
+  it("never treats a draft as live, with a date or without, even once the date has passed", () => {
+    const dir = folder({
+      "dated.md": draftSource({ published: "2026-11-01" }),
+      "undated.md": draftSource(),
+      "live.md": source({ code: "LG-00001", published: "2026-11-01" }),
+    });
+    expect(liveEntries(loadEntries(dir), "2027-01-01").map((e) => e.slug)).toEqual(["live"]);
+  });
+
+  it("lists dateless drafts after dated entries", () => {
+    const dir = folder({ "a-draft.md": draftSource(), "z-live.md": source({ code: "LG-00001" }) });
+    expect(loadEntries(dir).map((e) => e.slug)).toEqual(["z-live", "a-draft"]);
+  });
+
+  it("fails a published entry that has no publish date, naming the field", () => {
+    const dir = folder({ "a.md": source({ code: "LG-00001", published: undefined }) });
+    expect(() => loadEntries(dir)).toThrow(/Log entry "a".*published/);
+  });
+
+  it("does not compare dates for a write-up or parent that has none", () => {
+    const dir = folder({
+      "a-tool.md": draftSource(),
+      "a-tool-write-up.md": draftSource({ parent: "a-tool" }),
+    });
+    expect(loadEntries(dir)).toHaveLength(2);
+  });
+});
+
+describe("codes and drafts", () => {
+  const draftSource = (over: Record<string, unknown> = {}) =>
+    `---\n${stringify({ type: "analysis", title: "Half written", status: "draft", ...over })}---\n\nNotes.\n`;
+
+  it("fails a published entry with no code, but not a draft with none", () => {
+    expect(() => loadEntries(folder({ "a.md": source({ code: undefined }) }))).toThrow(/missing.*a/i);
+    expect(loadEntries(folder({ "d.md": draftSource() }))).toHaveLength(1);
+  });
+
+  it("still fails when a draft's code duplicates another entry's", () => {
+    const dir = folder({ "a.md": source({ code: "LG-00007" }), "d.md": draftSource({ code: "LG-00007" }) });
+    expect(() => loadEntries(dir)).toThrow(/LG-00007/);
+  });
+});

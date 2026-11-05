@@ -78,3 +78,30 @@ describe("writeMissingCodes with write-ups", () => {
     expect(fs.readFileSync(path.join(dir, "a-tool-write-up.md"), "utf8")).not.toMatch(/^code:/m);
   });
 });
+
+describe("writeMissingCodes with drafts", () => {
+  const draft = (over: Record<string, unknown> = {}) =>
+    `---\n${stringify({ type: "analysis", title: "Half written", status: "draft", ...over })}---\n\nNotes.\n`;
+
+  it("leaves a draft without a code alone, so an abandoned draft burns no number", () => {
+    const dir = folder({ "half.md": draft(), "live.md": source({}, "Body.") });
+    expect(writeMissingCodes(dir)).toEqual(["live.md"]);
+    expect(fs.readFileSync(path.join(dir, "half.md"), "utf8")).not.toMatch(/^code:/m);
+    expect(fs.readFileSync(path.join(dir, "live.md"), "utf8")).toMatch(/^code: LG-00001$/m);
+  });
+
+  it("gives the next number to a draft once it is published, after the numbers already taken", () => {
+    const dir = folder({ "a.md": source({ code: "LG-00004" }), "b.md": draft() });
+    writeMissingCodes(dir);
+    fs.writeFileSync(path.join(dir, "b.md"), source({ title: "Now published" }));
+    expect(writeMissingCodes(dir)).toEqual(["b.md"]);
+    expect(fs.readFileSync(path.join(dir, "b.md"), "utf8")).toMatch(/^code: LG-00005$/m);
+  });
+
+  it("keeps the code a draft already has and counts it, so the next number stays unique", () => {
+    const dir = folder({ "kept.md": draft({ code: "LG-00009" }), "live.md": source({}, "Body.") });
+    expect(writeMissingCodes(dir)).toEqual(["live.md"]);
+    expect(fs.readFileSync(path.join(dir, "kept.md"), "utf8")).toMatch(/^code: LG-00009$/m);
+    expect(fs.readFileSync(path.join(dir, "live.md"), "utf8")).toMatch(/^code: LG-00010$/m);
+  });
+});

@@ -3,19 +3,23 @@ import path from "node:path";
 import { parse } from "yaml";
 import { codeProblems } from "./code";
 import { readingMinutes } from "./reading-time";
-import { parseFrontmatter, type LogFrontmatter } from "./schema";
+import { parseFrontmatter, type DraftFrontmatter, type PublishedFrontmatter } from "./schema";
 
-export type LogEntry = LogFrontmatter & {
+type Extras = {
   readonly slug: string;
   readonly body: string;
   readonly readingMinutes: number;
 };
 
+export type LogEntry = PublishedFrontmatter & Extras;
+export type DraftEntry = DraftFrontmatter & Extras;
+export type AnyEntry = LogEntry | DraftEntry;
+
 const RESERVED_SLUGS = ["type", "stage", "feed"];
 const SLUG_PATTERN = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const FRONTMATTER_BLOCK = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/;
 
-export const isWriteUp = (entry: LogEntry): boolean => Boolean(entry.parent);
+export const isWriteUp = (entry: { readonly parent?: string }): boolean => Boolean(entry.parent);
 
 export const topLevelEntries = (entries: readonly LogEntry[]): readonly LogEntry[] =>
   entries.filter((entry) => !isWriteUp(entry));
@@ -33,7 +37,7 @@ export const allPages = (entries: readonly LogEntry[]): readonly LogEntry[] =>
     return parent ? [{ ...entry, code: parent.code }] : [];
   });
 
-export const livePages = (entries: readonly LogEntry[], today: string): readonly LogEntry[] =>
+export const livePages = (entries: readonly AnyEntry[], today: string): readonly LogEntry[] =>
   allPages(liveEntries(entries, today));
 
 export const todayUtc = (now: Date = new Date()): string => now.toISOString().slice(0, 10);
@@ -42,7 +46,7 @@ const fail = (slug: string, problems: readonly string[]): never => {
   throw new Error(`Log entry "${slug}": ${problems.join("; ")}`);
 };
 
-export const parseEntry = (slug: string, source: string): LogEntry => {
+export const parseEntry = (slug: string, source: string): AnyEntry => {
   if (!SLUG_PATTERN.test(slug) || RESERVED_SLUGS.includes(slug)) {
     return fail(slug, ["the slug must be lowercase words joined by hyphens and cannot be type, stage or feed"]);
   }
@@ -54,19 +58,26 @@ export const parseEntry = (slug: string, source: string): LogEntry => {
   return { ...parsed.data, slug, body, readingMinutes: readingMinutes(body) };
 };
 
-export const isLive = (entry: LogEntry, today: string): boolean =>
-  entry.status === "published" && entry.published <= today;
+export const isPublished = (entry: AnyEntry): entry is LogEntry => entry.status === "published";
 
-export const sortNewestFirst = (entries: readonly LogEntry[]): readonly LogEntry[] =>
-  entries.toSorted((a, b) => b.published.localeCompare(a.published) || a.slug.localeCompare(b.slug));
+export const isLive = (entry: AnyEntry, today: string): entry is LogEntry =>
+  isPublished(entry) && entry.published <= today;
 
-export const liveEntries = (entries: readonly LogEntry[], today: string): readonly LogEntry[] =>
-  entries.filter((entry) => isLive(entry, today));
+export const sortNewestFirst = <T extends { readonly slug: string; readonly published?: string }>(
+  entries: readonly T[],
+): readonly T[] =>
+  entries.toSorted((a, b) => (b.published ?? "").localeCompare(a.published ?? "") || a.slug.localeCompare(b.slug));
+
+export const liveEntries = (entries: readonly AnyEntry[], today: string): readonly LogEntry[] =>
+  entries.filter((entry): entry is LogEntry => isLive(entry, today));
 
 type LoadOptions = { readonly requireCodes?: boolean };
 
-const verifyCodes = (entries: readonly LogEntry[]): void => {
-  const { missing, malformed, duplicates } = codeProblems(entries.filter((entry) => !isWriteUp(entry)));
+export const codable = (entries: readonly AnyEntry[]): readonly AnyEntry[] =>
+  entries.filter((entry) => !isWriteUp(entry) && (isPublished(entry) || entry.code));
+
+const verifyCodes = (entries: readonly AnyEntry[]): void => {
+  const { missing, malformed, duplicates } = codeProblems(codable(entries));
   const problems = [
     ...missing.map((slug) => `missing code in ${slug} (run pnpm log:codes)`),
     ...malformed.map((slug) => `malformed code in ${slug}`),
@@ -75,7 +86,7 @@ const verifyCodes = (entries: readonly LogEntry[]): void => {
   if (problems.length) throw new Error(`Log codes: ${problems.join("; ")}`);
 };
 
-const verifyRelated = (entries: readonly LogEntry[]): void => {
+const verifyRelated = (entries: readonly AnyEntry[]): void => {
   const slugs = new Set(entries.map((entry) => entry.slug));
   const unknown = entries.flatMap((entry) =>
     (entry.related ?? []).filter((slug) => !slugs.has(slug)).map((slug) => `${entry.slug} -> ${slug}`),
@@ -83,7 +94,7 @@ const verifyRelated = (entries: readonly LogEntry[]): void => {
   if (unknown.length) throw new Error(`Log related entries that do not exist: ${unknown.join("; ")}`);
 };
 
-const verifyParents = (entries: readonly LogEntry[]): void => {
+const verifyParents = (entries: readonly AnyEntry[]): void => {
   const bySlug = new Map(entries.map((entry) => [entry.slug, entry]));
   const writeUps = entries.filter(isWriteUp);
   const problems = [
@@ -100,7 +111,7 @@ const verifyParents = (entries: readonly LogEntry[]): void => {
           ? [`${writeUp.slug} is published but its parent ${parent.slug} is not published`]
           : [];
       const early =
-        writeUp.published < parent.published
+        writeUp.published && parent.published && writeUp.published < parent.published
           ? [`${writeUp.slug} is dated ${writeUp.published}, before its parent ${parent.slug} (${parent.published})`]
           : [];
       return [...unpublished, ...early];
@@ -113,7 +124,7 @@ const verifyParents = (entries: readonly LogEntry[]): void => {
   if (problems.length) throw new Error(`Log write-ups: ${problems.join("; ")}`);
 };
 
-export const loadEntries = (dir: string, options: LoadOptions = {}): readonly LogEntry[] => {
+export const loadEntries = (dir: string, options: LoadOptions = {}): readonly AnyEntry[] => {
   const { requireCodes = true } = options;
   const entries = fs
     .readdirSync(dir)
