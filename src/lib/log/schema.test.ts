@@ -111,7 +111,12 @@ describe("Log frontmatter", () => {
   });
 
   describe("site-relative paths", () => {
-    const offSite = ["//attacker.example/x.jpg", "/\\attacker.example/x.jpg"];
+    const offSite = [
+      "//attacker.example/x.jpg",
+      "/\\attacker.example/x.jpg",
+      "/\t/attacker.example/x.jpg",
+      "/\n/attacker.example/x.jpg",
+    ];
     const hero = { src: "/log/x/hero.jpg", alt: "A chart" };
 
     it.each(offSite)("rejects %s as a hero image", (src) => {

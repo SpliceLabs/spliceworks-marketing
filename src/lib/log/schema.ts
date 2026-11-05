@@ -12,7 +12,9 @@ export type Stage = (typeof STAGES)[number];
 
 const isoDate = z.string().refine(isIsoDate, "must be a calendar date written YYYY-MM-DD");
 const text = z.string().trim().min(1, "must not be empty");
-const sitePath = z.string().regex(/^\/(?![/\\])/, "must be a path on this site, starting with a single /");
+const sitePath = z
+  .string()
+  .regex(/^\/(?![/\\])\S*$/, "must be a path on this site: a single leading /, no backslash after it, no whitespace");
 
 const TYPES_NEEDING_SOURCES: readonly EntryType[] = ["analysis", "research", "guide"];
 const TYPES_NEEDING_DISCLOSURE: readonly EntryType[] = ["launch"];
