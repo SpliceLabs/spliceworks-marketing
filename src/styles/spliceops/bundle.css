@@ -194,7 +194,6 @@ h1,h2,h3{text-wrap:balance;margin:0}
 .ticket .media{position:relative;height:170px;border-radius:var(--radius-10);overflow:hidden;background:var(--color-surface-media)}
 .ticket .media video,.ticket .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .badge{position:absolute;left:10px;top:10px;height:24px;padding:0 var(--space-9);border-radius:var(--radius-pill);background:var(--bg);display:inline-flex;align-items:center;font:var(--font-weight-regular) var(--font-size-10)/var(--font-line-height-100) var(--mono);letter-spacing:var(--font-letter-spacing-p060);text-transform:uppercase}
-.badge.new{background:var(--ink);color:var(--color-text-inverse)}
 .ticket .name{margin-top:var(--space-48);font-size:var(--font-size-26);line-height:var(--font-line-height-105);letter-spacing:var(--font-letter-spacing-p020);text-transform:uppercase}
 .ticket .meta{display:flex;justify-content:space-between;gap:var(--space-10);margin-top:var(--space-16);font-size:var(--font-size-12);color:var(--color-text-soft-on-card);text-transform:uppercase}
 .track{position:relative;height:1px;background:var(--color-decoration-track);margin:var(--space-18) 0}
