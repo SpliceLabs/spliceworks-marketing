@@ -12,6 +12,9 @@ export type Stage = (typeof STAGES)[number];
 
 const isoDate = z.string().refine(isIsoDate, "must be a calendar date written YYYY-MM-DD");
 const text = z.string().trim().min(1, "must not be empty");
+const sitePath = z
+  .string()
+  .regex(/^\/(?![/\\])\S*$/, "must be a path on this site: a single leading /, no backslash after it, no whitespace");
 
 const TYPES_NEEDING_SOURCES: readonly EntryType[] = ["analysis", "research", "guide"];
 const TYPES_NEEDING_DISCLOSURE: readonly EntryType[] = ["launch"];
@@ -36,15 +39,15 @@ const shared = {
   client: text.optional(),
   hero: z
     .strictObject({
-      src: z.string().startsWith("/", "must start with /"),
+      src: sitePath,
       alt: text,
-      video: z.string().startsWith("/", "must start with /").optional(),
+      video: sitePath.optional(),
     })
     .optional(),
   related: z.array(text).optional(),
   parent: text.optional(),
   pinned: z.boolean().optional(),
-  cta: z.strictObject({ label: text, href: z.string().startsWith("/", "must start with /") }).optional(),
+  cta: z.strictObject({ label: text, href: sitePath }).optional(),
 };
 
 type Rules = {
