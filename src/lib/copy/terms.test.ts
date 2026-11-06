@@ -39,7 +39,7 @@ describe("Website Terms of Use", () => {
 
   it("names the brand and the legal entity that operates the site", () => {
     expect(sectionBody("About SpliceOps")).toContain(
-      "SpliceOps is a brand owned and operated by Splice Labs Group, Inc., a Delaware corporation headquartered at 19120 Sweet Clover Ln, Tampa, FL 33647.",
+      "SpliceOps is a trade name of Splice Labs Group, Inc., a Delaware corporation headquartered at 19120 Sweet Clover Ln, Tampa, FL 33647. In these Terms, “we,” “us,” and “our” mean Splice Labs Group, Inc., doing business as SpliceOps.",
     );
   });
 
