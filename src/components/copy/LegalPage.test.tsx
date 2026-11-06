@@ -9,7 +9,9 @@ describe("LegalPage", () => {
     const html = render();
     expect(html).toContain('<p class="kicker" style="margin:0">Legal / 01</p>');
     expect(html).toContain('<h1 class="display">Privacy Policy</h1>');
-    expect(html).toContain('<p class="lede">SpliceOps (“we,” “us,” or “our”) respects your privacy.');
+    expect(html).toContain(
+      '<p class="lede">Splice Labs Group, Inc., doing business as SpliceOps (“SpliceOps,” “we,” “us,” or “our”), respects your privacy.',
+    );
     expect(html).toContain("<dt>Effective</dt><dd>3 November 2026</dd>");
     expect(html).toContain("<dt>Company</dt><dd>Splice Labs Group, Inc.</dd>");
     expect(html).toContain("<dt>Location</dt><dd>Florida, United States</dd>");

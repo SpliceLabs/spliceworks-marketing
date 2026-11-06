@@ -14,7 +14,7 @@ open: [Counsel review, Consent banner and country restriction for visitor identi
 
 # Cookie Policy
 
-This policy explains the cookies and similar technologies we use on www.spliceops.ai, and how you can control them. It sits alongside our [Privacy Policy](/privacy).
+This policy explains the cookies and similar technologies that Splice Labs Group, Inc., doing business as SpliceOps (“SpliceOps,” “we,” “us,” or “our”), uses on www.spliceops.ai, and how you can control them. It sits alongside our [Privacy Policy](/privacy).
 
 ## What cookies are
 

@@ -28,6 +28,13 @@ describe("Cookie Policy", () => {
     expect(fm.location).toBe("Florida, United States");
   });
 
+  it("names the legal entity and its trade name as the party that sets the cookies", () => {
+    const text = getPage("/cookies")
+      .intro.map((b) => b.raw)
+      .join("\n");
+    expect(text).toContain("Splice Labs Group, Inc., doing business as SpliceOps");
+  });
+
   it("explains that cookies and similar browser storage are covered", () => {
     expect(sectionBody("What cookies are")).toContain("local storage");
   });
